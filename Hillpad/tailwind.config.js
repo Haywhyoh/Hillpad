@@ -22,6 +22,7 @@ export default {
       'deep_blue': '#5d3cf2',
       'yellow': '#fdbc31',
       'grey': 'rgba(255, 255, 255, .65)',
+      'navy_blue': '#1F1B2D',
     },
     container: {
       center: true,

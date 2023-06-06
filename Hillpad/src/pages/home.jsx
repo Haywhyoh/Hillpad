@@ -8,7 +8,7 @@ import { FaTractor, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import bachelor from '../assets/images/bachelors.svg';
 import masters from '../assets/images/masters.svg';
 import doctorates from '../assets/images/doctorates.svg';
-
+import hero from '../assets/images/hero-img.jpeg'
 import school1 from '../assets/images/01-1.jpeg';
 import hillpadBig from '../assets/images/hillpad-transparent.png';
 import newyork from '../assets/images/new-york.jpeg';
@@ -20,9 +20,12 @@ export default function Home() {
         <div className="mx-4 text-center">
         <section>
         <div>
-            <div></div>
+            
 
             <h1 className=" font-medium text-text_black text-4xl text-center mb-6">Discover <span className="text-orange"> Educational</span> Opportunities</h1>
+            <div className='my-8'>
+                <img src={hero} alt="hillpad_courses"/>
+            </div>
             <p className="text-light_black mb-6 text-md">We make it easy to find the perfect course for you, so you can focus on taking your education to the next level.</p>
             <div className='w-72 '>
                 <form className='border border-light_black border-opacity-10 rounded-md '>
