@@ -22,19 +22,19 @@ export default function Home() {
         <div>
             
 
-            <h1 className=" font-medium text-text_black text-4xl text-center mb-6">Discover <span className="text-orange"> Educational</span> Opportunities</h1>
+            <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 ">Discover <span className="text-orange"> Educational</span> Opportunities</h1>
             <div className='my-8'>
                 <img src={hero} alt="hillpad_courses"/>
             </div>
             <p className="text-light_black mb-6 text-md">We make it easy to find the perfect course for you, so you can focus on taking your education to the next level.</p>
-            <div className='w-72 '>
-                <form className='border border-light_black border-opacity-10 rounded-md '>
-                    <fieldset className=' border-b border-light_black border-opacity-50 px-2 py-4'>
+            <div className='w-72 mx-auto'>
+                <form className='shadow rounded-md '>
+                    <fieldset className=' border-b border-light_black border-opacity-20 mx-2 px-2 py-4'>
                         <div className='flex items-center gap-x-2'>< AiOutlineSearch className='text-light_black' />
-                        <input type='text ' placeholder='What do you want to study?'></input>
+                        <input type='text ' className='focus:outline-none' placeholder='What do you want to study?'></input>
                         </div>
                     </fieldset>
-                    <fieldset className='py-4'>
+                    <fieldset className='my-4'>
                         <div></div>
                         <select className='text-left w-full p-2 text-light_black bg-white'>
                             <option  className='text-text_black' value={'China'}>China</option>
@@ -120,7 +120,7 @@ export default function Home() {
 
         <section>
             <div className='text-3xl font-medium my-8'>Featured Courses</div>
-            <div className='my-6 w-72'>
+            <div className='my-6 w-72 flex justify-center mx-auto'>
                 <div className='shadow rounded-b-2xl relative px-2'>
                     <div className='absolute w-12 bg-deep_blue text-white rounded-md p-1 text-sm top-4 left-4'>
                         New
@@ -149,7 +149,7 @@ export default function Home() {
         </section>
 
         <section className='my-14'>
-            <div><img src={hillpadBig}/></div>
+            <div className='w-60 mx-auto'><img src={hillpadBig}/></div>
             <div className=' font-semibold mt-5 text-2xl'>Let us help you find your dream school</div>
             -<div className='text-light_black text-lg'>
 				We provide an online platform designed to make finding and applying
@@ -165,7 +165,7 @@ export default function Home() {
         <section>
             <div className='font-medium text-3xl mb-8'>Browse By Country</div>
             <div>
-            <div className='shadow rounded-b-2xl w-72'>
+            <div className='shadow rounded-b-2xl w-72 mx-auto'>
                 <div className='rounded-2xl'><img src={newyork} className='rounded-t-2xl'/></div>
                 <div className='py-4 font-medium text-lg'>NewYork</div>
             </div>
@@ -173,9 +173,9 @@ export default function Home() {
             
         </section>
         <section className='mt-10 mb-96'>
-            <div className='font-medium text-3xl'>Reviews Across The Globe</div>
+            <div className='font-medium text-3xl mb-8'>Reviews Across The Globe</div>
             <div className=''>
-                <div className='text-left relative w-72 flex flex-col justify-center'>
+                <div className='text-left relative w-72 flex flex-col justify-center mx-auto'>
                     <div className='shadow p-4 rounded-2xl absolute top-64 bg-white mx-auto'>
                             <div className='font-medium text-xl my-4'>"The best platform to finding courses!"</div>
                             <div className='text-light_black mb-4'>

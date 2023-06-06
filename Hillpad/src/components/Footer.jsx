@@ -16,7 +16,7 @@ export default function Footer() {
                             <div className='text-light text-lg'><MdOutlineMail /></div>
                             <div>contact@hillpad.com</div>
                         </div>
-                        <div className='flex items-center gap-x-2'>
+                        <div className='flex items-center gap-x-2 mt-2'>
                             <div className='text-light text-lg'><IoPhonePortraitSharp/></div>
                             <a href="tel:4065550120">(406) 555-0120</a>
                         </div>
@@ -49,11 +49,13 @@ export default function Footer() {
                 <div  className='text-white opacity-50 flex flex-col gap-2'>Don't miss any relevant tips and announcements!</div>
             </div>
 
-            <div className='flex items-center border border-white border-opacity-30 p-2 rounded-full my-4'>
-                <div className='text-light_black text-lg px-2'>
-                    <MdOutlineMail />
+            <div className='flex items-center border border-white border-opacity-30 p-2 rounded-full my-4 justify-between' >
+                <div className='w-3/5 flex items-center'>
+                    <div className='text-light_black text-lg px-2'>
+                        <MdOutlineMail />
+                    </div>
+                    <input type='email' className='bg-light_black bg-opacity-0 w-40 py-2 px-2 text-sm focus:outline-none ' placeholder='Your Email' />
                 </div>
-                <input type='email' className='bg-light_black bg-opacity-5 w-32 text-sm' placeholder='Your Email' />
                 <div>
                     <button className='bg-orange py-2 px-4 rounded-full font-medium'>Subscribe</button>
                 </div>
