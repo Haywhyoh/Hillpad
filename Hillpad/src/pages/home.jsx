@@ -17,7 +17,7 @@ import review1 from '../assets/images/01.jpeg';
 import './home.css'
 export default function Home() {
     return (
-        <div className="mx-4 text-center">
+        <div className="mx-4 text-center mt-10">
         <section>
         <div>
             
