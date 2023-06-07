@@ -17,21 +17,21 @@ import review1 from '../assets/images/01.jpeg';
 import './home.css'
 export default function Home() {
     return (
-        <div className="mx-4 text-center mt-10">
+        <div className=" text-center mt-10  md:w-full ">
         <section>
-        <div>
+        <div className='mx-4 md:mx-10'>
             
 
-            <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 ">Discover <span className="text-orange"> Educational</span> Opportunities</h1>
-            <div className='my-8'>
+            <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6md:text-6xl md:font-semibold md:my-16 ">Discover <span className="text-orange"> Educational</span> Opportunities</h1>
+            <div className='my-8 md:mx-10'>
                 <img src={hero} alt="hillpad_courses"/>
             </div>
-            <p className="text-light_black mb-6 text-md">We make it easy to find the perfect course for you, so you can focus on taking your education to the next level.</p>
-            <div className='w-72 mx-auto'>
-                <form className='shadow rounded-md '>
-                    <fieldset className=' border-b border-light_black border-opacity-20 mx-2 px-2 py-4'>
+            <p className="text-light_black mb-6 text-md md:text-2xl md:mx-10 md:my-10">We make it easy to find the perfect course for you, so you can focus on taking your education to the next level.</p>
+            <div className='w-72 mx-auto md:w-full md:rounded-full '>
+                <form className='shadow rounded-md md:flex justify-between md:px-4 md:rounded-full md:mx-8 md:items-center'>
+                    <fieldset className=' border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0'>
                         <div className='flex items-center gap-x-2'>< AiOutlineSearch className='text-light_black' />
-                        <input type='text ' className='focus:outline-none' placeholder='What do you want to study?'></input>
+                        <input type='text ' className='focus:outline-none md:w-72' placeholder='What do you want to study?'></input>
                         </div>
                     </fieldset>
                     <fieldset className='my-4'>
@@ -43,7 +43,7 @@ export default function Home() {
 
                         </select>
                     </fieldset>
-                    <button className='w-full text-white bg-orange py-3 px-2 text-lg font-medium rounded-3xl'>Search</button>
+                    <button className='w-full text-white bg-orange py-3 px-2 text-lg font-medium rounded-3xl md:w-32 md:rounded-full'>Search</button>
 
                 </form>
             </div>
@@ -53,7 +53,7 @@ export default function Home() {
         
         <section className='my-20'>
             <div>
-                <h2 className='font-medium text-2xl'>Browse by Discipline</h2>
+                <h2 className='font-medium text-2xl md:text-5xl'>Browse by Discipline</h2>
                 <div className='hidden'>
                     <div >View all</div>
                     <div><BsArrowRight /></div>
@@ -81,9 +81,9 @@ export default function Home() {
         </section>
 
         <section>
-            <div className='font-medium text-3xl mb-10'>Browse By Programme</div>
-            <div>
-                <div>
+            <div className='font-medium text-3xl mb-10 md:text-5xl'>Browse By Programme</div>
+            <div className='flex flex-wrap justify-center'>
+                <div className='w-72'>
                     <div className='w-48 mx-auto'>
                         <img src={bachelor} alt="bachelors_degree"/>
                     </div>
@@ -91,9 +91,7 @@ export default function Home() {
                     <div className='text-sm text-light_black p-4'>Choose from more than 1000 Bachelor's programmes at universities, colleges, and school worldwide</div>
                     <div><button className='border-orange border-2 rounded-md font-medium p-4 text-orange'>Search Bachelors</button></div>
                 </div>
-                
-            </div>
-            <div>
+                <div className='w-72'>
                 <div>
                     <div className='w-48 mx-auto'>
                         <img src={masters} alt="masters_degree"/>
@@ -105,7 +103,7 @@ export default function Home() {
                 
             </div>
 
-            <div>
+            <div className='w-72'>
                 <div>
                     <div className='w-48 mx-auto'>
                         <img src={doctorates} alt="doctorates_degree"/>
@@ -116,10 +114,12 @@ export default function Home() {
                 </div>
                 
             </div>
+            </div>
+           
         </section>
 
         <section>
-            <div className='text-3xl font-medium my-8'>Featured Courses</div>
+            <div className='text-3xl font-medium my-8 md:text-5xl md:my-10'>Featured Courses</div>
             <div className='my-6 w-72 flex justify-center mx-auto'>
                 <div className='shadow rounded-b-2xl relative px-2'>
                     <div className='absolute w-12 bg-deep_blue text-white rounded-md p-1 text-sm top-4 left-4'>
@@ -148,22 +148,26 @@ export default function Home() {
             </div>
         </section>
 
-        <section className='my-14'>
-            <div className='w-60 mx-auto'><img src={hillpadBig}/></div>
-            <div className=' font-semibold mt-5 text-2xl'>Let us help you find your dream school</div>
-            -<div className='text-light_black text-lg'>
+        <section className='my-14 md:flex items-center gap-x-6 mx-10'>
+            <div className='w-60 mx-auto md:w-1/2'><img src={hillpadBig}/></div>
+            <div className='md:w-1/2'>
+                <div className=' font-semibold mt-5 text-2xl md:text-3xl md:text-left'>Let us help you find your dream school</div>
+            -   <div className='text-light_black text-lg md:text-left'>
 				We provide an online platform designed to make finding and applying
 				for undergraduate and postgraduate courses easy and efficient.
 				With HillPad, you can conveniently access the best courses from leading universities
 				around the world and unlock the possibilities of your future!
-			</div>
-            <div>
+			    </div>
+                <div>
                 <button className='bg-orange text-white px-8 my-6 py-4 rounded-md'>About Us</button>
             </div>
+            </div>
+            
+           
         </section>
 
         <section>
-            <div className='font-medium text-3xl mb-8'>Browse By Country</div>
+            <div className='font-medium text-3xl mb-8 md:text-5xl'>Browse By Country</div>
             <div>
             <div className='shadow rounded-b-2xl w-72 mx-auto'>
                 <div className='rounded-2xl'><img src={newyork} className='rounded-t-2xl'/></div>
@@ -173,7 +177,7 @@ export default function Home() {
             
         </section>
         <section className='mt-10 mb-96'>
-            <div className='font-medium text-3xl mb-8'>Reviews Across The Globe</div>
+            <div className='font-medium text-3xl mb-8 md:text-5xl'>Reviews Across The Globe</div>
             <div className=''>
                 <div className='text-left relative w-72 flex flex-col justify-center mx-auto'>
                     <div className='shadow p-4 rounded-2xl absolute top-64 bg-white mx-auto'>
