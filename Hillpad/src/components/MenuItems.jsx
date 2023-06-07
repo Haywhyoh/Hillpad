@@ -29,7 +29,7 @@ const MenuItems = ({ items, depthLevel }) => {
         dropdown && setDropdown(false);
       };
   return (
-    <li className="menu-items border w-11/12 border-light_black rounded-lg mb-1 font-medium text-light_black border-opacity-10 " ref={ref} onMouseEnter={onMouseEnter}
+    <li className="menu-items border w-11/12 border-light_black rounded-lg mb-1 font-medium text-light_black border-opacity-10 lg:w-24 lg:border-0 " ref={ref} onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave} >
       {items.submenu ? (
         <>
@@ -43,7 +43,7 @@ const MenuItems = ({ items, depthLevel }) => {
            {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
 
           </button>
-          <Dropdown submenus={items.submenu}  dropdown={dropdown}/>
+          <Dropdown submenus={items.submenu}  dropdown={dropdown} className="" />
         </>
       ) : (
         <a href={items.url}>{items.title}</a>
