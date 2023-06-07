@@ -1,4 +1,3 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { BsArrowRight } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineSearch, AiFillStar , AiOutlineTwitter} from "react-icons/ai";
 import { HiOutlineCash } from "react-icons/hi";
