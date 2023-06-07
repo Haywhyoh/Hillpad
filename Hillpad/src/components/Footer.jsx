@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <>
         <footer className='bg-navy_blue text-white p-4'> 
-            <div>
+            <div className='md:flex md:justify-between'>
                 <div>
                     <div className='w-28 my-8'><img src={hillpad}/></div>
                     <div className='my-8'>
@@ -22,30 +22,34 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div className='font-medium my-8 text-lg'>Resources</div>
-                    <ul className='text-white opacity-50 flex flex-col gap-2'>
-                        <li>Bachelors</li>
-                        <li>Masters</li>
-                        <li>Doctorate</li>
-                        <li>Browse by country</li>
-                        <li>Browse by discipline</li>
-                    </ul>
+                <div className='md:flex md:gap-x-12'>
+
+                    <div>
+                        <div className='font-medium my-8 text-lg md:text-xl md:font-bold'>Resources</div>
+                        <ul className='text-white opacity-50 flex flex-col gap-2'>
+                            <li>Bachelors</li>
+                            <li>Masters</li>
+                            <li>Doctorate</li>
+                            <li>Browse by country</li>
+                            <li>Browse by discipline</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div className='font-medium my-8 text-lg md:text-xl md:font-bold'>Quick Links</div>
+                        <ul className='text-white opacity-50 flex flex-col gap-2'>
+                            <li>About Us</li>
+                            <li>Contact Us</li>
+                            <li>FAQs</li>
+                            <li>Careers</li>
+                            <li>For Schools</li>
+                        </ul>
+                    </div>
                 </div>
-                <div>
-                    <div className='font-medium my-8 text-lg'>Quick Links</div>
-                    <ul className='text-white opacity-50 flex flex-col gap-2'>
-                        <li>About Us</li>
-                        <li>Contact Us</li>
-                        <li>FAQs</li>
-                        <li>Careers</li>
-                        <li>For Schools</li>
-                    </ul>
-                </div>
+                
                 <div></div>
             </div>
             <div>
-                <div className='font-semibold text-xl my-4'>Subscribe to our newsletter</div>
+                <div className='font-semibold text-xl my-4 md:text-4xl md:mt-8'>Subscribe to our newsletter</div>
                 <div  className='text-white opacity-50 flex flex-col gap-2'>Don't miss any relevant tips and announcements!</div>
             </div>
 
@@ -62,18 +66,20 @@ export default function Footer() {
             </div>
 
             <div className='my-8 border-t border-opacity-70 border-light_black'>
+                
+
+                <div className='text-sm text-white opacity-50 flex justify-between my-6 md:justify-center md:gap-x-8'>
+                    <div>Privacy Policy</div>
+                    <div>Disclaimer</div>
+                    <div>Term of Use</div>
+                </div>
+
                 <div className='flex gap-x-4 my-4 text-lg justify-center'>
                     <div className='rounded-full shadow bg-opacity-20 p-2 text-white bg-light_black' >< AiOutlineTwitter /></div>
                     <div className='rounded-full shadow bg-opacity-20 p-2 text-white bg-light_black' ><FaFacebookF /></div>
                     <div className='rounded-full shadow bg-opacity-20 p-2 text-white bg-light_black' ><FaLinkedinIn /></div>
                 </div>
-
-                <div className='text-sm text-white opacity-50 flex justify-between my-6'>
-                    <div>Privacy Policy</div>
-                    <div>Disclaimer</div>
-                    <div>Term of Use</div>
-                </div>
-                <div className='text-sm text-white opacity-50 flex'>
+                <div className='text-sm text-white opacity-50 flex md:justify-center'>
                 Copyright © 2023 <span className=' text-white opacity-100'> HillPad Limited</span>
                 </div>
             </div>
