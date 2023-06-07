@@ -16,19 +16,19 @@ import review1 from '../assets/images/01.jpeg';
 import './home.css'
 export default function Home() {
     return (
-        <div className=" text-center mt-10  md:w-full">
-        <section>
-        <div className='mx-4 md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center'>
+        <div className=" text-center mt-10  md:w-full max-w-8xl xl:flex xl:flex-col justify-center mx-auto">
+        <section className="max-w-8xl mx-auto">
+        <div className='mx-4 md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-8xl relative 2xl:mx-10'>
 
             <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6md:text-6xl md:font-semibold md:my-16 lg:hidden ">Discover <span className="text-orange"> Educational</span> Opportunities</h1>
             <div className='my-8 md:mx-10 lg:w-1/2 -z-20'>
                 <img src={hero} alt="hillpad_courses"/>
             </div>
-            <div className='lg:text-left lg:w-1/2 lg:absolute lg:left-3'>
-            <h1 className="hidden font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0">Discover <span className="text-orange"> Educational</span> Opportunities</h1>
-            <p className="text-light_black mb-6 text-md md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-lg lg:mx-0 lg:w-10/12">We make it easy to find the perfect course for you, so you can focus on taking your education to the next level.</p>
-            <div className='w-72 mx-auto md:w-full md:rounded-full bg-white'>
-                <form className='shadow rounded-md md:flex justify-between md:px-4 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute bg-white z-20'>
+            <div className='lg:text-left lg:w-1/2 lg:absolute lg:left-3 xl:top-24 2xl:top-24 2xl:mx-auto '>
+            <h1 className="hidden font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-6xl">Discover <span className="text-orange"> Educational</span> Opportunities</h1>
+            <p className="text-light_black mb-6 text-md md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-lg lg:mx-0 lg:w-10/12 xl:text-xl 2xl:my-4">We make it easy to find the perfect course for you, so you can focus on taking your education to the next level.</p>
+            <div className='w-72 mx-auto md:w-full md:rounded-full bg-white 2xl:w-60 '>
+                <form className='shadow rounded-md md:flex justify-between md:px-4 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 2xl:w-full'>
                     <fieldset className=' border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0 '>
                         <div className='flex items-center gap-x-2'>< AiOutlineSearch className='text-light_black' />
                         <input type='text ' className='focus:outline-none md:w-72' placeholder='What do you want to study?'></input>
@@ -36,7 +36,7 @@ export default function Home() {
                     </fieldset>
                     <fieldset className='my-4'>
                         <div></div>
-                        <select className='text-left w-full p-2 text-light_black bg-white focus:outline-none lg:w-20'>
+                        <select className='text-left w-full p-2 text-light_black bg-white focus:outline-none lg:w-32'>
                             <option  className='text-text_black' value={'China'}>China</option>
                             <option className='text-text_black' value={'Belgium'}>Belgium</option>
                             <option className='text-text_black' value={'Canada'}>Canada</option>
@@ -84,7 +84,7 @@ export default function Home() {
 
         <section>
             <div className='font-medium text-3xl mb-10 md:text-5xl lg:font-semibold lg:text-4xl'>Browse By <span className='text-orange'>Programme</span></div>
-            <div className='flex flex-wrap justify-center'>
+            <div className='flex flex-wrap justify-center xl:gap-x-10 2xl:justify-between max-w-6xl mx-auto'>
                 <div className='w-72'>
                     <div className='w-48 mx-auto'>
                         <img src={bachelor} alt="bachelors_degree"/>

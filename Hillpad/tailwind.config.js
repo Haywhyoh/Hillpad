@@ -39,6 +39,14 @@ export default {
       dropShadow: {
         '3xl': ' 0px 7px 29px 0px rgba(100, 100, 111, 0.2) '
     },
+    screens: {
+      '2xl': '1440px',
+      '3xl': '1560px',
+    },
+    maxWidth: {
+      '8xl': '1440px',
+      '9xl': '1560px',
+    }
   },
   plugins: [],
 }

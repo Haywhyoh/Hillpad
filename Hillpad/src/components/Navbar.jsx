@@ -5,8 +5,8 @@ const Navbar = () => {
     const depthLevel = 0;
 
   return (
-    <nav className='lg:flex lg:justify-between lg:w-full lg:py-2'>
-      <ul className="menus flex flex-col lg:flex-row lg:justify-between">
+    <nav className='lg:flex lg:justify-between lg:w-11/12 lg:py-2'>
+      <ul className="menus flex flex-col lg:flex-row lg:gap-x-1 lg:w-8/12">
       {menuItems.map((menu, index) => {
     const depthLevel = 0;
     return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;

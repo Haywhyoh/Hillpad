@@ -14,13 +14,13 @@ const Header = () => {
 
   return (
     <header>
-      <div className=" mx-4 py-4 flex justify-between lg:hidden lg:items-center">
+      <div className=" mx-4 py-4 flex justify-between lg:hidden lg:items-center ">
         <div><a href="/" className="logo text-orange font-bold"> hillPad</a></div>
         <div className='text-4xl' onClick={showNav}>{ showIcon ? <IoMdClose /> : <IoMdMenu />}</div>
        
       </div>
-      <div className='hidden lg:flex lg:items-center lg:mx-4' id='nav'>
-        <div><a href="/" className="logo text-orange font-bold"> hillPad</a></div>
+      <div className='hidden lg:flex lg:items-center max-w-8xl lg:mx-auto lg:w-full lg:justify-between' id='nav'>
+        <div><a href="/" className="logo text-orange font-bold lg:ml-4"> hillPad</a></div>
         <Navbar />
         </div>
     </header>
