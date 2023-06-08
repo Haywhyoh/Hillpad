@@ -6,6 +6,8 @@ import { AiOutlineCalendar} from "react-icons/ai";
 
 export default function CourseCard() {
     return (
+        <div className="my-6 w-72 flex justify-center mx-auto">
+
             <div className="shadow rounded-b-2xl relative px-2">
               <div className="absolute w-12 bg-deep_blue text-white rounded-md p-1 text-sm top-4 left-4">
                 New
@@ -54,6 +56,7 @@ export default function CourseCard() {
                   <div>On Campus</div>{" "}
                 </div>
               </div>
+            </div>
             </div>
     )
 }

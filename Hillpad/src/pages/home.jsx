@@ -9,10 +9,13 @@ import hero from '../assets/images/hero-img.jpeg'
 import hillpadBig from '../assets/images/hillpad-transparent.png';
 import newyork from '../assets/images/new-york.jpeg';
 import review1 from '../assets/images/01.jpeg';
+import data from '../data/discipline.json';
 
 import './home.css'
 import CourseCard from "../components/coursecard";
 export default function Home() {
+  const disciplines = data.results;
+
     return (
       <div className=" text-center mt-10  md:w-full max-w-8xl xl:flex xl:flex-col justify-center mx-auto">
         <section className="max-w-8xl mx-auto">
@@ -81,30 +84,21 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-wrap gap-4 justify-center my-6 font-medium">
-            <div className=" p-4 w-32 shadow lg:w-40">
-              <div className="text-4xl text-green  flex justify-center ">
-                <FaTractor className="p-0" />
+            {
+              disciplines.map((discipline) => (
+                <div className=" p-4 w-32 shadow lg:w-40">
+                  <div className={` bg-${discipline.color} p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-${discipline.color} justify-center p-1`}>
+                      <i className={`fa fa-${discipline.icon}`} ></i>
+                    </div>
+                  </div>
+                
+                <div className="font-semibold">{discipline.name}</div>
               </div>
-              <div className="font-semibold">Argriculture & Forestry</div>
-            </div>
-            <div className="text-center p-2 w-32 lg:w-40 shadow">
-              <div className="text-4xl text-yellow  flex justify-center">
-                <FaTractor />
-              </div>
-              <div className="font-semibold">Argriculture & Forestry</div>
-            </div>
-            <div className="text-center p-2 w-32 lg:w-40 shadow">
-              <div className="text-4xl text-orange flex justify-center">
-                <FaTractor />
-              </div>
-              <div className="font-semibold">Argriculture & Forestry</div>
-            </div>
-            <div className="text-center p-2 w-32 lg:w-40 shadow">
-              <div className="text-4xl text-deep_blue flex justify-center">
-                <FaTractor />
-              </div>
-              <div className="font-semibold">Argriculture & Forestry</div>
-            </div>
+              ))
+            }
+            
+
           </div>
         </section>
 
@@ -170,7 +164,7 @@ export default function Home() {
           <div className="text-3xl font-medium my-8 md:text-5xl md:my-10 lg:text-4xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
           </div>
-          <div className="my-6 w-72 flex justify-center mx-auto">
+          <div className="my-6 flex justify-center mx-auto">
             <CourseCard />
           </div>
         </section>
