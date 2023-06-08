@@ -1,19 +1,17 @@
 import { BsArrowRight } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineSearch, AiFillStar , AiOutlineTwitter} from "react-icons/ai";
-import { HiOutlineCash } from "react-icons/hi";
-import { BiTimeFive } from "react-icons/bi";
-import { SlLocationPin } from "react-icons/sl";
+
 import { FaTractor, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import bachelor from '../assets/images/bachelors.svg';
 import masters from '../assets/images/masters.svg';
 import doctorates from '../assets/images/doctorates.svg';
 import hero from '../assets/images/hero-img.jpeg'
-import school1 from '../assets/images/01-1.jpeg';
 import hillpadBig from '../assets/images/hillpad-transparent.png';
 import newyork from '../assets/images/new-york.jpeg';
 import review1 from '../assets/images/01.jpeg';
 
 import './home.css'
+import CourseCard from "../components/coursecard";
 export default function Home() {
     return (
       <div className=" text-center mt-10  md:w-full max-w-8xl xl:flex xl:flex-col justify-center mx-auto">
@@ -173,55 +171,7 @@ export default function Home() {
             Featured <span className="text-orange">Courses</span>
           </div>
           <div className="my-6 w-72 flex justify-center mx-auto">
-            <div className="shadow rounded-b-2xl relative px-2">
-              <div className="absolute w-12 bg-deep_blue text-white rounded-md p-1 text-sm top-4 left-4">
-                New
-              </div>
-              <div className=" rounded-xl">
-                <img
-                  className=" rounded-t-2xl"
-                  src={school1}
-                  alt="bachelors_degree"
-                />
-              </div>
-              <div className="text-left m-4">
-                <div className="font-normal text-sm text-orange">B.Eng</div>
-                <div className="font-medium pb-2">Electrical Engineering</div>
-                <div className="text-light_black text-sm italic opacity-70">
-                  Toronto Metropolitan University
-                </div>
-                <div className="text-light_black text-sm italic opacity-70">
-                  Toronto, Canada
-                </div>
-                <div className="flex gap-x-6 items-center opacity-70 text-light_black my-2">
-                  <div className="text-2xl">
-                    <HiOutlineCash />
-                  </div>
-                  <div>$27,000/ year</div>
-                </div>
-              </div>
-
-              <div className="flex gap-x-3 justify-center text-light_black text-sm border-t border-light_black border-opacity-30 py-4">
-                <div className="flex items-center gap-x-1">
-                  <div>
-                    <AiOutlineCalendar />
-                  </div>
-                  <div></div>4 years
-                </div>
-                <div className="flex items-center gap-x-1">
-                  <div>
-                    <BiTimeFive />
-                  </div>
-                  <div>Full Time</div>{" "}
-                </div>
-                <div className="flex items-center gap-x-1">
-                  <div>
-                    <SlLocationPin />
-                  </div>
-                  <div>On Campus</div>{" "}
-                </div>
-              </div>
-            </div>
+            <CourseCard />
           </div>
         </section>
 

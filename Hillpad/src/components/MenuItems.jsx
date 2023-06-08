@@ -1,4 +1,5 @@
 import Dropdown from './Dropdown';
+import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from "react";
 const MenuItems = ({ items, depthLevel }) => {
     const [dropdown, setDropdown] = useState(false);
@@ -38,7 +39,7 @@ const MenuItems = ({ items, depthLevel }) => {
       aria-expanded={dropdown ? "true" : "false"}
       onClick={() => setDropdown((prev) => !prev)}
      >   { window.innerWidth < 960 && depthLevel === 0 ? ( items.title) : (
-        <a href={items.url}>{items.title}</a>
+        <Link to={items.url}>{items.title}</Link>
       ) }{" "}
            {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
 
@@ -46,7 +47,7 @@ const MenuItems = ({ items, depthLevel }) => {
           <Dropdown submenus={items.submenu}  dropdown={dropdown} className="" />
         </>
       ) : (
-        <a href={items.url}>{items.title}</a>
+        <Link to={items.url}>{items.title}</Link>
       )}
     </li>
   );
