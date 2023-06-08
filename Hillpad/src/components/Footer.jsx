@@ -7,7 +7,7 @@ import { IoPhonePortraitSharp } from 'react-icons/io5'
 export default function Footer() {
     return (
         <div className='bg-navy_blue'>
-        <footer className=' text-white p-4 lg:px-20 max-w-9xl lg:flex  flex-col justify-center mx-auto'> 
+        <footer className=' text-white p-4 lg:px-4 max-w-9xl lg:flex  flex-col justify-center mx-auto'> 
         <div className='lg:flex  lg:justify-between '>
         <div className='md:flex md:justify-between'>
             <div className='lg:flex lg:gap-x-10'>

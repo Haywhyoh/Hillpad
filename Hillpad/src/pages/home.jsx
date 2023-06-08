@@ -10,9 +10,9 @@ import hillpadBig from '../assets/images/hillpad-transparent.png';
 import newyork from '../assets/images/new-york.jpeg';
 import review1 from '../assets/images/01.jpeg';
 import data from '../data/discipline.json';
-
 import './home.css'
 import CourseCard from "../components/coursecard";
+
 export default function Home() {
   const disciplines = data.results;
 
