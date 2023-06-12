@@ -5,7 +5,7 @@ import Footer from './components/Footer'
 import Home from './pages/home'
 import Courses from './pages/courses'
 import DashboardStaff from './pages/staff/dashboardStaff'
-import {DisciplineDetails} from './pages/disciplineDetails'
+import DisciplineDetails from './pages/disciplineDetails'
 
 function App() {
   return (

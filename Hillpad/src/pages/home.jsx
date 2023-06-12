@@ -197,8 +197,27 @@ export default function Home() {
           <div className="font-medium text-3xl mb-8 md:text-5xl lg:font-semibold lg:text-4xl">
             Browse By <span className="text-orange">Country</span>
           </div>
-          <div>
-            <div className="shadow rounded-b-2xl w-72 mx-auto">
+          <div className="flex mx-auto justify-center flex-wrap gap-x-1">
+            
+            <div className="shadow rounded-b-2xl w-72 mx-2">
+              <div className="rounded-2xl">
+                <img src={newyork} className="rounded-t-2xl" />
+              </div>
+              <div className="py-4 font-medium text-lg">NewYork</div>
+            </div>
+            <div className="shadow rounded-b-2xl w-72 mx-2">
+              <div className="rounded-2xl">
+                <img src={newyork} className="rounded-t-2xl" />
+              </div>
+              <div className="py-4 font-medium text-lg">NewYork</div>
+            </div>
+            <div className="shadow rounded-b-2xl w-72 mx-2">
+              <div className="rounded-2xl">
+                <img src={newyork} className="rounded-t-2xl" />
+              </div>
+              <div className="py-4 font-medium text-lg">NewYork</div>
+            </div>
+            <div className="shadow rounded-b-2xl w-72 mx-2">
               <div className="rounded-2xl">
                 <img src={newyork} className="rounded-t-2xl" />
               </div>

@@ -1,8 +1,9 @@
 import CourseCard from "../components/coursecard";
 import { FiFilter } from "react-icons/fi";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
 import { useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
+import { GiSettingsKnobs } from "react-icons/gi";
 import { FaTractor, FaThermometerHalf, } from "react-icons/fa";
 import data from '../data/discipline.json';
 import degreeType from '../data/degree_type.json';
@@ -15,19 +16,28 @@ export default function Courses() {
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
     const format = ['Full Time', 'Part Time']
     const [isChecked, setIsChecked] = useState(false);
+    const [showInfo, setShowInfo] = useState(true);
+    const [showBach, setBachInfo] = useState(false);
+    const [showMasters, setMastersInfo] = useState(false);
+    const [showDoc, setDocInfo] = useState(false);
+    const [showDuration, setDurationInfo] = useState(false);
+    const [showAttendance, setAttendanceInfo] = useState(false);
+    const [showFormat, setFormatInfo] = useState(true);
+
+
     const handleOnChange = () => {
         setIsChecked(!isChecked);
     };
 
     return (
-        <div className="lg:flex flex-row-reverse">
+        <div className="lg:flex flex-row-reverse  max-w-8xl mx-auto">
             <div className="my-4 mx-4">
                 <h1 className="text-3xl font-semibold">Courses</h1>
                 <div className="">
-                    <div className="flex gap-x-2 justify-between md:gap-x-10 items-center text-light_black">
+                    <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black">
                         <div className="flex justify-between gap-x-4 my-4 items-center">
                             <span >Sort By: </span>
-                            <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 xs:w-32">
+                            <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32">
                                 <option>Courses</option>
                                 <option>School</option>
                                 <option>Tuition</option>
@@ -35,7 +45,7 @@ export default function Courses() {
                             </select>
                             <div>
                                 <span>Order: </span>
-                                <select className="focus:outline-none p-2 rounded-md bg-white border  border-light_black border-opacity-30  w-20 xs:w-32">
+                                <select className="focus:outline-none p-2 rounded-md bg-white border  border-light_black border-opacity-30  w-20 md:w-32">
                                     <option>Ascending</option>
                                     <option>Desc</option>
                                 </select>
@@ -44,7 +54,7 @@ export default function Courses() {
 
                         </div>
                         <div className="text-md text-light_black hidden md:flex gap-x-8 items-center">
-                            <hr className=" opacity-30 w-28 "></hr>
+                            <hr className=" opacity-30 w-28  md:w-56 lg:w-88  "></hr>
                             <div>
                                 <span>27</span>
                                 <span>results</span>
@@ -65,10 +75,10 @@ export default function Courses() {
                 </div>
 
             </div>
-            <div className="hidden lg:block px-4 shadow ">
-                <div>
-                    <div className="flex items-center gap-x-2">
-                        <AiOutlineSearch className="text-light_black" />
+            <div className="hidden lg:block px-4 shadow w-72">
+                <div className="mt-12">
+                    <div className="flex items-center gap-x-2 rounded-full border border-light_black border-opacity-20 shadow p-4">
+                        <div> <AiOutlineSearch className="text-light_black text-2xl opacity-50" /></div>
                         <input
                             type="text "
                             className="focus:outline-none md:w-72"
@@ -77,12 +87,16 @@ export default function Courses() {
                     </div>
                 </div>
 
-                <div>Filters</div>
-                <div className="overflow-y-scroll h-screen">
+                <div className="text-orange text-center text-xl font-bold my-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
+                <div className="overflow-scroll h-screen ">
                     <div className="">
-                        <div className="text-xl font-bold py-4">Disciplines</div>
-                        {disciplines.map((discipline) => (
-                            <div className="flex gap-x-2 pb-1 text-sm text-light_black">
+                        <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Disciplines</div>  <button className='' onClick={() => { setShowInfo(!showInfo); }}>
+                            {showInfo ? <AiOutlineUp /> : <AiOutlineDown />}
+                            </button>
+                        </div>
+                        <div className={showInfo ? 'block py-4' : 'hidden'}>
+                        { disciplines.map((discipline) => (
+                            <div className="flex gap-x-2 py-1 text-sm text-light_black">
                                 <input
                                     type="checkbox"
                                     id=''
@@ -95,10 +109,16 @@ export default function Courses() {
                                     <div> {discipline.name} </div></span> </label>
                             </div>
                         ))}
+                        </div>
+                        
 
                     </div>
                     <div>
-                        <div className="text-xl font-bold py-4">Bachelors</div>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Bachelors</div>  <button className='' onClick={() => { setBachInfo(!showBach); }}>
+                            {showBach ? <AiOutlineUp /> : <AiOutlineDown />}
+                            </button>
+                        </div>
+                        <div className={showBach ? 'block py-4' : 'hidden'}>
                         {degreeTypes.filter(function (degrees) { return degrees.programme_type === 1 }).map((degree) => (
                             <div className="flex gap-x-2 pb-1 text-sm text-light_black">
                                 <input
@@ -113,10 +133,14 @@ export default function Courses() {
                                     <div> <span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
                             </div>
                         ))}
-
+                        </div>
                     </div>
                     <div>
-                        <div className="text-xl font-bold py-4">Masters</div>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Masters</div>  <button className='' onClick={() => { setMastersInfo(!showMasters); }}>
+                            {showMasters ? <AiOutlineUp /> : <AiOutlineDown />}
+                            </button>
+                        </div>
+                        <div className={showMasters ? 'block py-4' : 'hidden'}>
                         {degreeTypes.filter(function (degrees) { return degrees.programme_type === 2 }).map((degree) => (
                             <div className="flex gap-x-2 pb-1 text-sm text-light_black">
                                 <input
@@ -131,10 +155,14 @@ export default function Courses() {
                                     <div> <span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
                             </div>
                         ))}
-
+                        </div>
                     </div>
                     <div>
-                        <div className="text-xl font-bold py-4">Doctorate</div>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Doctorate</div>  <button className='' onClick={() => { setDocInfo(!showDoc); }}>
+                            {showDoc ? <AiOutlineUp /> : <AiOutlineDown />}
+                            </button>
+                        </div>
+                        <div className={showDoc ? 'block py-4' : 'hidden'}>
                         {degreeTypes.filter(function (degrees) { return degrees.programme_type === 3 }).map((degree) => (
                             <div className="flex gap-x-2">
                                 <input
@@ -149,10 +177,16 @@ export default function Courses() {
                                     <div><span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
                             </div>
                         ))}
+                        </div>
 
                     </div>
                     <div>
-                        <div className="text-xl font-bold py-4">Duration</div>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Duration</div>  <button className='' onClick={() => { setDurationInfo(!showDuration); }}>
+                            {showDuration ? <AiOutlineUp /> : <AiOutlineDown />}
+                            </button>
+                        </div>
+                        <div className={showDuration ? 'block' : 'hidden'}>
+
                         {duration.map((duration) => (
                             <div className="flex gap-x-2">
 
@@ -169,9 +203,15 @@ export default function Courses() {
                             </div>
 
                         ))}
+                        </div>
                     </div>
                     <div>
-                        <div className="text-xl font-bold py-4">Attendance</div>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Attendance</div>  <button className='' onClick={() => { setAttendanceInfo(!showAttendance); }}>
+                            {showAttendance ? <AiOutlineUp /> : <AiOutlineDown />}
+                            </button>
+                        </div>
+                        <div className={showAttendance ? 'block py-4' : 'hidden'}>
+
                         {learning.map((duration) => (
                             <div className="flex gap-x-2">
 
@@ -188,12 +228,18 @@ export default function Courses() {
                             </div>
 
                         ))}
+                        </div>
                     </div>
 
                     <div>
-                        <div className="text-xl font-bold py-4">Format</div>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Format</div>  <button className='' onClick={() => { setFormatInfo(!showFormat); }}>
+                            {showFormat ? <AiOutlineUp /> : <AiOutlineDown />}
+                            </button>
+                        </div>
+                        <div className={showFormat ? 'block border-b border-light_black border-opacity-20' : 'hidden'}>
+
                         {format.map((duration) => (
-                            <div className="flex gap-x-2">
+                            <div className="flex gap-x-2 ">
 
                                 <div className="flex gap-x-2">
                                     <input
@@ -208,6 +254,7 @@ export default function Courses() {
                             </div>
 
                         ))}
+                        </div>
                     </div>
                 </div>
 

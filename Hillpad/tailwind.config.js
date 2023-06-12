@@ -48,6 +48,6 @@ export default {
       '9xl': '1560px',
     }
   },
-  plugins: [],
+  plugins: [require("tw-elements/dist/plugin.cjs")],
 }
 }
