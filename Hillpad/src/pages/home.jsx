@@ -1,6 +1,5 @@
 import { BsArrowRight } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineSearch, AiFillStar , AiOutlineTwitter} from "react-icons/ai";
-
 import { FaTractor, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import bachelor from '../assets/images/bachelors.svg';
 import masters from '../assets/images/masters.svg';
@@ -12,6 +11,7 @@ import review1 from '../assets/images/01.jpeg';
 import data from '../data/discipline.json';
 import './home.css'
 import CourseCard from "../components/coursecard";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const disciplines = data.results;
@@ -86,18 +86,22 @@ export default function Home() {
           <div className="flex flex-wrap gap-4 justify-center my-6 font-medium">
             {
               disciplines.map((discipline) => (
-                <div className=" p-4 w-32 shadow lg:w-40">
-                  <div className={` bg-${discipline.color} p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                    <div className={`text-3xl  flex text-${discipline.color} justify-center p-1`}>
-                      <i className={`fa fa-${discipline.icon}`} ></i>
+                <Link to='/discipline'>
+                  <div className="flex flex-col items-center justify-center w-40 h-40 bg-white rounded-full shadow">
+                    <div className=" p-4 w-32 lg:w-fit rounded-full">
+                    <div className={` bg-${discipline.color} p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                      <div className={`text-3xl  flex text-${discipline.color} justify-center p-1`}>
+                        <i className={`fa fa-${discipline.icon}`} ></i>
+                      </div>
+                    </div>
+
+                    <div className="font-semibold">{discipline.name}</div>
                     </div>
                   </div>
-                
-                <div className="font-semibold">{discipline.name}</div>
-              </div>
+                </Link>
+
               ))
             }
-            
 
           </div>
         </section>
@@ -164,7 +168,9 @@ export default function Home() {
           <div className="text-3xl font-medium my-8 md:text-5xl md:my-10 lg:text-4xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
           </div>
-          <div className="my-6 flex justify-center mx-auto">
+          <div className="my-6 flex justify-center gap-8 mx-auto">
+            <CourseCard />
+            <CourseCard />
             <CourseCard />
           </div>
         </section>
