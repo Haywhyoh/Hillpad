@@ -22,7 +22,7 @@ export default {
       'light': '#FF5757',
       'deep_blue': '#5d3cf2',
       'yellow': '#fdbc31',
-      'grey': 'rgba(255, 255, 255, .65)',
+      'grey': 'rgba(67, 89, 113)',
       'navy_blue': '#1F1B2D',
     },
     container: {
