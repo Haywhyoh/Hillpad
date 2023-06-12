@@ -73,32 +73,32 @@ export default function DashboardStaff() {
                     </div>
 
                     <div className="">
-                        <div className="">
-                            <div className="bg-white m-4 p-4">
+                        <div className="flex flex-wrap flex-col justify-center 2xs:flex-row">
+                            <div className="bg-white m-4 p-4 2xs:w-64">
                                 <div className="">
                                     <div className="">
-                                        <a href="" className="s">
+                                        <a href="" className="flex flex-col gap-2">
                                             <div className="">
-                                                <div className="">
+                                                <div className="text-4xl">
                                                     <LuGraduationCap />
                                                 </div>
 
                                             </div>
-                                            <div className="card-title">
-                                                <h5 className="text-nowrap mb-2">
+                                            <div className="">
+                                                <h5 className="text-2xl text-light_black">
                                                     Bachelors
                                                 </h5>
                                             </div>
-                                            <div className="d-flex align-items-start justify-content-between">
+                                            <div className="flex justify-between">
                                                 <div>
-                                                    <span className="d-block mb-1 text-success">Published</span>
-                                                    <h3 className="card-title text-nowrap mb-2">
+                                                    <span className="text-green">Published</span>
+                                                    <h3 className="text-2xl text-light_black">
                                                         89
                                                     </h3>
                                                 </div>
                                                 <div>
-                                                    <span className="d-block mb-1 text-warning">Under Review</span>
-                                                    <h3 className="card-title text-nowrap mb-2">
+                                                    <span className="text-orange">Under Review</span>
+                                                    <h3 className="text-2xl text-light_black">
                                                         21
                                                     </h3>
                                                 </div>
@@ -107,30 +107,64 @@ export default function DashboardStaff() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-white m-4 p-4">
-                                <div className="card">
-                                    <div className="card-body">
-                                        <a href="">
-                                            <div className="card-title d-flex align-items-start justify-content-between">
-                                                <div className="avatar flex-shrink-0">
+                            <div className="bg-white m-4 p-4 2xs:w-64">
+                                <div className="">
+                                    <div className="">
+                                        <a href="" className="flex flex-col gap-2">
+                                            <div className="">
+                                                <div className="text-4xl">
                                                     <GrCertificate />
-                                                    </div>
+                                                </div>
+
                                             </div>
-                                            <div className="card-title">
-                                                <h5 className="text-nowrap mb-2">
+                                            <div className="">
+                                                <h5 className="text-2xl text-light_black">
                                                     Masters
                                                 </h5>
                                             </div>
-                                            <div className="d-flex align-items-start justify-content-between">
+                                            <div className="flex justify-between">
                                                 <div>
-                                                    <span className="d-block mb-1 text-success">Published</span>
-                                                    <h3 className="card-title text-nowrap mb-2">
-                                                        65
+                                                    <span className="text-green">Published</span>
+                                                    <h3 className="text-2xl text-light_black">
+                                                        9
                                                     </h3>
                                                 </div>
                                                 <div>
-                                                    <span className="d-block mb-1 text-warning">Under Review</span>
-                                                    <h3 className="card-title text-nowrap mb-2">
+                                                    <span className="text-orange">Under Review</span>
+                                                    <h3 className="text-2xl text-light_black">
+                                                        1
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bg-white m-4 p-4 2xs:w-64">
+                                <div className="">
+                                    <div className="">
+                                        <a href="" className="flex flex-col gap-2">
+                                            <div className="">
+                                                <div className="text-4xl text-deep_blue text-opacity-50">
+                                                    <FaUserGraduate />
+                                                </div>
+
+                                            </div>
+                                            <div className="">
+                                                <h5 className="text-2xl text-light_black">
+                                                    Doctorates
+                                                </h5>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <div>
+                                                    <span className="text-green">Published</span>
+                                                    <h3 className="text-2xl text-light_black">
+                                                        8
+                                                    </h3>
+                                                </div>
+                                                <div>
+                                                    <span className="text-orange">Under Review</span>
+                                                    <h3 className="text-2xl text-light_black">
                                                         2
                                                     </h3>
                                                 </div>
@@ -139,63 +173,32 @@ export default function DashboardStaff() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-white m-4 p-4">
-                                <div className="card">
-                                    <div className="card-body">
-                                        <a href="" className="stretched-link">
-                                            <div className="card-title d-flex align-items-start justify-content-between">
-                                                <div className="avatar flex-shrink-0">
-                                                   <FaUserGraduate />
-                                                </div>
-                                            </div>
-                                            <div className="card-title">
-                                                <h5 className="text-nowrap mb-2">
-                                                    Doctorates
-                                                </h5>
-                                            </div>
-                                            <div className="d-flex align-items-start justify-content-between">
-                                                <div>
-                                                    <span className="d-block mb-1 text-success">Published</span>
-                                                    <h3 className="card-title text-nowrap mb-2">
-                                                        27
-                                                    </h3>
-                                                </div>
-                                                <div>
-                                                    <span className="d-block mb-1 text-warning">Under Review</span>
-                                                    <h3 className="card-title text-nowrap mb-2">
-                                                        0
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-white m-4 p-4">
-                                <div className="card">
-                                    <div className="card-body">
-                                        <a href="" className="stretched-link">
-                                            <div className="card-title d-flex align-items-start justify-content-between">
-                                                <div className="avatar flex-shrink-0">
+                            <div className="bg-white m-4 p-4 2xs:w-64">
+                                <div className="">
+                                    <div className="">
+                                        <a href="" className="flex flex-col gap-2">
+                                            <div className="">
+                                                <div className="text-4xl">
                                                     <LuSchool />
                                                 </div>
+
                                             </div>
-                                            <div className="card-title">
-                                                <h5 className="text-nowrap mb-2">
+                                            <div className="">
+                                                <h5 className="text-2xl text-light_black">
                                                     Schools
                                                 </h5>
                                             </div>
-                                            <div className="d-flex align-items-start justify-content-between">
+                                            <div className="flex justify-between">
                                                 <div>
-                                                    <span className="d-block mb-1 text-success">Published</span>
-                                                    <h3 className="card-title text-nowrap mb-2">
-                                                        13
+                                                    <span className="text-green">Published</span>
+                                                    <h3 className="text-2xl text-light_black">
+                                                        17
                                                     </h3>
                                                 </div>
                                                 <div>
-                                                    <span className="d-block mb-1 text-warning">Under Review</span>
-                                                    <h3 className="card-title text-nowrap mb-2">
-                                                        1
+                                                    <span className="text-orange">Under Review</span>
+                                                    <h3 className="text-2xl text-light_black">
+                                                        13
                                                     </h3>
                                                 </div>
                                             </div>
@@ -225,7 +228,7 @@ export default function DashboardStaff() {
                             </div>
                             <div className="">
                                 <div className=" flex flex-col gap-4">
-                                    <a href="" className="flex gap-4 justify-center">
+                                    <a href="" className="flex gap-4">
                                         <div className="text-3xl text-deep_blue text-opacity-70">
                                             <BsBuilding />
                                         </div>
