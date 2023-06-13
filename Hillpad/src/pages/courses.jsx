@@ -1,4 +1,5 @@
 import CourseCard from "../components/coursecard";
+import Header from "../components/Header";
 import { FiFilter } from "react-icons/fi";
 import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
 import { useState } from 'react';
@@ -30,6 +31,9 @@ export default function Courses() {
     };
 
     return (
+        <>
+              <Header />
+
         <div className="lg:flex flex-row-reverse  max-w-8xl mx-auto">
             <div className="my-4 mx-4">
                 <h1 className="text-3xl font-semibold">Courses</h1>
@@ -270,5 +274,7 @@ export default function Courses() {
                 <div>Filter</div>
             </div>
         </div>
+        </>
+        
     );
 }

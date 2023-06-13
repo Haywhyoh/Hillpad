@@ -12,12 +12,14 @@ import data from '../data/discipline.json';
 import './home.css'
 import CourseCard from "../components/coursecard";
 import { Link } from "react-router-dom";
-
+import Header from "../components/Header";
 export default function Home() {
   const disciplines = data.results;
 
     return (
-      <div className=" text-center mt-10  md:w-full max-w-8xl xl:flex xl:flex-col justify-center mx-auto">
+      <>
+            <Header />
+            <div className=" text-center mt-10  md:w-full max-w-8xl xl:flex xl:flex-col justify-center mx-auto">
         <section className="max-w-8xl mx-auto">
           <div className="mx-4 md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-8xl relative 2xl:mx-10">
             <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6md:text-6xl md:font-semibold md:my-16 lg:hidden ">
@@ -290,5 +292,7 @@ export default function Home() {
           </div>
         </section>
       </div>
+      </>
+      
     );
 }

@@ -40,6 +40,9 @@ export default {
       dropShadow: {
         '3xl': ' 0px 7px 29px 0px rgba(100, 100, 111, 0.2) '
     },
+    width: {
+      '84': '21.5rem',
+    },
     screens: {
       '2xl': '1440px',
       '3xl': '1560px',

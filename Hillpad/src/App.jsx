@@ -10,7 +10,6 @@ import DisciplineDetails from './pages/disciplineDetails'
 function App() {
   return (
     < div className=''>
-      <Header />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
