@@ -21,7 +21,7 @@ const Header = () => {
        
       </div>
       <div className='hidden lg:flex lg:items-center max-w-8xl lg:mx-auto lg:w-full lg:justify-between' id='nav'>
-        <div><Link to="/" className="logo text-orange font-bold lg:ml-4"> hillPad</Link></div>
+        <div><Link to="/" className="logo text-orange font-bold lg:ml-4 hidden lg:block"> hillPad</Link></div>
         <Navbar />
         </div>
     </header>

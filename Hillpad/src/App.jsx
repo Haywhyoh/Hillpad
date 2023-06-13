@@ -6,6 +6,11 @@ import Home from './pages/home'
 import Courses from './pages/courses'
 import DashboardStaff from './pages/staff/dashboardStaff'
 import DisciplineDetails from './pages/disciplineDetails'
+import StaffCountries from './pages/staff/staffCountries'
+import StaffCourses from './pages/staff/staffCourses'
+import StaffDegree from './pages/staff/staffDegree'
+import StaffDisciplines from './pages/staff/staffDiscipline'
+import StaffSchools from './pages/staff/staffSchools'
 
 function App() {
   return (
@@ -13,10 +18,15 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
-          <Route path='/dashboardStaff' element={<DashboardStaff />} />
+          <Route path='/staff' element={<DashboardStaff />} >
+            <Route path='countries' element={<StaffCountries />} />
+            <Route path='courses' element={<StaffCourses />} />
+            <Route path='/staff/degree' element={<StaffDegree />} />
+            <Route path='disciplines' element={<StaffDisciplines />} />
+            <Route path='schoools' element={<StaffSchools />} />
+          </Route>
           <Route path='/discipline' element={<DisciplineDetails />} />
         </Routes>
-      <Footer />
     </div>
   )
 }

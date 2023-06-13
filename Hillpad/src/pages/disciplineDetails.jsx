@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
 import CourseCard from '../components/coursecard';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 export default function DisciplineDetails() {
   return (
+    <>
+      <Header />
     <div className='mx-4 max-w-8xl lg:mx-8 2xl:mx-12 3xl:mx-auto'>
       <div className='my-6'>
         <h1 className='text-2xl font-semibold'>Agriculture & Forestry</h1>
@@ -121,8 +125,12 @@ export default function DisciplineDetails() {
             <CourseCard />
 
           </div>
-      </div>
-    </div>
+      </div><Footer />
 
+
+    </div>
+  <Footer />
+    </>
+    
   );
 }

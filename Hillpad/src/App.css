@@ -44,6 +44,7 @@ header {
   color: inherit;
   text-decoration: none;
   font-weight: 600;
+  padding: 6px;
 }
 
 .menu-items button {
@@ -88,7 +89,7 @@ button span {
   font-size: 0.875rem;
   z-index: 9999;
   min-width: 10rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
   list-style: none;
   font-family: 400;
   background-color: #fff;
