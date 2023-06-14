@@ -20,7 +20,7 @@ export default function Header() {
 
 
     return (
-        <header className="w-screen py-4">
+        <header className="w-screen py-4 fixed top-0 bg-white z-40">
             <nav className="max-w-full text-sm font-bold mx-auto justify-between hidden lg:flex w-full px-2 items-center gap-x-4">
                 <div>
                     <div className='w-20'>
