@@ -12,17 +12,17 @@ import data from '../data/discipline.json';
 import './home.css'
 import CourseCard from "../components/coursecard";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Header from "../components/header";
 export default function Home() {
   const disciplines = data.results;
 
     return (
       <>
-            <Header />
-            <div className=" text-center mt-10  md:w-full max-w-8xl xl:flex xl:flex-col justify-center mx-auto">
-        <section className="max-w-8xl mx-auto">
-          <div className="mx-4 md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-8xl relative 2xl:mx-10">
+      <Header />
+        <div className=" text-center mt-10  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30">
+        <section className="max-w-full mx-auto">
+          <div className="mx-4 md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full relative 2xl:mx-10">
             <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6md:text-6xl md:font-semibold md:my-16 lg:hidden ">
               Discover <span className="text-orange"> Educational</span>{" "}
               Opportunities
@@ -75,8 +75,8 @@ export default function Home() {
         </section>
 
         <section className="my-20">
-          <div>
-            <h2 className="font-medium text-2xl md:text-5xl lg:font-bold lg:text-4xl">
+          <div className="flex justify-between">
+            <h2 className="font-medium text-base md:text-5xl lg:font-bold lg:text-2xl">
               Browse by <span className="text-orange">Discipline</span>
             </h2>
             <div className="hidden">
@@ -90,8 +90,8 @@ export default function Home() {
             {
               disciplines.map((discipline) => (
                 <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-40 h-40 bg-white rounded-full shadow">
-                    <div className=" p-4 w-32 lg:w-fit rounded-full">
+                  <div className="flex flex-col items-center justify-center w-40 h-40 bg-white shadow">
+                    <div className=" p-4 w-32 lg:w-fit ">
                     <div className={` bg-${discipline.color} p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-${discipline.color} justify-center p-1`}>
                         <i className={`fa fa-${discipline.icon}`} ></i>

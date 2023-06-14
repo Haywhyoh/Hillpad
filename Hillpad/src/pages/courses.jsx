@@ -1,5 +1,4 @@
 import CourseCard from "../components/coursecard";
-import Header from "../components/Header";
 import { FiFilter } from "react-icons/fi";
 import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
 import { useState } from 'react';

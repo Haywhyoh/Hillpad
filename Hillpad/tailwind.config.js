@@ -16,7 +16,7 @@ export default {
       
       white: '#FFFFFF',
       'orange': '#FF5757',
-      'text_black': '#1f1b2d',
+      'black': '#1f1b2d',
       'light_black': '#666276',
       'green': '#07c98b',
       'light': '#FF5757',
@@ -24,6 +24,7 @@ export default {
       'yellow': '#fdbc31',
       'grey': 'rgba(67, 89, 113)',
       'navy_blue': '#1F1B2D',
+      
     },
     container: {
       center: true,
@@ -51,6 +52,7 @@ export default {
     maxWidth: {
       '8xl': '1440px',
       '9xl': '1560px',
+      'full': '1320px',
     }
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],

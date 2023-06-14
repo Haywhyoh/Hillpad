@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
 import CourseCard from '../components/coursecard';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 export default function DisciplineDetails() {
   return (
