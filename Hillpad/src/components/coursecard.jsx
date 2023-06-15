@@ -1,4 +1,5 @@
 import school1 from '../assets/images/01-1.jpeg';
+import logo from '../assets/images/schLogo.png';
 import { HiOutlineCash } from "react-icons/hi";
 import { BiTimeFive } from "react-icons/bi";
 import { SlLocationPin } from "react-icons/sl";
@@ -9,8 +10,8 @@ export default function CourseCard() {
         <div className="my-6 w-72 flex justify-center">
 
             <div className="shadow rounded-b-2xl relative px-2">
-              <div className="absolute w-12 bg-deep_blue text-white rounded-md p-1 text-sm top-4 left-4">
-                New
+              <div className="absolute w-12 text-white rounded-md p-1 text-sm top-4 left-4">
+                <img src={logo} alt="logo" />
               </div>
               <div className=" rounded-xl">
                 <img
@@ -22,17 +23,17 @@ export default function CourseCard() {
               <div className="text-left m-4">
                 <div className="font-normal text-sm text-orange">B.Eng</div>
                 <div className="font-medium pb-2">Electrical Engineering</div>
-                <div className="text-light_black text-sm italic opacity-70">
-                  Toronto Metropolitan University
+                <div className="text-light_black text-sm italic opacity-70 h-8 ">
+                  Toronto  Metropolitan University Metropolitan University
                 </div>
                 <div className="text-light_black text-sm italic opacity-70">
                   Toronto, Canada
                 </div>
-                <div className="flex gap-x-6 items-center opacity-70 text-light_black my-2">
+                <div className="flex gap-x-2 items-center opacity-70 text-light_black my-2">
                   <div className="text-2xl">
                     <HiOutlineCash />
                   </div>
-                  <div>$27,000/ year</div>
+                  <div className='font-bold'>$27,000/ year</div>
                 </div>
               </div>
 

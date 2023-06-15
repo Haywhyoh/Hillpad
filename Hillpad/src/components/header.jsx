@@ -3,8 +3,9 @@ import { FiMenu, FiLayers } from 'react-icons/fi';
 import { FaGraduationCap } from 'react-icons/fa';
 import { LuUser } from 'react-icons/lu';
 import { SiMinutemailer } from 'react-icons/si';
-import { RiArrowDropDownLine } from 'react-icons/ri';
+import { RiArrowDropDownLine, RiArrowRightSLine } from 'react-icons/ri';
 import { BiWorld, BiBriefcase } from 'react-icons/bi';
+import { AiOutlineSearch } from 'react-icons/ai';
 import SearchBar from './search';
 
 export default function Header() {
@@ -18,6 +19,19 @@ export default function Header() {
         nav.classList.toggle('hidden')
     }
 
+    function togglesubMenu1() {
+        const base = document.querySelector('#subMenu1')
+        base.classList.toggle('hidden')
+    }
+
+    function togglesubMenu2() {
+        const nav = document.querySelector('#subMenu2')
+        const base = document.querySelector('#subMenu1')
+        nav.classList.add('block')
+
+        nav.classList.toggle('hidden')
+    }
+
 
     return (
         <header className="w-screen py-4 fixed top-0 bg-white z-40">
@@ -27,19 +41,70 @@ export default function Header() {
                         <img src={logo} />
                     </div>
                 </div>
-                <div className='flex w-4/5 xl:w-7/12 gap-x-4 '>
-                    <div className='flex gap-3 items-center' >
-                        <div className='flex gap-3 items-center'>
-                            <FiLayers />
-                            <div>Browse</div>
-                        </div>
-                        <div className='text-2xl'><RiArrowDropDownLine /></div>
+                <div className='flex w-4/5 xl:w-8/12 gap-x-4 items-center '>
+                    <div className='' onClick={togglesubMenu1}>
+                        <div className='flex gap-3 items-center '>
+                            <div className='flex gap-3 items-center relative'>
+                                <FiLayers />
+                                <div>Browse</div>
+                                <div className='absolute top-8 left-0 shadow bg-white w-64  rounded-lg p-4 hidden' id='subMenu1'>
+                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2'><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div>
+                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 '><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div>
+                                    <div className='flex gap-x-2 justify-between py-2'>
+                                        <div className='flex gap-x-2 relative' onClick={togglesubMenu2}>
+                                            <FaGraduationCap className='text-xl text-light_black text-opacity-60' />
+                                            <div className='' >Programmes</div>
+                                        </div>
+                                        <div className='text-2xl'><RiArrowRightSLine /></div>
+                                    </div>
+                                    <div className='hidden absolute left-60 p-4 shadow top-28 rounded-md bg-white text-light_black' id='subMenu2'>
+                                        <div className='p-1 w-32'>Bachelors</div>
+                                        <div className='p-1 w-32'>Masters</div>
+                                        <div className='p-1 w-32'>Doctorate</div>
 
-                    </div >
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='text-2xl'><RiArrowDropDownLine /></div>
 
-                    <SearchBar className=''/>
+                        </div >
+                    </div>
+
+
+                    <div className="w-72 mx-auto md:w-full md:rounded-full bg-white 2xl:w-9/12">
+                        <form className="rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 bg-white z-20 2xl:w-full border border-light_black border-opacity-60 ">
+                            <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-2 md:border-0  ">
+                                <div className="flex items-center gap-x-2">
+                                    <AiOutlineSearch className="text-light_black" />
+                                    <input
+                                        type="text "
+                                        className="focus:outline-none md:w-72 "
+                                        placeholder="What do you want to study?"
+                                    ></input>
+                                </div>
+                            </fieldset>
+                            <fieldset className="my-2 border-s border-opacity-40 border-light_black">
+                                <div></div>
+                                <select className="text-left w-full p-2 text-light_black bg-white focus:outline-none lg:w-fit">
+                                    <option className="text-light_black text-opacity-10" value={"China"}>
+                                        Where ?
+                                    </option>
+                                    <option className="text-text_black" value={"Belgium"}>
+                                        Belgium
+                                    </option>
+                                    <option className="text-text_black" value={"Canada"}>
+                                        Canada
+                                    </option>
+                                </select>
+                            </fieldset>
+                            <button className="w-full text-white bg-orange py-3 px-3 text-lg font-bold rounded-3xl md:w-fit md:rounded-full">
+                                <AiOutlineSearch className="text-white" />
+
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div className='flex gap-x-4 w-60 justify-between'>
+                <div className='flex gap-x-3 w-52 justify-between'>
                     <div className='text-orange flex items-center gap-x-2'><div><LuUser /></div><div>Sign in</div></div>
                     <button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-xl'><SiMinutemailer /></div> <div>Explore</div></button>
                 </div>
@@ -61,6 +126,7 @@ export default function Header() {
                                 <div className='flex gap-3 items-center'>
                                     <FiLayers />
                                     <div>Browse</div>
+
                                 </div>
                                 <div className='text-2xl'><RiArrowDropDownLine /></div>
 
