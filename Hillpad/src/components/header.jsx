@@ -39,7 +39,7 @@ export default function Header() {
             <nav className="max-w-full text-sm font-bold mx-auto justify-between hidden lg:flex w-full px-2 items-center gap-x-4">
                 <div>
                     <div className='w-20'>
-                        <Link to='/'><img src={logo} /> </Link>
+                        <img src={logo} />
                     </div>
                 </div>
                 <div className='flex w-4/5 xl:w-8/12 gap-x-4 items-center '>
@@ -154,7 +154,7 @@ export default function Header() {
 
                     </div>
 
-                    <Link to='/courses'><button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><SiMinutemailer /></span></button></Link>
+                    <Link to='/courses'></Link><button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><SiMinutemailer /></span></button>
                 </div>
             </nav>
 
