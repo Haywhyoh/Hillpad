@@ -5,6 +5,9 @@ import bachelor from '../assets/images/bachelors.svg';
 import masters from '../assets/images/masters.svg';
 import doctorates from '../assets/images/doctorates.svg';
 import hero from '../assets/images/hero-img.jpeg'
+import hero2 from '../assets/images/hero2.jpeg'
+import hero3 from '../assets/images/hero3.jpeg'
+import hero4 from '../assets/images/hero4.jpeg'
 import hillpadBig from '../assets/images/hillpad-transparent.png';
 import newyork from '../assets/images/new-york.jpeg';
 import canada from '../assets/images/san-diego.jpeg';
@@ -27,27 +30,31 @@ export default function Home() {
     <>
       <Header />
 
-      <div className=" text-center mt-24  md:w-full max-w-8xl xl:flex xl:flex-col justify-center mx-auto -z-30 ">
-        <section className="max-w-full mx-auto">
-          <div className=" md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full relative 2xl:mx-0 justify-between w-full">
-            <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
+      <div className=" text-center mt-24  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30 ">
+        <section className="max-w-full mx-auto relative">
+          <div className=" md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
+            {/* <h1 className=" hidden font-bold text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
               Discover <span className="text-orange"> Educational</span>{" "}
               Opportunities
-            </h1>
-            <div className="my-8 md:mx-10 lg:w-54p -z-20 2xl:mt-16">
-              <img src={hero} alt="hillpad_courses" />
+            </h1> */}
+            <div className="my-8 md:mx-10 -z-20 2xl:mt-16 xl:mx-0">
+              <img src={hero} alt="hillpad_courses" className="" />
             </div>
-            <div className="lg:text-left lg:w-6/12 lg:absolute lg:left-0 xl:top-24 2xl:top-24 ">
-              <h1 className="hidden font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-5 2xl:mb-0 2xl:mt-12">
+            <div className="lg:text-left lg:w-10/12 ">
+              <h1 className="font-bold text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
               </h1>
-              <p className="text-light_black mb-6 text-md md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-lg lg:mx-0 lg:w-4/5 xl:text-lg 2xl:mt-8">
+              <p className="text-light_black mb-6 text-md md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-lg lg:mx-0 lg:w-full xl:text-lg 2xl:mt-2">
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
-              <div className="w-72 mx-auto md:w-full md:rounded-full bg-white 2xl:w-60 ">
-                <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 2xl:w-full top-52 border border-light_black border-opacity-10 2xl:mt-20">
+             
+            </div>
+          </div>
+        <div className="">
+            <div className="w-72 mx-auto md:w-full md:rounded-full bg-white  absolute bottom-64">
+                <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-20">
                   <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
                     <div className="flex items-center gap-x-2">
                       <AiOutlineSearch className="text-light_black" />
@@ -77,11 +84,10 @@ export default function Home() {
                   </button>
                 </form>
               </div>
-            </div>
           </div>
         </section>
 
-        <section className="my-20 w-full mx-auto max-w-8xl">
+        <section className="my-20 w-full mx-auto max-w-full">
           <div className="flex justify-between">
             <h2 className="font-medium text-xl md:text-5xl lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
@@ -97,7 +103,7 @@ export default function Home() {
 
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-green justify-center p-1`}>
@@ -112,7 +118,7 @@ export default function Home() {
 
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-orange p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-orange justify-center p-1`}>
@@ -126,7 +132,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-yellow justify-center p-1`}>
@@ -141,7 +147,7 @@ export default function Home() {
 
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-deep_blue p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
@@ -155,7 +161,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -169,7 +175,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -183,7 +189,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -197,7 +203,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
@@ -211,7 +217,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-green justify-center p-1`}>
@@ -225,7 +231,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -239,7 +245,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-yellow justify-center p-1`}>
@@ -253,7 +259,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>

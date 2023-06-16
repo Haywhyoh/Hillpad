@@ -54,6 +54,9 @@ export default {
       '8xl': '1440px',
       '9xl': '1560px',
       'full': '1320px',
+    },
+    bottom: {
+      '68': '18rem',
     }
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],
