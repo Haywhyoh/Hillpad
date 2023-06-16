@@ -10,9 +10,9 @@ export default function CourseCard() {
         <div className="my-6 w-72 flex justify-center">
 
             <div className="shadow rounded-b-2xl relative px-2">
-              <div className="absolute w-12 text-white rounded-md p-1 text-sm top-4 left-4">
+              {/* <div className="absolute w-12 text-white rounded-md p-1 text-sm top-4 left-4">
                 <img src={logo} alt="logo" />
-              </div>
+              </div> */}
               <div className=" rounded-xl">
                 <img
                   className=" rounded-t-2xl"
@@ -23,12 +23,21 @@ export default function CourseCard() {
               <div className="text-left m-4">
                 <div className="font-normal text-sm text-orange">B.Eng</div>
                 <div className="font-medium pb-2">Electrical Engineering</div>
-                <div className="text-light_black text-sm italic opacity-70 h-8 ">
-                  Toronto  Metropolitan University Metropolitan University
+                <div className='flex items-center gap-x-4'>
+                  <div className='w-6'>
+                  <img src={logo} alt="logo" />
+                  </div>
+                  <div>
+                <div className="text-light_black text-sm italic opacity-70 ">
+                  Toronto  Metropolitan University
                 </div>
                 <div className="text-light_black text-sm italic opacity-70">
                   Toronto, Canada
                 </div>
+                </div>
+                </div>
+                
+                
                 <div className="flex gap-x-2 items-center opacity-70 text-light_black my-2">
                   <div className="text-2xl">
                     <HiOutlineCash />
