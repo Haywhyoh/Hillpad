@@ -31,7 +31,7 @@ export default function CourseCard() {
                 <div className="text-light_black text-sm italic opacity-70 ">
                   Toronto  Metropolitan University
                 </div>
-                <div className="text-light_black text-sm italic opacity-70">
+                <div className="text-light_black text-sm opacity-70">
                   Toronto, Canada
                 </div>
                 </div>

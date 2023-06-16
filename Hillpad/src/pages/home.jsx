@@ -28,7 +28,7 @@ export default function Home() {
       <Header />
 
       <div className=" text-center mt-24  md:w-full max-w-8xl xl:flex xl:flex-col justify-center mx-auto -z-30 ">
-        {/* <section className="max-w-full mx-auto">
+        <section className="max-w-full mx-auto">
           <div className=" md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full relative 2xl:mx-0 justify-between w-full">
             <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
               Discover <span className="text-orange"> Educational</span>{" "}
@@ -79,7 +79,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
 
         <section className="my-20 w-full mx-auto max-w-8xl">
           <div className="flex justify-between">
