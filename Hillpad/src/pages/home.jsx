@@ -27,27 +27,27 @@ export default function Home() {
     <>
       <Header />
 
-      <div className=" text-center mt-24  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30">
+      <div className=" text-center mt-24  md:w-full max-w-8xl xl:flex xl:flex-col justify-center mx-auto -z-30 ">
         <section className="max-w-full mx-auto">
-          <div className="mx-4 md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full relative 2xl:mx-0 justify-between w-full">
+          <div className=" md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full relative 2xl:mx-0 justify-between w-full">
             <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
               Discover <span className="text-orange"> Educational</span>{" "}
               Opportunities
             </h1>
-            <div className="my-8 md:mx-10 lg:w-7/12 -z-20 2xl:mt-16">
+            <div className="my-8 md:mx-10 lg:w-54p -z-20 2xl:mt-16">
               <img src={hero} alt="hillpad_courses" />
             </div>
-            <div className="lg:text-left lg:w-6/12 lg:absolute lg:left-3 xl:top-24 2xl:top-24 2xl:mx-auto ">
-              <h1 className="hidden font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-5 2xl:mb-0 2xl:mt-20">
+            <div className="lg:text-left lg:w-6/12 lg:absolute lg:left-0 xl:top-24 2xl:top-24 ">
+              <h1 className="hidden font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-5 2xl:mb-0 2xl:mt-12">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
               </h1>
-              <p className="text-light_black mb-6 text-md md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-lg lg:mx-0 lg:w-4/5 xl:text-lg 2xl:mt-10">
+              <p className="text-light_black mb-6 text-md md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-lg lg:mx-0 lg:w-4/5 xl:text-lg 2xl:mt-8">
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
               <div className="w-72 mx-auto md:w-full md:rounded-full bg-white 2xl:w-60 ">
-                <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 2xl:w-full top-52 border border-light_black border-opacity-10 2xl:mt-28">
+                <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 2xl:w-full top-52 border border-light_black border-opacity-10 2xl:mt-20">
                   <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
                     <div className="flex items-center gap-x-2">
                       <AiOutlineSearch className="text-light_black" />
@@ -351,7 +351,7 @@ export default function Home() {
               Let us help you find your dream school
             </div>
             -{" "}
-            <div className="text-light_black text-lg md:text-left">
+            <div className="text-light_black text-center text-sm lg:text-lg md:text-left">
               We provide an online platform designed to make finding and
               applying for undergraduate and postgraduate courses easy and
               efficient. With HillPad, you can conveniently access the best

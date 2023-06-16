@@ -43,7 +43,8 @@ export default {
     },
     width: {
       '84': '21.5rem',
-      '100': '30rem'
+      '100': '30rem',
+      '54p': '54%', 
     },
     screens: {
       '2xl': '1440px',

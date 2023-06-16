@@ -7,6 +7,7 @@ import { RiArrowDropDownLine, RiArrowRightSLine } from 'react-icons/ri';
 import { BiWorld, BiBriefcase } from 'react-icons/bi';
 import { AiOutlineSearch } from 'react-icons/ai';
 import SearchBar from './search';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     function toggleHeader() {
@@ -106,7 +107,7 @@ export default function Header() {
                 </div>
                 <div className='flex gap-x-3 w-52 justify-between'>
                     <div className='text-orange flex items-center gap-x-2'><div><LuUser /></div><div>Sign in</div></div>
-                    <button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-xl'><SiMinutemailer /></div> <div>Explore</div></button>
+                    <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-xl'><SiMinutemailer /></div> <div>Explore</div></button></Link>
                 </div>
 
             </nav>
@@ -153,7 +154,7 @@ export default function Header() {
 
                     </div>
 
-                    <button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><SiMinutemailer /></span></button>
+                    <Link to='/courses'><button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><SiMinutemailer /></span></button></Link>
                 </div>
             </nav>
 

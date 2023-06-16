@@ -7,7 +7,8 @@ import { GiSettingsKnobs } from "react-icons/gi";
 import { FaTractor, FaThermometerHalf, } from "react-icons/fa";
 import data from '../data/discipline.json';
 import degreeType from '../data/degree_type.json';
-
+import Header from "../components/header";
+import Footer from "../components/Footer";
 export default function Courses() {
 
     const disciplines = data.results;
@@ -30,11 +31,11 @@ export default function Courses() {
     };
 
     return (
-        <>
-              <Header />
+        <div >
+        <Header />
 
-        <div className="lg:flex flex-row-reverse  max-w-8xl mx-auto">
-            <div className="my-4 mx-4">
+        <div className="lg:flex flex-row-reverse  max-w-8xl mt-32 w-full">
+            <div className="mb-4 mx-4 ">
                 <h1 className="text-3xl font-semibold">Courses</h1>
                 <div className="">
                     <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black">
@@ -78,7 +79,7 @@ export default function Courses() {
                 </div>
 
             </div>
-            <div className="hidden lg:block px-4 shadow w-72">
+            <div className="hidden lg:block px-8 shadow w-84">
                 <div className="mt-12">
                     <div className="flex items-center gap-x-2 rounded-full border border-light_black border-opacity-20 shadow p-4">
                         <div> <AiOutlineSearch className="text-light_black text-2xl opacity-50" /></div>
@@ -105,8 +106,8 @@ export default function Courses() {
                                     id=''
                                     name=''
                                     value=''
-                                    checked=''
-                                    onChange={() => handleOnChange()}
+                                   
+                                    
                                 />
                                 <label htmlFor=''> <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon} text-${discipline.color}`} aria-hidden="true"></i>
                                     <div> {discipline.name} </div></span> </label>
@@ -129,7 +130,7 @@ export default function Courses() {
                                     id=''
                                     name=''
                                     value=''
-                                    checked=''
+                                    
                                     onChange={() => handleOnChange()}
                                 />
                                 <label htmlFor=''> <span className="flex items-center gap-x-1">
@@ -273,7 +274,8 @@ export default function Courses() {
                 <div>Filter</div>
             </div>
         </div>
-        </>
+        <Footer />
+        </div>
         
     );
 }
