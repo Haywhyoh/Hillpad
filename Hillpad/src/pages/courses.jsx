@@ -34,52 +34,8 @@ export default function Courses() {
         <div >
         <Header />
 
-        <div className="lg:flex flex-row-reverse  max-w-8xl mt-32 w-full">
-            <div className="mb-4 mx-4 ">
-                <h1 className="text-3xl font-semibold">Courses</h1>
-                <div className="">
-                    <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black">
-                        <div className="flex justify-between gap-x-4 my-4 items-center">
-                            <span >Sort By: </span>
-                            <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32">
-                                <option>Courses</option>
-                                <option>School</option>
-                                <option>Tuition</option>
-                                <option>Duration</option>
-                            </select>
-                            <div>
-                                <span>Order: </span>
-                                <select className="focus:outline-none p-2 rounded-md bg-white border  border-light_black border-opacity-30  w-20 md:w-32">
-                                    <option>Ascending</option>
-                                    <option>Desc</option>
-                                </select>
-                            </div>
-
-
-                        </div>
-                        <div className="text-md text-light_black hidden md:flex gap-x-8 items-center">
-                            <hr className=" opacity-30 w-28  md:w-56 lg:w-88  "></hr>
-                            <div>
-                                <span>27</span>
-                                <span>results</span>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <div className="flex gap-x-4 flex-wrap justify-center">
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                    </div>
-
-
-                </div>
-
-            </div>
-            <div className="hidden lg:block px-8 shadow w-84">
+        <div className="lg:flex flex-row mt-32 justify-start w-screen">
+        <div className="hidden lg:block px-8 shadow w-84">
                 <div className="mt-12">
                     <div className="flex items-center gap-x-2 rounded-full border border-light_black border-opacity-20 shadow p-4">
                         <div> <AiOutlineSearch className="text-light_black text-2xl opacity-50" /></div>
@@ -93,8 +49,8 @@ export default function Courses() {
 
                 <div className="text-orange text-center text-xl font-bold my-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
                 <div className="overflow-scroll h-screen ">
-                    <div className="">
-                        <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Disciplines</div>  <button className='' onClick={() => { setShowInfo(!showInfo); }}>
+                    <div className="" onClick={() => { setShowInfo(!showInfo); }}>
+                        <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Disciplines</div>  <button className='' >
                             {showInfo ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
                         </div>
@@ -117,8 +73,8 @@ export default function Courses() {
                         
 
                     </div>
-                    <div>
-                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Bachelors</div>  <button className='' onClick={() => { setBachInfo(!showBach); }}>
+                    <div onClick={() => { setBachInfo(!showBach); }}>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Bachelors</div>  <button className='' >
                             {showBach ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
                         </div>
@@ -139,8 +95,8 @@ export default function Courses() {
                         ))}
                         </div>
                     </div>
-                    <div>
-                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Masters</div>  <button className='' onClick={() => { setMastersInfo(!showMasters); }}>
+                    <div onClick={() => { setMastersInfo(!showMasters); }}>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Masters</div>  <button className='' >
                             {showMasters ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
                         </div>
@@ -161,8 +117,8 @@ export default function Courses() {
                         ))}
                         </div>
                     </div>
-                    <div>
-                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Doctorate</div>  <button className='' onClick={() => { setDocInfo(!showDoc); }}>
+                    <div onClick={() => { setDocInfo(!showDoc); }}>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Doctorate</div>  <button className='' >
                             {showDoc ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
                         </div>
@@ -184,8 +140,8 @@ export default function Courses() {
                         </div>
 
                     </div>
-                    <div>
-                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Duration</div>  <button className='' onClick={() => { setDurationInfo(!showDuration); }}>
+                    <div onClick={() => { setDurationInfo(!showDuration); }}>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Duration</div>  <button className='' >
                             {showDuration ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
                         </div>
@@ -209,8 +165,8 @@ export default function Courses() {
                         ))}
                         </div>
                     </div>
-                    <div>
-                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Attendance</div>  <button className='' onClick={() => { setAttendanceInfo(!showAttendance); }}>
+                    <div onClick={() => { setAttendanceInfo(!showAttendance); }}>
+                    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between"><div>Attendance</div>  <button className='' >
                             {showAttendance ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
                         </div>
@@ -267,6 +223,59 @@ export default function Courses() {
                 </div>
             </div>
 
+            <div className="mb-4 mx-4 w-full">
+                <h1 className="text-3xl font-semibold">Courses</h1>
+                <div className="xl:w-11/12">
+                    <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black">
+                        <div className="flex justify-between gap-x-4 my-4 items-center">
+                            <span >Sort By: </span>
+                            <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32">
+                                <option>Courses</option>
+                                <option>School</option>
+                                <option>Tuition</option>
+                                <option>Duration</option>
+                            </select>
+                            <div>
+                                <span>Order: </span>
+                                <select className="focus:outline-none p-2 rounded-md bg-white border  border-light_black border-opacity-30  w-20 md:w-32">
+                                    <option>Ascending</option>
+                                    <option>Desc</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+                        <div className="text-md text-light_black hidden md:flex gap-x-8 items-center">
+                            <hr className=" opacity-30 w-28  md:w-56 lg:w-88  "></hr>
+                            <div>
+                                <span>27</span>
+                                <span>results</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div className="flex gap-x-4 flex-wrap justify-center ">
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                    </div>
+
+
+                </div>
+
+            </div>
+           
             <div className="flex gap-x-2 bg-light text-white p-3 fixed z-20 bottom-0 w-full justify-center items-center lg:hidden">
                 <div>
                     <FiFilter />

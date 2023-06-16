@@ -81,7 +81,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="my-20 w-full mx-4">
+        <section className="my-20 w-full mx-auto max-w-8xl">
           <div className="flex justify-between">
             <h2 className="font-medium text-xl md:text-5xl lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
@@ -97,7 +97,7 @@ export default function Home() {
 
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-green justify-center p-1`}>
@@ -112,7 +112,7 @@ export default function Home() {
 
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-orange p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-orange justify-center p-1`}>
@@ -126,7 +126,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-yellow justify-center p-1`}>
@@ -141,7 +141,7 @@ export default function Home() {
 
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-deep_blue p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
@@ -155,7 +155,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -169,7 +169,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -183,7 +183,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -197,7 +197,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
@@ -211,7 +211,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-green justify-center p-1`}>
@@ -225,7 +225,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -239,7 +239,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-yellow justify-center p-1`}>
@@ -253,7 +253,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-32 lg:w-52 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
@@ -379,7 +379,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-center flex-wrap gap-x-1">
+          <div className="flex justify-center flex-wrap gap-x-1 gap-y-4">
 
             <div className="shadow rounded-b-2xl w-72 mx-2">
               <div className="rounded-2xl">

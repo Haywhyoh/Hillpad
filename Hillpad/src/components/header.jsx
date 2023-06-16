@@ -39,7 +39,7 @@ export default function Header() {
             <nav className="max-w-full text-sm font-bold mx-auto justify-between hidden lg:flex w-full px-2 items-center gap-x-4">
                 <div>
                     <div className='w-20'>
-                        <img src={logo} />
+                        <Link to='/'><img src={logo} /> </Link>
                     </div>
                 </div>
                 <div className='flex w-4/5 xl:w-8/12 gap-x-4 items-center '>
