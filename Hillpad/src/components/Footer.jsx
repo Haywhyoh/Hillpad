@@ -28,7 +28,7 @@ export default function Footer() {
                                 <div className='md:flex md:gap-x-24'>
 
                                     <div>
-                                        <div className='font-medium my-8 text-lg md:text-xl md:font-bold'>Resources</div>
+                                        <div className=' my-4 text-lg md:text-lg md:font-bold'>Resources</div>
                                         <ul className='text-white opacity-50 flex flex-col gap-2 lg:text-sm'>
                                             <li>Bachelors</li>
                                             <li>Masters</li>
@@ -38,7 +38,7 @@ export default function Footer() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <div className='font-medium my-8 text-lg md:text-xl md:font-bold'>Quick Links</div>
+                                        <div className='font-medium my-4 text-lg md:text-lg md:font-bold'>Quick Links</div>
                                         <ul className='text-white opacity-50 flex flex-col gap-2 lg:text-sm'>
                                             <li>About Us</li>
                                             <li>Contact Us</li>
@@ -53,9 +53,9 @@ export default function Footer() {
 
 
                         </div>
-                        <div className='lg:flex lg:flex-col lg:w-96  '>
+                        <div className='lg:flex lg:flex-col lg:w-96 xl:w-100  '>
                             <div >
-                                <div className='font-semibold text-xl my-4 md:text-4xl md:mt-8 lg:text-3xl'>Subscribe to our newsletter</div>
+                                <div className='font-semibold text-xl my-4 md:text-4xl md:mt-8 lg:text-2xl'>Subscribe to our newsletter</div>
                                 <div className='text-white opacity-50 flex flex-col gap-2'>Don't miss any relevant tips and announcements!</div>
                             </div>
 
