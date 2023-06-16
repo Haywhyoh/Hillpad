@@ -1,5 +1,5 @@
 import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck } from "react-icons/bs";
-import { AiOutlineCalendar, AiOutlineSearch, AiFillStar , AiOutlineTwitter} from "react-icons/ai";
+import { AiOutlineCalendar, AiOutlineSearch, AiFillStar, AiOutlineTwitter } from "react-icons/ai";
 import { FaTractor, FaFacebookF, FaLinkedinIn, FaThermometerEmpty, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
 import bachelor from '../assets/images/bachelors.svg';
 import masters from '../assets/images/masters.svg';
@@ -7,6 +7,9 @@ import doctorates from '../assets/images/doctorates.svg';
 import hero from '../assets/images/hero-img.jpeg'
 import hillpadBig from '../assets/images/hillpad-transparent.png';
 import newyork from '../assets/images/new-york.jpeg';
+import canada from '../assets/images/san-diego.jpeg';
+import belgium from '../assets/images/dallas.jpeg';
+import uk from '../assets/images/chicago.jpeg';
 import review1 from '../assets/images/01.jpeg';
 import data from '../data/discipline.json';
 import './home.css'
@@ -20,37 +23,37 @@ import { FiFilm, FiSettings } from "react-icons/fi";
 export default function Home() {
   const disciplines = data.results;
 
-    return (
-      <>
+  return (
+    <>
       <Header />
 
-        <div className=" text-center mt-10  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30 lg:mt-24">
+      <div className=" text-center mt-10  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30 lg:mt-24">
         <section className="max-w-full mx-auto">
-          <div className="mx-4 md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full relative 2xl:mx-0 justify-between">
+          <div className="mx-4 md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full relative 2xl:mx-0 justify-between w-full">
             <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
               Discover <span className="text-orange"> Educational</span>{" "}
               Opportunities
             </h1>
-            <div className="my-8 md:mx-10 lg:w-6/12 -z-20 2xl:mt-16">
+            <div className="my-8 md:mx-10 lg:w-7/12 -z-20 2xl:mt-16">
               <img src={hero} alt="hillpad_courses" />
             </div>
             <div className="lg:text-left lg:w-6/12 lg:absolute lg:left-3 xl:top-24 2xl:top-24 2xl:mx-auto ">
-              <h1 className="hidden font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-5 2xl:mb-0 2xl:mt-8">
+              <h1 className="hidden font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-5 2xl:mb-0 2xl:mt-20">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
               </h1>
-              <p className="text-light_black mb-6 text-md md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-lg lg:mx-0 lg:w-10/12 xl:text-lg 2xl:mt-6">
+              <p className="text-light_black mb-6 text-md md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-lg lg:mx-0 lg:w-4/5 xl:text-lg 2xl:mt-10">
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
-              <div className="w-72 md:w-full md:rounded-full bg-white 2xl:w-64 ">
-                <form className="shadow rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 2xl:w-full top-52 border border-light_black border-opacity-10 2xl:mt-10">
+              <div className="w-72 mx-auto md:w-full md:rounded-full bg-white 2xl:w-60 ">
+                <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 2xl:w-full top-52 border border-light_black border-opacity-10 2xl:mt-28">
                   <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
                     <div className="flex items-center gap-x-2">
                       <AiOutlineSearch className="text-light_black" />
                       <input
                         type="text "
-                        className="focus:outline-none md:w-72 "
+                        className="focus:outline-none md:w-60 "
                         placeholder="What do you want to study?"
                       ></input>
                     </div>
@@ -90,181 +93,181 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap gap-4 justify-between my-6 font-medium w-full">
-            
+          <div className="flex flex-wrap gap-4  justify-center xl:justify-between my-6 font-medium w-full">
 
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-green justify-center p-1`}>
-                        <FaTractor />
-                      </div>
-                    </div>
 
-                    <div className="font-semibold text-sm my-2">Agriculture & Forestry</div>
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-green justify-center p-1`}>
+                      <FaTractor />
                     </div>
                   </div>
-                </Link>
+
+                  <div className="font-semibold text-sm my-2">Agriculture & Forestry</div>
+                </div>
+              </div>
+            </Link>
 
 
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-orange p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-orange justify-center p-1`}>
-                        <FaThermometerQuarter />
-                      </div>
-                    </div>
-
-                    <div className="font-semibold text-sm my-2">Applied Science & Profession</div>
-                    </div>
-                  </div>
-                </Link>
-
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-yellow justify-center p-1`}>
-                        <FaPaintBrush />
-                      </div>
-                    </div>
-
-                    <div className="font-semibold text-sm my-2">Art and Design</div>
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-orange p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-orange justify-center p-1`}>
+                      <FaThermometerQuarter />
                     </div>
                   </div>
-                </Link>
 
-                
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-deep_blue p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
-                        <FaBriefcase />
-                      </div>
-                    </div>
+                  <div className="font-semibold text-sm my-2">Applied Science & Profession</div>
+                </div>
+              </div>
+            </Link>
 
-                    <div className="font-semibold text-sm my-2">Business Management</div>
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-yellow justify-center p-1`}>
+                      <FaPaintBrush />
                     </div>
                   </div>
-                </Link>
 
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-light justify-center p-1`}>
-                        <HiOutlineDesktopComputer/>
-                      </div>
-                    </div>
+                  <div className="font-semibold text-sm my-2">Art and Design</div>
+                </div>
+              </div>
+            </Link>
 
-                    <div className="font-semibold text-sm my-2">Computer Science and IT</div>
+
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-deep_blue p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
+                      <FaBriefcase />
                     </div>
                   </div>
-                </Link>
 
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-light justify-center p-1`}>
-                        <RiBook2Fill/>
-                      </div>
-                    </div>
+                  <div className="font-semibold text-sm my-2">Business Management</div>
+                </div>
+              </div>
+            </Link>
 
-                    <div className="font-semibold text-sm my-2">Education and Training</div>
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-light justify-center p-1`}>
+                      <HiOutlineDesktopComputer />
                     </div>
                   </div>
-                </Link>
 
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-light justify-center p-1`}>
-                        <FiSettings/>
-                      </div>
-                    </div>
+                  <div className="font-semibold text-sm my-2">Computer Science and IT</div>
+                </div>
+              </div>
+            </Link>
 
-                    <div className="font-semibold text-sm my-2">Engineering and Technology</div>
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-light justify-center p-1`}>
+                      <RiBook2Fill />
                     </div>
                   </div>
-                </Link>
 
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
-                        <HiOutlineCalculator/>
-                      </div>
-                    </div>
+                  <div className="font-semibold text-sm my-2">Education and Training</div>
+                </div>
+              </div>
+            </Link>
 
-                    <div className="font-semibold text-sm my-2">Natural Sciences & Mathematics</div>
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-light justify-center p-1`}>
+                      <FiSettings />
                     </div>
                   </div>
-                </Link>
-               
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-green justify-center p-1`}>
-                        <BsHouseCheck/>
-                      </div>
-                    </div>
 
-                    <div className="font-semibold text-sm my-2">Hospitality, Lesiure and Sport</div>
+                  <div className="font-semibold text-sm my-2">Engineering and Technology</div>
+                </div>
+              </div>
+            </Link>
+
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
+                      <HiOutlineCalculator />
                     </div>
                   </div>
-                </Link>
 
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-light justify-center p-1`}>
-                        <HiUsers />
-                      </div>
-                    </div>
+                  <div className="font-semibold text-sm my-2">Natural Sciences & Mathematics</div>
+                </div>
+              </div>
+            </Link>
 
-                    <div className="font-semibold text-sm my-2">Humanities & Social Science </div>
-                    </div>
-                  </div>
-                </Link>
-
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-yellow justify-center p-1`}>
-                        <FiFilm />
-                      </div>
-                    </div>
-
-                    <div className="font-semibold text-sm my-2">Journalism, Media & Communication </div>
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-green justify-center p-1`}>
+                      <BsHouseCheck />
                     </div>
                   </div>
-                </Link>
-               
-                <Link to='/discipline'>
-                  <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
-                    <div className=" p-2 w-32 lg:w-fit ">
-                    <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                      <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
-                        <BsCloudSunFill />
-                      </div>
-                    </div>
 
-                    <div className="font-semibold text-sm my-2">Environmental Sciences</div>
+                  <div className="font-semibold text-sm my-2">Hospitality, Lesiure and Sport</div>
+                </div>
+              </div>
+            </Link>
+
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-light justify-center p-1`}>
+                      <HiUsers />
                     </div>
                   </div>
-                </Link>
-               
 
-               
+                  <div className="font-semibold text-sm my-2">Humanities & Social Science </div>
+                </div>
+              </div>
+            </Link>
+
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-yellow justify-center p-1`}>
+                      <FiFilm />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Journalism, Media & Communication </div>
+                </div>
+              </div>
+            </Link>
+
+            <Link to='/discipline'>
+              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                    <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
+                      <BsCloudSunFill />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Environmental Sciences</div>
+                </div>
+              </div>
+            </Link>
+
+
+
           </div>
         </section>
 
@@ -339,7 +342,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="my-14 md:flex items-center gap-x-6 mx-4 w-full justify-between">
+        <section className="my-14 md:flex items-center gap-x-40 mx-4 w-full justify-between xl:justify-start">
           <div className="w-60 md:w-4/12">
             <img src={hillpadBig} />
           </div>
@@ -363,40 +366,49 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
-          <div className="font-medium text-3xl mb-8 md:text-5xl lg:font-semibold lg:text-4xl">
-            Browse By <span className="text-orange">Country</span>
+        <section className="mx-4 w-full">
+          <div className="flex items-center justify-between w-full">
+            <div className="font-medium text-3xl mb-8 md:text-5xl lg:font-semibold lg:text-3xl text-left">
+              Browse By <span className="text-orange">Country</span>
+            </div>
+            <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm">
+              <div>View all</div>
+              <div>
+                <BsArrowRight />
+              </div>
+            </div>
           </div>
-          <div className="flex mx-auto justify-center flex-wrap gap-x-1">
-            
+
+          <div className="flex justify-center flex-wrap gap-x-1">
+
             <div className="shadow rounded-b-2xl w-72 mx-2">
               <div className="rounded-2xl">
                 <img src={newyork} className="rounded-t-2xl" />
               </div>
-              <div className="py-4 font-medium text-lg">NewYork</div>
+              <div className="py-4 font-bold text-base text-light_black ">NewYork</div>
             </div>
             <div className="shadow rounded-b-2xl w-72 mx-2">
               <div className="rounded-2xl">
-                <img src={newyork} className="rounded-t-2xl" />
+                <img src={belgium} className="rounded-t-2xl" />
               </div>
-              <div className="py-4 font-medium text-lg">NewYork</div>
+              <div className="py-4 font-bold text-base text-light_black ">Canada</div>
             </div>
             <div className="shadow rounded-b-2xl w-72 mx-2">
               <div className="rounded-2xl">
-                <img src={newyork} className="rounded-t-2xl" />
+                <img src={canada} className="rounded-t-2xl" />
               </div>
-              <div className="py-4 font-medium text-lg">NewYork</div>
+              <div className="py-4 font-bold text-base text-light_black ">Nigeria</div>
             </div>
             <div className="shadow rounded-b-2xl w-72 mx-2">
               <div className="rounded-2xl ">
-                <img src={newyork} className="rounded-t-2xl" />
+                <img src={uk} className="rounded-t-2xl" />
               </div>
-              <div className="py-4 font-medium text-lg">NewYork</div>
+              <div className="py-4 font-bold text-base text-light_black ">United Kingdom</div>
             </div>
           </div>
         </section>
-        <section className="mt-10 mb-96">
-          <div className="font-medium text-3xl mb-8 md:text-5xl">
+        <section className="mt-20 mb-96 mx-4 w-full">
+          <div className="font-bold text-3xl mb-8 md:text-3xl text-left">
             Reviews Across The Globe
           </div>
           <div className="flex flex-col lg:flex-row gap-8 mx-auto justify-center w-full">
@@ -558,7 +570,7 @@ export default function Home() {
       </div>
       <Footer />
 
-      </>
-      
-    );
+    </>
+
+  );
 }
