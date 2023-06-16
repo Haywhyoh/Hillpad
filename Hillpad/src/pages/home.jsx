@@ -27,7 +27,7 @@ export default function Home() {
     <>
       <Header />
 
-      <div className=" text-center mt-10  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30 lg:mt-24">
+      <div className=" text-center mt-24  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30">
         <section className="max-w-full mx-auto">
           <div className="mx-4 md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full relative 2xl:mx-0 justify-between w-full">
             <h1 className=" font-medium text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
@@ -343,7 +343,7 @@ export default function Home() {
         </section>
 
         <section className="my-14 md:flex items-center gap-x-40 mx-4 w-full justify-between xl:justify-start">
-          <div className="w-60 md:w-4/12">
+          <div className="w-60 mx-auto md:w-4/12">
             <img src={hillpadBig} />
           </div>
           <div className="md:w-6/12">
@@ -358,7 +358,7 @@ export default function Home() {
               courses from leading universities around the world and unlock the
               possibilities of your future!
             </div>
-            <div className=" float-left">
+            <div className=" lg:float-left">
               <button className="bg-orange text-white px-8 my-6 py-4 rounded-md font-bold">
                 About Us
               </button>
