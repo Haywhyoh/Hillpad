@@ -23,9 +23,23 @@ import Header from "../components/header";
 import { HiOutlineCalculator, HiOutlineDesktopComputer, HiUsers } from "react-icons/hi";
 import { RiBook2Fill } from "react-icons/ri";
 import { FiFilm, FiSettings } from "react-icons/fi";
+import { useState } from "react";
+import { degrees } from "./degree";
 export default function Home() {
   const disciplines = data.results;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const cards = [1, 2, 3, 4, 5];
 
+  const handlePrevClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? cards.length - 1 : prevIndex - 1));
+    console.log(currentIndex)
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === cards.length - 1 ? 0 : prevIndex + 1));
+    console.log(currentIndex)
+
+  };
   return (
     <>
       <Header />
@@ -369,12 +383,12 @@ export default function Home() {
           <div className="text-left text-2xl font-bold my-8 md:text-5xl md:my-10 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
           </div>
-          <div className="my-6 flex flex-wrap justify-center gap-8 mx-auto">
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
+          <div className="my-6 flex justify-center gap-8 mx-auto">
+          <button onClick={handleNextClick}>Prev</button>
 
+            {degrees.map((degree) => (<CourseCard key={degree.id} prop={degree} isHidden={degree.id === currentIndex }/>))}
+            <button onClick={handleNextClick}>Next</button>
+      
           </div>
         </section>
 

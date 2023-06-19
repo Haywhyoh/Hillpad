@@ -5,9 +5,10 @@ import { BiTimeFive } from "react-icons/bi";
 import { SlLocationPin } from "react-icons/sl";
 import { AiOutlineCalendar} from "react-icons/ai";
 
-export default function CourseCard() {
+export default function CourseCard({prop, isHidden}) {
+  console.log(prop.course.substring(0, 32) )
     return (
-        <div className="my-6 w-72 flex justify-center">
+        <div className={`my-6 w-72 justify-center ${isHidden ? 'flex' : 'hidden'}`}>
 
             <div className="shadow rounded-b-2xl relative ">
               {/* <div className="absolute w-12 text-white rounded-md p-1 text-sm top-4 left-4">
@@ -21,15 +22,15 @@ export default function CourseCard() {
                 />
               </div>
               <div className="text-left m-4">
-                <div className="font-normal text-sm text-orange">B.Eng</div>
-                <div className="font-medium pb-2">Electrical Engineering</div>
+                <div className="font-normal text-sm text-orange">{prop.type}</div>
+                <div className="font-medium pb-2">{prop.course.length > 30 ?  `${prop.course.substring(0,30) + '...'} `: prop.course  }</div>
                 <div className='flex items-center gap-x-4'>
                   <div className='w-6'>
                   <img src={logo} alt="logo" />
                   </div>
                   <div>
                 <div className="text-light_black text-sm italic opacity-70 ">
-                  Toronto  Metropolitan University
+                {prop.school.length > 30 ?  `${prop.school.substring(0,30) + '...'} `: prop.school  }
                 </div>
                 <div className="text-light_black text-sm opacity-70">
                   Toronto, Canada
