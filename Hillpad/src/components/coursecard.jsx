@@ -7,7 +7,7 @@ import { AiOutlineCalendar} from "react-icons/ai";
 
 export default function CourseCard({prop, isHidden}) {
     return (
-        <div className={`my-6 w-72 justify-center ${isHidden ? 'hidden' : 'flex'}`}>
+        <div className={`my-6 w-72 justify-center ${isHidden ? 'hidden' : 'flex translate-x-36 transform transition-all duration-300 '}`}>
 
             <div className="shadow rounded-b-2xl relative ">
               {/* <div className="absolute w-12 text-white rounded-md p-1 text-sm top-4 left-4">
