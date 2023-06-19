@@ -9,6 +9,7 @@ import data from '../data/discipline.json';
 import degreeType from '../data/degree_type.json';
 import Header from "../components/header";
 import Footer from "../components/Footer";
+import { degrees } from "./degree";
 export default function Courses() {
 
     const disciplines = data.results;
@@ -261,18 +262,8 @@ export default function Courses() {
 
 
                         <div className="flex gap-x-4 flex-wrap justify-start w-full ">
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
-                            <CourseCard />
+                {degrees.map((degree, index) => (<CourseCard key={index} prop={degree}/>))}
+
                         </div>
 
 
