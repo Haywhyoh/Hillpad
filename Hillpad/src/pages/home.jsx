@@ -1,4 +1,4 @@
-import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck } from "react-icons/bs";
+import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck, BsArrowLeft  } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineSearch, AiFillStar, AiOutlineTwitter } from "react-icons/ai";
 import { FaTractor, FaFacebookF, FaLinkedinIn, FaThermometerEmpty, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
 import bachelor from '../assets/images/bachelors.svg';
@@ -22,7 +22,7 @@ import Footer from "../components/Footer";
 import Header from "../components/header";
 import { HiOutlineCalculator, HiOutlineDesktopComputer, HiUsers } from "react-icons/hi";
 import { RiBook2Fill } from "react-icons/ri";
-import { FiFilm, FiSettings } from "react-icons/fi";
+import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useState } from "react";
 import { degrees } from "./degree";
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? degrees.length - 1 : prevIndex - 1));
-  console.log(currentIndex - index )
+    console.log(currentIndex - index)
 
   };
 
@@ -324,8 +324,8 @@ export default function Home() {
           <div className="mx-4  xl:mx-auto font-bold text-2xl mb-10 md:text-5xl lg:font-semibold lg:text-3xl text-left">
             Browse By <span className="text-orange">Programme</span>
           </div>
-          <div className="flex flex-wrap justify-center xl:gap-x-10 2xl:justify-between max-w-6xl mx-auto">
-            <div className="w-72 xl:w-84">
+          <div className="flex flex-wrap justify-center xl:gap-x-10 2xl:gap-x-0 2xl:justify-between max-w-full mx-auto ">
+            <div className="w-72 xl:w-84 2xl:w-1/3 hover:shadow-md p-8 rounded-lg">
               <div className="w-40 mx-auto">
                 <img src={bachelor} alt="bachelors_degree" />
               </div>
@@ -340,7 +340,7 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <div className="w-72 xl:w-84">
+            <div className="w-72 xl:w-84 2xl:w-1/3 hover:shadow-md p-8 rounded-lg">
               <div>
                 <div className="w-40 mx-auto">
                   <img src={masters} alt="masters_degree" />
@@ -358,7 +358,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-72 xl:w-84">
+            <div className="w-72 xl:w-84  2xl:w-1/3 hover:shadow-md p-8 rounded-lg">
               <div>
                 <div className="w-40 mx-auto">
                   <img src={doctorates} alt="doctorates_degree" />
@@ -383,18 +383,18 @@ export default function Home() {
             Featured <span className="text-orange">Courses</span>
           </div>
           <div className="flex justify-center items-center">
-          <button onClick={handleNextClick}>P</button>
-          <div className="flex justify-center overflow-hidden w-3/5">
+            <button onClick={handleNextClick}>  <FiChevronLeft /></button>
+            <div className="flex justify-center  w-full max-w-full overflow-hidden mx-auto">
 
-<div className="my-6 flex justify-center gap-x-6 ">
-  {degrees.map((degree, index) => (<CourseCard key={index} prop={degree} isHidden={index === currentIndex} />))}
+              <div className="my-6 flex justify-between gap-x-9 ">
+                {degrees.map((degree, index) => (<CourseCard key={index} prop={degree} isHidden={index === currentIndex} />))}
 
-</div>
-</div>
-<button onClick={handleNextClick}>N</button>
+              </div>
+            </div>
+            <button onClick={handleNextClick}><FiChevronRight/></button>
 
           </div>
-          
+
 
 
         </section>
@@ -403,8 +403,8 @@ export default function Home() {
           <div className="w-72 mx-auto md:w-4/12">
             <img src={hillpadBig} />
           </div>
-          <div className="md:w-6/12 mx-4  xl:mx-auto">
-            <div className=" font-semibold mx-6 mt-5 text-2xl md:text-3xl md:text-left">
+          <div className="md:w-6/12 mx-4  xl:mx-auto ">
+            <div className=" font-semibold mx-6 lg:mx-0 mt-5 text-2xl md:text-3xl md:text-left">
               Let us help you find your dream school
             </div>
             <div className="text-light_black text-center text-sm lg:text-lg md:text-left">
@@ -624,7 +624,7 @@ export default function Home() {
           </div>
         </section>
       </div>
-            <Footer />
+      <Footer />
     </>
 
   );
