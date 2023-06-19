@@ -308,7 +308,7 @@ export default function Home() {
         </section>
 
         <section className="w-full mx-4">
-          <div className="font-medium text-3xl mb-10 md:text-5xl lg:font-semibold lg:text-3xl text-left">
+          <div className="font-bold text-2xl mb-10 md:text-5xl lg:font-semibold lg:text-3xl text-left">
             Browse By <span className="text-orange">Programme</span>
           </div>
           <div className="flex flex-wrap justify-center xl:gap-x-10 2xl:justify-between max-w-6xl mx-auto">
@@ -366,7 +366,7 @@ export default function Home() {
         </section>
 
         <section className="w-full mx-4 mt-12">
-          <div className="text-left text-3xl font-medium my-8 md:text-5xl md:my-10 lg:text-3xl lg:font-semibold">
+          <div className="text-left text-2xl font-bold my-8 md:text-5xl md:my-10 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
           </div>
           <div className="my-6 flex flex-wrap justify-center gap-8 mx-auto">
@@ -378,7 +378,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="my-14 md:flex items-center lg:gap-x-40 mx-4 w-full justify-between xl:justify-start">
+        <section className="my-14 md:flex items-center lg:gap-x-40 mx-4 w-full lg:justify-between xl:justify-start">
           <div className="w-60 mx-auto md:w-4/12">
             <img src={hillpadBig} />
           </div>
