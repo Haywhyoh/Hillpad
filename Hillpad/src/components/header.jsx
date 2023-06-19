@@ -38,9 +38,11 @@ export default function Header() {
         <header className="w-screen py-4 fixed top-0 bg-white z-40">
             <nav className="max-w-full text-sm font-bold mx-auto justify-between hidden lg:flex w-full px-2 items-center gap-x-4">
                 <div>
+                    <Link to='/'>
                     <div className='w-20'>
                         <img src={logo} />
                     </div>
+                    </Link>
                 </div>
                 <div className='flex w-4/5 xl:w-8/12 gap-x-4 items-center '>
                     <div className='' onClick={togglesubMenu1}>
