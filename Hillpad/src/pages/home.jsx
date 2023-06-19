@@ -53,7 +53,7 @@ export default function Home() {
                 <form className="shadow  rounded-md md:flex text-lg justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-20">
                   <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
                     <div className="flex items-center gap-x-2">
-                      <AiOutlineSearch className="text-light_black text-xl" />
+                      <AiOutlineSearch className="text-light_black text-xl text-opacity-60" />
                       <input
                         type="text "
                         className="focus:outline-none md:w-60 "
@@ -117,9 +117,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="my-20 w-full mx-auto max-w-full">
-          <div className="flex justify-between">
-            <h2 className="font-medium text-xl md:text-5xl lg:font-bold lg:text-3xl">
+        <section className="my-20 w-full mx-4 lg:mx-auto max-w-full">
+          <div className="flex lg:justify-between">
+            <h2 className="font-bold text-2xl md:text-5xl lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
             </h2>
             <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm">
@@ -129,7 +129,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap gap-4  justify-center xl:justify-between my-6 font-medium w-full">
+          <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center xl:justify-between my-6 font-medium w-full mx-auto">
 
 
             <Link to='/discipline'>
@@ -404,7 +404,7 @@ export default function Home() {
 
         <section className="mx-4 w-full">
           <div className="flex items-center justify-between w-full">
-            <div className="font-medium text-3xl mb-8 md:text-5xl lg:font-semibold lg:text-3xl text-left">
+            <div className="font-bold text-2xl mb-8 md:text-5xl lg:font-semibold lg:text-3xl text-left">
               Browse By <span className="text-orange">Country</span>
             </div>
             <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm">
