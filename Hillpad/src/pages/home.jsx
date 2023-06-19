@@ -53,12 +53,12 @@ export default function Home() {
             <div className="mx-4 my-8 md:mx-10 -z-20 2xl:mt-16 xl:mx-0">
               <img src={hero} alt="hillpad_courses" className="" />
             </div>
-            <div className="lg:text-left lg:w-10/12 mx-4  xl:mx-auto">
-              <h1 className="font-bold text-text_black text-2xl xs:text-3xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mb-8 ">
+            <div className="lg:text-left lg:w-full xl:w-10/12 mx-4  xl:mx-auto">
+              <h1 className="font-bold text-text_black text-2xl xs:text-3xl text-center mb-6 md:text-5xl md:font-semibold md:my-16  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
               </h1>
-              <p className="text-light_black mb-6 text-lg md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-lg lg:mx-0 lg:w-full xl:text-lg 2xl:mt-2">
+              <p className="text-light_black mb-6 text-lg md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-base lg:mx-0 lg:w-full xl:text-lg 2xl:mt-2">
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
@@ -96,8 +96,8 @@ export default function Home() {
             </div>
           </div>
           <div className="">
-            <div className="hidden w-72 mx-auto md:w-full md:rounded-full bg-white  absolute bottom-64 lg:block">
-              <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-20">
+            <div className="hidden w-72 mx-auto md:w-full md:rounded-full bg-white  absolute lg:bottom-28 xl:bottom-64 lg:block">
+              <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-20">
                 <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
                   <div className="flex items-center gap-x-2">
                     <AiOutlineSearch className="text-light_black" />
