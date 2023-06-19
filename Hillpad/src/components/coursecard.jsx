@@ -48,19 +48,19 @@ export default function CourseCard() {
 
               <div className="flex gap-x-3 justify-center text-light_black text-sm border-t border-light_black border-opacity-30 py-4">
                 <div className="flex items-center gap-x-1">
-                  <div>
+                  <div className='font-bold text-xl'>
                     <AiOutlineCalendar />
                   </div>
-                  <div></div>4 years
+                  <div>4 years</div>
                 </div>
                 <div className="flex items-center gap-x-1">
-                  <div>
+                  <div className='font-bold text-xl'>
                     <BiTimeFive />
                   </div>
                   <div>Full Time</div>{" "}
                 </div>
                 <div className="flex items-center gap-x-1">
-                  <div>
+                  <div className='font-bold text-xl'>
                     <SlLocationPin />
                   </div>
                   <div>On Campus</div>{" "}
