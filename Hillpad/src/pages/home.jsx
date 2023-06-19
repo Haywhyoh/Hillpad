@@ -61,7 +61,7 @@ export default function Home() {
                       ></input>
                     </div>
                   </fieldset>
-                  <fieldset className="my-4 border-s border-opacity-40 border-light_black">
+                  <fieldset className="my-4 lg:border-s border-opacity-40 border-light_black">
                     <div></div>
                     <select className="text-left w-full p-2 text-light_black bg-white focus:outline-none lg:w-fit">
                       <option className="text-light_black text-opacity-10" value={"China"}>
