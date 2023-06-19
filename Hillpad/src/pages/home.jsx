@@ -28,16 +28,15 @@ import { degrees } from "./degree";
 export default function Home() {
   const disciplines = data.results;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const cards = [1, 2, 3, 4, 5];
 
   const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? cards.length - 1 : prevIndex - 1));
-    console.log(currentIndex)
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? degrees.length - 1 : prevIndex - 1));
+  console.log(currentIndex - index )
+
   };
 
   const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === cards.length - 1 ? 0 : prevIndex + 1));
-    console.log(currentIndex)
+    setCurrentIndex((prevIndex) => (prevIndex === degrees.length - 1 ? 0 : prevIndex + 1));
 
   };
   return (
@@ -45,8 +44,8 @@ export default function Home() {
       <Header />
 
       <div className=" text-center mt-24  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30 ">
-        <section className="mx-4 max-w-full lg:mx-auto relative">
-          <div className=" md:mx-10 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
+        <section className=" max-w-full lg:mx-auto relative">
+          <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
             {/* <h1 className=" hidden font-bold text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
               Discover <span className="text-orange"> Educational</span>{" "}
               Opportunities
@@ -96,42 +95,42 @@ export default function Home() {
               </div>
             </div>
           </div>
-        <div className="">
+          <div className="">
             <div className="hidden w-72 mx-auto md:w-full md:rounded-full bg-white  absolute bottom-64">
-                <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-20">
-                  <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
-                    <div className="flex items-center gap-x-2">
-                      <AiOutlineSearch className="text-light_black" />
-                      <input
-                        type="text "
-                        className="focus:outline-none md:w-60 "
-                        placeholder="What do you want to study?"
-                      ></input>
-                    </div>
-                  </fieldset>
-                  <fieldset className="my-4 border-s border-opacity-40 border-light_black">
-                    <div></div>
-                    <select className="text-left w-full p-2 text-light_black bg-white focus:outline-none lg:w-fit">
-                      <option className="text-light_black text-opacity-10" value={"China"}>
-                        Where ?
-                      </option>
-                      <option className="text-text_black" value={"Belgium"}>
-                        Belgium
-                      </option>
-                      <option className="text-text_black" value={"Canada"}>
-                        Canada
-                      </option>
-                    </select>
-                  </fieldset>
-                  <button className="w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
-                    Search
-                  </button>
-                </form>
-              </div>
+              <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-20">
+                <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
+                  <div className="flex items-center gap-x-2">
+                    <AiOutlineSearch className="text-light_black" />
+                    <input
+                      type="text "
+                      className="focus:outline-none md:w-60 "
+                      placeholder="What do you want to study?"
+                    ></input>
+                  </div>
+                </fieldset>
+                <fieldset className="my-4 border-s border-opacity-40 border-light_black">
+                  <div></div>
+                  <select className="text-left w-full p-2 text-light_black bg-white focus:outline-none lg:w-fit">
+                    <option className="text-light_black text-opacity-10" value={"China"}>
+                      Where ?
+                    </option>
+                    <option className="text-text_black" value={"Belgium"}>
+                      Belgium
+                    </option>
+                    <option className="text-text_black" value={"Canada"}>
+                      Canada
+                    </option>
+                  </select>
+                </fieldset>
+                <button className="w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
+                  Search
+                </button>
+              </form>
+            </div>
           </div>
         </section>
 
-        <section className="my-20 w-full mx-4 lg:mx-auto max-w-full">
+        <section className="my-20 w-full  lg:mx-auto max-w-full">
           <div className="flex lg:justify-between">
             <h2 className="font-bold text-2xl md:text-5xl lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
@@ -143,7 +142,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center xl:justify-between my-6 font-medium w-full mx-auto">
+          <div className="flex flex-wrap gap-x-8 gap-y-8 justify-center xl:justify-between my-6 font-medium w-full mx-auto">
 
 
             <Link to='/discipline'>
@@ -321,7 +320,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full mx-4">
+        <section className="w-full ">
           <div className="font-bold text-2xl mb-10 md:text-5xl lg:font-semibold lg:text-3xl text-left">
             Browse By <span className="text-orange">Programme</span>
           </div>
@@ -379,20 +378,28 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full mx-4 mt-12">
+        <section className="w-full  mt-12">
           <div className="text-left text-2xl font-bold my-8 md:text-5xl md:my-10 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
           </div>
-          <div className="my-6 flex justify-center gap-8 mx-auto">
-          <button onClick={handleNextClick}>Prev</button>
+          <div className="flex justify-center items-center">
+          <button onClick={handleNextClick}>P</button>
+          <div className="flex justify-center overflow-hidden w-3/5">
 
-            {degrees.map((degree) => (<CourseCard key={degree.id} prop={degree} isHidden={degree.id === currentIndex }/>))}
-            <button onClick={handleNextClick}>Next</button>
-      
+<div className="my-6 flex justify-center gap-x-6 ">
+  {degrees.map((degree, index) => (<CourseCard key={index} prop={degree} isHidden={index === currentIndex} />))}
+
+</div>
+</div>
+<button onClick={handleNextClick}>N</button>
+
           </div>
+          
+
+
         </section>
 
-        <section className="my-14 md:flex items-center lg:gap-x-40 mx-4 w-full lg:justify-between xl:justify-start">
+        <section className="my-14 md:flex items-center lg:gap-x-40  w-full lg:justify-between xl:justify-start">
           <div className="w-72 mx-auto md:w-4/12">
             <img src={hillpadBig} />
           </div>
@@ -415,7 +422,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-4 w-full">
+        <section className=" w-full">
           <div className="flex items-center justify-between w-full">
             <div className="font-bold text-2xl mb-8 md:text-5xl lg:font-semibold lg:text-3xl text-left">
               Browse By <span className="text-orange">Country</span>
@@ -456,7 +463,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="mt-20 mb-96 mx-4 w-full">
+        <section className="mt-20 mb-96  w-full">
           <div className="font-bold text-3xl mb-8 md:text-3xl text-left">
             Reviews Across The Globe
           </div>
