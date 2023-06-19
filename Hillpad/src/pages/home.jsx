@@ -50,10 +50,10 @@ export default function Home() {
               Discover <span className="text-orange"> Educational</span>{" "}
               Opportunities
             </h1> */}
-            <div className="my-8 md:mx-10 -z-20 2xl:mt-16 xl:mx-0">
+            <div className="mx-4 my-8 md:mx-10 -z-20 2xl:mt-16 xl:mx-0">
               <img src={hero} alt="hillpad_courses" className="" />
             </div>
-            <div className="lg:text-left lg:w-10/12 ">
+            <div className="lg:text-left lg:w-10/12 mx-4">
               <h1 className="font-bold text-text_black text-2xl xs:text-3xl text-center mb-6 md:text-5xl md:font-semibold md:my-16 lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
@@ -62,7 +62,7 @@ export default function Home() {
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
-              <div className=" w-full lg:w-72 mx-auto md:w-full md:rounded-full bg-white lg:hidden">
+              <div className="  lg:w-72  md:w-full md:rounded-full bg-white lg:hidden">
                 <form className="shadow  rounded-md md:flex text-lg justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-20">
                   <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
                     <div className="flex items-center gap-x-2">
@@ -131,7 +131,7 @@ export default function Home() {
         </section>
 
         <section className="my-20 w-full  lg:mx-auto max-w-full">
-          <div className="flex lg:justify-between">
+          <div className="flex lg:justify-between mx-4">
             <h2 className="font-bold text-2xl md:text-5xl lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
             </h2>
@@ -321,7 +321,7 @@ export default function Home() {
         </section>
 
         <section className="w-full ">
-          <div className="font-bold text-2xl mb-10 md:text-5xl lg:font-semibold lg:text-3xl text-left">
+          <div className="mx-4 font-bold text-2xl mb-10 md:text-5xl lg:font-semibold lg:text-3xl text-left">
             Browse By <span className="text-orange">Programme</span>
           </div>
           <div className="flex flex-wrap justify-center xl:gap-x-10 2xl:justify-between max-w-6xl mx-auto">
@@ -329,7 +329,7 @@ export default function Home() {
               <div className="w-40 mx-auto">
                 <img src={bachelor} alt="bachelors_degree" />
               </div>
-              <div className="font-bold text-2xl">Bachelor's Programme</div>
+              <div className="font-bold text-xl text-center mt-6 mx-8">Bachelor's Programme</div>
               <div className="text-sm text-light_black p-6">
                 Choose from more than 1000 Bachelor's programmes at
                 universities, colleges, and school worldwide
@@ -345,7 +345,7 @@ export default function Home() {
                 <div className="w-40 mx-auto">
                   <img src={masters} alt="masters_degree" />
                 </div>
-                <div className="font-bold text-2xl">Master's Programme</div>
+                <div className="font-bold text-xl text-center mt-6 mx-8">Master's Programme</div>
                 <div className="text-sm text-light_black p-6">
                   Choose from more than 1000 Bachelor's programmes at
                   universities, colleges, and school worldwide
@@ -363,7 +363,7 @@ export default function Home() {
                 <div className="w-40 mx-auto">
                   <img src={doctorates} alt="doctorates_degree" />
                 </div>
-                <div className="font-bold text-2xl">PhD & Doctorate Studies</div>
+                <div className="font-bold text-xl text-center mt-6 mx-8">PhD & Doctorate Studies</div>
                 <div className="text-sm text-light_black p-6">
                   Choose from more than 1000 Bachelor's programmes at
                   universities, colleges, and school worldwide
@@ -379,7 +379,7 @@ export default function Home() {
         </section>
 
         <section className="w-full  mt-12">
-          <div className="text-left text-2xl font-bold my-8 md:text-5xl md:my-10 lg:text-3xl lg:font-semibold">
+          <div className="mx-4 text-left text-2xl font-bold my-8 md:text-5xl md:my-10 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
           </div>
           <div className="flex justify-center items-center">
@@ -403,7 +403,7 @@ export default function Home() {
           <div className="w-72 mx-auto md:w-4/12">
             <img src={hillpadBig} />
           </div>
-          <div className="md:w-6/12">
+          <div className="md:w-6/12 mx-4">
             <div className=" font-semibold mx-6 mt-5 text-2xl md:text-3xl md:text-left">
               Let us help you find your dream school
             </div>
@@ -423,7 +423,7 @@ export default function Home() {
         </section>
 
         <section className=" w-full">
-          <div className="flex items-center justify-between w-full">
+          <div className="flex items-center justify-between mx-4">
             <div className="font-bold text-2xl mb-8 md:text-5xl lg:font-semibold lg:text-3xl text-left">
               Browse By <span className="text-orange">Country</span>
             </div>
@@ -464,7 +464,7 @@ export default function Home() {
           </div>
         </section>
         <section className="mt-20 mb-96  w-full">
-          <div className="font-bold text-3xl mb-8 md:text-3xl text-left">
+          <div className="font-bold text-3xl mb-8 md:text-3xl text-left mx-4">
             Reviews Across The Globe
           </div>
           <div className="flex flex-col lg:flex-row gap-8 mx-auto justify-center w-full">
@@ -624,7 +624,7 @@ export default function Home() {
           </div>
         </section>
       </div>
-
+            <Footer />
     </>
 
   );

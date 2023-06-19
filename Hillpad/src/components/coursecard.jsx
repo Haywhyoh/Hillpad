@@ -6,9 +6,8 @@ import { SlLocationPin } from "react-icons/sl";
 import { AiOutlineCalendar} from "react-icons/ai";
 
 export default function CourseCard({prop, isHidden}) {
-  console.log(prop.course.substring(0, 32) )
     return (
-        <div className={`my-6 w-72 justify-center ${isHidden ? 'flex' : 'hidden'}`}>
+        <div className={`my-6 w-72 justify-center ${isHidden ? 'hidden' : 'flex'}`}>
 
             <div className="shadow rounded-b-2xl relative ">
               {/* <div className="absolute w-12 text-white rounded-md p-1 text-sm top-4 left-4">
