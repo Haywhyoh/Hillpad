@@ -379,14 +379,13 @@ export default function Home() {
         </section>
 
         <section className="my-14 md:flex items-center lg:gap-x-40 mx-4 w-full lg:justify-between xl:justify-start">
-          <div className="w-60 mx-auto md:w-4/12">
+          <div className="w-72 mx-auto md:w-4/12">
             <img src={hillpadBig} />
           </div>
           <div className="md:w-6/12">
-            <div className=" font-semibold mt-5 text-2xl md:text-3xl md:text-left">
+            <div className=" font-semibold mx-6 mt-5 text-2xl md:text-3xl md:text-left">
               Let us help you find your dream school
             </div>
-            -{" "}
             <div className="text-light_black text-center text-sm lg:text-lg md:text-left">
               We provide an online platform designed to make finding and
               applying for undergraduate and postgraduate courses easy and
