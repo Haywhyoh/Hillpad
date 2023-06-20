@@ -58,12 +58,12 @@ export default function Home() {
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
               </h1>
-              <p className="text-light_black mb-6 text-lg md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-base lg:mx-0 lg:w-full xl:text-lg 2xl:mt-0 2xl:mb-16">
+              <p className="text-light_black mb-6 text-lg md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-base lg:mx-0 lg:w-full xl:text-lg 2xl:mt-0 2xl:mb-12">
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
               <div className="  lg:w-72  md:w-full md:rounded-full bg-white lg:hidden">
-                <form className="shadow  rounded-md md:flex text-lg justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-20">
+                <form className="shadow  rounded-md md:flex text-lg justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-0">
                   <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
                     <div className="flex items-center gap-x-2">
                       <AiOutlineSearch className="text-light_black text-xl text-opacity-60" />
@@ -135,12 +135,15 @@ export default function Home() {
             <h2 className="font-bold text-2xl md:text-5xl lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
             </h2>
+            <Link to='/'>
             <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm">
               <div>View all</div>
               <div>
                 <BsArrowRight />
               </div>
             </div>
+            </Link>
+            
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-8 justify-center xl:justify-between my-6 font-medium w-full mx-auto">
 
