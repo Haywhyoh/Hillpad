@@ -1,4 +1,4 @@
-import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck, BsArrowLeft  } from "react-icons/bs";
+import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck, BsArrowLeft } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineSearch, AiFillStar, AiOutlineTwitter } from "react-icons/ai";
 import { FaTractor, FaFacebookF, FaLinkedinIn, FaThermometerEmpty, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
 import bachelor from '../assets/images/bachelors.svg';
@@ -28,6 +28,34 @@ import { degrees } from "./degree";
 export default function Home() {
   const disciplines = data.results;
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isHovering2, setIsHovering2] = useState(false);
+  const [isHovering3, setIsHovering3] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+    
+  };
+
+  const handleMouseOver2 = () => {
+    setIsHovering2(true);
+    
+  };
+
+  const handleMouseOver3 = () => {
+    setIsHovering3(true);
+    
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+  const handleMouseOut2 = () => {
+    setIsHovering2(false);
+  };
+  const handleMouseOut3 = () => {
+    setIsHovering3(false);
+  };
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? degrees.length - 1 : prevIndex - 1));
@@ -136,14 +164,14 @@ export default function Home() {
               Browse by <span className="text-orange">Discipline</span>
             </h2>
             <Link to='/'>
-            <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm">
-              <div>View all</div>
-              <div>
-                <BsArrowRight />
+              <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm">
+                <div>View all</div>
+                <div>
+                  <BsArrowRight />
+                </div>
               </div>
-            </div>
             </Link>
-            
+
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-8 justify-center xl:justify-between my-6 font-medium w-full mx-auto">
 
@@ -324,50 +352,112 @@ export default function Home() {
         </section>
 
         <section className="w-full ">
-          <div className="mx-4  xl:mx-auto font-bold text-2xl mb-10 md:text-5xl lg:font-semibold lg:text-3xl text-left">
+          <div className="mx-4  xl:mx-auto font-bold text-2xl mb-10 md:text-5xl lg:font-semibold lg:text-3xl text-left " >
             Browse By <span className="text-orange">Programme</span>
           </div>
-          <div className="flex flex-wrap justify-center xl:gap-x-10 2xl:gap-x-0 2xl:justify-between max-w-full mx-auto ">
-            <div className="w-72 xl:w-84 sm:w-1/3 hover:shadow-md p-8 rounded-lg">
-              <div className="w-40 mx-auto">
-                <img src={bachelor} alt="bachelors_degree" />
+          <div className="flex flex-wrap justify-center xl:gap-x-10 2xl:gap-x-0 2xl:justify-between max-w-full mx-auto " >
+            <div className="w-72 xl:w-84  2xl:w-1/3  py-8 px-4 " onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}>
+            {
+              isHovering ? <div className="shadow-md rounded-lg   transition-all duration-700">
+                <div className="sm:w-full " >
+                  <div className="w-40 mx-auto">
+                    <img src={bachelor} alt="bachelors_degree" />
+                  </div>
+                  <div className="font-bold text-xl text-center mt-6 mx-8">Bachelor's Programme</div>
+                  <div className="text-sm text-light_black sm:p-2 lg:p-6 my-6">
+                    Choose from more than 1000 Bachelor's programmes at
+                    universities, colleges, and school worldwide
+                  </div>
+                  <div>
+                    <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
+                      Search Bachelors
+                    </button>
+                  </div>
+                </div>
+
+              </div> : <div className="   transition-all duration-700">
+                <div className="sm:w-full">
+                  <div className="w-40 mx-auto">
+                    <img src={bachelor} alt="bachelors_degree" />
+                  </div>
+                  <div className="font-bold text-xl text-center mt-6 mx-8">Bachelor's Programme</div>
+                  <div className="text-sm text-light_black sm:p-2 lg:p-6 my-6">
+                    Choose from more than 1000 Bachelor's programmes at
+                    universities, colleges, and school worldwide
+                  </div>
+                  <div>
+                  <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white">                      Search Bachelors
+                    </button>
+                  </div>
+                </div>
+
               </div>
-              <div className="font-bold text-xl text-center mt-6 mx-8">Bachelor's Programme</div>
-              <div className="text-sm text-light_black p-6 w-full">
-                Choose from more than 1000 Bachelor's programmes at
+            }
+            </div>
+            
+
+            <div className="w-72 xl:w-84  2xl:w-1/3  py-8 px-4 "  onMouseOver={handleMouseOver2}
+          onMouseOut={handleMouseOut2}>
+            {
+              isHovering2 ? <div className="shadow-md rounded-lg   transition-all duration-700"> <div className="sm:w-full">
+              <div className="w-40 mx-auto">
+                <img src={masters} alt="masters_degree" />
+              </div>
+              <div className="font-bold text-xl text-center mt-6 lg:mx-8">Master's Programme</div>
+              <div className="text-sm text-light_black sm:p-2 lg:p-6 my-6">
+                Choose from more than 1000 Master's programmes at
                 universities, colleges, and school worldwide
               </div>
               <div>
-                <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange hover:bg-orange hover:text-white">
-                  Search Bachelors
+              <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
+                  Search Masters
                 </button>
               </div>
             </div>
-            <div className="w-72 xl:w-84 2xl:w-1/3 hover:shadow-md p-8 rounded-lg">
-              <div className="sm:w-full">
+            </div>
+               :  <div className="sm:w-full">
+               <div className="w-40 mx-auto">
+                 <img src={masters} alt="masters_degree" />
+               </div>
+               <div className="font-bold text-xl text-center mt-6 lg:mx-8">Master's Programme</div>
+               <div className="text-sm text-light_black sm:p-2 lg:p-6 my-6">
+                 Choose from more than 1000 Master's programmes at
+                 universities, colleges, and school worldwide
+               </div>
+               <div>
+               <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange mb-8 "> 
+                   Search Masters
+                 </button>
+               </div>
+             </div>
+            }
+              
+            </div>
+
+            <div className="w-72 xl:w-84  2xl:w-1/3 py-8 px-2 " onMouseOver={handleMouseOver3}
+          onMouseOut={handleMouseOut3}>
+              {
+              isHovering3 ? <div className="shadow-md rounded-lg   transition-all duration-700"> <div className="sm:w-full">
                 <div className="w-40 mx-auto">
-                  <img src={masters} alt="masters_degree" />
+                  <img src={doctorates} alt="doctorates_degree" />
                 </div>
-                <div className="font-bold text-xl text-center mt-6 lg:mx-8">Master's Programme</div>
+                <div className="font-bold text-xl text-center mt-6 mx-8">PhD & Doctorate Studies</div>
                 <div className="text-sm text-light_black sm:p-2 lg:p-6 my-6">
                   Choose from more than 1000 Bachelor's programmes at
                   universities, colleges, and school worldwide
                 </div>
                 <div>
-                  <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange">
-                    Search Masters
+                <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
+                    Search PhDs
                   </button>
                 </div>
-              </div>
-            </div>
-
-            <div className="w-72 xl:w-84  2xl:w-1/3 hover:shadow-md p-8 rounded-lg">
-              <div>
-                <div className="w-40 mx-auto">
+              </div></div>
+               : <div className="sm:w-full"><div className="w-40 mx-auto">
                   <img src={doctorates} alt="doctorates_degree" />
                 </div>
                 <div className="font-bold text-xl text-center mt-6 mx-8">PhD & Doctorate Studies</div>
-                <div className="text-sm text-light_black p-6">
+                <div className="text-sm text-light_black sm:p-2 lg:p-6 my-6">
                   Choose from more than 1000 Bachelor's programmes at
                   universities, colleges, and school worldwide
                 </div>
@@ -377,6 +467,9 @@ export default function Home() {
                   </button>
                 </div>
               </div>
+              
+          }
+                
             </div>
           </div>
         </section>
@@ -394,7 +487,7 @@ export default function Home() {
 
               </div>
             </div>
-            <button onClick={handleNextClick}><FiChevronRight/></button>
+            <button onClick={handleNextClick}><FiChevronRight /></button>
 
           </div>
 
