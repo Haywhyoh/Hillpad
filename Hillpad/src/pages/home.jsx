@@ -54,11 +54,11 @@ export default function Home() {
               <img src={hero} alt="hillpad_courses" className="" />
             </div>
             <div className="lg:text-left lg:w-full xl:w-10/12 mx-4  xl:mx-auto">
-              <h1 className="font-bold text-text_black text-2xl xs:text-3xl text-center mb-6 md:text-5xl md:font-semibold md:my-16  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mb-8 ">
+              <h1 className="font-bold text-text_black text-2xl xs:text-3xl text-center mb-6 md:text-5xl md:font-semibold md:my-16  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mt-0 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
               </h1>
-              <p className="text-light_black mb-6 text-lg md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-base lg:mx-0 lg:w-full xl:text-lg 2xl:mt-2">
+              <p className="text-light_black mb-6 text-lg md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-base lg:mx-0 lg:w-full xl:text-lg 2xl:mt-0 2xl:mb-16">
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
@@ -325,12 +325,12 @@ export default function Home() {
             Browse By <span className="text-orange">Programme</span>
           </div>
           <div className="flex flex-wrap justify-center xl:gap-x-10 2xl:gap-x-0 2xl:justify-between max-w-full mx-auto ">
-            <div className="w-72 xl:w-84 2xl:w-1/3 hover:shadow-md p-8 rounded-lg">
+            <div className="w-72 xl:w-84 sm:w-1/3 hover:shadow-md p-8 rounded-lg">
               <div className="w-40 mx-auto">
                 <img src={bachelor} alt="bachelors_degree" />
               </div>
               <div className="font-bold text-xl text-center mt-6 mx-8">Bachelor's Programme</div>
-              <div className="text-sm text-light_black p-6">
+              <div className="text-sm text-light_black p-6 w-full">
                 Choose from more than 1000 Bachelor's programmes at
                 universities, colleges, and school worldwide
               </div>
@@ -341,12 +341,12 @@ export default function Home() {
               </div>
             </div>
             <div className="w-72 xl:w-84 2xl:w-1/3 hover:shadow-md p-8 rounded-lg">
-              <div>
+              <div className="sm:w-full">
                 <div className="w-40 mx-auto">
                   <img src={masters} alt="masters_degree" />
                 </div>
-                <div className="font-bold text-xl text-center mt-6 mx-8">Master's Programme</div>
-                <div className="text-sm text-light_black p-6">
+                <div className="font-bold text-xl text-center mt-6 lg:mx-8">Master's Programme</div>
+                <div className="text-sm text-light_black sm:p-2 lg:p-6 my-6">
                   Choose from more than 1000 Bachelor's programmes at
                   universities, colleges, and school worldwide
                 </div>
