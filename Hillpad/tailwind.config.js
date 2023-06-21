@@ -24,6 +24,8 @@ export default {
       'yellow': '#fdbc31',
       'grey': 'rgba(67, 89, 113)',
       'navy_blue': '#1F1B2D',
+      'blue': '#3B5998',
+      'red': '#FF0000',
       
     },
     container: {
