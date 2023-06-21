@@ -5,9 +5,6 @@ import bachelor from '../assets/images/bachelors.svg';
 import masters from '../assets/images/masters.svg';
 import doctorates from '../assets/images/doctorates.svg';
 import hero from '../assets/images/hero-img.jpeg'
-import hero2 from '../assets/images/hero2.jpeg'
-import hero3 from '../assets/images/hero3.jpeg'
-import hero4 from '../assets/images/hero4.jpeg'
 import hillpadBig from '../assets/images/hillpad-transparent.png';
 import newyork from '../assets/images/new-york.jpeg';
 import canada from '../assets/images/san-diego.jpeg';
@@ -480,10 +477,10 @@ export default function Home() {
             Featured <span className="text-orange">Courses</span>
           </div>
           <div className="flex items-center">
-            <button onClick={handlePrevClick} className="p-2 shadow rounded-full"> <FiChevronLeft /></button>
+            <button onClick={handlePrevClick} className="p-2 shadow rounded-full overflow-hidden"> <FiChevronLeft /></button>
             <div className=" max-w-full ">
             {/* style={{ transform : 'translateX(-0)'}}  */}
-              <div className="w-full my-6 flex gap-x-8  justify-start overflow-hidden" >
+              <div className="w-full my-6 flex gap-x-8  justify-start overflow-hidden flex-wrap xl:flex-nowrap" >
                 {degrees.map((degree, index) => (<CourseCard key={index} prop={degree} isActive={index === currentIndex} />))}
 
               </div>
