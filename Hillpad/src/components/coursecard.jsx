@@ -4,10 +4,10 @@ import { HiOutlineCash } from "react-icons/hi";
 import { BiTimeFive } from "react-icons/bi";
 import { SlLocationPin } from "react-icons/sl";
 import { AiOutlineCalendar} from "react-icons/ai";
-
-export default function CourseCard({prop, isHidden}) {
+import '../components/coursecard.css';
+export default function CourseCard({prop, isActive}) {
     return (
-        <div className={`my-6 w-72 justify-center ${isHidden ? 'hidden' : 'flex translate-x-36 transform transition-all duration-300 '}`}>
+        <div  className={`flex my-6 w-72 justify-center ${isActive ? ' ': '  '}`} >
 
             <div className="shadow rounded-b-2xl relative ">
               {/* <div className="absolute w-12 text-white rounded-md p-1 text-sm top-4 left-4">
@@ -22,7 +22,7 @@ export default function CourseCard({prop, isHidden}) {
               </div>
               <div className="text-left m-4">
                 <div className="font-normal text-sm text-orange">{prop.type}</div>
-                <div className="font-medium pb-2">{prop.course.length > 30 ?  `${prop.course.substring(0,30) + '...'} `: prop.course  }</div>
+                <div className="font-bold pb-2">{prop.course.length > 20 ?  `${prop.course.substring(0,30) + '...'} `: prop.course  }</div>
                 <div className='flex items-center gap-x-4'>
                   <div className='w-6'>
                   <img src={logo} alt="logo" />

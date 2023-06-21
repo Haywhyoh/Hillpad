@@ -59,12 +59,13 @@ export default function Home() {
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? degrees.length - 1 : prevIndex - 1));
-    console.log(currentIndex - index)
+    console.log(currentIndex)
 
   };
 
   const handleNextClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex === degrees.length - 1 ? 0 : prevIndex + 1));
+    console.log(currentIndex)
 
   };
   return (
@@ -360,7 +361,7 @@ export default function Home() {
           onMouseOut={handleMouseOut}>
             {
               isHovering ? <div className="shadow-md rounded-lg   transition-all duration-700">
-                <div className="sm:w-full " >
+                <div className=" " >
                   <div className="w-40 mx-auto">
                     <img src={bachelor} alt="bachelors_degree" />
                   </div>
@@ -377,7 +378,7 @@ export default function Home() {
                 </div>
 
               </div> : <div className="   transition-all duration-700">
-                <div className="sm:w-full">
+                <div className="">
                   <div className="w-40 mx-auto">
                     <img src={bachelor} alt="bachelors_degree" />
                   </div>
@@ -400,7 +401,7 @@ export default function Home() {
             <div className="w-72 xl:w-84  2xl:w-1/3  py-8 px-4 "  onMouseOver={handleMouseOver2}
           onMouseOut={handleMouseOut2}>
             {
-              isHovering2 ? <div className="shadow-md rounded-lg   transition-all duration-700"> <div className="sm:w-full">
+              isHovering2 ? <div className="shadow-md rounded-lg   transition-all duration-300"> <div className="">
               <div className="w-40 mx-auto">
                 <img src={masters} alt="masters_degree" />
               </div>
@@ -416,7 +417,7 @@ export default function Home() {
               </div>
             </div>
             </div>
-               :  <div className="sm:w-full">
+               :  <div className="">
                <div className="w-40 mx-auto">
                  <img src={masters} alt="masters_degree" />
                </div>
@@ -474,27 +475,26 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full  mt-12">
+        <section className="  mt-12">
           <div className="mx-4  xl:mx-auto text-left text-2xl font-bold my-8 md:text-5xl md:my-10 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
           </div>
-          <div className="flex justify-center items-center">
-            <button onClick={handleNextClick}>  <FiChevronLeft /></button>
-            <div className="flex justify-center  w-full max-w-full overflow-hidden mx-auto">
-
-              <div className="my-6 flex justify-between gap-x-9 ">
-                {degrees.map((degree, index) => (<CourseCard key={index} prop={degree} isHidden={index === currentIndex} />))}
+          <div className="flex items-center">
+            <button onClick={handlePrevClick} className="p-2 shadow rounded-full"> <FiChevronLeft /></button>
+            <div className=" max-w-full ">
+            {/* style={{ transform : 'translateX(-0)'}}  */}
+              <div className="w-full my-6 flex gap-x-8  justify-start overflow-hidden" >
+                {degrees.map((degree, index) => (<CourseCard key={index} prop={degree} isActive={index === currentIndex} />))}
 
               </div>
+             
             </div>
             <button onClick={handleNextClick}><FiChevronRight /></button>
-
           </div>
 
 
 
         </section>
-
         <section className="my-14 md:flex items-center lg:gap-x-40  w-full lg:justify-between xl:justify-start">
           <div className="w-72 mx-auto md:w-4/12">
             <img src={hillpadBig} />

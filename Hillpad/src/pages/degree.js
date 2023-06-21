@@ -27,18 +27,18 @@ export const degrees = [
         school:"Harvard University",
 
     },
-    {
-        id:4,
-        type:"B.Tech",
-        course:"Electronics and Communication Engineering",
-        school:"Madmensis Austra University",
+    // {
+    //     id:4,
+    //     type:"B.Tech",
+    //     course:"Electronics and Communication Engineering",
+    //     school:"Madmensis Austra University",
 
-    },
-    {
-        id:5,
-        type:"B.Ed",
-        course:"English Education",
-        school:"African University",
+    // },
+    // {
+    //     id:5,
+    //     type:"B.Ed",
+    //     course:"English Education",
+    //     school:"African University",
 
-    }
+    // }
 ]
