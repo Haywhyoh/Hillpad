@@ -10,6 +10,7 @@ import SearchBar from './search';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Login from './login';
+import { IoCloseOutline } from 'react-icons/io5';
 
 export default function Header() {
     const [modal, setModal] = useState(false);
@@ -178,9 +179,9 @@ export default function Header() {
 
             {
                 modal && (<div className="modal " > <div onClick={toggleModal}
-                    className="overlay" ></div> <div className="modal-content xl:w-3/4 bg-white" >
+                    className="overlay" ></div> <div className="modal-content xl:w-fit bg-white" >
                         <Login />
-                        <button className="close-modal" onClick={toggleModal}> X </button> </div> </div>
+                        <button className="close-modal text-2xl" onClick={toggleModal}> <IoCloseOutline /> </button> </div> </div>
                 )
 
             }

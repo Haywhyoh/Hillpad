@@ -19,7 +19,7 @@ const FormInput = (props) => {
           inputProps.name === "confirmPassword" && setFocused(true)
         }
         focused={focused.toString()}
-        className="p-3 w-full border border-light_black border-opacity-40 rounded-md outline-none mt-2"
+        className="p-2 text-sm w-full border border-light_black border-opacity-40 rounded-md outline-none mt-2"
       /> <br />
       <span className="text-sm text-light hidden">{errorMessage}</span>
     </div>
