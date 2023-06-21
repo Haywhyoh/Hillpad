@@ -57,14 +57,12 @@ export default function Home() {
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? degrees.length - 1 : prevIndex - 1));
-    console.log(currentIndex)
-
+    console.log(currentIndex);
   };
 
   const handleNextClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex === degrees.length - 1 ? 0 : prevIndex + 1));
-    console.log(currentIndex)
-
+    console.log(currentIndex);
   };
   return (
     <>
@@ -477,16 +475,16 @@ export default function Home() {
             Featured <span className="text-orange">Courses</span>
           </div>
           <div className="flex items-center">
-            <button onClick={handlePrevClick} className="p-2 shadow rounded-full overflow-hidden"> <FiChevronLeft /></button>
-            <div className=" max-w-full ">
+            <button onClick={handleNextClick } className="p-2 shadow rounded-full overflow-hidden"> <FiChevronLeft /></button>
+            <div className="overflow-hidden ">
             {/* style={{ transform : 'translateX(-0)'}}  */}
-              <div className="w-full my-6 flex gap-x-8  justify-start overflow-hidden flex-wrap xl:flex-nowrap" >
-                {degrees.map((degree, index) => (<CourseCard key={index} prop={degree} isActive={index === currentIndex} />))}
+              <div className="w-full my-2 flex gap-x-8  justify-start transition-all transform duration-300" style={{ transform : `translateX(${-20 * currentIndex}rem)`}} >
+                {degrees.map((degree, index) => ( <div className=""><CourseCard key={index} prop={degree} isActive={index === currentIndex} /></div> ))}
 
               </div>
              
             </div>
-            <button onClick={handleNextClick}><FiChevronRight /></button>
+            <button onClick={handlePrevClick}><FiChevronRight /></button>
           </div>
 
 

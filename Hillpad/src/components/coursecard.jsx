@@ -8,11 +8,8 @@ import '../components/coursecard.css';
 export default function CourseCard({prop, isActive}) {
     return (
         <div  className={`flex my-6 w-72 justify-center ${isActive ? ' ': '  '}`} >
-
-            <div className="shadow rounded-b-2xl relative ">
-              {/* <div className="absolute w-12 text-white rounded-md p-1 text-sm top-4 left-4">
-                <img src={logo} alt="logo" />
-              </div> */}
+            <div className="shadow rounded-b-2xl  ">
+              
               <div className=" rounded-xl">
                 <img
                   className=" rounded-t-2xl"
