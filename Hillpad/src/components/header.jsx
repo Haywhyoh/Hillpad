@@ -8,8 +8,24 @@ import { BiWorld, BiBriefcase } from 'react-icons/bi';
 import { AiOutlineSearch } from 'react-icons/ai';
 import SearchBar from './search';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Login from './login';
 
 export default function Header() {
+    const [modal, setModal] = useState(false);
+
+    const toggleModal = () => {
+        setModal(!modal);
+    };
+
+    if (modal) {
+        document.body.classList.add('active-modal')
+    }
+
+    else {
+        document.body.classList.remove('active-modal')
+    }
+
     function toggleHeader() {
         const base = document.querySelector('#headerNav')
         base.classList.toggle('hidden')
@@ -39,9 +55,9 @@ export default function Header() {
             <nav className="max-w-full text-sm font-bold mx-auto justify-between hidden lg:flex w-full px-2 items-center gap-x-4">
                 <div>
                     <Link to='/'>
-                    <div className='w-20'>
-                        <img src={logo} />
-                    </div>
+                        <div className='w-20'>
+                            <img src={logo} />
+                        </div>
                     </Link>
                 </div>
                 <div className='flex w-4/5 xl:w-8/12 gap-x-4 items-center '>
@@ -108,7 +124,7 @@ export default function Header() {
                     </div>
                 </div>
                 <div className='flex gap-x-3 w-52 justify-between'>
-                    <div className='text-orange flex items-center gap-x-2'><div><LuUser /></div><div>Sign in</div></div>
+                    <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>Sign in</div></button>
                     <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-xl'><SiMinutemailer /></div> <div>Explore</div></button></Link>
                 </div>
 
@@ -160,6 +176,14 @@ export default function Header() {
                 </div>
             </nav>
 
+            {
+                modal && (<div className="modal " > <div onClick={toggleModal}
+                    className="overlay" ></div> <div className="modal-content xl:w-3/4 bg-white" >
+                        <Login />
+                        <button className="close-modal" onClick={toggleModal}> X </button> </div> </div>
+                )
+
+            }
 
         </header>
     )
