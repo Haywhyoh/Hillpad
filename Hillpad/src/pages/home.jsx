@@ -25,6 +25,7 @@ import { RiBook2Fill } from "react-icons/ri";
 import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useState } from "react";
 import { degrees } from "./degree";
+import Modal from "../components/modal";
 export default function Home() {
   const disciplines = data.results;
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,7 +72,6 @@ export default function Home() {
   return (
     <>
       <Header />
-
       <div className=" text-center mt-24  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30 ">
         <section className=" max-w-full lg:mx-auto relative">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
