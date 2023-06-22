@@ -6,7 +6,7 @@ import { SiMinutemailer } from 'react-icons/si';
 import { RiArrowDropDownLine, RiArrowRightSLine } from 'react-icons/ri';
 import { BiWorld, BiBriefcase } from 'react-icons/bi';
 import { AiOutlineSearch } from 'react-icons/ai';
-import SearchBar from './search';
+import SearchBar from './test';   
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Login from './login';
@@ -14,7 +14,6 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 
 export default function Header() {
-    const firstName = useSelector(state => state.user.firstName)
     const [modal, setModal] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const [isHovering2, setIsHovering2] = useState(false);
@@ -72,6 +71,7 @@ export default function Header() {
 
         nav.classList.toggle('hidden')
     }
+    const user = useSelector((state) => state.user);
 
 
     return (
@@ -155,7 +155,7 @@ export default function Header() {
                     </div>
                 </div>
                 <div className='flex gap-x-3 w-52 justify-between'>
-                    <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>Sign in </div></button>
+                    <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>{ user.isLoggedIn ? user.userInfo.firstName : 'Sign In'}</div></button>
                     <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-xl'><SiMinutemailer /></div> <div>Explore</div></button></Link>
                 </div>
 

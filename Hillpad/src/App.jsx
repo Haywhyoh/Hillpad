@@ -10,6 +10,7 @@ import StaffCourses from './pages/staff/staffCourses'
 import StaffDegree from './pages/staff/staffDegree'
 import StaffDisciplines from './pages/staff/staffDiscipline'
 import StaffSchools from './pages/staff/staffSchools'
+import SearchBar from './components/test'
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
             <Route path='schoools' element={<StaffSchools />} />
           </Route>
           <Route path='/discipline' element={<DisciplineDetails />} />
+          <Route path='/test' element={<SearchBar/>} />
+
         </Routes>
     </div>
   )

@@ -5,8 +5,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { fetchUser } from "../redux/userSlice";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 export default function Login() {
     const dispatch = useDispatch();
     const [values, setValues] = useState({
@@ -101,12 +101,11 @@ export default function Login() {
         },
     
     ];
-
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(fetchUser(values));
-        console.log(values);
     };
+
 
     const onChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
@@ -150,8 +149,8 @@ export default function Login() {
                                             onChange={onChange}
                                         />
                                     ))}
-                                    <button className="text-white bg-orange font-bold w-full py-4 rounded-md">Sign In</button>
-                                    <div className="text-sm text-orange text-right underline hover:no-underline" onClick={showLogin}>Forgot Password</div>
+                                    <button className="text-white bg-orange font-bold w-full py-4 rounded-md" onClick={handleSubmit}><Link to='/test'>Sign In</Link> </button>
+                                    <div className='text-sm text-orange text-right underline hover:no-underline' onClick={showLogin}>Forgot Password</div>
 
                                 </form>
                                 <div className="flex items-center gap-x-4">

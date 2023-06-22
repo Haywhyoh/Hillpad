@@ -5,16 +5,17 @@ export const fetchUser = createAsyncThunk('users/fetchUser', async (user) => {
     axios.defaults.withCredentials = true;
     const token = await axios.post('https://54.221.177.186/api/account/token', user,  { withCredentials: true });
     const details = await axios.get('https://54.221.177.186/api/account/detail');
-    console.log(details.data);
-    return details.data;
+    const result = details.data;
+    const res = { email: result.email, firstName: result.first_name, lastame: result.last_name};
+    return res;
 })
 const userSlice = createSlice({
     name: 'user',
     initialState: {
         userInfo : {
-        firstName: 'john',
-        lastName: 'sam',
-        email: 'ade@gmail.com',
+        firstName: '',
+        lastName: '',
+        email: '',
         },
 
         pending:false,
