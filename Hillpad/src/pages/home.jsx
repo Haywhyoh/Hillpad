@@ -154,7 +154,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="my-20 w-full  lg:mx-auto max-w-full">
+        <section className="my-12 w-full  lg:mx-auto max-w-full">
           <div className="flex lg:justify-between mx-4  xl:mx-auto">
             <h2 className="font-bold text-2xl md:text-5xl lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
@@ -474,17 +474,15 @@ export default function Home() {
           <div className="mx-4  xl:mx-auto text-left text-2xl font-bold my-8 md:text-5xl md:my-10 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
           </div>
-          <div className="flex items-center">
-            <button onClick={handleNextClick } className="p-2 shadow rounded-full overflow-hidden"> <FiChevronLeft /></button>
+          <div className="flex items-center gap-x-4">
+            <button onClick={handleNextClick } className="hidden lg:block p-2 shadow rounded-full"> <FiChevronLeft /></button>
             <div className="overflow-hidden ">
             {/* style={{ transform : 'translateX(-0)'}}  */}
-              <div className="w-full my-2 flex gap-x-8  justify-start transition-all transform duration-300" style={{ transform : `translateX(${-20 * currentIndex}rem)`}} >
+              <div className=" w-full my-2 flex gap-x-6  justify-start transition-all transform duration-300" style={{ transform : `translateX(${-19 * currentIndex}rem)`}} >
                 {degrees.map((degree, index) => ( <div className=""><CourseCard key={index} prop={degree} isActive={index === currentIndex} /></div> ))}
-
               </div>
-             
             </div>
-            <button onClick={handlePrevClick}><FiChevronRight /></button>
+            <button onClick={handlePrevClick} className="hidden lg:block p-2 shadow rounded-full "><FiChevronRight /></button>
           </div>
 
 
@@ -498,7 +496,7 @@ export default function Home() {
             <div className=" font-semibold mx-6 lg:mx-0 mt-5 text-2xl md:text-3xl md:text-left">
               Let us help you find your dream school
             </div>
-            <div className="text-light_black text-center text-sm lg:text-lg md:text-left">
+            <div className="text-light_black text-center text-sm lg:text-lg md:text-left my-4">
               We provide an online platform designed to make finding and
               applying for undergraduate and postgraduate courses easy and
               efficient. With HillPad, you can conveniently access the best

@@ -3,12 +3,23 @@ import FormInput from "./FormInput";
 import { AiOutlineFacebook, AiOutlineGoogle } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
+import { fetchUser } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
 export default function Login() {
+    const dispatch = useDispatch();
     const [values, setValues] = useState({
-        username: "",
+        firstname: "",
+        lastname: "",
         email: "",
         password: "",
         confirmPassword: "",
+    });
+
+    const [loginValues, setLoginValues] = useState({
+        email: "",
+        password: "",
     });
 
     const [toggleLogin, setToggleLogin] = useState(true);
@@ -99,6 +110,8 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(fetchUser(values));
+        console.log(values);
     };
 
     const onChange = (e) => {

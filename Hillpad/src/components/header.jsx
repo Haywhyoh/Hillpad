@@ -11,10 +11,33 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Login from './login';
 import { IoCloseOutline } from 'react-icons/io5';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
+    const firstName = useSelector(state => state.user.firstName)
     const [modal, setModal] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
+    const [isHovering2, setIsHovering2] = useState(false);
 
+    const handleMouseOver = () => {
+        setIsHovering(true);
+        
+      };
+
+      const handleMouseOut = () => {
+        setIsHovering(false);
+        
+      };
+
+      const handleMouseOver2 = () => {
+        setIsHovering2(true);
+        
+      };
+
+      const handleMouseOut2 = () => {
+        setIsHovering2(false);
+        
+      };
     const toggleModal = () => {
         setModal(!modal);
     };
@@ -62,30 +85,37 @@ export default function Header() {
                     </Link>
                 </div>
                 <div className='flex w-4/5 xl:w-8/12 gap-x-4 items-center '>
-                    <div className='' onClick={togglesubMenu1}>
+                    <div className='' onMouseOver={handleMouseOver}>
                         <div className='flex gap-3 items-center '>
                             <div className='flex gap-3 items-center relative'>
+                            <div className='flex gap-3 items-center hover:text-orange'>
                                 <FiLayers />
-                                <div>Browse</div>
-                                <div className='absolute top-8 left-0 shadow bg-white w-64  rounded-lg p-4 hidden' id='subMenu1'>
-                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2'><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div>
-                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 '><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div>
-                                    <div className='flex gap-x-2 justify-between py-2'>
-                                        <div className='flex gap-x-2 relative' onClick={togglesubMenu2}>
+                                <div className='hover:text-orange'>Browse</div>
+                                <div className='text-2xl'><RiArrowDropDownLine /></div>
+                            </div>
+                            { isHovering ?
+                                <div className='absolute top-8 left-0 shadow bg-white w-52  rounded-lg p-4 font-normal ' id='subMenu1'  onMouseOut={handleMouseOut}>
+                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 hover:text-orange' onMouseOver={handleMouseOut2} ><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div>
+                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2  hover:text-orange' onMouseOver={handleMouseOut2} ><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div>
+                                    <div className='flex gap-x-2 justify-between py-2  hover:text-orange' onMouseOver={handleMouseOver2}>
+                                        <div className='flex gap-x-2 relative' >
                                             <FaGraduationCap className='text-xl text-light_black text-opacity-60' />
                                             <div className='' >Programmes</div>
                                         </div>
                                         <div className='text-2xl'><RiArrowRightSLine /></div>
                                     </div>
-                                    <div className='hidden absolute left-60 p-4 shadow top-28 rounded-md bg-white text-light_black' id='subMenu2'>
-                                        <div className='p-1 w-32'>Bachelors</div>
-                                        <div className='p-1 w-32'>Masters</div>
-                                        <div className='p-1 w-32'>Doctorate</div>
+                                    {
+                                        isHovering2 ? <div className='absolute  font-normal left-52 p-4 shadow top-28 rounded-md bg-white text-light_black' id='subMenu2' onMouseOver={handleMouseOver2} onMouseOut={handleMouseOut2}>
+                                        <div className='p-1 w-32 hover:text-orange'>Bachelors</div>
+                                        <div className='p-1 w-32 hover:text-orange'>Masters</div>
+                                        <div className='p-1 w-32 hover:text-orange'>Doctorate</div>
 
-                                    </div>
+                                    </div> : null
+                                    }
+                                    
                                 </div>
+: null}
                             </div>
-                            <div className='text-2xl'><RiArrowDropDownLine /></div>
 
                         </div >
                     </div>
@@ -125,7 +155,7 @@ export default function Header() {
                     </div>
                 </div>
                 <div className='flex gap-x-3 w-52 justify-between'>
-                    <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>Sign in</div></button>
+                    <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>Sign in </div></button>
                     <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-xl'><SiMinutemailer /></div> <div>Explore</div></button></Link>
                 </div>
 
