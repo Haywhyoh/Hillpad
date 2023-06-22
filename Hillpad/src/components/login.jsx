@@ -17,11 +17,6 @@ export default function Login() {
         confirmPassword: "",
     });
 
-    const [loginValues, setLoginValues] = useState({
-        email: "",
-        password: "",
-    });
-
     const [toggleLogin, setToggleLogin] = useState(true);
 
     const toggle = () => {
@@ -45,7 +40,6 @@ export default function Login() {
             errorMessage:
                 "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
             label: "Password",
-            pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
             required: true,
         },
     ];

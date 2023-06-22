@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const fetchUser = createAsyncThunk('users/fetchUser', async (user) => {
     const token = await axios.post('https://54.221.177.186/api/account/token', user);
-    const details = await axios.get('https://54.221.177.186/api/account/detail', user);
+    const details = await axios.get('https://54.221.177.186/api/account/detail');
     return details;
 })
 const userSlice = createSlice({
