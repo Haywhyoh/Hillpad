@@ -2,9 +2,11 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchUser = createAsyncThunk('users/fetchUser', async (user) => {
-    const token = await axios.post('https://54.221.177.186/api/account/token', user);
+    axios.defaults.withCredentials = true;
+    const token = await axios.post('https://54.221.177.186/api/account/token', user,  { withCredentials: true });
     const details = await axios.get('https://54.221.177.186/api/account/detail');
-    return details;
+    console.log(details.data);
+    return details.data;
 })
 const userSlice = createSlice({
     name: 'user',
