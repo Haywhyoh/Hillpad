@@ -149,7 +149,7 @@ export default function Login() {
                                             onChange={onChange}
                                         />
                                     ))}
-                                    <button className="text-white bg-orange font-bold w-full py-4 rounded-md" onClick={handleSubmit}><Link to='/test'>Sign In</Link> </button>
+                                    <button className="text-white bg-orange font-bold w-full py-4 rounded-md" onClick={handleSubmit}>Sign In</button>
                                     <div className='text-sm text-orange text-right underline hover:no-underline' onClick={showLogin}>Forgot Password</div>
 
                                 </form>
