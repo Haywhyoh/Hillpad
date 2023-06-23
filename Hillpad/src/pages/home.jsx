@@ -319,7 +319,20 @@ export default function Home() {
             }
             </Link>
 
-            <Link to='/discipline'>
+            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline5(true)} onMouseOut={() => setIsHovDiscipline5(false)}>
+              { isHovDiscipline5 ?
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-light p-2 w-fit rounded-full mx-auto `}>
+                    <div className={`text-3xl  flex text-white justify-center p-1`}>
+                      <HiOutlineDesktopComputer />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Computer Science and IT</div>
+                </div>
+              </div>
+              :
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
@@ -331,9 +344,23 @@ export default function Home() {
                   <div className="font-semibold text-sm my-2">Computer Science and IT</div>
                 </div>
               </div>
+              }
             </Link>
 
-            <Link to='/discipline'>
+            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline6(true)} onMouseOut={() => setIsHovDiscipline6(false)}>
+              { isHovDiscipline6 ?
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-light p-2 w-fit rounded-full mx-auto`}>
+                    <div className={`text-3xl  flex text-white justify-center p-1`}>
+                      <RiBook2Fill />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Education and Training</div>
+                </div>
+              </div>
+              :
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
@@ -345,9 +372,23 @@ export default function Home() {
                   <div className="font-semibold text-sm my-2">Education and Training</div>
                 </div>
               </div>
+              }
             </Link>
 
-            <Link to='/discipline'>
+            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline7(true)} onMouseOut={() => setIsHovDiscipline7(false)}>
+              { isHovDiscipline7 ?
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-light p-2 w-fit rounded-full mx-auto`}>
+                    <div className={`text-3xl  flex text-white justify-center p-1`}>
+                      <FiSettings />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Engineering and Technology</div>
+                </div>
+              </div>
+              :
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
@@ -359,9 +400,23 @@ export default function Home() {
                   <div className="font-semibold text-sm my-2">Engineering and Technology</div>
                 </div>
               </div>
+              }
             </Link>
 
-            <Link to='/discipline'>
+            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline8(true)} onMouseOut={() => setIsHovDiscipline8(false)}>
+              { isHovDiscipline8 ?
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-light p-2 w-fit rounded-full mx-auto`}>
+                    <div className={`text-3xl  flex text-white justify-center p-1`}>
+                      <HiOutlineCalculator />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Natural Sciences & Mathematics</div>
+                </div>
+              </div>
+              :
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
@@ -373,6 +428,7 @@ export default function Home() {
                   <div className="font-semibold text-sm my-2">Natural Sciences & Mathematics</div>
                 </div>
               </div>
+              }
             </Link>
 
             <Link to='/discipline'>
