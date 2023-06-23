@@ -151,8 +151,8 @@ const scrollRight = () => {
           <div className="">
 
             {/* ----------------search desktop------------------------------------- */}
-            <div className="hidden w-72 mx-auto md:w-full md:rounded-full bg-white  absolute lg:bottom-28 xl:bottom-64 lg:block">
-              <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-20">
+            <div className="hidden w-72 mx-auto md:w-full md:rounded-full bg-white  absolute lg:bottom-28 xl:bottom-32 2xl:bottom-64 lg:block">
+              <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 xl:w-6/12 2xl:mt-20">
                 <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
                   <div className="flex items-center gap-x-2">
                     <AiOutlineSearch className="text-light_black" />
