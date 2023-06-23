@@ -15,7 +15,7 @@ function CoursesCarousel() {
                
                
             </div>
-            <div id="content2" className="carousel p-4 flex items-center justify-start overflow-x-auto scroll-smooth gap-x-4 scrollbar-hide">
+            <div id="content2" className="carousel p-4 flex items-center justify-start overflow-x-auto scroll-smooth gap-x-4 no-scrollbar">
             {degrees.map((degree, index) => ( <div className=""><CourseCard key={index} prop={degree} isActive={index === currentIndex} /></div> ))}
             </div>
         </div>

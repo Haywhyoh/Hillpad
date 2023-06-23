@@ -20,7 +20,7 @@ function CountryCarousel() {
     return (
         <div className="relative">
            
-            <div id="content3" className="carousel p-4 flex items-center justify-start overflow-x-auto scroll-smooth  gap-x-4 scrollbar-hide">
+            <div id="content3" className="carousel p-4 flex items-center justify-start overflow-x-auto scroll-smooth  gap-x-4 no-scrollbar">
                 <div>
                     <div className="shadow rounded-b-2xl w-72">
                         <div className="rounded-2xl">

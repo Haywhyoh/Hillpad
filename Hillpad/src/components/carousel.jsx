@@ -53,7 +53,7 @@ function Carousel() {
                 </button>
             </div>
             <div id="content" className="carousel p-4 flex items-center justify-start overflow-x-auto scroll-smooth  scrollbar-hide">
-                <div className="w-full">
+                <div className="">
                     <div className="w-72 xs:w-80 sm:w-88 xl:w-84  2xl:w-full  py-8 px-4 " onMouseOver={handleMouseOver}
                         onMouseOut={handleMouseOut}>
                         {
@@ -134,7 +134,7 @@ function Carousel() {
 
                 </div>
                 <div>
-                    <div className="w-72  xl:w-84 sm:w-84  xs:w-80 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver3}
+                    <div className="w-72  xl:w-84 sm:w-72  xs:w-80 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver3}
                         onMouseOut={handleMouseOut3}>
                         {
                             isHovering3 ? <div className="shadow-md rounded-lg   transition-all duration-700"> <div className="sm:w-full">
