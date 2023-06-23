@@ -66,8 +66,15 @@ export default function Home() {
   };
   return (
     <>
+
+    {/* {header start} */}
       <Header />
+    {/* {header end} */}
+
       <div className=" text-center mt-24  md:w-full max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30 ">
+
+      {/* ----------------------------------- {hero start} -------------------------------------------------- */}
+
         <section className=" max-w-full lg:mx-auto relative">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
             {/* <h1 className=" hidden font-bold text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
@@ -78,7 +85,7 @@ export default function Home() {
               <img src={hero} alt="hillpad_courses" className="" />
             </div>
             <div className="lg:text-left lg:w-full xl:w-10/12 mx-4  xl:mx-auto">
-              <h1 className="font-bold text-text_black text-2xl xs:text-3xl text-center mb-6 md:text-5xl md:font-semibold md:my-16  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mt-0 2xl:mb-8 ">
+              <h1 className="font-bold text-text_black text-3xl xs:text-3xl text-center mb-6 md:text-5xl md:font-semibold md:my-16  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mt-0 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
               </h1>
@@ -153,6 +160,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+      {/* ----------------------------------- {hero end} -------------------------------------------------- */}
 
         <section className="my-12 w-full  lg:mx-auto max-w-full">
           <div className="flex lg:justify-between mx-4  xl:mx-auto">
