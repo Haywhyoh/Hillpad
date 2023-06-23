@@ -3,11 +3,6 @@ import { AiOutlineCalendar, AiOutlineSearch, AiFillStar, AiOutlineTwitter } from
 import { FaTractor, FaFacebookF, FaLinkedinIn, FaThermometerEmpty, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
 import hero from '../assets/images/hero-img.jpeg'
 import hillpadBig from '../assets/images/hillpad-transparent.png';
-import newyork from '../assets/images/new-york.jpeg';
-import canada from '../assets/images/san-diego.jpeg';
-import belgium from '../assets/images/dallas.jpeg';
-import uk from '../assets/images/chicago.jpeg';
-import review1 from '../assets/images/01.jpeg';
 import data from '../data/discipline.json';
 import './home.css'
 import CourseCard from "../components/coursecard";
@@ -19,10 +14,11 @@ import { RiBook2Fill } from "react-icons/ri";
 import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useState } from "react";
 import { degrees } from "./degree";
+import review1 from '../assets/images/01.jpeg';
 import Modal from "../components/modal";
 import Carousel from "../components/carousel";
 import CoursesCarousel from "../components/coursesCarousel";
-
+import CountryCarousel from "../components/countryCarousel";
 export default function Home() {
   const disciplines = data.results;
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -619,32 +615,9 @@ const scrollRight = () => {
             </div>
           </div>
 
-          <div className="flex justify-center flex-wrap gap-x-1 gap-y-4">
+          <div className="">
 
-            <div className="shadow rounded-b-2xl w-72 mx-2">
-              <div className="rounded-2xl">
-                <img src={newyork} className="rounded-t-2xl" />
-              </div>
-              <div className="py-4 font-bold text-base text-light_black ">NewYork</div>
-            </div>
-            <div className="shadow rounded-b-2xl w-72 mx-2">
-              <div className="rounded-2xl">
-                <img src={belgium} className="rounded-t-2xl" />
-              </div>
-              <div className="py-4 font-bold text-base text-light_black ">Canada</div>
-            </div>
-            <div className="shadow rounded-b-2xl w-72 mx-2">
-              <div className="rounded-2xl">
-                <img src={canada} className="rounded-t-2xl" />
-              </div>
-              <div className="py-4 font-bold text-base text-light_black ">Nigeria</div>
-            </div>
-            <div className="shadow rounded-b-2xl w-72 mx-2">
-              <div className="rounded-2xl ">
-                <img src={uk} className="rounded-t-2xl" />
-              </div>
-              <div className="py-4 font-bold text-base text-light_black ">United Kingdom</div>
-            </div>
+                <CountryCarousel />
           </div>
         </section>
         <section className="mt-20 mb-96  w-full">
