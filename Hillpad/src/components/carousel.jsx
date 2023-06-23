@@ -44,7 +44,7 @@ function Carousel() {
 
     return (
         <div className="relative">
-            <div className="absolute right-0 top-5 ">
+            <div className="absolute right-28 bottom-0 ">
                 <button onClick={scrollLeft} className="p-2 m-2 rounded-full bg-white">
                     <FiChevronLeft />
                 </button>
