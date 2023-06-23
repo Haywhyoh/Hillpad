@@ -84,7 +84,7 @@ export default function Header() {
                         </div>
                     </Link>
                 </div>
-                <div className='flex w-4/5 xl:w-8/12 gap-x-4 items-center '>
+                <div className='flex w-4/5 lg:w-8/12 xl:w-8/12 gap-x-4 items-center '>
                     <div className='' onMouseOver={handleMouseOver}>
                         <div className='flex gap-3 items-center '>
                             <div className='flex gap-3 items-center relative'>
@@ -190,9 +190,9 @@ export default function Header() {
                                     <div className='flex'>
                                         <div className='border-e border-opacity-30 border-light_black'></div>
                                         <div className='px-2'>
-                                            <div className='pt-2 ps-2'>Bachelors</div>
-                                            <div className='py-2 ps-2'>Masters</div>
-                                            <div className='py-1 ps-2'>PhD & Doctorates</div>
+                                        <div className='p-1 w-32 hover:text-orange'>Bachelors</div>
+                                        <div className='p-1 w-32 hover:text-orange'>Masters</div>
+                                        <div className='p-1 w-32 hover:text-orange'>Doctorate</div>
                                         </div>
 
                                     </div>

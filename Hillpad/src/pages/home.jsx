@@ -579,7 +579,7 @@ const scrollRight = () => {
 
 
         </section>
-        <section className="my-14 md:flex items-center lg:gap-x-40  w-full lg:justify-between xl:justify-start">
+        <section className="my-14 md:flex items-center lg:gap-x-40  w-full lg:justify-between xl:justify-start px-4">
           <div className="w-72 mx-auto md:w-4/12">
             <img src={hillpadBig} />
           </div>
