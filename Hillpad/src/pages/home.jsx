@@ -1,9 +1,6 @@
 import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck, BsArrowLeft } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineSearch, AiFillStar, AiOutlineTwitter } from "react-icons/ai";
 import { FaTractor, FaFacebookF, FaLinkedinIn, FaThermometerEmpty, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
-import bachelor from '../assets/images/bachelors.svg';
-import masters from '../assets/images/masters.svg';
-import doctorates from '../assets/images/doctorates.svg';
 import hero from '../assets/images/hero-img.jpeg'
 import hillpadBig from '../assets/images/hillpad-transparent.png';
 import newyork from '../assets/images/new-york.jpeg';
@@ -24,6 +21,7 @@ import { useState } from "react";
 import { degrees } from "./degree";
 import Modal from "../components/modal";
 import Carousel from "../components/carousel";
+import CoursesCarousel from "../components/coursesCarousel";
 
 export default function Home() {
   const disciplines = data.results;
@@ -47,21 +45,12 @@ export default function Home() {
 
 const [currentDegreeIndex, setCurrentDegreeIndex] = useState(0);
 
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-  };
+const scrollLeft = () => {
+  document.getElementById("content2").scrollLeft -= 305;
+}
+const scrollRight = () => {
+  document.getElementById("content2").scrollLeft += 305;
+}
 
 
 
@@ -584,14 +573,11 @@ const [currentDegreeIndex, setCurrentDegreeIndex] = useState(0);
             Featured <span className="text-orange">Courses</span>
           </div>
           <div className="flex items-center gap-x-4">
-            <button onClick={handleNextClick } className="hidden lg:block p-2 shadow rounded-full"> <FiChevronLeft /></button>
+            <button onClick={scrollLeft } className="hidden lg:block p-2 shadow rounded-full"> <FiChevronLeft /></button>
             <div className="overflow-hidden ">
-            {/* style={{ transform : 'translateX(-0)'}}  */}
-              <div className=" w-full my-2 flex gap-x-6  justify-start transition-all transform duration-300" style={{ transform : `translateX(${-19 * currentIndex}rem)`}} >
-                {degrees.map((degree, index) => ( <div className=""><CourseCard key={index} prop={degree} isActive={index === currentIndex} /></div> ))}
-              </div>
+              <CoursesCarousel />
             </div>
-            <button onClick={handlePrevClick} className="hidden lg:block p-2 shadow rounded-full "><FiChevronRight /></button>
+            <button onClick={scrollRight} className="hidden lg:block p-2 shadow rounded-full "><FiChevronRight /></button>
           </div>
 
 
