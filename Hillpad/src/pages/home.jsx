@@ -30,6 +30,20 @@ export default function Home() {
   const [isHovering2, setIsHovering2] = useState(false);
   const [isHovering3, setIsHovering3] = useState(false);
 
+  const [isHovDiscipline, setIsHovDiscipline] = useState(false);
+  const [isHovDiscipline2, setIsHovDiscipline2] = useState(false);
+  const [isHovDiscipline3, setIsHovDiscipline3] = useState(false);
+  const [isHovDiscipline4, setIsHovDiscipline4] = useState(false);
+  const [isHovDiscipline5, setIsHovDiscipline5] = useState(false);
+  const [isHovDiscipline6, setIsHovDiscipline6] = useState(false);
+  const [isHovDiscipline7, setIsHovDiscipline7] = useState(false);
+  const [isHovDiscipline8, setIsHovDiscipline8] = useState(false);
+  const [isHovDiscipline9, setIsHovDiscipline9] = useState(false);
+  const [isHovDiscipline10, setIsHovDisciplin10] = useState(false);
+  const [isHovDiscipline11, setIsHovDiscipline11] = useState(false);
+
+
+
   const handleMouseOver = () => {
     setIsHovering(true);
     
@@ -186,10 +200,23 @@ export default function Home() {
             </Link>
 
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-6 justify-center xl:justify-between my-6 font-medium w-full mx-auto">
+          <div className="flex flex-wrap gap-x-4 gap-y-4 justify-center xl:justify-between my-6 font-medium w-full mx-auto">
 
 
-            <Link to='/discipline'>
+            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline(true)} onMouseOut={() => setIsHovDiscipline(false)}>
+              { isHovDiscipline ? 
+                <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-100`}>
+                    <div className={`text-3xl  flex text-white justify-center p-1`}>
+                      <FaTractor />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Agriculture & Forestry</div>
+                </div>
+              </div> :
+
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
@@ -201,11 +228,26 @@ export default function Home() {
                   <div className="font-semibold text-sm my-2">Agriculture & Forestry</div>
                 </div>
               </div>
+            }
+              
             </Link>
 
 
-            <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline2(true)} onMouseOut={() => setIsHovDiscipline2(false)}>
+              {
+                isHovDiscipline2 ? 
+                <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-orange p-2 w-fit rounded-full mx-auto `}>
+                    <div className={`text-3xl  flex text-white justify-center p-1`}>
+                      <FaThermometerQuarter />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Applied Science & Profession</div>
+                </div>
+              </div> :
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-orange p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-orange justify-center p-1`}>
@@ -216,10 +258,25 @@ export default function Home() {
                   <div className="font-semibold text-sm my-2">Applied Science & Profession</div>
                 </div>
               </div>
+              }
+              
             </Link>
 
-            <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline3(true)} onMouseOut={() => setIsHovDiscipline3(false)}>
+              { isHovDiscipline3 ?
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-yellow p-2 w-fit rounded-full mx-auto`}>
+                    <div className={`text-3xl  flex text-white justify-center p-1`}>
+                      <FaPaintBrush />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Art and Design</div>
+                </div>
+              </div>
+              :
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-yellow justify-center p-1`}>
@@ -230,11 +287,25 @@ export default function Home() {
                   <div className="font-semibold text-sm my-2">Art and Design</div>
                 </div>
               </div>
+              }
             </Link>
 
 
-            <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline4(true)} onMouseOut={() => setIsHovDiscipline4(false)}>
+              { isHovDiscipline4 ?
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
+                <div className=" p-2 w-32 lg:w-fit ">
+                  <div className={` bg-deep_blue p-2 w-fit rounded-full mx-auto`}>
+                    <div className={`text-3xl  flex text-white justify-center p-1`}>
+                      <FaBriefcase />
+                    </div>
+                  </div>
+
+                  <div className="font-semibold text-sm my-2">Business Management</div>
+                </div>
+              </div>
+              :
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-deep_blue p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
@@ -245,10 +316,11 @@ export default function Home() {
                   <div className="font-semibold text-sm my-2">Business Management</div>
                 </div>
               </div>
+            }
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -262,7 +334,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -276,7 +348,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -290,7 +362,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
@@ -304,7 +376,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-green justify-center p-1`}>
@@ -318,7 +390,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -332,7 +404,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-yellow justify-center p-1`}>
@@ -346,7 +418,7 @@ export default function Home() {
             </Link>
 
             <Link to='/discipline'>
-              <div className="flex flex-col items-center justify-center w-32 lg:w-48 h-36 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-md rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
                   <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                     <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
