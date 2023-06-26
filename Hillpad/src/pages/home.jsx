@@ -104,7 +104,7 @@ const scrollRight = () => {
             <div className="mx-4 my-8 md:mx-10 -z-20 2xl:mt-16 xl:mx-0">
               <img src={hero} alt="hillpad_courses" className="" />
             </div>
-            <div className="lg:text-left lg:w-full xl:w-10/12 mx-4  xl:mx-auto">
+            <div className="lg:text-left lg:w-full xl:w-11/12 mx-4  xl:mx-auto">
               <h1 className="font-bold text-text_black text-3xl xs:text-3xl text-center mb-6 md:text-5xl md:font-semibold md:my-16  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mt-0 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
