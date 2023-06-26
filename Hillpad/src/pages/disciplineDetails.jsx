@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
+import { FaGraduationCap } from 'react-icons/fa';
+
 import CourseCard from '../components/searchCourseCard';
 import Footer from '../components/Footer';
 import Header from '../components/header';
@@ -36,7 +38,7 @@ export default function DisciplineDetails() {
       </div>
       <div className='lg:flex gap-x-10'>
       <div className='lg:w-7/12'>
-        <div className='text-orange font-semibold flex flex-col xs:flex-row gap-3 justify-between 2xs:justify-start 2xs:gap-x-8 lg:mt-10'>
+        <div className='text-orange font-semibold flex flex-col 2xs:flex-row gap-3 justify-between 2xs:justify-start 2xs:gap-x-8 lg:mt-10'>
           <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><BsBoxArrowUpRight /></div><div className='text-xl'>Bachelors</div><div className='text-light_black text-sm'>(12345)</div></div>
           <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><BsBoxArrowUpRight /></div><div className='text-xl'>Masters</div><div className='text-light_black text-sm'>(12345)</div></div>
           <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><BsBoxArrowUpRight /></div><div className='text-xl'>Doctorate</div><div className='text-light_black text-sm'>(12345)</div></div>
@@ -52,68 +54,68 @@ export default function DisciplineDetails() {
          
       </div>
           
-      <div className='my-4 max-w-xl shadow-md p-12'>
+      <div className='my-4 max-w-xl shadow-md px-2 py-10 lg:p-12'>
         <h2 className='text-2xl font-semibold max-w-sm'>Top Programmes for {param.name}</h2>
         <h3 className='text-light_black text-base my-2'>Times Higher education World Ranking</h3>
-        <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-8'>
-          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><BsBoxArrowUpRight /></div><div className='text-sm'>Bachelors</div></div>
-          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><BsBoxArrowUpRight /></div><div className='text-sm'>Masters</div></div>
-          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><BsBoxArrowUpRight /></div><div className='text-sm'>Doctorate</div></div>
+        <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-8 my-4'>
+          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Bachelors</div></div>
+          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Masters</div></div>
+          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Doctorate</div></div>
         </div>
-        <table className="table-auto text-left  rounded-lg">
-            <thead>
+        <table className="table-auto text-left  rounded-lg mt-4 ">
+            <thead className='border-b border-light_black border-opacity-40'>
               <tr>
-                <th className='py-4 px-8'>No.</th>
-                <th className='px-24'>Universities</th>
+                <th className='py-2 px-8'>No.</th>
+                <th className='px-4'>Universities</th>
               </tr>
             </thead>
             <tbody>
               <tr className=''>
                 <td className='py-2 px-8'>1</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>2</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>3</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>4</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>5</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>6</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>7</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>8</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>9</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
-              <tr>
+              <tr className='border-b border-light_black border-opacity-40'>
                 <td className='py-2 px-8'>10</td>
-                <td className='px-16'>University of Oxford</td>
+                <td className='lg:px-16 px-4'>University of Oxford</td>
               </tr>
             </tbody>
 
         </table>
       </div>  
       </div>
-      <div className='bg-orange text-white p-6 text-center max-w-4xl mx-auto lg:my-12'>
+      <div className='bg-orange text-white p-6 my-8 text-center max-w-4xl mx-auto lg:my-12'>
           <h3 className='text-2xl font-bold 2xs:text-3xl'>Get Free Consultation!</h3>
           <div className='text-lg py-2 2xs:py-4 2xs:text-xl'>Find out which programme is best for you by talking to one of our trained consultants</div>
           <div className='bg-white py-2 px-4 rounded-md w-fit text-orange text-center mx-auto font-bold'>Book a free consultation</div>
