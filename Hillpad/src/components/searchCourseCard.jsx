@@ -7,8 +7,7 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import '../components/coursecard.css';
 export default function CourseCard({ prop, isActive }) {
   return (
-    <div>
-           <div className='flex my-6 w-72 justify-center max-h xs:mx-5 2xs:mx-10 sm:mx-0 '>
+    <div className={`flex my-6 w-72 justify-center max-h `}>
       <div className="shadow rounded-b-2xl  ">
 
         <div className=" rounded-xl">
@@ -66,7 +65,5 @@ export default function CourseCard({ prop, isActive }) {
         </div>
       </div>
     </div>
-    </div>
-   
   )
 }
