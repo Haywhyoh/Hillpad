@@ -123,12 +123,12 @@ export default function Login() {
         <>
             <div>
             
-                        <div className=" xl:w-screen loginModal">
+                        <div className=" w-screen loginModal">
                         {
-                            toggleLogin ? <div className="flex p-4 min-w-fit w-full max-w-4xl items-center">
-                                <div className="w-1/2">
+                            toggleLogin ? <div className="flex flex-col lg:flex-row p-2 lg:p-4 lg:min-w-fit lg:w-full max-w-4xl items-center">
+                                <div className="lg:w-1/2">
                                     <div className="flex flex-col gap-y-10">
-                                        <div className="xl:font-bold xl:text-3xl">
+                                        <div className=" font-bold text-3xl">
                                             <h2>Hey there!</h2>
                                             <h2>Welcome back.</h2>
                                         </div>
@@ -139,11 +139,11 @@ export default function Login() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="w-1/2 p-4 flex items-center gap-x-10 ">
-                                    <div className="border-s h-60 border-light_black border-opacity-20">
+                                <div className="lg:w-1/2 lg:p-4 flex items-center justify-center lg:gap-x-10 ">
+                                    <div className="hidden lg:block lg:border-s h-60 border-light_black border-opacity-20">
                                     </div>
-                                    <div className="">
-                                        <form onSubmit={handleSubmit} className="w-full mb-6">
+                                    <div className="w-64 mx-auto flex flex-col justify-center lg:w-full">
+                                        <form onSubmit={handleSubmit} className="w-68 lg:w-full mb-6">
                                             {inputs.map((input) => (
                                                 <FormInput
                                                     key={input.id}
@@ -156,14 +156,14 @@ export default function Login() {
                                             <div className='text-sm text-orange text-right underline hover:no-underline' onClick={showLogin}>Forgot Password</div>
         
                                         </form>
-                                        <div className="flex items-center gap-x-4">
+                                        <div className="flex items-center lg:gap-x-4">
                                             <div className="border-t w-36 border-light_black border-opacity-30 "></div>
                                             <div className=" opacity-70">or</div>
                                             <div className="border-t w-36 border-light_black border-opacity-30 "></div>
                                         </div>
                                         <div >
-                                            <button className="text-white bg-blue font-bold w-full py-4 rounded-md my-2 flex items-center gap-x-12 px-4"><span className="text-lg"><FaFacebookF /></span><span>Continue with Facebook</span></button>
-                                            <button className="text-white bg-red font-bold w-full py-4 rounded-md flex items-center gap-x-12 px-4"><span className="text-lg"><AiOutlineGoogle /></span><span>Continue with Google</span></button>
+                                            <button className="text-white bg-blue font-bold w-full py-4 rounded-md my-2 flex items-center lg:gap-x-12 px-4"><span className="text-lg"><FaFacebookF /></span><span>Continue with Facebook</span></button>
+                                            <button className="text-white bg-red font-bold w-full py-4 rounded-md flex items-center lg:gap-x-12 px-4"><span className="text-lg"><AiOutlineGoogle /></span><span>Continue with Google</span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +222,7 @@ export default function Login() {
                         }
                     </div>
         
-                    <div className="w-88 p-4 reset hidden">
+                    <div className="w-72 lg:w-88 p-4 reset hidden">
                         <h2 className="text-2xl font-bold">Reset Password</h2>
                         <p className="text-base text-light_black my-2">Enter your email</p>
                         <p className="text-base text-light_black my-4">Enter your registered email address. You will receive a link to create a new password via email.</p>
