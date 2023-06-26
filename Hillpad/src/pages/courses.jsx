@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { FaTractor, FaThermometerHalf, } from "react-icons/fa";
-import data from '../data/discipline.json';
+import data from '../data/discipline';
 import degreeType from '../data/degree_type.json';
 import Header from "../components/header";
 import Footer from "../components/Footer";

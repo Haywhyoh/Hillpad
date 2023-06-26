@@ -12,7 +12,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
-          <Route path='/discipline' element={<DisciplineDetails />} />
+          <Route path='/discipline/' element={<DisciplineDetails />} />
+          <Route path='/discipline/:name' element={<DisciplineDetails />} />
           <Route path='/test' element={<SearchBar/>} />
         </Routes>
     </div>

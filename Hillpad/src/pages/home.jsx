@@ -3,7 +3,7 @@ import { AiOutlineCalendar, AiOutlineSearch, AiFillStar, AiOutlineTwitter } from
 import { FaTractor, FaFacebookF, FaLinkedinIn, FaThermometerEmpty, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
 import hero from '../assets/images/hero-img.jpeg'
 import hillpadBig from '../assets/images/hillpad-transparent.png';
-import data from '../data/discipline.json';
+import data from '../data/discipline';
 import './home.css'
 import CourseCard from "../components/coursecard";
 import { Link } from "react-router-dom";
@@ -216,7 +216,7 @@ const showBar = () => {
           <div className="flex flex-wrap gap-x-4 gap-y-4 justify-center xl:justify-between my-6 font-medium w-full mx-auto xl:gap-y-6">
 
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline(true)} onMouseOut={() => setIsHovDiscipline(false)}>
+            <Link to='/discipline/Agriculture & Forestry' onMouseOver={() => setIsHovDiscipline(true)} onMouseOut={() => setIsHovDiscipline(false)}>
               { isHovDiscipline ? 
                 <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -246,7 +246,7 @@ const showBar = () => {
             </Link>
 
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline2(true)} onMouseOut={() => setIsHovDiscipline2(false)}>
+            <Link to='/discipline/Applied Science & Profession' onMouseOver={() => setIsHovDiscipline2(true)} onMouseOut={() => setIsHovDiscipline2(false)}>
               {
                 isHovDiscipline2 ? 
                 <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
@@ -275,7 +275,7 @@ const showBar = () => {
               
             </Link>
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline3(true)} onMouseOut={() => setIsHovDiscipline3(false)}>
+            <Link to='/discipline/Art and Design' onMouseOver={() => setIsHovDiscipline3(true)} onMouseOut={() => setIsHovDiscipline3(false)}>
               { isHovDiscipline3 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -304,7 +304,7 @@ const showBar = () => {
             </Link>
 
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline4(true)} onMouseOut={() => setIsHovDiscipline4(false)}>
+            <Link to='/discipline/Business Management' onMouseOver={() => setIsHovDiscipline4(true)} onMouseOut={() => setIsHovDiscipline4(false)}>
               { isHovDiscipline4 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -332,7 +332,7 @@ const showBar = () => {
             }
             </Link>
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline5(true)} onMouseOut={() => setIsHovDiscipline5(false)}>
+            <Link to='/discipline/Computer Science and IT' onMouseOver={() => setIsHovDiscipline5(true)} onMouseOut={() => setIsHovDiscipline5(false)}>
               { isHovDiscipline5 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -360,7 +360,7 @@ const showBar = () => {
               }
             </Link>
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline6(true)} onMouseOut={() => setIsHovDiscipline6(false)}>
+            <Link to='/discipline/Education and Training' onMouseOver={() => setIsHovDiscipline6(true)} onMouseOut={() => setIsHovDiscipline6(false)}>
               { isHovDiscipline6 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -388,7 +388,7 @@ const showBar = () => {
               }
             </Link>
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline7(true)} onMouseOut={() => setIsHovDiscipline7(false)}>
+            <Link to='/discipline/Engineering and Technology' onMouseOver={() => setIsHovDiscipline7(true)} onMouseOut={() => setIsHovDiscipline7(false)}>
               { isHovDiscipline7 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -416,7 +416,7 @@ const showBar = () => {
               }
             </Link>
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline8(true)} onMouseOut={() => setIsHovDiscipline8(false)}>
+            <Link to='/discipline/Natural Sciences & Mathematics' onMouseOver={() => setIsHovDiscipline8(true)} onMouseOut={() => setIsHovDiscipline8(false)}>
               { isHovDiscipline8 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -444,7 +444,7 @@ const showBar = () => {
               }
             </Link>
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline9(true)} onMouseOut={() => setIsHovDiscipline9(false)}>
+            <Link to='/discipline/Hospitality, Lesiure and Sport' onMouseOver={() => setIsHovDiscipline9(true)} onMouseOut={() => setIsHovDiscipline9(false)}>
               { isHovDiscipline9 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -472,7 +472,7 @@ const showBar = () => {
               }
             </Link>
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline10(true)} onMouseOut={() => setIsHovDiscipline10(false)}>
+            <Link to='/discipline/Humanities & Social Science' onMouseOver={() => setIsHovDiscipline10(true)} onMouseOut={() => setIsHovDiscipline10(false)}>
               { isHovDiscipline10 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -501,7 +501,7 @@ const showBar = () => {
               }
             </Link>
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline11(true)} onMouseOut={() => setIsHovDiscipline11(false)}>
+            <Link to='/discipline/Journalism, Media & Communication ' onMouseOver={() => setIsHovDiscipline11(true)} onMouseOut={() => setIsHovDiscipline11(false)}>
               { isHovDiscipline11 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">
@@ -529,7 +529,7 @@ const showBar = () => {
               }
             </Link>
 
-            <Link to='/discipline' onMouseOver={() => setIsHovDiscipline12(true)} onMouseOut={() => setIsHovDiscipline12(false)}>
+            <Link to='/discipline/Environmental Sciences' onMouseOver={() => setIsHovDiscipline12(true)} onMouseOut={() => setIsHovDiscipline12(false)}>
               { isHovDiscipline12 ?
               <div className="flex flex-col items-center justify-center w-36 lg:w-48 h-36 bg-white shadow-lg rounded-lg">
                 <div className=" p-2 w-32 lg:w-fit ">

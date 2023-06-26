@@ -44,6 +44,7 @@ export default {
         '3xl': ' 0px 7px 29px 0px rgba(100, 100, 111, 0.2) '
     },
     width: {
+      '76': '19rem',
       '84': '21.5rem',
       '100': '30rem',
       '88': '23rem',
@@ -56,7 +57,7 @@ export default {
     maxWidth: {
       '8xl': '1440px',
       '9xl': '1560px',
-      'full': '1280px',
+      'full': '1320px',
     },
     bottom: {
       '68': '18rem',
