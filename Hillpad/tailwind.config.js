@@ -56,7 +56,7 @@ export default {
     maxWidth: {
       '8xl': '1440px',
       '9xl': '1560px',
-      'full': '1320px',
+      'full': '1200px',
     },
     bottom: {
       '68': '18rem',
