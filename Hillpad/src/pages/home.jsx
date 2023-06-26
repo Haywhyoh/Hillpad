@@ -631,7 +631,7 @@ const showBar = () => {
           <div className="font-bold text-3xl mb-8 md:text-3xl text-left mx-4">
             Reviews Across The Globe
           </div>
-          <div className="flex flex-col lg:flex-row gap-8 mx-auto justify-center w-full">
+          <div className="flex flex-col lg:flex-row gap-8 mx-auto justify-center w-full lg:hidden">
             {/* <div className="text-left relative w-72 flex flex-col justify-center lg:flex-row">
               <div className="shadow p-4 rounded-2xl absolute top-64 bg-white mx-auto">
                 <div className="font-medium text-xl my-4">
