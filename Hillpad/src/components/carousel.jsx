@@ -34,10 +34,22 @@ function Carousel() {
         setIsHovering3(false);
     };
 
+
     const scrollLeft = () => {
+        if (screen.availHeight >= 414 && screen.width < 768) {
+            document.getElementById("content").scrollLeft -= 400;
+            console.log("small screen");
+
+        }
         document.getElementById("content").scrollLeft -= 286;
+
     }
     const scrollRight = () => {
+        if (screen.availHeight >= 414 && screen.width < 768) {
+            document.getElementById("content").scrollLeft -= 200;
+            console.log("right screen");
+
+        }
         document.getElementById("content").scrollLeft += 286;
     }
 
@@ -52,9 +64,9 @@ function Carousel() {
                     <FiChevronRight />
                 </button>
             </div>
-            <div id="content" className="carousel p-4 flex items-center justify-start overflow-x-auto scroll-smooth  scrollbar-hide">
+            <div id="content" className="carousel p-4 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide">
                 <div className="">
-                    <div className="w-72 xs:w-80 sm:w-88 xl:w-84  2xl:w-full  py-8 px-4 " onMouseOver={handleMouseOver}
+                    <div className="w-72 xs:w-80 sm:w-88 2xs:w-96  xl:w-84  2xl:w-full  py-8 px-4 " onMouseOver={handleMouseOver}
                         onMouseOut={handleMouseOut}>
                         {
                             isHovering ? <div className="shadow-md rounded-lg   transition-all duration-700">
@@ -95,7 +107,7 @@ function Carousel() {
                     </div>
                 </div>
                 <div className="mx-auto">
-                    <div className="w-72 xl:w-84 sm:w-88  xs:w-80 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver2} onMouseOut={handleMouseOut2}>
+                    <div className="w-72 xl:w-84 sm:w-88  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver2} onMouseOut={handleMouseOut2}>
                         {
                             isHovering2 ? <div className="shadow-md rounded-lg   transition-all duration-300"> <div className="sm:w-full">
                                 <div className="w-40 mx-auto">
@@ -134,7 +146,7 @@ function Carousel() {
 
                 </div>
                 <div>
-                    <div className="w-72  xl:w-84 sm:w-72  xs:w-80 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver3}
+                    <div className="w-72  xl:w-84 sm:w-72  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver3}
                         onMouseOut={handleMouseOut3}>
                         {
                             isHovering3 ? <div className="shadow-md rounded-lg   transition-all duration-700"> <div className="sm:w-full">
