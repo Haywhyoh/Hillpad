@@ -48,6 +48,9 @@ const scrollRight = () => {
   document.getElementById("content2").scrollLeft += 305;
 }
 
+const showBar = () => {
+  document.getElementById('bar').classList.add = 'lg:block';
+};
 
 
   const handleMouseOver = () => {
@@ -95,7 +98,7 @@ const scrollRight = () => {
 
       {/* ----------------------------------- {hero start} -------------------------------------------------- */}
 
-        <section className=" max-w-full lg:mx-auto relative">
+        <section className=" max-w-full lg:mx-auto">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
             {/* <h1 className=" hidden font-bold text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
               Discover <span className="text-orange"> Educational</span>{" "}
@@ -148,10 +151,11 @@ const scrollRight = () => {
               </div>
             </div>
           </div>
-          <div className="">
+          <div className="relative">
 
             {/* ----------------search desktop------------------------------------- */}
-            <div className="hidden w-72 mx-auto md:w-full md:rounded-full bg-white  absolute lg:bottom-28 xl:bottom-32 2xl:bottom-64 lg:block">
+            <div className="relative">
+            <div className="hidden w-72 mx-auto md:w-full md:rounded-full bg-white  absolute lg:bottom-28 xl:bottom-32 2xl:bottom-64 lg:block" id='bar '>
               <form className="shadow mx-auto rounded-md md:flex justify-between md:px-2 xl:py-1 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:absolute lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 xl:w-6/12 2xl:mt-20">
                 <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-2 md:border-0  ">
                   <div className="flex items-center gap-x-2">
@@ -182,6 +186,9 @@ const scrollRight = () => {
                 </button>
               </form>
             </div>
+
+            </div>
+         
           </div>
 
           {/* ----------------search desktop ------------------------------------- */}
