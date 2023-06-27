@@ -91,7 +91,6 @@ export default function Home() {
     <>
 
       {/* {header start} */}
-      <Header />
       {/* {header end} */}
 
       <div className=" text-center mt-24 xl:mt-16  md:w-full w-screen max-w-full xl:flex xl:flex-col justify-center mx-auto -z-30 ">

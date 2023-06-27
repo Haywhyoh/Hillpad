@@ -43,7 +43,6 @@ export default function Courses() {
     };
     return (
         <div >
-            <Header />
 
             <div className="lg:flex flex-row mt-32 justify-start w-screen max-w-screen">
                 <div className="hidden lg:block px-8 shadow lg:w-80 max-h-screen h-screen fixed left-0 top-24  bg-white">
@@ -291,8 +290,6 @@ export default function Courses() {
                     <div>Filter</div>
                 </div>
             </div>
-            <Footer />
         </div>
-
     );
 }

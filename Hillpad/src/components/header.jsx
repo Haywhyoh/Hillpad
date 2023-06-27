@@ -95,7 +95,7 @@ export default function Header() {
                             </div>
                             { isHovering ?
                                 <div className='absolute top-8 left-0 shadow bg-white w-52  rounded-lg p-4 font-normal ' id='subMenu1'  onMouseOut={handleMouseOut}>
-                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 hover:text-orange' onMouseOver={handleMouseOut2} ><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div>
+                                    <Link to='/countries'><div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 hover:text-orange' onMouseOver={handleMouseOut2} ><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div></Link>
                                     <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2  hover:text-orange' onMouseOver={handleMouseOut2} ><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div>
                                     <div className='flex gap-x-2 justify-between py-2  hover:text-orange' onMouseOver={handleMouseOver2}>
                                         <div className='flex gap-x-2 relative' >
@@ -184,7 +184,7 @@ export default function Header() {
                             <div className='hidden ms-2' id='mobileNav'>
                                 <div className='border-e border-opacity-30 border-light_black'></div>
                                 <div className='font-normal px-4 w-full text-sm'>
-                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2'><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div>
+                                    <Link to='/countries'><div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2'><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div></Link>
                                     <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 '><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div>
                                     <div className='flex gap-x-2'><FaGraduationCap className='text-xl text-light_black text-opacity-60' /> <div className=''>Programmes</div></div>
                                     <div className='flex'>
