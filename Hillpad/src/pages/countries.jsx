@@ -8,7 +8,7 @@ import belgium from '../assets/images/dallas.jpeg';
 import uk from '../assets/images/chicago.jpeg';
 import CourseCard from "../components/searchCourseCard";
 import { degrees } from "../pages/degree";
-
+import { Link } from 'react-router-dom';
 export default function Countries() {
     const countriesList = countries["results"];
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,12 +43,15 @@ export default function Countries() {
                 <div>
                     <div className='flex gap-x-5 gap-y-2 my-6 flex-wrap'>
                         {countriesList.map((country) => (
+                            <Link to={`/countries/${country.name}`} state={country}>
                             <div className='flex lg:w-76 px-4 py-1 gap-x-4 text-base'>
                                 <div className={`fi fi-${country.short_code}`}></div>
                                 <div className='text-light'>{country.name}</div>
                                 <div className='text-light_black'>(8)</div>
                             </div>
+                            </Link>
                         ))}
+
                     </div>
                 </div>
             </section>

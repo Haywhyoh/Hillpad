@@ -7,6 +7,7 @@ import DisciplineDetails from './pages/disciplineDetails'
 import SearchBar from './components/test'
 import Header from './components/header'
 import Countries from './pages/countries'
+import CountryDetail from './pages/countryDetails'
 function App() {
   return (
     < div >
@@ -19,6 +20,7 @@ function App() {
           <Route path='/test' element={<SearchBar/>} />
           <Route path='*' element={<h1>Not Found</h1>} />
           <Route path='/countries' element={<Countries />} />
+          <Route path='/countries/:name' element={<CountryDetail />} />
         </Routes>
         <Footer />
     </div>
