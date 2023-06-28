@@ -587,7 +587,7 @@ export default function Home() {
 
 
         </section>
-        <section className="my-14 md:flex items-center lg:gap-x-40  w-full lg:justify-between xl:justify-start px-4">
+        <section className="my-14 md:flex items-center lg:gap-x-40  w-full lg:justify-between xl:justify-start ">
           <div className="w-72 mx-auto md:w-4/12">
             <img src={hillpadBig} />
           </div>
@@ -629,7 +629,7 @@ export default function Home() {
           </div>
         </section>
         <section className="mt-20 mb-20  w-full">
-          <div className="font-bold text-3xl mb-8 md:text-3xl text-left mx-4">
+          <div className="font-bold text-3xl mb-8 md:text-3xl text-left ">
             Reviews Across The Globe
           </div>
           <div className="flex flex-col lg:flex-row gap-8 mx-auto justify-center w-full lg:hidden">
