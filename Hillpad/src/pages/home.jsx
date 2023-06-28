@@ -788,7 +788,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="">
+          <div className="hidden lg:block">
             <div className="text-left flex lg:flex-row mx-auto gap-x-4">
               <div className="w-96">
                 <img
