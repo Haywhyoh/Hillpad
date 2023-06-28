@@ -626,7 +626,7 @@ export default function Home() {
             <CountryCarousel />
           </div>
         </section>
-        <section className="mt-20 mb-96  w-full">
+        <section className="mt-20 mb-20  w-full">
           <div className="font-bold text-3xl mb-8 md:text-3xl text-left mx-4">
             Reviews Across The Globe
           </div>
