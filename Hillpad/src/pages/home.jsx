@@ -15,6 +15,8 @@ import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight } from "react-icons/f
 import { useState } from "react";
 import { degrees } from "./degree";
 import review1 from '../assets/images/01.jpeg';
+import review2 from '../assets/images/01.jpeg';
+
 import Modal from "../components/modal";
 import Carousel from "../components/carousel";
 import CoursesCarousel from "../components/coursesCarousel";
