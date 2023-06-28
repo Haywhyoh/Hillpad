@@ -15,7 +15,7 @@ import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight } from "react-icons/f
 import { useState } from "react";
 import { degrees } from "./degree";
 import review1 from '../assets/images/01.jpeg';
-import review2 from '../assets/images/01.jpeg';
+import review2 from '../assets/images/02.jpeg';
 
 import Modal from "../components/modal";
 import Carousel from "../components/carousel";
@@ -800,7 +800,7 @@ export default function Home() {
               <div className="flex gap-x-2">
                 <div className="w-96">
                   <img
-                    src={review1}
+                    src={review2}
                     className="rounded-2xl"
                     alt="hillpad_school_review"
                   />
