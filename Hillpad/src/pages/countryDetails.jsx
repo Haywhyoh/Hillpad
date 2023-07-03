@@ -11,16 +11,26 @@ import countries from '../data/country.json';
 import { useState } from "react";
 import { degrees } from "../pages/degree";
 export default function CountryDetail() {
+    const continentList = {
+        'eu': 'Europe',
+        'na': 'North America',
+        'as': 'Asia',
+        'af': 'Africa',
+        'sa': 'South America',
+        'oc': 'Oceania',
+    }
+
+
     const countriesList = countries["results"];
     const [currentIndex, setCurrentIndex] = useState(0);
     const param = useParams();
     const location = useLocation();
     const props = location.state;
-    console.log(props);
+    const continent = props.continent.toLowerCase();
     return (
         <div className="mt-40  max-w-full mx-auto">
             <div className=" my-10">
-                <div className="flex items-center gap-x-2 text-xs text-light_black"><div><FaGlobeAmericas /> </div><div>{props.continent}</div></div>
+                <div className="flex items-center gap-x-2 text-xs text-light_black"><div><FaGlobeAmericas /> </div><div>{continentList[continent]}</div></div>
 
                 <div><h2 className="text-3xl text-light font-bold mt-2 mb-12">{props.name}</h2></div>
                 <div className="flex gap-x-6 my-4">
@@ -59,7 +69,7 @@ export default function CountryDetail() {
 
                             <div className="text-xl font-bold text-light_black mb-2">{props.name}</div>
                             <div className="flex gap-x-2">
-                                <div className="flex gap-x-2 items-center"><div><FaGlobeAmericas /> </div><div>{props.continent}</div></div>
+                                <div className="flex gap-x-2 items-center"><div><FaGlobeAmericas /> </div><div>{continentList[continent]}</div></div>
                                 <div className="flex gap-x-2 items-center "><div><FiFlag /> </div><div>{props.capital}</div></div>
                             </div>
                             <div className="flex gap-x-2 items-center  border-light border w-fit px-4 py-2 text-light font-bold rounded-lg my-4"><div><FaGraduationCap /> </div><div>Explore schools</div></div>
@@ -130,10 +140,10 @@ export default function CountryDetail() {
                 </div>
             </section>
 
-            <section className=' '>
+            <section className=' my-10 '>
                 <div className=" text-3xl font-bold my-6"><h2>Recommended Courses for you</h2></div>
                 <div className=" mx-0">
-                    <div className="flex  m-0 gap-x-8">
+                    <div className="flex justify-between">
                         {degrees.filter((degree) => (degree.id < 4)).map((degree, index) => (<CourseCard key={index} prop={degree} isActive={index === currentIndex} />))}
                     </div>
                 </div>
