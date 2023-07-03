@@ -130,3 +130,6 @@ button span {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.shadow-2 {
+  box-shadow: 0 .125rem .125rem -0.125rem rgba(31,27,45,.08),0 .25rem .75rem rgba(31,27,45,.08) ;
+}
