@@ -26,6 +26,7 @@ export default {
       'navy_blue': '#1F1B2D',
       'blue': '#3B5998',
       'red': '#FF0000',
+      'border_white': '#efecf3',
       
     },
     container: {

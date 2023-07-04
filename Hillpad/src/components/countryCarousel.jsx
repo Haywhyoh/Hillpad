@@ -18,61 +18,61 @@ function CountryCarousel() {
 
 
     return (
-        <div className="relative">
+        <div className="">
            
-            <div id="content3" className="carousel p-4 flex items-center justify-start overflow-x-auto scroll-smooth  gap-x-4  sm:gap-x-8 no-scrollbar">
+            <div id="content3" className="carousel flex items-center lg:justify-start overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-4 ">
                 <div>
-                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0">
+                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0 border border-border_white">
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl" />
                         </div>
-                        <div className="py-4 font-bold text-base text-light_black ">NewYork</div>
+                        <div className="py-4 font-bold text-base text-light_black text-center ">NewYork</div>
                     </div>
                 </div>
                 <div>
-                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0 ">
+                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl" />
                         </div>
-                        <div className="py-4 font-bold text-base text-light_black ">Canada</div>
+                        <div className="py-4 font-bold text-base text-light_black text-center">Canada</div>
                     </div>
                 </div>
                 <div>
-                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0 ">
+                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0  border border-border_white ">
                         <div className="rounded-2xl">
                             <img src={belgium} className="rounded-t-2xl" />
                         </div>
                         <div
-                         className="py-4 font-bold text-base text-light_black ">Belgium</div>
+                         className="py-4 font-bold text-base text-light_black text-center">Belgium</div>
                     </div>
                 </div>
                 <div>
-                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0 ">
+                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0  border border-border_white ">
                         <div className="rounded-2xl">
                             <img src={uk} className="rounded-t-2xl" />
                         </div>
-                        <div className="py-4 font-bold text-base text-light_black ">United Kingdom</div>
+                        <div className="py-4 font-bold text-base text-light_black text-center ">United Kingdom</div>
                     </div>
                 </div>
                 <div>
-                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0 ">
+                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl" />
                         </div>
-                        <div className="py-4 font-bold text-base text-light_black ">NewYork</div>
+                        <div className="py-4 font-bold text-base text-light_black text-center ">Sweden</div>
                     </div>
                 </div>
               
                 <div>
-                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0 ">
+                    <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl" />
                         </div>
-                        <div className="py-4 font-bold text-base text-light_black ">NewYork</div>
+                        <div className="py-4 font-bold text-base text-light_black text-center">NewYork</div>
                     </div>
                 </div>
             </div>
-            <div className=" ">
+            <div className=" flex justify-center">
          <button onClick={scrollLeft} className="p-2 m-2 rounded-full bg-white">
              <FiChevronLeft />
          </button>
