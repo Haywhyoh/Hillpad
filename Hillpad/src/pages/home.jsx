@@ -119,7 +119,7 @@ export default function Home() {
               </p>
               <div className=" w-110 rounded-lg ">
                 <div className="hidden mx-auto md:w-full md:rounded-full bg-white shadow-sm lg:block" id='bar '>
-                  <form className="w-110 rounded-full md:flex justify-between md:px-2 xl:py-1 md:rounded-full md:mx-8 md:items-center lg:mx-0 shadow lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
+                  <form className="w-110 rounded-full md:flex justify-between md:px-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 shadow lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
                     <fieldset className=" mx-2 px-2 py-2 md:border-0 w-80 ">
                       <div className="flex items-center gap-x-2">
                         <AiOutlineSearch className="text-light_black" />
@@ -144,7 +144,7 @@ export default function Home() {
                         </option>
                       </select>
                     </fieldset>
-                    <button className="w-full text-white bg-orange py-3 text-base font-bold rounded-3xl md:w-24 md:rounded-full">
+                    <button className="w-full text-white bg-orange py-4 px-4 text-base font-bold rounded-3xl md:w-28 md:rounded-full">
                       Search
                     </button>
                   </form>
