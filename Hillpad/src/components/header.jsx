@@ -209,7 +209,7 @@ export default function Header() {
 
             {
                 modal && (<div className="modal " > <div onClick={toggleModal}
-                    className="overlay" ></div> <div className="modal-content px-0 w-72 xl:w-fit bg-white" >
+                    className="overlay" ></div> <div className="modal-content px-0 w-72 sm:w-full lg:w-fit bg-white" >
                         <Login />
                         <button className="close-modal text-2xl" onClick={toggleModal}> <IoCloseOutline /> </button> </div> </div>
                 )
