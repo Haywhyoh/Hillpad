@@ -57,7 +57,7 @@ export default function Countries() {
                 </div>
             </section>
 
-            <div>
+            <div className='mx-auto flex justify-center'>
                 <Prefooter />
             </div>
         </div>
