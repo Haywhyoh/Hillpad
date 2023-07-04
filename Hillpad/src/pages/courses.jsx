@@ -261,7 +261,7 @@ export default function Courses() {
                             </div>
 
                             <div className="flex justify-center w-full mx-auto">
-                            <div className="flex gap-x-4 flex-wrap justify-center ld:justify-start w-full">
+                            <div className="flex gap-x-4 gap-y-8 flex-wrap justify-center ld:justify-start w-full">
                                 {courses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
 
                             </div>

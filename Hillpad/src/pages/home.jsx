@@ -572,8 +572,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative  mt-12">
-          <div className="mx-4  xl:mx-auto text-left text-2xl font-bold my-8 md:text-5xl md:my-10 lg:text-3xl lg:font-semibold">
+        <section className="relative  mt-5">
+          <div className="mx-4  xl:mx-auto text-left text-2xl font-bold my-8 md:text-5xl md:my-2 lg:my-0 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
           </div>
           <button onClick={scrollLeft} className="hidden lg:block p-2 shadow rounded-full absolute -left-12 top-80"> <FiChevronLeft /></button>
