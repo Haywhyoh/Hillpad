@@ -68,16 +68,8 @@ export default function Courses() {
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
                                     <div className="flex gap-x-2 py-1 text-sm text-light_black">
-                                        <input
-                                            type="checkbox"
-                                            id=''
-                                            name=''
-                                            value=''
-
-
-                                        />
-                                        <label htmlFor=''> <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon} text-${discipline.color}`} aria-hidden="true"></i>
-                                            <div className="text-xs"> {discipline.name} </div></span> </label>
+                                        <div> <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
+                                            <div className="text-xs"> {discipline.name} </div></span> </div>
                                     </div>
                                 ))}
                             </div>
