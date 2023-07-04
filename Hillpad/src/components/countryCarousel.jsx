@@ -20,7 +20,7 @@ function CountryCarousel() {
     return (
         <div className="">
            
-            <div id="content3" className="carousel flex items-center lg:justify-start overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-4 ">
+            <div id="content3" className="carousel flex items-center lg:justify-start overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-8 ">
                 <div>
                     <div className="shadow rounded-b-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0 border border-border_white">
                         <div className="rounded-2xl">
