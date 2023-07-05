@@ -8,10 +8,10 @@ export default function Footer() {
     return (
         <div className='bg-navy_blue w-screen'>
             <div className='max-w-full w-full mx-auto'>
-                <footer className=' text-white p-4 lg:px-4 max-w-8xl lg:flex flex-col justify-center mx-auto'>
+                <footer className=' text-white p-4 lg:px-4 max-w-8xl md:flex flex-col justify-center mx-auto'>
                     <div className='lg:flex  lg:justify-between'>
                         <div className='md:flex md:justify-between w-full'>
-                            <div className='lg:flex lg:gap-x-48'>
+                            <div className='md:flex md:gap-x-48'>
                                 <div>
                                     <div className='w-28 my-8'><img src={hillpad} /></div>
                                     <div className='my-8 lg:text-lg'>
@@ -29,7 +29,7 @@ export default function Footer() {
 
                                     <div>
                                         <div className=' my-4 text-lg md:text-lg md:font-bold'>Resources</div>
-                                        <ul className='text-white opacity-50 flex flex-col gap-2 lg:text-sm'>
+                                        <ul className='text-white opacity-50 flex flex-col gap-2  md:text-sm'>
                                             <li>Bachelors</li>
                                             <li>Masters</li>
                                             <li>Doctorate</li>
@@ -39,7 +39,7 @@ export default function Footer() {
                                     </div>
                                     <div>
                                         <div className='font-medium my-4 text-lg md:text-lg md:font-bold'>Quick Links</div>
-                                        <ul className='text-white opacity-50 flex flex-col gap-2 lg:text-sm'>
+                                        <ul className='text-white opacity-50 flex flex-col gap-2 md:text-sm'>
                                             <li>About Us</li>
                                             <li>Contact Us</li>
                                             <li>FAQs</li>
@@ -67,7 +67,7 @@ export default function Footer() {
                                     <input type='email' className='bg-light_black bg-opacity-0 w-36 py-2 px-2 text-sm focus:outline-none ' placeholder='Your Email' />
                                 </div>
                                 <div>
-                                    <button className='bg-orange py-2 px-4 rounded-full font-medium'>Subscribe</button>
+                                    <button className='bg-orange py-2 px-4 rounded-full font-bold'>Subscribe</button>
                                 </div>
                             </div>
                         </div>
