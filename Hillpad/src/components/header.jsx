@@ -8,7 +8,7 @@ import { BiWorld, BiBriefcase } from 'react-icons/bi';
 import { AiOutlineSearch } from 'react-icons/ai';
 import SearchBar from './test';   
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Login from './login';
 import { IoCloseOutline } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
@@ -17,6 +17,17 @@ export default function Header() {
     const [modal, setModal] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const [isHovering2, setIsHovering2] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    window.onscroll = function() {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+  }, []);
 
     const handleMouseOver = () => {
         setIsHovering(true);
@@ -75,7 +86,7 @@ export default function Header() {
 
 
     return (
-        <header className="w-screen py-4 fixed top-0 bg-white z-40">
+        <header className={ scrolled ? ' w-screen py-4 fixed top-0 bg-white z-40 shadow-md ': ' w-screen py-4 fixed top-0 bg-white z-40' }>
             <nav className="max-w-full text-sm font-bold mx-auto justify-between hidden lg:flex px-2 xl:px-0 items-center gap-x-4">
                 <div>
                     <Link to='/'>

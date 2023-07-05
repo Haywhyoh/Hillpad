@@ -5,9 +5,11 @@ import { FaFacebookF } from "react-icons/fa";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { fetchUser } from "../redux/userSlice";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 export default function Login() {
+    const user = useSelector((state) => state.user);
+
     const dispatch = useDispatch();
     const [values, setValues] = useState({
         firstname: "",
@@ -101,10 +103,10 @@ export default function Login() {
         },
     
     ];
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(fetchUser(values));
-    
     };
 
 
@@ -152,7 +154,11 @@ export default function Login() {
                                                     onChange={onChange}
                                                 />
                                             ))}
-                                            <button className="text-white bg-orange font-bold w-full py-4 rounded-md" onClick={handleSubmit}>Sign In</button>
+                                            { user && (
+                                            <Navigate to="/" replace = {true}/>)
+                                            }
+                                                <button className="text-white bg-orange font-bold w-full py-4 rounded-md" onClick={handleSubmit}>Sign In</button>
+                                          
                                             <div className='text-sm text-orange text-right underline hover:no-underline' onClick={showLogin}>Forgot Password</div>
         
                                         </form>
