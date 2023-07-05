@@ -45,6 +45,7 @@ export default {
         '3xl': ' 0px 7px 29px 0px rgba(100, 100, 111, 0.2) '
     },
     width: {
+      '74': '18.5rem',
       '76': '19rem',
       '84': '21.5rem',
       '100': '30rem',
