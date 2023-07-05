@@ -178,7 +178,7 @@ export default function Home() {
                       </option>
                     </select>
                   </fieldset>
-                  <button className="w-64 xs:w-80 mb-2 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
+                  <button className="w-64 xs:w-80 2xs:w-full mb-2 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
                     Search
                   </button>
                 </form>
