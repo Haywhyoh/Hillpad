@@ -635,9 +635,17 @@ export default function Home() {
           <div className="font-bold text-3xl mb-8 md:text-3xl text-left ">
             Reviews Across The Globe
           </div>
-          <div className="flex flex-col lg:flex-row gap-8 mx-auto justify-center w-full lg:hidden">
-            {/* <div className="text-left relative w-72 flex flex-col justify-center lg:flex-row">
-              <div className="shadow p-4 rounded-2xl absolute top-64 bg-white mx-auto">
+
+          <div className="flex mx-auto justify-center w-full lg:hidden">
+            <div className="text-left relative w-72 2xs:w-88 sm:w-76 justify-center lg:flex-row mx-auto mb-72">
+            <div className="">
+                <img
+                  src={review1}
+                  className="rounded-2xl"
+                  alt="hillpad_school_review"
+                />
+              </div>
+              <div className="shadow p-4 rounded-2xl absolute -mt-6 bg-white mx-auto">
                 <div className="font-medium text-xl my-4">
                   "The best platform to finding courses!"
                 </div>
@@ -679,115 +687,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div>
-                <img
-                  src={review1}
-                  className="rounded-2xl"
-                  alt="hillpad_school_review"
-                />
-              </div>
-            </div>
-            <div className="text-left relative w-72 flex flex-col justify-center lg:flex-row">
-              <div className="shadow p-4 rounded-2xl absolute top-64 bg-white mx-auto">
-                <div className="font-medium text-xl my-4">
-                  "The best platform to finding courses!"
-                </div>
-                <div className="text-light_black mb-4">
-                  HillPad has made it so easy for me to find the perfect course
-                  for my degree. I'm so happy to have found this amazing
-                  platform!
-                </div>
-                <div className="flex gap-2 justify-between items-start">
-                  <div className="w-32">
-                    <div className="text-xl font-medium ">Floyd Miles</div>
-                    <div className="text-light_black text-sm">
-                      University of Cambridge
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex text-yellow text-xl">
-                      <AiFillStar />
-                      <AiFillStar />
-                      <AiFillStar />
-                      <AiFillStar />
-                      <AiFillStar />
-                    </div>
-                    <div className="my-2 text-light_black text-sm">
-                      {" "}
-                      43 reviews
-                    </div>
-                  </div>
-                </div>
-                <div className="flex gap-x-6 my-4 text-xl">
-                  <div className="rounded-full shadow bg-opacity-20 p-2 text-light_black">
-                    <AiOutlineTwitter />
-                  </div>
-                  <div className="rounded-full shadow bg-opacity-20 p-2 text-light_black">
-                    <FaFacebookF />
-                  </div>
-                  <div className="rounded-full shadow bg-opacity-20 p-2 text-light_black">
-                    <FaLinkedinIn />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <img
-                  src={review1}
-                  className="rounded-2xl"
-                  alt="hillpad_school_review"
-                />
-              </div>
-            </div> */}
-            <div className="text-left relative w-72 flex flex-col justify-center lg:flex-row mx-auto">
-              <div className="shadow p-4 rounded-2xl absolute top-64 bg-white mx-auto">
-                <div className="font-medium text-xl my-4">
-                  "The best platform to finding courses!"
-                </div>
-                <div className="text-light_black mb-4">
-                  HillPad has made it so easy for me to find the perfect course
-                  for my degree. I'm so happy to have found this amazing
-                  platform!
-                </div>
-                <div className="flex gap-2 justify-between items-start">
-                  <div className="w-32">
-                    <div className="text-xl font-medium ">Floyd Miles</div>
-                    <div className="text-light_black text-sm">
-                      University of Cambridge
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex text-yellow text-xl">
-                      <AiFillStar />
-                      <AiFillStar />
-                      <AiFillStar />
-                      <AiFillStar />
-                      <AiFillStar />
-                    </div>
-                    <div className="my-2 text-light_black text-sm">
-                      {" "}
-                      43 reviews
-                    </div>
-                  </div>
-                </div>
-                <div className="flex gap-x-6 my-4 text-xl">
-                  <div className="rounded-full shadow bg-opacity-20 p-2 text-light_black">
-                    <AiOutlineTwitter />
-                  </div>
-                  <div className="rounded-full shadow bg-opacity-20 p-2 text-light_black">
-                    <FaFacebookF />
-                  </div>
-                  <div className="rounded-full shadow bg-opacity-20 p-2 text-light_black">
-                    <FaLinkedinIn />
-                  </div>
-                </div>
-              </div>
-              <div className="">
-                <img
-                  src={review1}
-                  className="rounded-2xl"
-                  alt="hillpad_school_review"
-                />
-              </div>
+             
             </div>
           </div>
 
