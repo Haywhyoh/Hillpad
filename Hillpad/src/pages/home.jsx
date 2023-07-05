@@ -588,11 +588,11 @@ export default function Home() {
 
 
         </section>
-        <section className="my-14 md:flex items-center lg:gap-x-40  w-full lg:justify-between xl:justify-start ">
-          <div className="w-72 mx-auto md:w-4/12">
+        <section className="my-14 md:flex items-center w-full lg:justify-start lg:gap-x-32 ">
+          <div className="w-72 mx-auto lg:mx-0 md:w-4/12">
             <img src={hillpadBig} />
           </div>
-          <div className="md:w-6/12 mx-4  xl:mx-auto ">
+          <div className="md:w-6/12   xl:mx-0">
             <div className=" font-semibold mx-6 lg:mx-0 mt-5 text-2xl md:text-3xl md:text-left">
               Let us help you find your dream school
             </div>
@@ -779,7 +779,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div>
+              <div className="">
                 <img
                   src={review1}
                   className="rounded-2xl"
