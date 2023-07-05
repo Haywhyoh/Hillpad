@@ -174,9 +174,11 @@ export default function Header() {
 
             <nav className='mx-auto px-3 lg:hidden'>
                 <div className='flex justify-between '>
+                    <Link to='/'>
                     <div className='w-20'>
                         <img src={logo} />
                     </div>
+                    </Link>
                     <div className='text-2xl text-light_black font-bold' onClick={toggleHeader}><FiMenu /></div>
                 </div>
 
