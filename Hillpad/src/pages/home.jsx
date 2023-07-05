@@ -105,15 +105,15 @@ export default function Home() {
               Discover <span className="text-orange"> Educational</span>{" "}
               Opportunities
             </h1> */}
-            <div className="mx-4 my-8 md:mx-10 -z-20 2xl:mt-16 xl:mx-0 lg:w-7/12">
+            <div className="mx-4 my-8 md:mx-0 -z-20 2xl:mt-16 xl:mx-0 lg:w-7/12">
               <img src='./hero-img.jpeg' alt="hillpad_courses" className="" />
             </div>
-            <div className="lg:text-left lg:w-full xl:w-5/12 mx-4 lg:mx-0 xl:mt-12">
-              <h1 className="font-bold text-text_black text-3xl xs:text-3xl text-center mb-6 md:text-5xl md:font-semibold md:my-16  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mt-0 2xl:mb-8 ">
+            <div className="lg:text-left md:w-full xl:w-5/12 mx-4 md:mx-0 xl:mt-12">
+              <h1 className="font-bold text-text_black text-3xl xs:text-3xl text-center mb-6 md:text-4xl md:font-semibold md:my-8  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mt-0 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
               </h1>
-              <p className="text-light_black mb-6 text-lg md:text-2xl md:mx-10 md:my-10  lg:my-0 lg:text-base lg:mx-0 xl:pe-12 lg:w-full xl:text-lg 2xl:mt-0 2xl:mb-12">
+              <p className="text-light_black mb-6 text-lg md:text-lg md:mx-0 md:my-6  lg:my-0 lg:text-base lg:mx-0 xl:pe-12 lg:w-full xl:text-lg 2xl:mt-0 2xl:mb-12">
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
@@ -144,18 +144,19 @@ export default function Home() {
                         </option>
                       </select>
                     </fieldset>
-                    <button className="w-full text-white bg-orange py-4 px-4 text-base font-bold rounded-3xl md:w-28 md:rounded-full">
+                    <button className="w-full md text-white bg-orange py-4 px-4 text-base font-bold rounded-3xl md:w-28 md:rounded-full">
                       Search
                     </button>
+                    
                   </form>
                 </div>
 
               </div>
-              {/* -----------------search mobile -------------------------------- */}
+              {/* -----------------search mobile-------------------------------- */}
               <div className="  lg:w-72  md:w-full md:rounded-full bg-white lg:hidden">
                 <form className="shadow  rounded-md md:flex text-lg justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10 2xl:w-6/12 2xl:mt-0">
                   <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-4 md:border-0  ">
-                    <div className="flex items-center gap-x-2">
+                    <div className="flex w-28 xs:w-full items-center gap-x-2">
                       <AiOutlineSearch className="text-light_black text-xl text-opacity-60" />
                       <input
                         type="text "
@@ -179,7 +180,7 @@ export default function Home() {
                     </select>
                   </fieldset>
                   <div className="mx-2">
-                  <button className="w-64 xs:w-80 2xs:w-full mb-2 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
+                  <button className="w-60 xs:w-80 2xs:w-full mb-2 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
                     Search
                   </button>
                   </div>
