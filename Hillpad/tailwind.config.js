@@ -53,6 +53,9 @@ export default {
       '88': '23rem',
       '54p': '54%', 
     },
+    height:{
+      'card':'430px',
+    },
     screens: {
       '2xl': '1440px',
       '3xl': '1560px',
@@ -60,7 +63,7 @@ export default {
     maxWidth: {
       '8xl': '1440px',
       '9xl': '1560px',
-      'full': '1320px',
+      'full': '1320px',  
     },
     bottom: {
       '68': '18rem',

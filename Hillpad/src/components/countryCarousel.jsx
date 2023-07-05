@@ -20,7 +20,7 @@ function CountryCarousel() {
     return (
         <div className="">
            
-            <div id="content3" className="carousel flex items-center lg:justify-start overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-8  ">
+            <div id="content3" className="carousel flex items-center lg:justify-between overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-8 ">
                 <div className="rounded-t-2xl" 
                     onMouseOver={() => { const show = document.querySelector('#newyork'); show.style.display = 'block'}}
                     onMouseLeave={() => { const show = document.querySelector('#newyork'); show.style.display = 'none'}}
