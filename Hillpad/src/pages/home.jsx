@@ -105,7 +105,7 @@ export default function Home() {
             <div className="mx-4 my-8 md:mx-0 -z-20 2xl:mt-16 xl:mx-0 lg:w-7/12">
               <img src='./hero-img.jpeg' alt="hillpad_courses" className="" />
             </div>
-            <div className="lg:text-left md:w-full xl:w-5/12 mx-4 md:mx-0 xl:mt-12">
+            <div className="lg:text-left md:w-full lg:w-5/12 mx-4 md:mx-0 xl:mt-12">
               <h1 className="font-bold text-text_black text-3xl xs:text-3xl text-center mb-6 md:text-4xl md:font-semibold md:my-8  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mt-0 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
@@ -114,22 +114,22 @@ export default function Home() {
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
-              <div className=" w-110 rounded-lg ">
+              <div className="lg:w-100 xl:w-110 rounded-lg lg:my-8">
                 <div className="hidden mx-auto md:w-full md:rounded-full bg-white shadow-sm lg:block" id='bar '>
-                  <form className="w-110 rounded-full md:flex justify-between md:px-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 shadow lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
-                    <fieldset className=" mx-2 px-2 py-2 md:border-0 w-80 ">
+                  <form className="lg:w-100 xl:w-110 rounded-full md:flex justify-between md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 shadow lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
+                    <fieldset className=" mx-2 px-2 md:border-0 lg:w-48 xl:w-80 ">
                       <div className="flex items-center gap-x-2">
                         <AiOutlineSearch className="text-light_black" />
                         <input
                           type="text "
-                          className="focus:outline-none md:w-60 "
+                          className="focus:outline-none md:w-60 lg:w-48 xl:w-60 "
                           placeholder="What do you want to study?"
                         ></input>
                       </div>
                     </fieldset>
-                    <fieldset className="my-2 border-s border-opacity-40 border-light_black">
+                    <fieldset className="my-0 border-s border-opacity-40 border-light_black">
                       <div></div>
-                      <select className="text-left w-full p-2 text-light_black bg-white focus:outline-none lg:w-fit">
+                      <select className="text-left w-full px-2 text-light_black bg-white focus:outline-none lg:w-fit">
                         <option className="text-light_black text-opacity-10" value={"China"}>
                           Where ?
                         </option>
