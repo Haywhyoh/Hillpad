@@ -21,22 +21,31 @@ function CountryCarousel() {
         <div className="">
            
             <div id="content3" className="carousel flex items-center lg:justify-start overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-8  ">
-                <div className="rounded-t-2xl">
+                <div className="rounded-t-2xl" 
+                    onMouseOver={() => { const show = document.querySelector('#newyork'); show.style.display = 'block'}}
+                    onMouseLeave={() => { const show = document.querySelector('#newyork'); show.style.display = 'none'}}
+                    >
                     <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0 border border-border_white relative ">
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl bg-black" />
                         </div>
-                        <div className="bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-20 rounded-t-2xl">
+                        <div className=" hidden bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-20 rounded-t-2xl" id='newyork'>
                             <p className="text-white">This is just an oevrlay text</p>
                         </div>
                         <div className="py-4 font-bold text-base text-light_black text-center ">NewYork</div>
                     </div>
                 </div>
 
-                <div>
+                <div
+                     onMouseOver={() => { const show = document.querySelector('#canada'); show.style.display = 'block'}}
+                     onMouseLeave={() => { const show = document.querySelector('#canada'); show.style.display = 'none'}}
+                    >
                     <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-76 xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl" />
+                        </div>
+                        <div className=" hidden bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-20 rounded-t-2xl" id='canada'>
+                            <p className="text-white">This is just an oevrlay text</p>
                         </div>
                         <div className="py-4 font-bold text-base text-light_black text-center">Canada</div>
                     </div>
