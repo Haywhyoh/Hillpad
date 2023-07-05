@@ -598,7 +598,7 @@ export default function Home() {
             <div className=" font-semibold mx-6 lg:mx-0 mt-5 text-2xl md:text-3xl md:text-left">
               Let us help you find your dream school
             </div>
-            <div className="text-light_black text-center text-sm lg:text-lg md:text-left my-4">
+            <div className="text-light_black text-center text-sm 2xs:text-lg md:text-left my-4">
               We provide an online platform designed to make finding and
               applying for undergraduate and postgraduate courses easy and
               efficient. With HillPad, you can conveniently access the best
