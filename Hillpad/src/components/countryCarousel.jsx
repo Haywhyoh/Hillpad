@@ -25,7 +25,7 @@ function CountryCarousel() {
                     onMouseOver={() => { const show = document.querySelector('#newyork'); show.style.display = 'block'}}
                     onMouseLeave={() => { const show = document.querySelector('#newyork'); show.style.display = 'none'}}
                     >
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-72 lg:w-76 xs:mx-4 2xs:mx-7 sm:mx-0 border border-border_white relative ">
+                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 lg:w-76 xs:mx-4 2xs:mx-7 sm:mx-0 border border-border_white relative ">
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl bg-black" />
                         </div>
@@ -40,7 +40,7 @@ function CountryCarousel() {
                      onMouseOver={() => { const show = document.querySelector('#canada'); show.style.display = 'block'}}
                      onMouseLeave={() => { const show = document.querySelector('#canada'); show.style.display = 'none'}}
                     >
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-72 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
+                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl" />
                         </div>
@@ -52,7 +52,7 @@ function CountryCarousel() {
                 </div>
 
                 <div>
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-72 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white ">
+                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white ">
                         <div className="rounded-2xl">
                             <img src={belgium} className="rounded-t-2xl" />
                         </div>
@@ -61,7 +61,7 @@ function CountryCarousel() {
                     </div>
                 </div>
                 <div>
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-72 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white ">
+                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white ">
                         <div className="rounded-2xl">
                             <img src={uk} className="rounded-t-2xl" />
                         </div>
@@ -69,7 +69,7 @@ function CountryCarousel() {
                     </div>
                 </div>
                 <div>
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-72 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
+                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl" />
                         </div>
@@ -78,7 +78,7 @@ function CountryCarousel() {
                 </div>
               
                 <div>
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-72 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
+                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl" />
                         </div>
