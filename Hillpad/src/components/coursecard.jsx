@@ -8,8 +8,8 @@ import '../components/coursecard.css';
 export default function CourseCard({ prop, isActive }) {
   return (
     <div className=' flex '>
-      <div className='flex my-6 w-76 justify-center xs:mx-5 2xs:mx-6 sm:mx-0 '>
-        <div className="shadow rounded-b-2xl  h-card flex flex-col justify-between">
+      <div className='flex my-6 w-76 2xs:w-88 sm:w-76 justify-center xs:mx-5 2xs:mx-6 sm:mx-0 '>
+        <div className="shadow rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
 
           <div className=" rounded-xl">
             <img

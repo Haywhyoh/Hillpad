@@ -55,6 +55,7 @@ export default {
     },
     height:{
       'card':'430px',
+      'card2':'480px',
     },
     screens: {
       '2xl': '1440px',
