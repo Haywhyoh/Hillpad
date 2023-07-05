@@ -636,7 +636,7 @@ export default function Home() {
             Reviews Across The Globe
           </div>
 
-          <div className="flex mx-auto justify-center w-full lg:hidden">
+          <div className="flex mx-auto justify-center w-full md:hidden">
             <div className="text-left relative w-72 2xs:w-88 sm:w-76 justify-center lg:flex-row mx-auto mb-72">
             <div className="">
                 <img
@@ -655,7 +655,7 @@ export default function Home() {
                   platform!
                 </div>
                 <div className="flex gap-2 justify-between items-start">
-                  <div className="w-32">
+                  <div className="w-fit">
                     <div className="text-xl font-medium ">Floyd Miles</div>
                     <div className="text-light_black text-sm">
                       University of Cambridge
@@ -676,13 +676,13 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-x-6 my-4 text-xl">
-                  <div className="rounded-full shadow bg-opacity-20 p-2 text-light_black">
+                  <div className="rounded-full shadow-md bg-opacity-20 p-2 text-light_black">
                     <AiOutlineTwitter />
                   </div>
-                  <div className="rounded-full shadow bg-opacity-20 p-2 text-light_black">
+                  <div className="rounded-full shadow-md bg-opacity-20 p-2 text-light_black">
                     <FaFacebookF />
                   </div>
-                  <div className="rounded-full shadow bg-opacity-20 p-2 text-light_black">
+                  <div className="rounded-full shadow-md bg-opacity-20 p-2 text-light_black">
                     <FaLinkedinIn />
                   </div>
                 </div>
@@ -691,9 +691,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden lg:block">
+          <div className="hidden md:block">
             <div className="text-left flex lg:flex-row mx-auto gap-x-4">
-              <div className="w-96">
+              <div className="w-96 md:hidden lg:block">
                 <img
                   src={review1}
                   className="rounded-2xl"
@@ -701,7 +701,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex gap-x-2">
-                <div className="w-96">
+                <div className="w-76 lg:w-96">
                   <img
                     src={review2}
                     className="rounded-2xl"
@@ -712,13 +712,13 @@ export default function Home() {
                   <div className="font-medium text-xl my-4">
                     "The best platform to finding courses!"
                   </div>
-                  <div className="text-light_black mb-4">
+                  <div className="text-light_black mb-4 md:hidden lg:block">
                     HillPad has made it so easy for me to find the perfect course
                     for my degree. I'm so happy to have found this amazing
                     platform!
                   </div>
                   <div className="flex gap-2 justify-between items-start">
-                    <div className="w-32">
+                    <div className="w-fit">
                       <div className="text-xl font-medium ">Floyd Miles</div>
                       <div className="text-light_black text-sm">
                         University of Cambridge
