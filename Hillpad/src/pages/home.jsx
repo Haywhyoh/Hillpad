@@ -101,10 +101,7 @@ export default function Home() {
 
         <section className=" max-w-full lg:mx-auto ">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
-            {/* <h1 className=" hidden font-bold text-text_black text-4xl xs:text-5xl text-center mb-6 md:text-6xl md:font-semibold md:my-16 lg:hidden  ">
-              Discover <span className="text-orange"> Educational</span>{" "}
-              Opportunities
-            </h1> */}
+         
             <div className="mx-4 my-8 md:mx-0 -z-20 2xl:mt-16 xl:mx-0 lg:w-7/12">
               <img src='./hero-img.jpeg' alt="hillpad_courses" className="" />
             </div>
@@ -179,8 +176,8 @@ export default function Home() {
                       </option>
                     </select>
                   </fieldset>
-                  <div className="mx-2">
-                  <button className="w-60 xs:w-80 2xs:w-full mb-2 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
+                  <div className="mx-2 ">
+                  <button className="w-60 xs:w-80 2xs:w-full mb-2 md:mb-0 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
                     Search
                   </button>
                   </div>
