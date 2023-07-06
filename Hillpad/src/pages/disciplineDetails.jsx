@@ -8,8 +8,13 @@ import Header from '../components/header';
 import { degrees } from "./degree";
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import CoursesCarousel from '../components/coursesCarousel';
+import Prefooter from '../components/preFooter';
+import CountryCarousel from '../components/countryCarousel';
 export default function DisciplineDetails() {
   const [show, setShow] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const param = useParams();
 
   return (
@@ -121,15 +126,23 @@ export default function DisciplineDetails() {
           <div className='bg-white py-2 px-4 rounded-md w-fit text-orange text-center mx-auto font-bold'>Book a free consultation</div>
         </div>
 
-      <div className='my-4 hidden lg:block'>
-        <h2 className='text-2xl font-semibold text-center lg:text-3xl lg:my-6'>Recommended {param.name}</h2>
-        <div className="my-6 flex justify-center mx-auto">
-        <div className="flex justify-center w-full mx-auto">
-                            <div className="flex gap-x-4 flex-wrap justify-center ld:justify-start w-full">
-                                {degrees.filter((degree) => (degree.id < 4)).map((degree, index) => (<CourseCard key={index} prop={degree} />))}
+      <div className='my-20 hidden lg:block'>
+        <h2 className='text-2xl font-semibold text-center lg:text-3xl lg:my-9'>Recommended {param.name} Courses</h2>
+        <div className="my-6 mx-auto">
+        <div className="">
+          <div id="content2" className="carousel flex items-center justify-start overflow-x-auto scroll-smooth no-scrollbar gap-x-4">
+          {degrees.filter(degree => degree.id < 4 ).map((degree, index) => ( <div className=""><CourseCard key={index} prop={degree} isActive={index === currentIndex} /></div> ))}
+          </div>
+      </div>
+      <h2 className='text-2xl font-semibold text-center lg:text-3xl lg:mt-20 lg:mb-6'>Popular Destinations To Study {param.name}</h2>
 
-                            </div>
-                            </div>
+        <section className='mb-10'>
+               <div>
+                <CountryCarousel />
+               </div>
+            </section>
+
+           
           </div>
       </div>
 
