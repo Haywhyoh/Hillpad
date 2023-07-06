@@ -528,7 +528,7 @@ export default function Home() {
 
             <Link to='/discipline/Environmental Sciences' onMouseOver={() => setIsHovDiscipline12(true)} onMouseOut={() => setIsHovDiscipline12(false)}>
               {isHovDiscipline12 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_whitemd:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-lg rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-lg rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-yellow p-2 w-fit rounded-full mx-auto`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -581,7 +581,6 @@ export default function Home() {
            
           </div>
           <button onClick={scrollRight} className="hidden lg:block p-2 shadow rounded-full absolute -right-12 top-80"><FiChevronRight /></button>
-
 
         </section>
         <section className="my-14 md:flex items-center w-full md:justify-start md:gap-x-8 lg:gap-x-32 ">
@@ -687,7 +686,7 @@ export default function Home() {
 
           <div className="hidden md:block">
             <div className="text-left flex lg:flex-row mx-auto gap-x-4">
-              <div className="w-98 md:hidden lg:block">
+              <div className="w-98 md:hidden xl:block">
                 <img
                   src={review1}
                   className="rounded-2xl"
