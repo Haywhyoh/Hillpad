@@ -3,6 +3,7 @@ import { useState } from "react";
 import bachelor from '../assets/images/bachelors.svg';
 import masters from "../assets/images/masters.svg";
 import doctorates from "../assets/images/doctorates.svg";
+import { Link } from "react-router-dom";
 function Carousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isHovering, setIsHovering] = useState(false);
@@ -79,11 +80,11 @@ function Carousel() {
                                         Choose from more than 1000 Bachelor's programmes at
                                         universities, colleges, and school worldwide
                                     </div>
-                                    <div>
+                                    <Link to='/courses'>
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                             Search Bachelors
                                         </button>
-                                    </div>
+                                    </Link>
                                 </div>
 
                             </div> : <div className="   transition-all duration-700">
@@ -96,10 +97,10 @@ function Carousel() {
                                         Choose from more than 1000 Bachelor's programmes at
                                         universities, colleges, and school worldwide
                                     </div>
-                                    <div>
+                                    <Link to='/courses'>
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white">                      Search Bachelors
                                         </button>
-                                    </div>
+                                    </Link>
                                 </div>
 
                             </div>
@@ -118,11 +119,11 @@ function Carousel() {
                                     Choose from more than 1000 Master's programmes at
                                     universities, colleges, and school worldwide
                                 </div>
-                                <div>
+                                <Link to='/courses'>
                                     <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                         Search Masters
                                     </button>
-                                </div>
+                                </Link>
                             </div>
                             </div>
                                 : <div className="">
@@ -134,11 +135,11 @@ function Carousel() {
                                         Choose from more than 1000 Master's programmes at
                                         universities, colleges, and school worldwide
                                     </div>
-                                    <div>
+                                    <Link to='/courses'>
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange mb-8 ">
                                             Search Masters
                                         </button>
-                                    </div>
+                                    </Link>
                                 </div>
                         }
 
@@ -158,11 +159,11 @@ function Carousel() {
                                     Choose from more than 1000 Bachelor's programmes at
                                     universities, colleges, and school worldwide
                                 </div>
-                                <div>
+                                <Link to='/courses'>
                                     <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8  bg-orange text-white">
                                         Search PhDs
                                     </button>
-                                </div>
+                                </Link>
                             </div></div>
                                 : <div className="sm:w-full"><div className="w-40 mx-auto">
                                     <img src={doctorates} alt="doctorates_degree" />
@@ -172,11 +173,11 @@ function Carousel() {
                                         Choose from more than 1000 Bachelor's programmes at
                                         universities, colleges, and school worldwide
                                     </div>
-                                    <div>
+                                    <Link to='/courses'>
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 text-orange">
                                             Search PhDs
                                         </button>
-                                    </div>
+                                    </Link>
                                 </div>
 
                         }
