@@ -66,15 +66,15 @@ export default function DisciplineDetails() {
          
       </div>
           
-      <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-12 w-1/2 border-border_white border-2 rounded-lg'>
+      <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-8 w-1/2 border-border_white border-2 rounded-lg'>
         <h2 className='text-2xl font-semibold max-w-sm'>Top Universities for {param.name}</h2>
         <h3 className='text-light_black text-base my-2 flex items-center gap-x-1'><BsBoxArrowUpRight className='font-extrabold ' /><div>Times Higher education World Ranking</div></h3>
         <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-2 my-4 w-full'>
-          <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Bachelors</div></div>
-          <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Masters</div></div>
-          <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Doctorate</div></div>
+          <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Bachelors</div></div>
+          <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Masters</div></div>
+          <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Doctorate</div></div>
         </div>
-        <table className="table-auto text-left  rounded-lg mt-4 ">
+        <table className="table-auto text-left  rounded-lg mt-4 w-full">
             <thead className='border-b border-light_black border-opacity-40'>
               <tr>
                 <th className='py-2 px-8'>No.</th>
@@ -127,7 +127,7 @@ export default function DisciplineDetails() {
         </table>
       </div>  
       </div>
-      <div className='bg-orange text-white p-6 my-8 text-center max-w-4xl mx-auto lg:my-12'>
+      <div className='bg-orange text-white p-6 my-8 text-center max-w-4xl mx-auto lg:my-12 rounded-lg'>
           <h3 className='text-2xl font-bold 2xs:text-3xl'>Get Free Consultation!</h3>
           <div className='text-lg py-2 2xs:py-4 2xs:text-xl'>Find out which programme is best for you by talking to one of our trained consultants</div>
           <div className='bg-white py-2 px-4 rounded-md w-fit text-orange text-center mx-auto font-bold'>Book a free consultation</div>
