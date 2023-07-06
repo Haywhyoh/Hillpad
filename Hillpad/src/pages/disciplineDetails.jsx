@@ -11,6 +11,8 @@ import { useState } from 'react';
 import CoursesCarousel from '../components/coursesCarousel';
 import Prefooter from '../components/preFooter';
 import CountryCarousel from '../components/countryCarousel';
+import { FiChevronsRight } from 'react-icons/fi';
+
 export default function DisciplineDetails() {
   const [show, setShow] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,36 +22,41 @@ export default function DisciplineDetails() {
   return (
     <>
       <Header />
-    <div className='mx-4 max-w-full lg:mx-8 2xl:mx-12 3xl:mx-auto mt-32'>
-      <div className='my-6'>
-        <h1 className='text-2xl font-semibold'>{param.name}</h1>
+    <div className='mx-4 max-w-full lg:mx-8 2xl:mx-12 3xl:mx-auto mt-28'>
+    <div className="text-light_black flex gap-x-2 text-sm my-6"> 
+             <Link to='/'><div className="flex gap-x-2 items-center"><span>Home</span><span><FiChevronsRight /> </span></div></Link>
+             <Link to='/countries'><div className="flex gap-x-2 items-center"><span>Countries</span><span><FiChevronsRight /> </span></div> </Link>
+             <Link to=''><span className="text-light">{param.name}</span></Link>
+            </div>
+      <div className='mt-16 mb-8'>
+        <h1 className='text-4xl font-semibold'>{param.name}</h1>
         <div className='flex gap-x-4 my-4'>
-          <div className='text-light_black border-e pe-4 border-light_black border-opacity-30 2xs:flex gap-x-2'>
+          <div className='text-light_black border-e pe-4 border-light_black border-opacity-10 2xs:flex gap-x-2 items-center'>
             <div className='text-light_black font-semibold text-base'>1230</div>
-            <div>Bachelors</div>
+            <div className='text-sm'>Bachelors</div>
 
           </div>
-          <div className='text-light_black border-e pe-4 border-light_black border-opacity-30 2xs:flex gap-x-2'>
+          <div className='text-light_black border-e pe-4 border-light_black border-opacity-10 2xs:flex gap-x-2 items-center'>
             <div className='font-semibold text-base'>1230</div>
-            <div>Masters</div>
+            <div className='text-sm'>Masters</div>
 
           </div>
-          <div className='text-light_black 2xs:flex gap-x-2'>
+          <div className='text-light_black 2xs:flex gap-x-2 items-center'>
             <div className='font-semibold text-base'>1230</div>
-            <div>Doctorates</div>
+            <div className='text-sm'>Doctorates</div>
           </div>
         </div>
 
       </div>
-      <div className='lg:flex gap-x-10'>
-      <div className='lg:w-7/12'>
-        <div className='text-orange font-semibold flex flex-col 2xs:flex-row gap-3 justify-between 2xs:justify-start 2xs:gap-x-8 lg:mt-10'>
-          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><BsBoxArrowUpRight /></div><div className='text-xl'>Bachelors</div><div className='text-light_black text-sm'>(12345)</div></div>
-          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><BsBoxArrowUpRight /></div><div className='text-xl'>Masters</div><div className='text-light_black text-sm'>(12345)</div></div>
-          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><BsBoxArrowUpRight /></div><div className='text-xl'>Doctorate</div><div className='text-light_black text-sm'>(12345)</div></div>
+      <div className='lg:flex justify-between max-w-full w-full'>
+      <div className='lg:w-6/12'>
+        <div className='text-orange flex flex-col 2xs:flex-row gap-3 justify-between 2xs:justify-start 2xs:gap-x-4 '>
+          <div className='py-2 2xs:px-5 rounded-md flex gap-x-1 2xs:border border-light items-center font-bold hover:bg-light hover:text-white'><div ><BsBoxArrowUpRight className='font-bold'/></div><div className='text-normal'>Bachelors</div><div className='text-light_black text-xs opacity-60'>(12345)</div></div>
+          <div className='py-2 2xs:px-5 rounded-md flex gap-x-1 2xs:border border-light items-center font-bold hover:bg-light hover:text-white '><div ><BsBoxArrowUpRight className='font-bold'/></div><div className='text-lg'>Masters</div><div className='text-light_black text-xs opacity-60'>(12345)</div></div>
+          <div className='py-2 2xs:px-5 rounded-md flex gap-x-1 2xs:border border-light items-center font-bold hover:bg-light hover:text-white '><div ><BsBoxArrowUpRight className='font-bold'/></div><div className='text-lg'>Doctorate</div><div className='text-light_black text-xs opacity-60'>(12345)</div></div>
         </div>
-        <div className='my-6'><h2 className='text-2xl font-semibold '>About </h2></div>
-        <p className='text-light_black text-lg my-6 lg:text-justify'>{` ${param.name} 'is a vital scientific field that focuses on studyig plants, animals, and the environments in which they thrive.
+        <div className='my-8'><h2 className='text-2xl font-semibold '>About </h2></div>
+        <p className='text-light_black text-base my-6 lg:text-left'>{` ${param.name} 'is a vital scientific field that focuses on studyig plants, animals, and the environments in which they thrive.
           You’ll learn about forest restoration, managing natural resources, food production, and preserving the natural beauty that surrounds us.
           Agriculture and Forestry also studies crop rotation and preserving the soil’s mineral qualities.
           They make sure that products follow industry standards and reach the markets.
@@ -59,61 +66,61 @@ export default function DisciplineDetails() {
          
       </div>
           
-      <div className='my-4 max-w-xl shadow-md px-2 py-10 lg:p-12'>
-        <h2 className='text-2xl font-semibold max-w-sm'>Top Programmes for {param.name}</h2>
-        <h3 className='text-light_black text-base my-2'>Times Higher education World Ranking</h3>
-        <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-8 my-4'>
-          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Bachelors</div></div>
-          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Masters</div></div>
-          <div className='py-2 2xs:p-2 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Doctorate</div></div>
+      <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-12 w-1/2 border-border_white border-2 rounded-lg'>
+        <h2 className='text-2xl font-semibold max-w-sm'>Top Universities for {param.name}</h2>
+        <h3 className='text-light_black text-base my-2 flex items-center gap-x-1'><BsBoxArrowUpRight className='font-extrabold ' /><div>Times Higher education World Ranking</div></h3>
+        <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-2 my-4 w-full'>
+          <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Bachelors</div></div>
+          <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Masters</div></div>
+          <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Doctorate</div></div>
         </div>
         <table className="table-auto text-left  rounded-lg mt-4 ">
             <thead className='border-b border-light_black border-opacity-40'>
               <tr>
                 <th className='py-2 px-8'>No.</th>
-                <th className='px-4'>Universities</th>
+                <th className='px-16'>Universities</th>
               </tr>
             </thead>
             <tbody>
               <tr className=''>
                 <td className='py-2 px-8'>1</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>2</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>3</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>4</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>5</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>6</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>7</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>8</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>9</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
               <tr className='border-b border-light_black border-opacity-40'>
                 <td className='py-2 px-8'>10</td>
-                <td className='lg:px-16 px-4'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
               </tr>
             </tbody>
 
