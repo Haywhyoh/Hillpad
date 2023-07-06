@@ -48,8 +48,8 @@ export default function DisciplineDetails() {
         </div>
 
       </div>
-      <div className='lg:flex justify-between max-w-full w-full'>
-      <div className='lg:w-6/12'>
+      <div className='lg:flex justify-between gap-x-6 max-w-full w-full'>
+      <div className='lg:w-7/12'>
         <div className='text-orange flex flex-col 2xs:flex-row gap-3 justify-between 2xs:justify-start 2xs:gap-x-4 '>
           <div className='py-2 2xs:px-5 rounded-md flex gap-x-1 2xs:border border-light items-center font-bold hover:bg-light hover:text-white'><div ><BsBoxArrowUpRight className='font-bold'/></div><div className='text-normal'>Bachelors</div><div className='text-light_black text-xs opacity-60'>(12345)</div></div>
           <div className='py-2 2xs:px-5 rounded-md flex gap-x-1 2xs:border border-light items-center font-bold hover:bg-light hover:text-white '><div ><BsBoxArrowUpRight className='font-bold'/></div><div className='text-lg'>Masters</div><div className='text-light_black text-xs opacity-60'>(12345)</div></div>
@@ -66,7 +66,7 @@ export default function DisciplineDetails() {
          
       </div>
           
-      <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-8 w-1/2 border-border_white border-2 rounded-lg'>
+      <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-8 w-5/12 border-border_white border-2 rounded-lg'>
         <h2 className='text-2xl font-semibold max-w-sm'>Top Universities for {param.name}</h2>
         <h3 className='text-light_black text-base my-2 flex items-center gap-x-1'><BsBoxArrowUpRight className='font-extrabold ' /><div>Times Higher education World Ranking</div></h3>
         <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-2 my-4 w-full'>

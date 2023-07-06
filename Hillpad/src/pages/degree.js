@@ -2,7 +2,7 @@ export const degrees = [
     {
         id:0,
         type:"B.Tech",
-        course:"Computer Science and Engineering",
+        course:"Computer Sciences and Engineering",
         school:"Indian Institute of Technology, Roorkee",
 
     },

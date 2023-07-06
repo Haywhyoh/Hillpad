@@ -1,6 +1,6 @@
 import logo from '../assets/images/hillpad-transparent.png';
 import { FiMenu, FiLayers } from 'react-icons/fi';
-import { FaGraduationCap } from 'react-icons/fa';
+import { FaGraduationCap, FaPaperPlane } from 'react-icons/fa';
 import { LuUser } from 'react-icons/lu';
 import { SiMinutemailer } from 'react-icons/si';
 import { RiArrowDropDownLine, RiArrowRightSLine } from 'react-icons/ri';
@@ -167,7 +167,7 @@ export default function Header() {
                 </div>
                 <div className='flex gap-x-3 w-52 justify-between'>
                     <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>{ user.isLoggedIn ? user.userInfo.firstName : 'Sign In'}</div></button>
-                    <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-xl'><SiMinutemailer /></div> <div>Explore</div></button></Link>
+                    <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
                 </div>
 
             </nav>
@@ -216,7 +216,7 @@ export default function Header() {
 
                     </div>
 
-                    <Link to='/courses'></Link><button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><SiMinutemailer /></span></button>
+                    <Link to='/courses'></Link><button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><FaPaperPlane /></span></button>
                 </div>
             </nav>
 
