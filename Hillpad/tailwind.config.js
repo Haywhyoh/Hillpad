@@ -47,11 +47,14 @@ export default {
     width: {
       '74': '18.5rem',
       '76': '19rem',
+      '78': '20rem',
       '84': '21.5rem',
       '100': '30rem',
       '110': '38rem',
       '88': '23rem',
       '54p': '54%', 
+      '98': '26rem',
+      'card': '19.5rem',
     },
     height:{
       'card':'430px',
