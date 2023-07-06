@@ -95,10 +95,9 @@ export default function Home() {
       {/* {header start} */}
       {/* {header end} */}
 
-      <div className=" text-center mt-24 xl:mt-16  md:w-full w-screen max-w-full xl:flex xl:flex-col justify-center px-4 mx-auto -z-30 ">
+      <div className=" text-center mt-24 xl:mt-16  md:w-full w-screen max-w-full xl:flex xl:flex-col justify-center px-4 lg:px-0 mx-auto -z-30 ">
 
         {/* ----------------------------------- {hero start} -------------------------------------------------- */}
-
         <section className=" max-w-full lg:mx-auto ">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
          
@@ -144,10 +143,8 @@ export default function Home() {
                     <button className="w-full md text-white bg-orange py-4 px-4 text-base font-bold rounded-3xl md:w-28 md:rounded-full">
                       Search
                     </button>
-                    
                   </form>
                 </div>
-
               </div>
               {/* -----------------search mobile-------------------------------- */}
               <div className="  lg:w-72  md:w-full md:rounded-full bg-white lg:hidden">
@@ -181,7 +178,6 @@ export default function Home() {
                     Search
                   </button>
                   </div>
-                  
                 </form>
               </div>
             </div>
@@ -232,7 +228,7 @@ export default function Home() {
                   </div>
                 </div> :
 
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36 2xs:w-44 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-md border-border_white border-y-2 border-opacity-60 rounded-lg">
+                <div className="flex flejustify-center w-36x-col items-center justify-center w-32 xs:w-36 2xs:w-44 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-md border-border_white border-y-2 border-opacity-60 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-green justify-center p-1`}>
@@ -582,9 +578,9 @@ export default function Home() {
             <div className="overflow-hidden ">
               <CoursesCarousel />
             </div>
-            <button onClick={scrollRight} className="hidden lg:block p-2 shadow rounded-full "><FiChevronRight /></button>
+           
           </div>
-
+          <button onClick={scrollRight} className="hidden lg:block p-2 shadow rounded-full absolute -right-12 top-80"><FiChevronRight /></button>
 
 
         </section>
@@ -691,7 +687,7 @@ export default function Home() {
 
           <div className="hidden md:block">
             <div className="text-left flex lg:flex-row mx-auto gap-x-4">
-              <div className="w-96 md:hidden lg:block">
+              <div className="w-98 md:hidden lg:block">
                 <img
                   src={review1}
                   className="rounded-2xl"
@@ -699,7 +695,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex gap-x-2">
-                <div className="w-76 lg:w-96">
+                <div className="w-76 lg:w-98">
                   <img
                     src={review2}
                     className="rounded-2xl"
