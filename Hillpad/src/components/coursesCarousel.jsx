@@ -1,7 +1,7 @@
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { useState } from "react";
 import CourseCard from "./coursecard";
-import { degrees } from "../pages/degree";
+import { degrees } from "../pages/degree2";
 
 function CoursesCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
