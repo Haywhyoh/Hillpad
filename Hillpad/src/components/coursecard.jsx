@@ -13,7 +13,7 @@ export default function CourseCard({ prop, isActive }) {
           <div className=" rounded-xl">
             <img
               className=" rounded-t-2xl"
-              src={`../public/${prop.url}` }
+              src={school1}
               alt="bachelors_degree"
             />
           </div>
