@@ -70,7 +70,7 @@ function Carousel() {
                     <div className="w-72 xs:w-80 md:w-64 lg:w-72 2xs:w-96  xl:w-84  2xl:w-full  py-8 px-4 " onMouseOver={handleMouseOver}
                         onMouseOut={handleMouseOut}>
                         {
-                            isHovering ? <div className="shadow-md rounded-lg   transition-all duration-700">
+                            isHovering ? <div className="shadow-2 rounded-lg   transition-all duration-300">
                                 <div className=" " >
                                     <div className="w-40 mx-auto">
                                         <img src={bachelor} alt="bachelors_degree" />
@@ -110,7 +110,7 @@ function Carousel() {
                 <div className="mx-auto">
                     <div className="w-72 xs:w-80 md:w-56 lg:w-72 2xs:w-96 2xl:w-full py-8 px-4 md:px-0 lg:px-4 " onMouseOver={handleMouseOver2} onMouseOut={handleMouseOut2}>
                         {
-                            isHovering2 ? <div className="shadow-md rounded-lg   transition-all duration-300"> <div className="sm:w-full">
+                            isHovering2 ? <div className="shadow-2 rounded-lg   transition-all duration-300"> <div className="sm:w-full">
                                 <div className="w-40 mx-auto">
                                     <img src={masters} alt="masters_degree" />
                                 </div>
@@ -150,7 +150,7 @@ function Carousel() {
                     <div className="w-72  xl:w-84 sm:w-72  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver3}
                         onMouseOut={handleMouseOut3}>
                         {
-                            isHovering3 ? <div className="shadow-md rounded-lg   transition-all duration-700"> <div className="sm:w-full">
+                            isHovering3 ? <div className="shadow-2 rounded-lg   transition-all duration-300"> <div className="sm:w-full">
                                 <div className="w-40 mx-auto">
                                     <img src={doctorates} alt="doctorates_degree" />
                                 </div>

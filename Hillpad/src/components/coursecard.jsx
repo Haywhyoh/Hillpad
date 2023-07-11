@@ -7,8 +7,8 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import '../components/coursecard.css';
 export default function CourseCard({ prop, isActive }) {
   return (
-      <div className='flex my-6 w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card justify-center mx-2 xs:mx-5 2xs:mx-6 sm:mx-0 '>
-        <div className="shadow rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
+      <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card justify-center mx-2 xs:mx-5 2xs:mx-6 sm:mx-0 '>
+        <div className="shadow-2 rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
 
           <div className=" rounded-xl">
             <img
@@ -19,7 +19,7 @@ export default function CourseCard({ prop, isActive }) {
           </div>
           <div className="text-left m-4">
             <div className="font-normal text-sm text-orange">{prop.type}</div>
-            <div className="font-bold pb-2">{prop.course.length > 50 ? `${prop.course.substring(0, 54) + '...'} ` : prop.course}</div>
+            <div className="font-bold pb-2 text-light_black opacity-80">{prop.course.length > 50 ? `${prop.course.substring(0, 54) + '...'} ` : prop.course}</div>
             <div className='flex items-center gap-x-4'>
               <div className='w-6'>
                 <img src={logo} alt="logo" />
