@@ -114,8 +114,8 @@ export default function Home() {
                 focus on taking your education to the next level.
               </p>
               <div className="lg:w-100 xl:w-110 rounded-lg lg:my-8">
-                <div className="hidden mx-auto md:w-full md:rounded-full bg-white shadow-sm lg:block" id='bar '>
-                  <form className="lg:w-100 xl:w-110 rounded-full md:flex justify-between md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 shadow lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
+                <div className="hidden mx-auto md:w-full md:rounded-full bg-white shadow-2 lg:block" id='bar '>
+                  <form className="lg:w-100 xl:w-110 rounded-full md:flex justify-between md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0  lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
                     <fieldset className=" mx-2 px-2 md:border-0 lg:w-48 xl:w-80 ">
                       <div className="flex items-center gap-x-2">
                         <AiOutlineSearch className="text-light_black" />
