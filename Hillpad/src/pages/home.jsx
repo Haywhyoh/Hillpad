@@ -21,6 +21,7 @@ import Modal from "../components/modal";
 import Carousel from "../components/carousel";
 import CoursesCarousel from "../components/coursesCarousel";
 import CountryCarousel from "../components/countryCarousel";
+import BrowseDis from "../components/broswseDis";
 export default function Home() {
   const disciplines = data.results;
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -114,8 +115,8 @@ export default function Home() {
                 focus on taking your education to the next level.
               </p>
               <div className="lg:w-100 xl:w-110 rounded-lg lg:my-8">
-                <div className="hidden mx-auto md:w-full md:rounded-full bg-white shadow-sm lg:block" id='bar '>
-                  <form className="lg:w-100 xl:w-110 rounded-full md:flex justify-between md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 shadow lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
+                <div className="hidden mx-auto md:w-full md:rounded-full bg-white lg:block" id='bar '>
+                  <form className="form-group lg:w-100 xl:w-110 rounded-full md:flex justify-between md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
                     <fieldset className=" mx-2 px-2 md:border-0 lg:w-48 xl:w-80 ">
                       <div className="flex items-center gap-x-2">
                         <AiOutlineSearch className="text-light_black" />
@@ -196,7 +197,7 @@ export default function Home() {
 
         {/* ----------------------------------- {Browse by discipline } -------------------------------------------------- */}
 
-        <section className="my-12 w-full  lg:mx-auto max-w-full">
+        <section className="my-12 w-full  lg:mx-auto max-w-full hidden">
           <div className="flex lg:justify-between   xl:mx-auto">
             <h2 className="font-bold text-2xl md:text-3xl lg:text-5x lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
@@ -558,7 +559,7 @@ export default function Home() {
 
           </div>
         </section>
-
+       <BrowseDis />
         <section className="w-full ">
           <div className=" xl:mx-auto font-bold text-2xl  md:text-3xl lg:text-5x lg:font-semibold lg:text-3xl text-left " >
             Browse By <span className="text-orange">Programme</span>
