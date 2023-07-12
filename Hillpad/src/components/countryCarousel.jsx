@@ -18,15 +18,15 @@ function CountryCarousel() {
 
 
     return (
-        <div className="relative">
-        <button onClick={scrollLeft} className="hidden lg:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
+        <div className="relative lg:max-w-screen-lg xl:max-w-screen-xl">
+        <button onClick={scrollLeft} className="hidden xl:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
 <div>
-            <div id="content3" className="carousel flex items-center lg:justify-between overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-8 md:gap-x-4 lg:gap-x-6 ">
-                <div className="rounded-t-2xl mx-4 2xs:mx-0" 
+            <div id="content3" className="carousel flex items-center lg:justify-between overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-2 md:gap-x-4 lg:gap-x-6 ">
+                <div className="rounded-t-2xl ms-0 xs:ms-5  2xs:mx-0" 
                     onMouseOver={() => { const show = document.querySelector('#newyork'); show.style.display = 'block'}}
                     onMouseLeave={() => { const show = document.querySelector('#newyork'); show.style.display = 'none'}}
                     >
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 lg:w-card xs:mx-4 2xs:mx-7 sm:mx-0 border border-border_white relative ">
+                    <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card xs:mx-1 2xs:mx-7 sm:mx-0 border border-border_white relative ">
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl bg-black" />
                         </div>
@@ -37,11 +37,11 @@ function CountryCarousel() {
                     </div>
                 </div>
 
-                <div className="rounded-t-2xl mx-4 2xs:mx-0" 
+                <div className="rounded-t-2xl mx-2 2xs:mx-0" 
                     onMouseOver={() => { const one= document.querySelector('#canada'); one.style.display = 'block'}}
                     onMouseLeave={() => { const one = document.querySelector('#canada'); one.style.display = 'none'}}
                     >
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 lg:w-card xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
+                    <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl bg-black" />
                         </div>
@@ -53,7 +53,7 @@ function CountryCarousel() {
                 </div>
 
                 <div>
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 lg:w-card xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white ">
+                    <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  xs:mx-2 2xs:mx-4 sm:mx-0  border border-border_white ">
                         <div className="rounded-2xl">
                             <img src={belgium} className="rounded-t-2xl" />
                         </div>
@@ -62,7 +62,7 @@ function CountryCarousel() {
                     </div>
                 </div>
                 <div>
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 lg:w-card xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white ">
+                    <div className="shadow rounded-2xlw-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white ">
                         <div className="rounded-2xl">
                             <img src={uk} className="rounded-t-2xl" />
                         </div>
@@ -70,7 +70,7 @@ function CountryCarousel() {
                     </div>
                 </div>
                 <div>
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 lg:w-card xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
+                    <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl" />
                         </div>
@@ -79,7 +79,7 @@ function CountryCarousel() {
                 </div>
               
                 <div>
-                    <div className="shadow rounded-2xl w-72 xs:w-80 2xs:w-88 md:w-64 lg:w-card fxs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
+                    <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  fxs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl" />
                         </div>
@@ -89,13 +89,7 @@ function CountryCarousel() {
             </div>
             <div className=" flex justify-center">
             </div>
-         <button onClick={scrollLeft} className="p-2 m-2 rounded-full bg-white lg:hidden">
-             <FiChevronLeft />
-         </button>
-         <button onClick={scrollRight} className="p-2 m-2 rounded-full bg-white lg:hidden">
-             <FiChevronRight />
-             </button>
-             <button onClick={scrollRight} className="hidden lg:block p-2 shadow rounded-full absolute -right-12 top-24"><FiChevronRight /></button>
+             <button onClick={scrollRight} className="hidden xl:block p-2 shadow rounded-full absolute -right-12 top-24"><FiChevronRight /></button>
 
 
      </div>
