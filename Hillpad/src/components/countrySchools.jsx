@@ -2,7 +2,7 @@ import { FiCheckCircle } from "react-icons/fi"
 export default function CountrySchools(props) {
     return (
         <div>
-            <div className="flex w-full items-center mt-10">
+            <div className="flex w-full items-center mt-10 lg:mt-0">
                     <div className='w-4/12'>
                         <form action="">
                             <label htmlFor='' className="pe-3">Sort by:</label>
@@ -23,13 +23,16 @@ export default function CountrySchools(props) {
                     </div>
 
                 </div>
-                <div>
-                    <div className="p-4 border w-fit text-xs">
+                <div className="my-6">
+                    { () => { for( let c; c < 10; c++ ) {return (
+                        <div className="p-4 border w-60 text-sm flex flex-col gap-y-2 card shadow-2">
                         <div>54 Bachelors</div>
                         <div>38 Masters</div>
                         <div>17 Doctorares</div>
-                        <div className="text-orange text-sm">Algoma University</div>
-                    </div>
+                        <div className="text-orange text-base my-2">Algoma University</div>
+                    </div>)}
+                     } }
+                    
                 </div>
         </div>
     )
