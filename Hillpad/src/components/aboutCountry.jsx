@@ -2,13 +2,12 @@ import {FiExternalLink} from 'react-icons/fi'
 
 export default function AboutCountry({props}) {
     return (
-        <div>
-            <section >
+            <div className='w-full'>
                 <div>
-                    <div className="text-light_black">
+                    <div className="text-light_black w-full">
                        <p>{props.about}</p>
                     </div>
-                    <div>
+                    <div className='w-full'>
                         <a href={props.about_wiki_link} target="_blank" className="text-light my-3 flex gap-2 items-center"><div><FiExternalLink /></div><div>Wikipedia</div></a>
                     </div>
                 </div>
@@ -23,9 +22,8 @@ export default function AboutCountry({props}) {
                         <li>Canada has a prison for polar bears who break into people’s homes.</li>
                     </ul>
                 </div>
-            </section>
+            </div>
 
-        </div>
 
     )
 }
