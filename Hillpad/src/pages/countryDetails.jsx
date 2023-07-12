@@ -2,11 +2,6 @@ import { useParams, useLocation } from "react-router-dom"
 import { BsInfoCircle } from "react-icons/bs";
 import { FiArrowLeft, FiChevronsRight, FiEdit, FiExternalLink, FiFlag, FiImage } from "react-icons/fi";
 import { FaGlobeAmericas, FaGraduationCap, FaSchool, FaShoppingCart, FaSuitcaseRolling, FaUserGraduate, FaUsers } from "react-icons/fa";
-import newyork from '../assets/images/new-york.jpeg';
-import canada from '../assets/images/san-diego.jpeg';
-import belgium from '../assets/images/dallas.jpeg';
-import uk from '../assets/images/chicago.jpeg';
-import CourseCard from "../components/searchCourseCard";
 import countries from '../data/country.json';
 import { useState } from "react";
 import { degrees } from "../pages/degree";
@@ -46,27 +41,27 @@ export default function CountryDetail() {
         }
     }
     return (
-        <div className="mt-24 xl:mt-40   max-w-full mx-auto px-4 lg:px-0">
+        <div className="mt-24 xl:mt-40 mx-auto max-w-full px-4 ">
             <div className="text-light_black flex gap-x-2 text-sm my-10"> 
              <Link to='/'><div className="flex gap-x-2 items-center"><span>Home</span><span><FiChevronsRight /> </span></div></Link>
              <Link to='/countries'><div className="flex gap-x-2 items-center"><span>Countries</span><span><FiChevronsRight /> </span></div> </Link>
              <Link to=''><span className="text-light">{props.name}</span></Link>
             </div>
-            <div className=" my-6">
+            <div className=" my-6 w-full">
                 <div className="flex items-center gap-x-2 text-sm text-light_black"><div><FaGlobeAmericas /> </div><div>{continentList[continent]}</div></div>
-
+                <div>
                 <div><h2 className="text-3xl text-light font-bold mt-2 mb-12">{props.name}</h2></div>
                 <div className="flex gap-x-6 my-4 flex-wrap gap-y-4">
                     <div className="flex gap-x-2 items-center py-2 px-4 bg-light_black bg-opacity-5 shadow w-fit rounded-full justify-center text-orange" onClick={() => setInfo('about')}><div><BsInfoCircle /> </div><div className="">About</div></div>
                     <div className="flex gap-x-2 items-center py-2 px-4 bg-light_black bg-opacity-5 shadow w-fit rounded-full justify-center text-light_black" onClick={() => setInfo('schools')}><div><FiImage /> </div><div>Schools</div></div>
                     <div className="flex gap-x-2 items-center py-2 px-4 bg-light_black bg-opacity-5 shadow w-fit rounded-full justify-center text-light_black" onClick={() => setInfo('costs')}><div><FiEdit /> </div><div>Living Cost</div></div>
                 </div>
-                <div className="lg:flex justify-between my-8 border-t border-light_black border-opacity-20 pt-6">
-                    <div className="lg:w-8/12 ">
+                <div className="md:flex md:w-full lg:justify-between my-8 border-t border-light_black border-opacity-20 pt-6">
+                    <div className="md:w-7/12 ">
                         {renderInfo(info)}
                     </div>
 
-                    <div className=" rounded-lg p-8 xl:w-96 shadow-2 text-light_black h-fit border-border_white border-2 my-8 lg:my-0">
+                    <div className=" rounded-lg lg:p-8 p-8 md:p-2 w-96 md:w-60 lg:w-96 shadow-2 text-light_black h-fit border-border_white border-2 my-8 md:my-0">
                         <div className=" border-b py-4">
 
 
@@ -101,11 +96,10 @@ export default function CountryDetail() {
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
-
-            <div className="mx-auto">
-            <Prefooter />
-
+            <div className='mx-auto mt-20  max-w-full lg:flex flex-col justify-center'>
+                <Prefooter />
             </div>
         </div>
     )
