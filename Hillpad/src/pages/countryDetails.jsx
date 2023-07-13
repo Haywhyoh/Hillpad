@@ -54,7 +54,7 @@ export default function CountryDetail() {
                 <div className="flex justify-between">
 
                 
-                <div className="flex gap-x-6 2xs:gap-x-4 my-4 md:my-0 xl:my-4 flex-wrap gap-y-4">
+                <div className="flex gap-x-6 2xs:gap-x-4 my-4 md:my-0 xl:my-4 flex-wrap gap-y-4 ">
                     <div className="flex gap-x-2 items-center py-2 px-4 bg-light_black bg-opacity-5 shadow w-fit rounded-full justify-center text-orange" onClick={() => setInfo('about')}><div><BsInfoCircle /> </div><div className="">About</div></div>
                     <div className="flex gap-x-2 items-center py-2 px-4 bg-light_black bg-opacity-5 shadow w-fit rounded-full justify-center text-light_black" onClick={() => setInfo('schools')}><div><FiImage /> </div><div>Schools</div></div>
                     <div className="flex gap-x-2 items-center py-2 px-4 bg-light_black bg-opacity-5 shadow w-fit rounded-full justify-center text-light_black" onClick={() => setInfo('costs')}><div><FiEdit /> </div><div>Living Cost</div></div>
