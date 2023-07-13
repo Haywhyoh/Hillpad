@@ -61,6 +61,7 @@ export default {
     height:{
       'card':'440.56px',
       'card2':'480px',
+      'imgHeight': '199.73px',
     },
     screens: {
       '2xl': '1440px',
