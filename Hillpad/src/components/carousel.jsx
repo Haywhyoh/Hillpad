@@ -65,7 +65,7 @@ function Carousel() {
                     <FiChevronRight />
                 </button>
             </div>
-            <div id="content" className="carousel p-4 md:p-0 lg:p-4 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide">
+            <div id="content" className="carousel p-0 lg:p-4 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide">
                 <div className="">
                     <div className="w-72 xs:w-80 md:w-64 lg:w-72 2xs:w-96  xl:w-84  2xl:w-full  py-8 px-4 " onMouseOver={handleMouseOver}
                         onMouseOut={handleMouseOut}>
