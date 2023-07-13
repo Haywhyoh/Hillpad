@@ -41,7 +41,7 @@ export default function CountryDetail() {
         }
     }
     return (
-        <div className="mt-24 xl:mt-40 mx-auto max-w-full px-4 ">
+        <div className="mt-24 xl:mt-40 mx-auto max-w-full px-4 xl:px-0">
             <div className="text-light_black flex gap-x-2 text-sm my-10"> 
              <Link to='/'><div className="flex gap-x-2 items-center"><span>Home</span><span><FiChevronsRight /> </span></div></Link>
              <Link to='/countries'><div className="flex gap-x-2 items-center"><span>Countries</span><span><FiChevronsRight /> </span></div> </Link>
@@ -54,7 +54,7 @@ export default function CountryDetail() {
                 <div className="flex justify-between">
 
                 
-                <div className="flex gap-x-6 2xs:gap-x-4 my-4 md:my-0 xl:my-4 flex-wrap gap-y-4 ">
+                <div className="flex gap-x-6 2xs:gap-x-4 my- md:my-0 xl:my-4 flex-wrap gap-y-4 ">
                     <div className="flex gap-x-2 items-center py-2 px-4 bg-light_black bg-opacity-5 shadow w-fit rounded-full justify-center text-orange" onClick={() => setInfo('about')}><div><BsInfoCircle /> </div><div className="">About</div></div>
                     <div className="flex gap-x-2 items-center py-2 px-4 bg-light_black bg-opacity-5 shadow w-fit rounded-full justify-center text-light_black" onClick={() => setInfo('schools')}><div><FiImage /> </div><div>Schools</div></div>
                     <div className="flex gap-x-2 items-center py-2 px-4 bg-light_black bg-opacity-5 shadow w-fit rounded-full justify-center text-light_black" onClick={() => setInfo('costs')}><div><FiEdit /> </div><div>Living Cost</div></div>
@@ -64,7 +64,7 @@ export default function CountryDetail() {
                     <FiShare2 />
                 </div>
                 </div>
-                <div className="md:flex md:w-full md:justify-between  my-8 md:my-4 xl:my-8 border-t border-light_black border-opacity-10 pt-6 lg:gap-x-6">
+                <div className="md:flex md:w-full md:justify-between  my-8 md:my-4 xl:my-0 border-t border-light_black border-opacity-10 pt-6 lg:gap-x-6">
                     <div className="md:w-11/12 lg:w-9/12">
                         {renderInfo(info)}
                     </div>
