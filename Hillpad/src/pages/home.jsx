@@ -173,8 +173,8 @@ export default function Home() {
                       </option>
                     </select>
                   </fieldset>
-                  <div className="mx-2 ">
-                  <button className="w-60 xs:w-80 2xs:w-full mb-2 md:mb-0 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
+                  <div className="mx-2 xs:mx-0 ">
+                  <button className="w-60 xs:w-full 2xs:w-full mb-2 md:mb-0 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
                     Search
                   </button>
                   </div>
