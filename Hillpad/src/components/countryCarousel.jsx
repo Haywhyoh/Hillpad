@@ -18,8 +18,7 @@ function CountryCarousel() {
 
 
     return (
-        <div className="relative lg:max-w-screen-lg xl:max-w-screen-xl">
-        <button onClick={scrollLeft} className="hidden xl:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
+        <div className="">
 <div>
             <div id="content3" className="carousel flex items-center lg:justify-between overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-2 md:gap-x-4 lg:gap-x-6 ">
                 <div className="rounded-t-2xl  xs:ms-2  2xs:mx-0" 
@@ -37,10 +36,7 @@ function CountryCarousel() {
                     </div>
                 </div>
 
-                <div className="rounded-t-2xl mx-2 2xs:mx-0" 
-                    onMouseOver={() => { const one= document.querySelector('#canada'); one.style.display = 'block'}}
-                    onMouseLeave={() => { const one = document.querySelector('#canada'); one.style.display = 'none'}}
-                    >
+                <div className="rounded-t-2xl mx-2 2xs:mx-0" >
                     <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl bg-black" />
@@ -52,7 +48,7 @@ function CountryCarousel() {
                     </div>
                 </div>
 
-                <div>
+                <div className="rounded-t-2xl mx-2 2xs:mx-0">
                     <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  xs:mx-2 2xs:mx-4 sm:mx-0  border border-border_white ">
                         <div className="rounded-2xl">
                             <img src={belgium} className="rounded-t-2xl" />
@@ -61,15 +57,16 @@ function CountryCarousel() {
                          className="py-4 font-bold text-base text-light_black text-center">Belgium</div>
                     </div>
                 </div>
-                <div>
-                    <div className="shadow rounded-2xlw-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white ">
+                <div className="rounded-t-2xl mx-2 2xs:mx-0">
+                    <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  xs:mx-2 2xs:mx-4 sm:mx-0  border border-border_white ">
                         <div className="rounded-2xl">
                             <img src={uk} className="rounded-t-2xl" />
                         </div>
-                        <div className="py-4 font-bold text-base text-light_black text-center ">United Kingdom</div>
+                        <div
+                         className="py-4 font-bold text-base text-light_black text-center">United Kingdom</div>
                     </div>
                 </div>
-                <div>
+                <div className="rounded-t-2xl mx-2 2xs:mx-0">
                     <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl" />
@@ -78,7 +75,7 @@ function CountryCarousel() {
                     </div>
                 </div>
               
-                <div>
+                <div className="rounded-t-2xl mx-2 2xs:mx-0">
                     <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card  fxs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl" />
@@ -87,10 +84,7 @@ function CountryCarousel() {
                     </div>
                 </div>
             </div>
-            <div className=" flex justify-center">
-            </div>
-             <button onClick={scrollRight} className="hidden xl:block p-2 shadow rounded-full absolute -right-12 top-24"><FiChevronRight /></button>
-
+          
 
      </div>
         </div>
