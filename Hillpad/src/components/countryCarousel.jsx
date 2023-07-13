@@ -22,7 +22,7 @@ function CountryCarousel() {
         <button onClick={scrollLeft} className="hidden xl:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
 <div>
             <div id="content3" className="carousel flex items-center lg:justify-between overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-2 md:gap-x-4 lg:gap-x-6 ">
-                <div className="rounded-t-2xl ms-0 xs:ms-5  2xs:mx-0" 
+                <div className="rounded-t-2xl  xs:ms-2  2xs:mx-0" 
                     onMouseOver={() => { const show = document.querySelector('#newyork'); show.style.display = 'block'}}
                     onMouseLeave={() => { const show = document.querySelector('#newyork'); show.style.display = 'none'}}
                     >
