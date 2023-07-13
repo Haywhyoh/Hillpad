@@ -7,12 +7,12 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import '../components/coursecard.css';
 export default function CourseCard({ prop, isActive }) {
   return (
-      <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card justify-center mx-2 xs:ms-6 2xs:ms-14 sm:mx-0 '>
+      <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card justify-center mx-2 xs:ms-4 2xs:ms-7 sm:mx-0 '>
         <div className="shadow-2 rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
 
-          <div className=" rounded-xl">
+          <div className=" rounded-xl h-imgHeight">
             <img
-              className=" rounded-t-2xl"
+              className=" rounded-t-2xl h-imgHeight w-full"
               src={`./${prop.url}`}
               alt="bachelors_degree"
             />
