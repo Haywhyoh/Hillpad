@@ -58,10 +58,10 @@ function Carousel() {
     return (
         <div className="relative">
             <div className="absolute right-28 bottom-0 ">
-                <button onClick={scrollLeft} className="p-2 m-2 rounded-full bg-white">
+            <button onClick={scrollLeft} className="lg:hidden p-2 m-2 rounded-full bg-white">
                     <FiChevronLeft />
                 </button>
-                <button onClick={scrollRight} className="p-2 m-2 rounded-full bg-white">
+                <button onClick={scrollRight} className="lg:hidden p-2 m-2 rounded-full bg-white">
                     <FiChevronRight />
                 </button>
             </div>
@@ -107,44 +107,43 @@ function Carousel() {
                         }
                     </div>
                 </div>
-                <div className="mx-auto">
-                    <div className="w-72 xs:w-80 md:w-56 lg:w-72 2xs:w-96 2xl:w-full py-8 px-4 md:px-0 lg:px-4 " onMouseOver={handleMouseOver2} onMouseOut={handleMouseOut2}>
+                <div>
+                    <div className="w-72  xl:w-84 sm:w-72  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver2}
+                        onMouseOut={handleMouseOut2}>
                         {
-                            isHovering2 ? <div className="deepShadow rounded-lg   transition-all duration-300"> <div className="sm:w-full xl:pt-6">
+                            isHovering2 ? <div className="deepShadow rounded-lg  transition-all duration-300"> <div className="sm:w-full">
                                 <div className="w-40 mx-auto">
                                     <img src={masters} alt="masters_degree" />
                                 </div>
-                                <div className="font-bold text-xl text-center mt-6 lg:mx-8">Master's Programme</div>
+                                <div className="font-bold text-xl text-center mt-6 mx-8">Master's Programme</div>
                                 <div className="text-sm text-light_black sm:p-2 lg:p-6 my-2">
                                     Choose from more than 1000 Master's programmes at
                                     universities, colleges, and school worldwide
                                 </div>
                                 <Link to='/courses'>
-                                    <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
+                                    <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8  bg-orange text-white">
                                         Search Masters
                                     </button>
                                 </Link>
-                            </div>
-                            </div>
-                                : <div className="">
-                                    <div className="w-40 mx-auto">
-                                        <img src={masters} alt="masters_degree" />
-                                    </div>
-                                    <div className="font-bold text-xl text-center mt-6 lg:mx-8">Master's Programme</div>
+                            </div></div>
+                                : <div className="sm:w-full"><div className="w-40 mx-auto">
+                                    <img src={masters} alt="doctorates_degree" />
+                                </div>
+                                    <div className="font-bold text-xl text-center mt-6 mx-8">Master's Programme</div>
                                     <div className="text-sm text-light_black sm:p-2 lg:p-6 my-2">
                                         Choose from more than 1000 Master's programmes at
                                         universities, colleges, and school worldwide
                                     </div>
                                     <Link to='/courses'>
-                                        <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange mb-8 ">
+                                        <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 text-orange">
                                             Search Masters
                                         </button>
                                     </Link>
                                 </div>
+
                         }
 
                     </div>
-
                 </div>
                 <div>
                     <div className="w-72  xl:w-84 sm:w-72  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver3}
