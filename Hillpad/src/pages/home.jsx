@@ -630,9 +630,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="">
+          <div className="relative">
+          <button onClick={scrollLeft} className="hidden xl:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
 
             <CountryCarousel />
+             <button onClick={scrollRight} className="hidden xl:block p-2 shadow rounded-full absolute -right-12 top-24"><FiChevronRight /></button>
 
           </div>
         </section>
