@@ -13,7 +13,7 @@ import Login from './login';
 import { IoCloseOutline } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 
-export default function Header() {
+export default function Header(props) {
     const [modal, setModal] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const [isHovering2, setIsHovering2] = useState(false);
@@ -166,7 +166,7 @@ export default function Header() {
                     </div>
                 </div>
                 <div className='flex gap-x-3 w-52 justify-between'>
-                    <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>{ user.isLoggedIn ? user.userInfo.firstName : 'Sign In'}</div></button>
+                    <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>{ props.userName}</div></button>
                     <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
                 </div>
 
