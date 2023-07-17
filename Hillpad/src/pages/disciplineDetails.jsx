@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
 import { FaGraduationCap } from 'react-icons/fa';
-
 import CourseCard from '../components/searchCourseCard';
 import Footer from '../components/Footer';
 import Header from '../components/header';
@@ -11,17 +10,22 @@ import { useState } from 'react';
 import CoursesCarousel from '../components/coursesCarousel';
 import Prefooter from '../components/preFooter';
 import CountryCarousel from '../components/countryCarousel';
-import { FiChevronsRight } from 'react-icons/fi';
-
+import { FiChevronRight, FiChevronsRight, FiChevronLeft } from 'react-icons/fi';
+import { BsArrowRight } from 'react-icons/bs';
 export default function DisciplineDetails() {
   const [show, setShow] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const param = useParams();
 
+  const scrollLeft = () => {
+    document.getElementById("content2").scrollLeft -= 305;
+  }
+  const scrollRight = () => {
+    document.getElementById("content2").scrollLeft += 305;
+  }
   return (
     <>
-      <Header />
+
     <div className='mx-4 max-w-full lg:mx-8 2xl:mx-12 3xl:mx-auto mt-28'>
     <div className="text-light_black flex gap-x-2 text-sm my-6"> 
              <Link to='/'><div className="flex gap-x-2 items-center"><span>Home</span><span><FiChevronsRight /> </span></div></Link>
@@ -66,7 +70,7 @@ export default function DisciplineDetails() {
          
       </div>
           
-      <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-8 w-5/12 border-border_white border-2 rounded-lg'>
+      <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-8 w-5/12 border-border_white border-2 rounded-lg sticky top-24'>
         <h2 className='text-2xl font-semibold max-w-sm'>Top Universities for {param.name}</h2>
         <h3 className='text-light_black text-base my-2 flex items-center gap-x-1'><BsBoxArrowUpRight className='font-extrabold ' /><div>Times Higher education World Ranking</div></h3>
         <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-2 my-4 w-full'>
@@ -88,35 +92,35 @@ export default function DisciplineDetails() {
               </tr>
               <tr>
                 <td className='py-2 px-8'>2</td>
-                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Lagos</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>3</td>
-                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Duke</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>4</td>
-                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Learning</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>5</td>
-                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of HillPad</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>6</td>
-                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of SnowFox</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>7</td>
-                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Hilton</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>8</td>
-                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of Washington</td>
               </tr>
               <tr>
                 <td className='py-2 px-8'>9</td>
-                <td className='lg:px-16 px-4 text-light'>University of Oxford</td>
+                <td className='lg:px-16 px-4 text-light'>University of BalaTubu</td>
               </tr>
               <tr className='border-b border-light_black border-opacity-40'>
                 <td className='py-2 px-8'>10</td>
@@ -133,29 +137,33 @@ export default function DisciplineDetails() {
           <div className='bg-white py-2 px-4 rounded-md w-fit text-orange text-center mx-auto font-bold'>Book a free consultation</div>
         </div>
 
-      <div className='my-20 hidden lg:block'>
-        <h2 className='text-2xl font-semibold text-center lg:text-3xl lg:my-9'>Recommended {param.name} Courses</h2>
-        <div className="my-6 mx-auto">
-        <div className="">
-          <div id="content2" className="carousel flex items-center justify-start overflow-x-auto scroll-smooth no-scrollbar gap-x-4">
-          {degrees.filter(degree => degree.id < 4 ).map((degree, index) => ( <div className=""><CourseCard key={index} prop={degree} isActive={index === currentIndex} /></div> ))}
+        <section className="relative  mt-5">
+          <div className="flex justify-between items-baseline">
+          <div className="  text-left text-2xl font-bold my-8 md:text-3xl lg:text-5x md:my-2 lg:my-0 lg:text-3xl lg:font-semibold">
+            Recommnded <span className="text-orange">Courses</span>
           </div>
-      </div>
-      <h2 className='text-2xl font-semibold text-center lg:text-3xl lg:mt-20 lg:mb-6'>Popular Destinations To Study {param.name}</h2>
+          <Link to='/courses'>
+              <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm hover:text-light">
+                <div>View all</div>
+                <div>
+                  <BsArrowRight />
+                </div>
+              </div>
+            </Link>
+            </div>
+          <button onClick={scrollLeft} className="hidden lg:block p-2 shadow rounded-full absolute -left-12 top-80"> <FiChevronLeft /></button>
 
-        <section className='mb-10'>
-               <div>
-                <CountryCarousel />
-               </div>
-            </section>
+          <div className="flex items-center gap-x-4">
 
+            <div className="overflow-hidden ">
+              <CoursesCarousel />
+            </div>
            
           </div>
-      </div>
+          <button onClick={scrollRight} className="hidden lg:block p-2 shadow rounded-full absolute -right-12 top-80"><FiChevronRight /></button>
 
-
+        </section>
     </div>
-  <Footer />
     </>
     
   );
