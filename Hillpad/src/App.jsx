@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { fetchUser2, update } from './redux/userSlice'
 import axios from 'axios'
+import CourseDetails from './pages/courseDetails'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
+          <Route path='/course/:name' element={<CourseDetails />} />
           <Route path='/discipline/' element={<DisciplineDetails />} />
           <Route path='/discipline/:name' element={<DisciplineDetails />} />
           <Route path='/test' element={<SearchBar/>} />

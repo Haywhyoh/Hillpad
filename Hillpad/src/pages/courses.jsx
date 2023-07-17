@@ -1,4 +1,4 @@
-import CourseCard from "../components/searchCourseCard";
+import CourseCard from "../components/coursecard";
 import { FiFilter } from "react-icons/fi";
 import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
 import { useState } from 'react';
@@ -9,7 +9,7 @@ import data from '../data/discipline';
 import degreeType from '../data/degree_type.json';
 import Header from "../components/header";
 import Footer from "../components/Footer";
-import { degrees } from "./degree2";
+import { degrees } from "./degree";
 export default function Courses() {
 
     const disciplines = data.results;
@@ -227,8 +227,8 @@ export default function Courses() {
 
                 <div className=" flex w-screen">
                     {/*Never delete this div */}
-                    <div className="hidden 2xl:w-20"></div>
-                    <div className="mb-4 me-4 lg:ms-80 w-full px-4 ">
+                    <div className="hidden 2xl:w-3 "></div>
+                    <div className="mb-4 me-4 lg:ms-80 w-full px-4">
                         <h1 className="text-3xl font-semibold">Courses</h1>
                         <div className="xl:w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
