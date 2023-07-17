@@ -7,8 +7,7 @@ import { fetchUser } from "../redux/userSlice";
 import { useDispatch } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-export default function Login() {
-
+export default function Login({handleModal}) {
     const dispatch = useDispatch();
     const [values, setValues] = useState({
         firstname: "",
@@ -106,6 +105,7 @@ export default function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(fetchUser(values));
+        handleModal();
     };
 
 

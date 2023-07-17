@@ -229,7 +229,7 @@ export default function Header({props}) {
             {
                 modal && (<div className="modal " > <div onClick={toggleModal}
                     className="overlay" ></div> <div className="modal-content px-0 w-72 sm:w-full lg:w-fit bg-white" >
-                        <Login />
+                        <Login handleModal={() => {setModal(!modal)}} />
                         <button className="close-modal text-2xl" onClick={toggleModal}> <IoCloseOutline /> </button> </div> </div>
                 )
 
