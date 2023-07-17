@@ -1,12 +1,11 @@
 import logo from '../assets/images/hillpad-transparent.png';
+import  signlogo from '../assets/images/user.png';
 import { FiMenu, FiLayers } from 'react-icons/fi';
 import { FaGraduationCap, FaPaperPlane } from 'react-icons/fa';
 import { LuUser } from 'react-icons/lu';
-import { SiMinutemailer } from 'react-icons/si';
 import { RiArrowDropDownLine, RiArrowRightSLine } from 'react-icons/ri';
 import { BiWorld, BiBriefcase } from 'react-icons/bi';
 import { AiOutlineSearch } from 'react-icons/ai';
-import SearchBar from './test';   
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Login from './login';
@@ -166,7 +165,7 @@ export default function Header({props}) {
                     </div>
                 </div>
                 {props.isLoggedIn ? <div className='flex gap-x-3 w-52 justify-between'>
-                    <button className='text-orange flex items-center gap-x-2'><div className='text-xl'><LuUser /></div><div>{ props.userInfo.firstName}</div></button>
+                    <button className='text-orange flex items-center gap-x-2'><div className='w-8'><img src={signlogo} className='w-8' /></div><div>{ props.userInfo.firstName}</div></button>
                     <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
                 </div> : 
                 <div className='flex gap-x-3 w-52 justify-between'>
