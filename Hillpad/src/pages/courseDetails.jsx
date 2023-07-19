@@ -27,7 +27,7 @@ export default function CourseDetails () {
 
     function buttonClick(button) {
         if (selectedButton) {
-            button.classList.remove('border-b-orange');
+                    button.classList.add('border-b-orange');
             selectedButton.classList.remove('border-b-4');
         }
         button.classList.add('border-b-orange');
