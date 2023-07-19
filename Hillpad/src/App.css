@@ -161,7 +161,7 @@ button span {
 .trapezium {
 	height: 0;
 	width: 150px;
-	border-top: 60px solid #FF5757;
+	border-top: 80px solid #FF5757;
 	border-left: 0px solid transparent;
 	border-right: 100px solid transparent;
 }

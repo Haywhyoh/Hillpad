@@ -7,15 +7,22 @@ import Overview from '../components/overview';
 import { useState } from 'react';
 import KeyInfo from '../components/keyInfo';
 import AdmissionReq from '../components/admissionRequirement';
+import ProjectStructure from '../components/projectStructure';
 export default function CourseDetails() {
     const [info, setInfo] = useState('overview');
 
     function renderInfo(data) {
-        if (data === 'overview') {
+        if (data === 'background') {
             return <Overview />
         }
-        if (data === 'keyInfo') {
+        if (data === 'funding') {
             return <KeyInfo />
+        }
+        if (data === 'scholarships') {
+            return <KeyInfo />
+        }
+        if (data === 'programmes') {
+            return <ProjectStructure />
         }
         if (data === 'requirements') {
             return <AdmissionReq />
@@ -27,11 +34,11 @@ export default function CourseDetails() {
 
     function buttonClick(button) {
         if (selectedButton) {
-            button.classList.add('border-b-orange');
-            selectedButton.classList.remove('border-b-4');
+            selectedButton.classList.remove('text-white');
+            selectedButton.classList.remove('bg-orange');
         }
-        button.classList.add('border-b-orange');
-        button.classList.add('border-b-4');
+        button.classList.add('bg-orange');
+        button.classList.add('text-white');
         selectedButton = button
 
     }
@@ -44,11 +51,11 @@ export default function CourseDetails() {
     return (
         <>
             <div className="w-screen my-20">
-                <div className="w-full">
+                <div className="w-full text-lg">
                     <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white absolute -z-10' style={{ width: '100vw', height: '600px', background: `url(${hero})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     </div>
                     <div className='flex justify-between w-full max-w-full mx-auto'>
-                        <div className=' py-20 xl:w-1/2'>
+                        <div className=' py-20 xl:w-9/12'>
                             <section className='mx-auto flex flex-col max-w-full text-white'>
                                 <div className='max-w-full w-full mx-auto mt-6 w-max-full'>
                                     <div className="w-full">
@@ -79,7 +86,7 @@ export default function CourseDetails() {
                                 </div>
                             </section>
                             <section className=' w-full mt-40 mx-auto relative'>
-                            <div className='absolute top-3 right-1/2 text-white font-bold text-3xl '>Course Details</div>
+                            <div className='absolute top-4 text-white font-bold text-3xl px-8'>Course details</div>
 
                                 <div className='w-full h-fit trapezium '>
                                     {/* <div className='flex w-100 text-3xl font-bold px-8 text-white text-opacity-90 items-center py-4 '>
@@ -94,7 +101,7 @@ export default function CourseDetails() {
                             <section className='w-full mx-auto max-w-full my-6 text-light_black'>
                                 <div className='w-full'>
                                     <div>
-                                        <h2 className='font-semibold text-black text-2xl my-6'>About</h2>
+                                        <h2 className='font-semibold text-black text-2xl my-6'>About Course</h2>
                                     </div>
                                     <div className=''>
                                         <p> By taking the Electrical Engineering program at Toronto Metropolitan University,
@@ -104,15 +111,17 @@ export default function CourseDetails() {
                                         </p>
                                     </div>
                                     <a href="" className='text-light underline py-1'>Show more</a>
-                                    <div>
-                                        {renderInfo(info)}
+                                    <div className='my-12'>
+                                       <Overview />
+                                      
                                     </div>
+                                   
                                 </div>
 
                   
                             </section>
                         </div>
-                        <aside className="w-1/2 flex flex-col py-20 items-end">
+                        <aside className="w-100 flex flex-col py-20 items-end">
                                         <div className='sticky' style={{ top: '12rem', zIndex: '10' }}>
 
                                             <div className=' card shadow-2 w-88 bg-white p-4 h-fit rounded-lg text-light_black flex flex-col justify-between '>
@@ -149,7 +158,26 @@ export default function CourseDetails() {
                         </aside>
 
                     </div>
-
+                    <section className='w-full max-w-full mx-auto'>
+                    <div className=''>
+                                        <h2 className='font-semibold text-light_black text-3xl my-6'>Key Information</h2>
+                                    </div>
+                        <div className='flex'>
+                        <div className='w-3/12'>
+                                    
+                                    <div className='flex gap-y-4 flex-col text-light_black'>
+                                        <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('background')} >Background</button></div>
+                                        <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('requirements')} >Admission Requirements</button></div>
+                                        <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('scholarships')} >Scholarships</button></div>
+                                        <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('funding')} >Fees and Funding</button></div>
+                                        <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('programme')} >Programme Structure</button></div>
+                                    </div>
+                                    </div>
+                            <div className='shadow-2 w-9/12 border-black h-100'>
+                                {() => renderInfo(data)}
+                            </div>
+                        </div>
+                    </section>
                 </div>
 
             </div>
