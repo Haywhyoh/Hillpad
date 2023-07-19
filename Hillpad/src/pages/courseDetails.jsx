@@ -78,16 +78,18 @@ export default function CourseDetails() {
                                    
                                 </div>
                             </section>
-                            <section className=' w-screen mt-40 mx-auto'>
-                                <div className='w-100 bg-orange h-fit trapezium'>
-                                    <div className='flex w-100 text-3xl font-bold px-8 text-white text-opacity-90 items-center py-4 '>
-                                        {/* <div onClick={() => setInfo('overview')} className='courseButton py-6 text-2xl '> <button>Overview</button></div>
-                                        <div onClick={() => setInfo('requirements')} className='courseButton py-6 text-2xl' id=''><button >Requirements</button></div>
-                                        <div onClick={() => setInfo('keyInfo')} className='courseButton py-6 text-2xl' id='keyInfo'><button>KeyInfo</button></div> */}
-                                        Course Details
-                                    </div>
+                            <section className=' w-full mt-40 mx-auto relative'>
+                            <div className='absolute top-3 right-1/2 text-white font-bold text-3xl '>Course Details</div>
 
+                                <div className='w-full h-fit trapezium '>
+                                    {/* <div className='flex w-100 text-3xl font-bold px-8 text-white text-opacity-90 items-center py-4 '>
+                                        <div onClick={() => setInfo('overview')} className='courseButton py-6 text-2xl '> <button>Overview</button></div>
+                                        <div onClick={() => setInfo('requirements')} className='courseButton py-6 text-2xl' id=''><button >Requirements</button></div>
+                                        <div onClick={() => setInfo('keyInfo')} className='courseButton py-6 text-2xl' id='keyInfo'><button>KeyInfo</button></div>
+                                        Course Details
+                                    </div> */}
                                 </div>
+
                             </section>
                             <section className='w-full mx-auto max-w-full my-6 text-light_black'>
                                 <div className='w-full'>
