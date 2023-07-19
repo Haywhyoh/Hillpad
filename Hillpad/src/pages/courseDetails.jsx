@@ -21,6 +21,26 @@ export default function CourseDetails () {
             return <AdmissionReq />
         }
     }
+
+    let buttons = document.querySelectorAll('.courseButton');
+    var selectedButton = null;
+
+    function buttonClick(button) {
+        if (selectedButton) {
+            button.classList.remove('border-b-orange');
+            selectedButton.classList.remove('border-b-4');
+        }
+        button.classList.add('border-b-orange');
+        button.classList.add('border-b-4');
+        selectedButton = button
+
+    }
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
+            buttonClick(this);
+        });
+    }
     return (
         <>
             <div className="w-screen my-20">
@@ -91,10 +111,10 @@ export default function CourseDetails () {
                     </section>
                     <section className=' w-screen mx-auto'>
                         <div className='w-full bg-light_black bg-opacity-10 h-fit '>
-                            <div className='flex mx-auto max-w-full text-lg font-medium h-full gap-x-16 opacity-70 items-center'>
-                            <div onClick={() => setInfo('overview')}> <button>Overview</button></div>
-                            <div onClick={() => setInfo('requirements')} className='active:border-b-2 py-2'><button >Requirements</button></div>
-                            <div className='' onClick={() => setInfo('keyInfo')}><button>KeyInfo</button></div>
+                            <div className='flex mx-auto max-w-full text-lg font-light text-black h-full gap-x-16 text-opacity-90 items-center'>
+                            <div onClick={() => setInfo('overview')} className='courseButton py-6 text-2xl '> <button>Overview</button></div>
+                            <div onClick={() => setInfo('requirements')} className='courseButton py-6 text-2xl' id=''><button >Requirements</button></div>
+                            <div onClick={() => setInfo('keyInfo')} className='courseButton py-6 text-2xl' id='keyInfo'><button>KeyInfo</button></div>
                             </div>
                             
                         </div>
