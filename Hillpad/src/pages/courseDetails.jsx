@@ -79,8 +79,8 @@ export default function CourseDetails() {
                                 </div>
                             </section>
                             <section className=' w-screen mt-40 mx-auto'>
-                                <div className='w-100 bg-orange h-fit '>
-                                    <div className='flex w-100 text-3xl font-bold px-8 text-white text-opacity-90 items-center py-4'>
+                                <div className='w-100 bg-orange h-fit trapezium'>
+                                    <div className='flex w-100 text-3xl font-bold px-8 text-white text-opacity-90 items-center py-4 '>
                                         {/* <div onClick={() => setInfo('overview')} className='courseButton py-6 text-2xl '> <button>Overview</button></div>
                                         <div onClick={() => setInfo('requirements')} className='courseButton py-6 text-2xl' id=''><button >Requirements</button></div>
                                         <div onClick={() => setInfo('keyInfo')} className='courseButton py-6 text-2xl' id='keyInfo'><button>KeyInfo</button></div> */}

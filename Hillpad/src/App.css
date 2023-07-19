@@ -155,3 +155,14 @@ button span {
 .shadow-2 {
   box-shadow: 0 .125rem .125rem -0.125rem rgba(31,27,45,.08),0 .25rem .75rem rgba(31,27,45,.08) ;
 }
+
+
+/* creating the trapezium shape*/
+.trapezium {
+	height: 0;
+	width: 150px;
+	border-top: 30px solid green;
+	border-left: 0px solid transparent;
+	border-right: 100px solid transparent;
+}
+
