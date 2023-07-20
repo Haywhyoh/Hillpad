@@ -30,7 +30,12 @@ function CountryCarousel() {
                             <img src={newyork} className="rounded-t-2xl bg-black" />
                         </div>
                         <div className=" hidden bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-20 rounded-t-2xl" id='newyork'>
-                            <p className="text-white">This is just an oevrlay text</p>
+                            <p className="text-white">
+                            New York City, a vibrant global metropolis,
+                            sboasts iconic landmarks, diverse neighborhoods, 
+                            and a rich cultural scene. With its towering skyscrapers and endless energy, the city offers a unique blend of history, art, and cuisine. 
+                            As a symbol of innovation and ambition, it remains an alluring destination for visitors worldwide.
+                            </p>
                         </div>
                         <div className="py-4 font-bold text-base text-light_black text-center ">NewYork</div>
                     </div>
