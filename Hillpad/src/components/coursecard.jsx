@@ -7,12 +7,12 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 export default function CourseCard({ prop, isActive }) {
   return (
-      <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-60 lg:w-card justify-center mx-2 xs:ms-4 2xs:ms-7 sm:mx-0 '>
+      <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-60 lg:w-card xl:w-74 justify-center mx-2 xs:ms-4 2xs:ms-7 sm:mx-0 '>
         <Link to={`/course/${prop.course}`} >
         <div className="shadow-2 rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
           <div className=" rounded-xl h-imgHeight">
             <img
-              className=" rounded-t-2xl h-imgHeight w-full"
+              className=" rounded-t-xl h-imgHeight w-full"
               src={`public/images/${prop.url}`}
               alt="bachelors_degree"
             />

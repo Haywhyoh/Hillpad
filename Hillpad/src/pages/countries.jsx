@@ -15,7 +15,7 @@ export default function Countries() {
     const [currentIndex, setCurrentIndex] = useState(0);
     
     return (
-        <div className=" my-6 px-2 xl:px-0">
+        <div className=" my-6 px-2 xl:px-4 2xl:px-0">
             <section className=" max-w-full lg:flex mx-auto flex-col justify-center">
                 <div>
                     <h1 className="lg:mt-24 font-bold lg:text-4xl mx-auto ">Countries</h1>

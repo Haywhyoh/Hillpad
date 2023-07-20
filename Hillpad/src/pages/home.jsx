@@ -5,10 +5,8 @@ import hero from '../assets/images/hero-img.jpeg'
 import hillpadBig from '../assets/images/hillpad-transparent.png';
 import data from '../data/discipline';
 import './home.css'
-import CourseCard from "../components/coursecard";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
-import Header from "../components/header";
+
 import { HiOutlineCalculator, HiOutlineDesktopComputer, HiUsers } from "react-icons/hi";
 import { RiBook2Fill } from "react-icons/ri";
 import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight } from "react-icons/fi";
@@ -17,7 +15,6 @@ import { degrees } from "./degree";
 import review1 from '../assets/images/01.jpeg';
 import review2 from '../assets/images/02.jpeg';
 
-import Modal from "../components/modal";
 import Carousel from "../components/carousel";
 import CoursesCarousel from "../components/coursesCarousel";
 import CountryCarousel from "../components/countryCarousel";
@@ -98,14 +95,14 @@ export default function Home() {
       <div className=" text-center mt-24 xl:mt-16  md:w-full w-screen max-w-full xl:flex xl:flex-col justify-center px-4 lg:px-0 mx-auto -z-30 ">
 
         {/* ----------------------------------- {hero start} -------------------------------------------------- */}
-        <section className=" max-w-full lg:mx-auto ">
+        <section className=" max-w-full lg:mx-4 2xl:mx-auto  ">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
          
-            <div className="mx-4 xs:mx-0 my-8 md:mx-0 -z-20 2xl:mt-16 xl:mx-0 lg:w-7/12">
+            <div className="mx-4 xs:mx-0 my-8 md:mx-0 -z-20 2xl:mt-16 lg:w-7/12">
               <img src='./hero-img.jpeg' alt="hillpad_courses" className="" />
             </div>
             <div className="lg:text-left md:w-full lg:w-5/12 mx-4 xs:mx-0 md:mx-0 xl:mt-12">
-              <h1 className="font-bold text-text_black text-3xl xs:text-3xl text-center mb-6 md:text-4xl md:font-semibold md:my-8  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mt-0 2xl:mb-8 ">
+              <h1 className="font-bold text-text_black text-3xl xs:text-3xl text-center mb-6 md:text-4xl md:font-semibold md:my-8  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-5xl 2xl:text-5xl xl:leading-tight 2xl:mt-0 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
               </h1>
@@ -113,7 +110,7 @@ export default function Home() {
                 We make it easy to find the perfect course for you, so you can
                 focus on taking your education to the next level.
               </p>
-              <div className="lg:w-100 xl:w-110 rounded-lg lg:my-8">
+              <div className="lg:w-100 xl:w-110 rounded-lg lg:my-8 xl:my-4 2xl:my-8">
                 <div className="hidden mx-auto md:w-full md:rounded-full bg-white shadow-2 lg:block" id='bar '>
                   <form className="lg:w-100 xl:w-110 rounded-full md:flex justify-between md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0  lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
                     <fieldset className=" mx-2 px-2 md:border-0 lg:w-48 xl:w-80 ">
@@ -196,8 +193,8 @@ export default function Home() {
 
         {/* ----------------------------------- {Browse by discipline } -------------------------------------------------- */}
 
-        <section className="my-12 w-full  lg:mx-auto max-w-full">
-          <div className="flex lg:justify-between   xl:mx-auto">
+        <section className="my-12 w-full lg:mx-4 2xl:mx-auto  max-w-full">
+          <div className="flex lg:justify-between   2xl:mx-auto">
             <h2 className="font-bold text-2xl md:text-3xl lg:text-5x lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
             </h2>
@@ -560,7 +557,7 @@ export default function Home() {
         </section>
 
         <section className="w-full ">
-          <div className=" xl:mx-auto font-bold text-2xl  md:text-3xl lg:text-5x lg:font-semibold lg:text-3xl text-left " >
+          <div className=" lg:mx-4 2xl:mx-auto font-bold text-2xl  md:text-3xl lg:text-5x lg:font-semibold lg:text-3xl text-left " >
             Browse By <span className="text-orange">Programme</span>
           </div>
           <div className="w-full">
@@ -568,9 +565,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative  mt-5">
+        <section className="relative  mt-5 lg:mx-4 2xl:mx-auto">
           <div className="flex justify-between items-baseline">
-          <div className="  text-left text-2xl font-bold my-8 md:text-3xl lg:text-5x md:my-2 lg:my-0 lg:text-3xl lg:font-semibold">
+          <div className="  text-left text-2xl font-bold my-8 md:text-3xl  md:my-2 lg:my-0 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
 
           </div>
@@ -585,7 +582,7 @@ export default function Home() {
             </div>
           <button onClick={scrollLeft} className="hidden lg:block p-2 shadow rounded-full absolute -left-12 top-80"> <FiChevronLeft /></button>
 
-          <div className="flex items-center gap-x-4">
+          <div className="flex items-center">
 
             <div className="overflow-hidden ">
               <CoursesCarousel />
@@ -595,7 +592,7 @@ export default function Home() {
           <button onClick={scrollRight} className="hidden lg:block p-2 shadow rounded-full absolute -right-12 top-80"><FiChevronRight /></button>
 
         </section>
-        <section className="my-14 md:flex items-center w-full md:justify-start md:gap-x-8 lg:gap-x-32 ">
+        <section className="my-14 md:flex items-center w-full md:justify-start md:gap-x-8 lg:gap-x-32 xl:mx-4 ">
           <div className="w-72 mx-auto md:mx-0 md:w-5/12 lg:w-4/12">
             <img src={hillpadBig} />
           </div>
@@ -619,7 +616,7 @@ export default function Home() {
         </section>
 
         <section className=" w-full">
-          <div className="flex items-center justify-between xl:mx-auto">
+          <div className="flex items-center justify-between xl:mx-4 2xl:mx-auto">
             <div className="font-bold text-2xl mb-8 md:text-3xl lg:text-5x lg:font-semibold lg:text-3xl text-left">
               Browse By <span className="text-orange">Country</span>
             </div>
@@ -639,7 +636,7 @@ export default function Home() {
 
           </div>
         </section>
-        <section className="mt-20 mb-20  w-full">
+        <section className="mt-20 mb-20  w-full xl:mx-4 2xl:mx-auto">
           <div className="font-bold text-2xl mb-8 md:text-3xl text-left ">
             Reviews Across The Globe
           </div>

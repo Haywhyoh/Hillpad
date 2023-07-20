@@ -41,7 +41,7 @@ export default function CountryDetail() {
         }
     }
     return (
-        <div className="mt-24 xl:mt-40 mx-auto max-w-full px-4 xl:px-0">
+        <div className="mt-24 xl:mt-40 mx-auto max-w-full px-4 xl:px-4 2xl:px-0">
             <div className="text-light_black flex gap-x-2 text-sm my-10"> 
              <Link to='/'><div className="flex gap-x-2 items-center"><span>Home</span><span><FiChevronsRight /> </span></div></Link>
              <Link to='/countries'><div className="flex gap-x-2 items-center"><span>Countries</span><span><FiChevronsRight /> </span></div> </Link>

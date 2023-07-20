@@ -86,7 +86,7 @@ export default function Header({props}) {
 
     return (
         <header className={ scrolled ? ' w-screen py-4 fixed top-0 bg-white z-40 shadow-md ': ' w-screen py-4 fixed top-0 bg-white z-40' }>
-            <nav className="max-w-full text-sm font-bold mx-auto justify-between hidden lg:flex px-2 xl:px-0 items-center gap-x-4">
+            <nav className="max-w-full text-sm font-bold mx-auto justify-between hidden lg:flex px-2 xl:px-4 items-center gap-x-4">
                 <div>
                     <Link to='/'>
                         <div className='w-20'>
