@@ -664,7 +664,7 @@ export default function Home() {
                 <div className="flex gap-2 justify-between items-start">
                   <div className="w-fit">
                     <div className="text-xl font-medium ">Floyd Miles</div>
-                    <div className="text-light_black text-sm">
+                    <div className="text-light_black text-sm text-opacity-60">
                       University of Cambridge
                     </div>
                   </div>
@@ -676,7 +676,7 @@ export default function Home() {
                       <AiFillStar />
                       <AiFillStar />
                     </div>
-                    <div className="my-2 text-light_black text-sm">
+                    <div className="my-2 text-light_black text-sm text-opacity-60">
                       {" "}
                       43 reviews
                     </div>
@@ -739,7 +739,7 @@ export default function Home() {
                         <AiFillStar />
                         <AiFillStar />
                       </div>
-                      <div className="my-2 text-light_black text-sm">
+                      <div className="my-2 text-light_black text-sm text-opacity-60">
                         {" "}
                         43 reviews
                       </div>

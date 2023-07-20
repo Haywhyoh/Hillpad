@@ -4,7 +4,6 @@ import { HiOutlineCash } from "react-icons/hi";
 import { BiTimeFive } from "react-icons/bi";
 import { SlLocationPin } from "react-icons/sl";
 import { AiOutlineCalendar } from "react-icons/ai";
-import '../components/coursecard.css';
 export default function CourseCard({ prop, isActive }) {
   return (
     <div className='w-72 m-0 2xs:w-80'>

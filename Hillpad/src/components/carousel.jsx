@@ -12,27 +12,35 @@ function Carousel() {
 
     const handleMouseOver = () => {
         setIsHovering(true);
-
+       
     };
 
     const handleMouseOver2 = () => {
         setIsHovering2(true);
+     
 
     };
 
     const handleMouseOver3 = () => {
         setIsHovering3(true);
+      
+
 
     };
 
     const handleMouseOut = () => {
         setIsHovering(false);
+       
+
     };
     const handleMouseOut2 = () => {
         setIsHovering2(false);
+        
     };
     const handleMouseOut3 = () => {
         setIsHovering3(false);
+        
+
     };
 
 
@@ -57,11 +65,11 @@ function Carousel() {
 
     return (
         <div className="relative">
-            <div className="absolute right-28 bottom-0 ">
-            <button onClick={scrollLeft} className="lg:hidden p-2 m-2 rounded-full bg-white">
+            <div className="hidden absolute xl:right-28 xl:bottom-0  transition-all duration-300" id='arrow'>
+            <button onClick={scrollLeft} className="lg:hidden p-2 m-2 absolute top-60 left-4 shadow-2 rounded-full bg-white" >
                     <FiChevronLeft />
                 </button>
-                <button onClick={scrollRight} className="lg:hidden p-2 m-2 rounded-full bg-white">
+                <button onClick={scrollRight} className="lg:hidden p-2  absolute top-60 left-56 m-2 shadow-2 rounded-full bg-white">
                     <FiChevronRight />
                 </button>
             </div>
@@ -71,7 +79,7 @@ function Carousel() {
                         onMouseOut={handleMouseOut}>
                         {
                             isHovering ? <div className="deepShadow rounded-lg   transition-all duration-300">
-                                <div className=" xl:pt-6" >
+                                <div className=" xl:pt-6 p-2" >
                                     <div className="w-40 mx-auto">
                                         <img src={bachelor} alt="bachelors_degree" />
                                     </div>
@@ -88,7 +96,7 @@ function Carousel() {
                                 </div>
 
                             </div> : <div className="   transition-all duration-300">
-                                <div className="xl:pt-6">
+                                <div className="xl:pt-6 p-2">
                                     <div className="w-40 mx-auto">
                                         <img src={bachelor} alt="bachelors_degree" />
                                     </div>
@@ -112,7 +120,7 @@ function Carousel() {
                         onMouseOut={handleMouseOut2}>
                         {
                             isHovering2 ? <div className="deepShadow rounded-lg  transition-all duration-300"> <div className="sm:w-full">
-                                <div className="w-40 mx-auto">
+                                <div className="w-40 mx-auto p-2">
                                     <img src={masters} alt="masters_degree" />
                                 </div>
                                 <div className="font-bold text-xl text-center mt-6 mx-8">Master's Programme</div>
@@ -126,7 +134,7 @@ function Carousel() {
                                     </button>
                                 </Link>
                             </div></div>
-                                : <div className="sm:w-full"><div className="w-40 mx-auto">
+                                : <div className="sm:w-full"><div className="w-40 mx-auto p-2">
                                     <img src={masters} alt="doctorates_degree" />
                                 </div>
                                     <div className="font-bold text-xl text-center mt-6 mx-8">Master's Programme</div>
@@ -150,7 +158,7 @@ function Carousel() {
                         onMouseOut={handleMouseOut3}>
                         {
                             isHovering3 ? <div className="deepShadow rounded-lg   transition-all duration-300"> <div className="sm:w-full">
-                                <div className="w-40 mx-auto">
+                                <div className="w-40 mx-auto p-2">
                                     <img src={doctorates} alt="doctorates_degree" />
                                 </div>
                                 <div className="font-bold text-xl text-center mt-6 mx-8">PhD & Doctorate Studies</div>
@@ -164,7 +172,7 @@ function Carousel() {
                                     </button>
                                 </Link>
                             </div></div>
-                                : <div className="sm:w-full"><div className="w-40 mx-auto">
+                                : <div className="sm:w-full"><div className="w-40 mx-auto p-2">
                                     <img src={doctorates} alt="doctorates_degree" />
                                 </div>
                                     <div className="font-bold text-xl text-center mt-6 mx-8">PhD & Doctorate Studies</div>
