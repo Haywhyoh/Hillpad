@@ -7,7 +7,7 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 export default function CourseCard({ prop, isActive }) {
   return (
-      <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-72 lg:w-card justify-center mx-2 xs:ms-4 2xs:ms-7 sm:mx-0 '>
+      <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-60 lg:w-card justify-center mx-2 xs:ms-4 2xs:ms-7 sm:mx-0 '>
         <Link to={`/course/${prop.course}`} >
         <div className="shadow-2 rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
           <div className=" rounded-xl h-imgHeight">
@@ -43,21 +43,21 @@ export default function CourseCard({ prop, isActive }) {
             </div>
           </div>
 
-          <div className="flex gap-x-3 justify-center text-light_black text-xs xs:text-sm border-t border-light_black border-opacity-10 py-4 ">
+          <div className="flex gap-x-3 justify-center text-light_black text-xs xs:text-sm md:text-xs border-t border-light_black border-opacity-10 py-4 ">
             <div className="flex items-center gap-x-1">
-              <div className='font-bold text-xl'>
+              <div className='font-bold text-xl  md:text-xs xl:text-xl'>
                 <AiOutlineCalendar />
               </div>
               <div>4 years</div>
             </div>
             <div className="flex items-center gap-x-1">
-              <div className='font-bold text-xl'>
+              <div className='font-bold text-xl md:text-xs xl:text-xl '>
                 <BiTimeFive />
               </div>
               <div>Full Time</div>{" "}
             </div>
             <div className="flex items-center gap-x-1">
-              <div className='font-bold text-xl'>
+              <div className='font-bold text-xl  md:text-xs xl:text-xl'>
                 <SlLocationPin />
               </div>
               <div>On Campus</div>{" "}

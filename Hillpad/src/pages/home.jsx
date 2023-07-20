@@ -599,7 +599,7 @@ export default function Home() {
             <img src={hillpadBig} />
           </div>
           <div className="md:w-6/12   md:mx-0">
-            <div className=" font-semibold mx-6 lg:mx-0 mt-5 text-2xl md:text-3xl md:text-left">
+            <div className=" font-semibold mx-6 md:mx-0 mt-5 text-2xl md:text-3xl md:text-left">
               Let us help you find your dream school
             </div>
             <div className="text-light_black text-center text-sm 2xs:text-lg md:text-left my-4">
@@ -609,7 +609,7 @@ export default function Home() {
               courses from leading universities around the world and unlock the
               possibilities of your future!
             </div>
-            <div className=" lg:float-left">
+            <div className=" md:float-left">
               <button className="bg-orange text-white px-8 my-6 py-4 rounded-md font-bold">
                 About Us
               </button>

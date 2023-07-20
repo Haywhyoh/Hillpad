@@ -73,14 +73,14 @@ function Carousel() {
                     <FiChevronRight />
                 </button>
             </div>
-            <div id="content" className="carousel p-0 lg:p-4 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide">
+            <div id="content" className="carousel p-0 lg:p-4 flex  items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide">
                 <div className="">
-                    <div className="w-72 xs:w-80 md:w-64 lg:w-72 2xs:w-96  xl:w-84  2xl:w-full  py-8 px-4 " onMouseOver={handleMouseOver}
+                    <div className="w-72 xs:w-80 md:w-60 lg:w-72 2xs:w-96  xl:w-84  2xl:w-full  py-8 px-4 " onMouseOver={handleMouseOver}
                         onMouseOut={handleMouseOut}>
                         {
                             isHovering ? <div className="deepShadow rounded-lg   transition-all duration-300">
                                 <div className=" xl:pt-6 p-2" >
-                                    <div className="w-40 mx-auto">
+                                    <div className="w-40 mx-auto p-2">
                                         <img src={bachelor} alt="bachelors_degree" />
                                     </div>
                                     <div className="font-bold text-xl text-center mt-6 mx-8">Bachelor's Programme</div>
@@ -95,9 +95,9 @@ function Carousel() {
                                     </Link>
                                 </div>
 
-                            </div> : <div className="   transition-all duration-300">
+                            </div> : <div className=" flex-1  transition-all duration-300">
                                 <div className="xl:pt-6 p-2">
-                                    <div className="w-40 mx-auto">
+                                    <div className="w-40 mx-auto p-2">
                                         <img src={bachelor} alt="bachelors_degree" />
                                     </div>
                                     <div className="font-bold text-xl text-center mt-6 mx-8">Bachelor's Programme</div>
@@ -116,7 +116,7 @@ function Carousel() {
                     </div>
                 </div>
                 <div>
-                    <div className="w-72  xl:w-84 sm:w-72  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver2}
+                    <div className="w-72  xl:w-84 sm:w-72 md:w-60  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver2}
                         onMouseOut={handleMouseOut2}>
                         {
                             isHovering2 ? <div className="deepShadow rounded-lg  transition-all duration-300"> <div className="sm:w-full">
@@ -134,7 +134,7 @@ function Carousel() {
                                     </button>
                                 </Link>
                             </div></div>
-                                : <div className="sm:w-full"><div className="w-40 mx-auto p-2">
+                                : <div className="sm:w-full flex-1"><div className="w-40 mx-auto p-2">
                                     <img src={masters} alt="doctorates_degree" />
                                 </div>
                                     <div className="font-bold text-xl text-center mt-6 mx-8">Master's Programme</div>
@@ -154,7 +154,7 @@ function Carousel() {
                     </div>
                 </div>
                 <div>
-                    <div className="w-72  xl:w-84 sm:w-72  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver3}
+                    <div className="w-72  xl:w-84 sm:w-72 md:w-60  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver3}
                         onMouseOut={handleMouseOut3}>
                         {
                             isHovering3 ? <div className="deepShadow rounded-lg   transition-all duration-300"> <div className="sm:w-full">
