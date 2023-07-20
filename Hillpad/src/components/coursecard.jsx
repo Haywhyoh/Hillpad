@@ -4,7 +4,6 @@ import { HiOutlineCash } from "react-icons/hi";
 import { BiTimeFive } from "react-icons/bi";
 import { SlLocationPin } from "react-icons/sl";
 import { AiOutlineCalendar } from "react-icons/ai";
-import '../components/coursecard.css';
 import { Link } from 'react-router-dom';
 export default function CourseCard({ prop, isActive }) {
   return (
@@ -44,7 +43,7 @@ export default function CourseCard({ prop, isActive }) {
             </div>
           </div>
 
-          <div className="flex gap-x-3 justify-center text-light_black text-sm border-t border-light_black border-opacity-10 py-4 ">
+          <div className="flex gap-x-3 justify-center text-light_black text-xs xs:text-sm border-t border-light_black border-opacity-10 py-4 ">
             <div className="flex items-center gap-x-1">
               <div className='font-bold text-xl'>
                 <AiOutlineCalendar />
