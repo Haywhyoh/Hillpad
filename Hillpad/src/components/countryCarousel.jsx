@@ -22,11 +22,11 @@ function CountryCarousel() {
         <div className="">
 <div>
             <div id="content3" className="carousel flex items-center lg:justify-between overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-2 md:gap-x-4 lg:gap-x-6 ">
-                <div className="rounded-t-2xl  xs:ms-2  2xs:mx-0" 
+                <div className="rounded-t-2xl  xs:ms-1  2xs:mx-0" 
                     onMouseOver={() => { const show = document.querySelector('#newyork'); show.style.display = 'block'}}
                     onMouseLeave={() => { const show = document.querySelector('#newyork'); show.style.display = 'none'}}
                     >
-                    <div className="shadow rounded-2xl w-72 2xs:w-80 sm:w-72 md:w-72 lg:w-card xs:mx-1 2xs:mx-7 sm:mx-0 border border-border_white relative ">
+                    <div className="shadow rounded-2xl w-72 xs:w-80 sm:w-72 md:w-72 lg:w-card  2xs:mx-7 sm:mx-0 border border-border_white relative ">
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl bg-black" />
                         </div>

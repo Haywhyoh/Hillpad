@@ -29,7 +29,7 @@ export default function Footer() {
 
                                     <div>
                                         <div className=' my-4 text-lg md:text-lg md:font-bold'>Resources</div>
-                                        <ul className='text-white opacity-50 flex flex-col gap-2  md:text-sm'>
+                                        <ul className='text-white opacity-50 flex flex-col gap-2 text-sm'>
                                             <li>Bachelors</li>
                                             <li>Masters</li>
                                             <li>Doctorate</li>
@@ -37,9 +37,9 @@ export default function Footer() {
                                             <li>Browse by discipline</li>
                                         </ul>
                                     </div>
-                                    <div>
-                                        <div className='font-medium my-4 text-lg md:text-lg md:font-bold'>Quick Links</div>
-                                        <ul className='text-white opacity-50 flex flex-col gap-2 md:text-sm'>
+                                    <div className='xs:mt-8'>
+                                        <div className='font-medium my-4 text-base md:text-lg md:font-bold'>Quick Links</div>
+                                        <ul className='text-white opacity-50 flex flex-col gap-2 text-sm'>
                                             <li>About Us</li>
                                             <li>Contact Us</li>
                                             <li>FAQs</li>

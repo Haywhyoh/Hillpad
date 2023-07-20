@@ -101,10 +101,10 @@ export default function Home() {
         <section className=" max-w-full lg:mx-auto ">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
          
-            <div className="mx-4 my-8 md:mx-0 -z-20 2xl:mt-16 xl:mx-0 lg:w-7/12">
+            <div className="mx-4 xs:mx-0 my-8 md:mx-0 -z-20 2xl:mt-16 xl:mx-0 lg:w-7/12">
               <img src='./hero-img.jpeg' alt="hillpad_courses" className="" />
             </div>
-            <div className="lg:text-left md:w-full lg:w-5/12 mx-4 md:mx-0 xl:mt-12">
+            <div className="lg:text-left md:w-full lg:w-5/12 mx-4 xs:mx-0 md:mx-0 xl:mt-12">
               <h1 className="font-bold text-text_black text-3xl xs:text-3xl text-center mb-6 md:text-4xl md:font-semibold md:my-8  lg:text-4xl lg:text-left lg:mb-6 lg:block lg:my-0 xl:text-6xl 2xl:text-5xl leading-12 2xl:mt-0 2xl:mb-8 ">
                 Discover <span className="text-orange"> Educational</span>{" "}
                 Opportunities
@@ -173,7 +173,7 @@ export default function Home() {
                       </option>
                     </select>
                   </fieldset>
-                  <div className="mx-2 xs:mx-0 ">
+                  <div className="mx-2 xs:mx-2 ">
                   <button className="w-60 xs:w-full 2xs:w-full mb-2 md:mb-0 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
                     Search
                   </button>
@@ -639,7 +639,7 @@ export default function Home() {
           </div>
         </section>
         <section className="mt-20 mb-20  w-full">
-          <div className="font-bold text-3xl mb-8 md:text-3xl text-left ">
+          <div className="font-bold text-2xl mb-8 md:text-3xl text-left ">
             Reviews Across The Globe
           </div>
 
