@@ -19,7 +19,7 @@ export default function CourseCard({ prop, isActive }) {
           </div>
           <div className="text-left m-4">
             <div className="font-normal text-sm text-orange">{prop.type}</div>
-            <div className="font-bold pb-2 text-light_black opacity-80">{prop.course.length > 50 ? `${prop.course.substring(0, 54) + '...'} ` : prop.course}</div>
+            <div className="font-bold pb-2 text-light_black ">{prop.course.length > 50 ? `${prop.course.substring(0, 54) + '...'} ` : prop.course}</div>
             <div className='flex items-center gap-x-4'>
               <div className='w-6'>
                 <img src={logo} alt="logo" />
@@ -35,7 +35,7 @@ export default function CourseCard({ prop, isActive }) {
             </div>
 
 
-            <div className="flex gap-x-2 items-center opacity-70 text-light_black my-2">
+            <div className="flex gap-x-2 items-center opacity-90 text-light_black my-2">
               <div className="text-2xl">
                 <HiOutlineCash />
               </div>
