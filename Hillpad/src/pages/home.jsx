@@ -572,11 +572,12 @@ export default function Home() {
           <div className="flex justify-between items-baseline">
           <div className="  text-left text-2xl font-bold my-8 md:text-3xl lg:text-5x md:my-2 lg:my-0 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
+
           </div>
           <Link to='/courses'>
-              <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm hover:text-light">
-                <div>View all</div>
-                <div>
+              <div className="hidden md:flex gap-x-2 items-center text-light_black text-sm hover:text-light">
+                <div>Search courses</div>
+                <div className="font-bold">
                   <BsArrowRight />
                 </div>
               </div>
