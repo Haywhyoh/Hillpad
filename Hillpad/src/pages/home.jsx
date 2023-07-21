@@ -95,7 +95,7 @@ export default function Home() {
       <div className=" text-center mt-24 xl:mt-16  md:w-full w-screen max-w-full xl:flex xl:flex-col justify-center px-4 lg:px-0 mx-auto -z-30 ">
 
         {/* ----------------------------------- {hero start} -------------------------------------------------- */}
-        <section className=" max-w-full lg:mx-4 xl:me-4 xl:ms-1 2xl:mx-auto  ">
+        <section className=" max-w-full lg:mx-4 xl:me-4 xl:ms-1 2xl:mx-4  ">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
          
             <div className="mx-4 xs:mx-0 my-8 md:mx-0 -z-20 2xl:mt-16 lg:w-7/12">
@@ -193,7 +193,7 @@ export default function Home() {
 
         {/* ----------------------------------- {Browse by discipline } -------------------------------------------------- */}
 
-        <section className="my-12 w-full lg:mx-4 xl:pe-8 2xl:mx-auto  max-w-full">
+        <section className="my-12 w-full lg:mx-4 xl:pe-8 2xl:mx-4  max-w-full">
           <div className="flex lg:justify-between   2xl:mx-auto">
             <h2 className="font-bold text-2xl md:text-3xl lg:text-5x lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
@@ -557,7 +557,7 @@ export default function Home() {
         </section>
 
         <section className="w-full ">
-          <div className=" lg:mx-4 2xl:mx-auto font-bold text-2xl  md:text-3xl lg:text-5x lg:font-semibold lg:text-3xl text-left " >
+          <div className=" lg:mx-4  font-bold text-2xl  md:text-3xl lg:text-5x lg:font-semibold lg:text-3xl text-left " >
             Browse By <span className="text-orange">Programme</span>
           </div>
           <div className="w-full">
@@ -565,7 +565,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative  mt-5 lg:mx-4 2xl:mx-auto">
+        <section className="relative  mt-5 lg:mx-4 2xl:mx-4">
           <div className="flex justify-between items-baseline">
           <div className="  text-left text-2xl font-bold my-8 md:text-3xl  md:my-2 lg:my-0 lg:text-3xl lg:font-semibold">
             Featured <span className="text-orange">Courses</span>
@@ -616,7 +616,7 @@ export default function Home() {
         </section>
 
         <section className=" w-full">
-          <div className="flex items-center justify-between xl:mx-4 2xl:mx-auto">
+          <div className="flex items-center justify-between xl:mx-4">
             <div className="font-bold text-2xl mb-8 md:text-3xl lg:text-5x lg:font-semibold lg:text-3xl text-left">
               Browse By <span className="text-orange">Country</span>
             </div>
@@ -636,7 +636,7 @@ export default function Home() {
 
           </div>
         </section>
-        <section className="mt-20 mb-20  w-full xl:mx-4 2xl:mx-auto">
+        <section className="mt-20 mb-20  w-full xl:mx-4 ">
           <div className="font-bold text-2xl mb-8 md:text-3xl text-left ">
             Reviews Across The Globe
           </div>
