@@ -18,28 +18,28 @@ export const degrees = [
         type:"B.Sc",
         course:"Computer Science",
         school:"Chandigarh University",
-        url:'03-2.jpg'
+        url:'02-3.jpeg'
     },
     {
         id:3,
         type:"B.A",
         course:"English Literature",
         school:"Harvard University",
-        url:'02-2.jpeg'
+        url:'03-2.jpg'
     },
     {
         id:4,
         type:"B.Tech",
         course:"Electronics and Communication Engineering",
         school:"Madmensis Austra University",
-        url:'03-1.jpeg'
+        url:'03-1.jpg'
     },
     {
         id:5,
         type:"B.Ed",
         course:"English Education",
         school:"African University",
-        url:'02-3.jpeg'
+        url:'03-2.jpg'
     },
     {
         id:6,

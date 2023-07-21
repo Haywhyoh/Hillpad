@@ -9,7 +9,7 @@ import data from '../data/discipline';
 import degreeType from '../data/degree_type.json';
 import Header from "../components/header";
 import Footer from "../components/Footer";
-import { degrees } from "./degree";
+import { degrees } from "./degree2";
 export default function Courses() {
 
     const disciplines = data.results;
