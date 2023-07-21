@@ -1,4 +1,4 @@
-import { FiCalendar, FiChevronsRight, FiClock, FiLock, FiMapPin, FiStar } from 'react-icons/fi';
+import { FiCalendar, FiChevronsRight, FiClock, FiLock, FiMapPin, FiStar, FiUnlock } from 'react-icons/fi';
 import hero from '../assets/images/Rectangle_3.png';
 import { HiOutlineCash } from 'react-icons/hi';
 import { BsArrowRight } from 'react-icons/bs'
@@ -8,7 +8,9 @@ import { useState } from 'react';
 import KeyInfo from '../components/keyInfo';
 import AdmissionReq from '../components/admissionRequirement';
 import ProjectStructure from '../components/projectStructure';
-export default function CourseDetails() {
+import Prefooter from '../components/preFooter';
+import { Link } from 'react-router-dom';
+export default function CourseDetails(props) {
     const [info, setInfo] = useState('overview');
 
     function renderInfo(data) {
@@ -115,7 +117,7 @@ export default function CourseDetails() {
                                     </div>
                                     <a href="" className='text-light underline py-1'>Show more</a>
                                     <div className='my-12'>
-                                       <Overview />
+                                       <Overview props={props}/>
                                       
                                     </div>
                                    
@@ -150,10 +152,22 @@ export default function CourseDetails() {
 
                                                 </div>
                                                 <div className='py-3'>
+                                                    {
+                                                        props.isLoggedIn ? 
+                                                        <a href="https://www.studyatulawbs.com/programmes/undergraduate/bsc-hons-business-management-with-foundation-and-placement-years/?utm_source=studyportals&utm_medium=listing324053&utm_campaign=ULAWBS&utm_term=324053" target='_blank'>
+                                                        <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
+                                                        <span className='text-white font-semibold'>Visit University Website</span>
+                                                        <div><FiUnlock className='font-bold text-lg' /></div>
+                                                        </button>
+
+                                                        </a>
+                                                    :
                                                     <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
                                                         <span className='text-white font-semibold'>Visit University Website</span>
                                                         <div><FiLock className='font-bold text-lg' /></div>
                                                     </button>
+                                                    }
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -181,9 +195,14 @@ export default function CourseDetails() {
                             </div>
                         </div>
                     </section>
+                    <div  className='w-full max-w-full mx-auto my-10'>
+                        <Prefooter />
+
+                    </div>
                 </div>
 
             </div>
+           
         </>
     )
 }

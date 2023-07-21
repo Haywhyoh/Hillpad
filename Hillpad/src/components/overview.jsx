@@ -1,7 +1,7 @@
 import { FiClock, FiCalendar, FiMapPin, FiLock } from "react-icons/fi";
 import { FaCoins } from "react-icons/fa";
 import ProjectStructure from "./projectStructure";
-export default function Overview() {
+export default function Overview(props) {
     return (
         <div className="text-lg">
             <div>
@@ -29,13 +29,24 @@ export default function Overview() {
                 <span className='text-light_black'>Tution: </span>
                 <span className='font-semibold text-2xl px-2'>$10, 000 / year</span>
                 <div className='py-3'>
-                    <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
-                        <span className='text-white font-semibold'>Visit University Website</span>
-                        <div><FiLock className='font-bold text-lg' /></div>
-                    </button>
+                    {
+                        props.isLoggedIn ?
+                            <a href="https://www.studyatulawbs.com/programmes/undergraduate/bsc-hons-business-management-with-foundation-and-placement-years/?utm_source=studyportals&utm_medium=listing324053&utm_campaign=ULAWBS&utm_term=324053" target='_blank'>
+                                <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
+                                    <span className='text-white font-semibold'>Visit University Website</span>
+                                    <div><FiUnlock className='font-bold text-lg' /></div>
+                                </button>
+
+                            </a>
+                            :
+                            <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
+                                <span className='text-white font-semibold'>Visit University Website</span>
+                                <div><FiLock className='font-bold text-lg' /></div>
+                            </button>
+                    }
                 </div>
             </div>
-        
+
         </div>
     )
 }
