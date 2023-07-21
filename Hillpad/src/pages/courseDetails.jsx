@@ -10,7 +10,7 @@ import AdmissionReq from '../components/admissionRequirement';
 import ProjectStructure from '../components/projectStructure';
 import Prefooter from '../components/preFooter';
 import { Link } from 'react-router-dom';
-export default function CourseDetails(props) {
+export default function CourseDetails({props}) {
     const [info, setInfo] = useState('overview');
 
     function renderInfo(data) {

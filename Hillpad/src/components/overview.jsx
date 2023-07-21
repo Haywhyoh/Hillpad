@@ -1,7 +1,7 @@
-import { FiClock, FiCalendar, FiMapPin, FiLock } from "react-icons/fi";
+import { FiClock, FiCalendar, FiMapPin, FiLock, FiUnlock } from "react-icons/fi";
 import { FaCoins } from "react-icons/fa";
 import ProjectStructure from "./projectStructure";
-export default function Overview(props) {
+export default function Overview({props}) {
     return (
         <div className="text-lg">
             <div>
