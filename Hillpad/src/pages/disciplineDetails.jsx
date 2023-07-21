@@ -26,7 +26,7 @@ export default function DisciplineDetails() {
   return (
     <>
 
-    <div className='mx-4 max-w-full lg:mx-8 2xl:mx-12 3xl:mx-auto mt-28'>
+    <div className='mx-4 max-w-full lg:mx-8 xl:mx-4 2xl:mx-12 3xl:mx-auto mt-28'>
     <div className="text-light_black flex gap-x-2 text-sm my-6"> 
              <Link to='/'><div className="flex gap-x-2 items-center"><span>Home</span><span><FiChevronsRight /> </span></div></Link>
              <Link to='/countries'><div className="flex gap-x-2 items-center"><span>Countries</span><span><FiChevronsRight /> </span></div> </Link>
