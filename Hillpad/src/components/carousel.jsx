@@ -119,7 +119,8 @@ function Carousel() {
                     <div className="w-72  xl:w-88 sm:w-72 md:w-60  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver2}
                         onMouseOut={handleMouseOut2}>
                         {
-                            isHovering2 ? <div className="deepShadow rounded-lg  transition-all duration-300"> <div className="sm:w-full">
+                            isHovering2 ? <div className="deepShadow rounded-lg   transition-all duration-300">
+                            <div className=" xl:pt-6 p-2" >
                                 <div className="w-40 mx-auto p-2">
                                     <img src={masters} alt="masters_degree" />
                                 </div>
@@ -129,25 +130,30 @@ function Carousel() {
                                     universities, colleges, and school worldwide
                                 </div>
                                 <Link to='/courses'>
-                                    <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8  bg-orange text-white">
+                                    <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                         Search Masters
                                     </button>
                                 </Link>
-                            </div></div>
-                                : <div className="sm:w-full flex-1"><div className="w-40 mx-auto p-2">
-                                    <img src={masters} alt="doctorates_degree" />
-                                </div>
+                            </div>
+
+                        </div>
+                                : <div className=" flex-1  transition-all duration-300">
+                                <div className="xl:pt-6 p-2">
+                                    <div className="w-40 mx-auto p-2">
+                                        <img src={masters} alt="bachelors_degree" />
+                                    </div>
                                     <div className="font-bold text-xl text-center mt-6 mx-8">Master's Programme</div>
                                     <div className="text-sm text-light_black sm:p-2 lg:p-6 my-2">
                                         Choose from more than 1000 Master's programmes at
                                         universities, colleges, and school worldwide
                                     </div>
                                     <Link to='/courses'>
-                                        <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 text-orange">
-                                            Search Masters
+                                        <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white"> Search Masters
                                         </button>
                                     </Link>
                                 </div>
+
+                            </div>
 
                         }
 
@@ -157,35 +163,42 @@ function Carousel() {
                     <div className="w-72  xl:w-88 sm:w-72 md:w-60  xs:w-80 2xs:w-96 2xl:w-full py-8 px-4 " onMouseOver={handleMouseOver3}
                         onMouseOut={handleMouseOut3}>
                         {
-                            isHovering3 ? <div className="deepShadow rounded-lg   transition-all duration-300"> <div className="sm:w-full">
+                            isHovering3 ? <div className="deepShadow rounded-lg   transition-all duration-300">
+                            <div className=" xl:pt-6 p-2" >
                                 <div className="w-40 mx-auto p-2">
-                                    <img src={doctorates} alt="doctorates_degree" />
+                                    <img src={doctorates} alt="masters_degree" />
                                 </div>
-                                <div className="font-bold text-xl text-center mt-6 mx-8">PhD & Doctorate Studies</div>
+                                <div className="font-bold text-xl text-center mt-6 mx-8">Doctorate's Programme</div>
                                 <div className="text-sm text-light_black sm:p-2 lg:p-6 my-2">
-                                    Choose from more than 1000 Bachelor's programmes at
+                                    Choose from more than 1000 Doctorate programmes at
                                     universities, colleges, and school worldwide
                                 </div>
                                 <Link to='/courses'>
-                                    <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8  bg-orange text-white">
+                                    <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                         Search PhDs
                                     </button>
                                 </Link>
-                            </div></div>
-                                : <div className="sm:w-full"><div className="w-40 mx-auto p-2">
-                                    <img src={doctorates} alt="doctorates_degree" />
-                                </div>
-                                    <div className="font-bold text-xl text-center mt-6 mx-8">PhD & Doctorate Studies</div>
+                            </div>
+
+                        </div>
+                                : <div className=" flex-1  transition-all duration-300">
+                                <div className="xl:pt-6 p-2">
+                                    <div className="w-40 mx-auto p-2">
+                                        <img src={doctorates} alt="bachelors_degree" />
+                                    </div>
+                                    <div className="font-bold text-xl text-center mt-6 mx-8">Doctorate's Programme</div>
                                     <div className="text-sm text-light_black sm:p-2 lg:p-6 my-2">
-                                        Choose from more than 1000 Bachelor's programmes at
+                                        Choose from more than 1000 Doctorates programmes at
                                         universities, colleges, and school worldwide
                                     </div>
                                     <Link to='/courses'>
-                                        <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 text-orange">
-                                            Search PhDs
+                                        <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white"> Search PhDs
                                         </button>
                                     </Link>
                                 </div>
+
+                            </div>
+
 
                         }
 
