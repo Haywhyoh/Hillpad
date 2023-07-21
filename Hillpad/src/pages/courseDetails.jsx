@@ -52,9 +52,12 @@ export default function CourseDetails() {
         <>
             <div className="w-screen my-20">
                 <div className="w-full text-lg">
-                    <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white absolute -z-10' style={{ width: '100vw', height: '600px', background: `url(${hero})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                    <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white absolute -z-10 ' style={{ width: '100vw', height: '600px', background: `url(${hero})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                      <div className='bannerBg w-full ' style={{ heigth: '600px'}}>
+
+                      </div>
                     </div>
-                    <div className='flex justify-between w-full max-w-full mx-auto'>
+                    <div className='flex justify-between w-full max-w-full mx-auto '>
                         <div className=' py-20 xl:w-9/12'>
                             <section className='mx-auto flex flex-col max-w-full text-white'>
                                 <div className='max-w-full w-full mx-auto mt-6 w-max-full'>

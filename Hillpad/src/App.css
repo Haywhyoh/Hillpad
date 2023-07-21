@@ -168,3 +168,9 @@ button span {
 	border-right: 100px solid transparent;
 }
 
+.bannerBg{
+  background-blend-mode: overlay;
+  background: rgb(52,9,9);
+background: linear-gradient(90deg, rgba(52,9,9,1) 22%, rgba(255,87,87,0.3757878151260504) 54%, rgba(178,175,190,0.5354516806722689) 100%);
+}
+
