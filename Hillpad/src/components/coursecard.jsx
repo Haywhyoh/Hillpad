@@ -13,7 +13,7 @@ export default function CourseCard({ prop, isActive }) {
           <div className=" rounded-xl h-imgHeight">
             <img
               className=" rounded-t-xl h-imgHeight w-full"
-              src={`public/images/${prop.url}`}
+              src={`/images/${prop.url}`}
               alt="bachelors_degree"
             />
           </div>

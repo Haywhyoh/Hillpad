@@ -128,7 +128,7 @@ export default function Login({handleModal}) {
                         {
                             toggleLogin ? <div className="flex flex-col lg:flex-row p-2 lg:p-4 lg:min-w-fit lg:w-full max-w-4xl items-center">
                                 <div className="lg:w-1/2">
-                                    <div className="flex flex-col gap-y-10">
+                                    <div className="flex flex-col gap-y-10 lg:px-6 xl:px-0">
                                         <div className=" font-bold text-3xl leading-normal">
                                             <h2>Hey there!</h2>
                                             <h2>Welcome back.</h2>
