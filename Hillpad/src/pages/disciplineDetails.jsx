@@ -63,14 +63,23 @@ export default function DisciplineDetails() {
         <p className='text-light_black text-base my-6 lg:text-left'>{` ${param.name} 'is a vital scientific field that focuses on studyig plants, animals, and the environments in which they thrive.
           You’ll learn about forest restoration, managing natural resources, food production, and preserving the natural beauty that surrounds us.
           Agriculture and Forestry also studies crop rotation and preserving the soil’s mineral qualities.
-          They make sure that products follow industry standards and reach the markets.
+           `} </p>
+         <p className='text-light_black text-base my-6 lg:text-left'>
+         They make sure that products follow industry standards and reach the markets.
           This is essential in the mass production of food, whose demand will grow as the human population increases.\r\n\r\nAgriculture & Forestry students can find themselves working in Horticulture, Animal Sciences, Aquaculture and Fisheries, and other subfields.
-          \r\n\r\nYou can help businesses manage their ecological impact; establish and preserve wildlife, knowing exactly how animal husbandry and cultivating plants affects the environment; or you can create spectacular garden landscapes for everyone to admire. During courses, you will also learn how to properly manage forests. 
-          Many people still depend on lumber, as alternative building materials and energy sources’ popularity is growing slowly. `} </p>
-         
+          \r\n\r\nYou can help businesses manage their ecological impact; establish and preserve wildlife, knowing exactly how animal husbandry and cultivating plants affects the environment; or you can create spectacular garden landscapes for everyone to admire. </p>
+         <p className='text-light_black text-base my-6 lg:text-left'>
+         They make sure that products follow industry standards and reach the markets.
+          This is essential in the mass production of food, whose demand will grow as the human population increases.\r\n\r\nAgriculture & Forestry students can find themselves working in Horticulture, Animal Sciences, Aquaculture and Fisheries, and other subfields.
+         ’ popularity is growing slowly.
+         </p>
+         <p className='text-light_black text-base my-6 lg:text-left'>{` ${param.name} 'is a vital scientific field that focuses on studyig plants, animals, and the environments in which they thrive.
+          You’ll learn about forest restoration, managing natural resources, food production, and preserving the natural beauty that surrounds us.
+          Agriculture and Forestry also studies crop rotation and preserving the soil’s mineral qualities.
+           `} </p>
       </div>
           
-      <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-8 w-5/12 border-border_white border-2 rounded-lg sticky top-24'>
+      <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-8 w-full lg:w-5/12 border-border_white border-2 rounded-lg sticky top-24'>
         <h2 className='text-2xl font-semibold max-w-sm'>Top Universities for {param.name}</h2>
         <h3 className='text-light_black text-base my-2 flex items-center gap-x-1'><BsBoxArrowUpRight className='font-extrabold ' /><div>Times Higher education World Ranking</div></h3>
         <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-2 my-4 w-full'>
