@@ -95,7 +95,7 @@ export default function Home() {
       <div className=" text-center mt-24 xl:mt-16  md:w-full w-screen max-w-full xl:flex xl:flex-col justify-center px-4 lg:px-0 mx-auto -z-30 ">
 
         {/* ----------------------------------- {hero start} -------------------------------------------------- */}
-        <section className=" max-w-full lg:mx-4 2xl:mx-auto  ">
+        <section className=" max-w-full lg:mx-4 xl:me-4 xl:ms-1 2xl:mx-auto  ">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
          
             <div className="mx-4 xs:mx-0 my-8 md:mx-0 -z-20 2xl:mt-16 lg:w-7/12">
@@ -193,7 +193,7 @@ export default function Home() {
 
         {/* ----------------------------------- {Browse by discipline } -------------------------------------------------- */}
 
-        <section className="my-12 w-full lg:mx-4 2xl:mx-auto  max-w-full">
+        <section className="my-12 w-full lg:mx-4 xl:pe-8 2xl:mx-auto  max-w-full">
           <div className="flex lg:justify-between   2xl:mx-auto">
             <h2 className="font-bold text-2xl md:text-3xl lg:text-5x lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
@@ -213,7 +213,7 @@ export default function Home() {
 
             <Link to='/discipline/Agriculture & Forestry' onMouseOver={() => setIsHovDiscipline(true)} onMouseOut={() => setIsHovDiscipline(false)} className="">
               {isHovDiscipline ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36 2xs:w-44 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow border-border_white border-y-2 border-opacity-60 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36 2xs:w-44 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow border-border_white border-y-2 border-opacity-60 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-100`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -225,7 +225,7 @@ export default function Home() {
                   </div>
                 </div> :
 
-                <div className="flex flejustify-center x-col items-center justify-center w-32 xs:w-36 2xs:w-44 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 border-border_white border-y-2 border-opacity-60 rounded-lg">
+                <div className="flex flejustify-center x-col items-center justify-center w-32 xs:w-36 2xs:w-44 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 border-border_white border-y-2 border-opacity-60 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-green justify-center p-1`}>
@@ -243,7 +243,7 @@ export default function Home() {
             <Link to='/discipline/Applied Science & Profession' onMouseOver={() => setIsHovDiscipline2(true)} onMouseOut={() => setIsHovDiscipline2(false)}>
               {
                 isHovDiscipline2 ?
-                  <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44  border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                  <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44  border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                     <div className=" p-2 w-32 lg:w-fit ">
                       <div className={` bg-orange p-2 w-fit rounded-full mx-auto `}>
                         <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -254,7 +254,7 @@ export default function Home() {
                       <div className="font-semibold text-sm my-2">Applied Science & Profession</div>
                     </div>
                   </div> :
-                  <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44  border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                  <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44  border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                     <div className=" p-2 w-32 lg:w-fit ">
                       <div className={` bg-orange p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                         <div className={`text-3xl  flex text-orange justify-center p-1`}>
@@ -271,7 +271,7 @@ export default function Home() {
 
             <Link to='/discipline/Art and Design' onMouseOver={() => setIsHovDiscipline3(true)} onMouseOut={() => setIsHovDiscipline3(false)}>
               {isHovDiscipline3 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-yellow p-2 w-fit rounded-full mx-auto`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -283,7 +283,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36   2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36   2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-yellow justify-center p-1`}>
@@ -300,7 +300,7 @@ export default function Home() {
 
             <Link to='/discipline/Business Management' onMouseOver={() => setIsHovDiscipline4(true)} onMouseOut={() => setIsHovDiscipline4(false)}>
               {isHovDiscipline4 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-deep_blue p-2 w-fit rounded-full mx-auto`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -312,7 +312,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-deep_blue p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
@@ -328,7 +328,7 @@ export default function Home() {
 
             <Link to='/discipline/Computer Science and IT' onMouseOver={() => setIsHovDiscipline5(true)} onMouseOut={() => setIsHovDiscipline5(false)}>
               {isHovDiscipline5 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto `}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -340,7 +340,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -356,7 +356,7 @@ export default function Home() {
 
             <Link to='/discipline/Education and Training' onMouseOver={() => setIsHovDiscipline6(true)} onMouseOut={() => setIsHovDiscipline6(false)}>
               {isHovDiscipline6 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -368,7 +368,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -384,7 +384,7 @@ export default function Home() {
 
             <Link to='/discipline/Engineering and Technology' onMouseOver={() => setIsHovDiscipline7(true)} onMouseOut={() => setIsHovDiscipline7(false)}>
               {isHovDiscipline7 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -396,7 +396,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -412,7 +412,7 @@ export default function Home() {
 
             <Link to='/discipline/Natural Sciences & Mathematics' onMouseOver={() => setIsHovDiscipline8(true)} onMouseOut={() => setIsHovDiscipline8(false)}>
               {isHovDiscipline8 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -424,7 +424,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>
@@ -440,7 +440,7 @@ export default function Home() {
 
             <Link to='/discipline/Hospitality, Lesiure and Sport' onMouseOver={() => setIsHovDiscipline9(true)} onMouseOut={() => setIsHovDiscipline9(false)}>
               {isHovDiscipline9 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-green p-2 w-fit rounded-full mx-auto`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -452,7 +452,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-green p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-green justify-center p-1`}>
@@ -468,7 +468,7 @@ export default function Home() {
 
             <Link to='/discipline/Humanities & Social Science' onMouseOver={() => setIsHovDiscipline10(true)} onMouseOut={() => setIsHovDiscipline10(false)}>
               {isHovDiscipline10 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -481,7 +481,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-light p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-light justify-center p-1`}>
@@ -497,7 +497,7 @@ export default function Home() {
 
             <Link to='/discipline/Journalism, Media & Communication ' onMouseOver={() => setIsHovDiscipline11(true)} onMouseOut={() => setIsHovDiscipline11(false)}>
               {isHovDiscipline11 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-yellow p-2 w-fit rounded-full mx-auto `}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -509,7 +509,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-yellow justify-center p-1`}>
@@ -525,7 +525,7 @@ export default function Home() {
 
             <Link to='/discipline/Environmental Sciences' onMouseOver={() => setIsHovDiscipline12(true)} onMouseOut={() => setIsHovDiscipline12(false)}>
               {isHovDiscipline12 ?
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white md:w-52 lg:w-36 xl:w-50 h-36 bg-white deepShadow rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-yellow p-2 w-fit rounded-full mx-auto`}>
                       <div className={`text-3xl  flex text-white justify-center p-1`}>
@@ -537,7 +537,7 @@ export default function Home() {
                   </div>
                 </div>
                 :
-                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 md:w-52 lg:w-36 xl:w-50 h-36 bg-white shadow-2 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
                     <div className={` bg-yellow p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
                       <div className={`text-3xl  flex text-deep_blue justify-center p-1`}>

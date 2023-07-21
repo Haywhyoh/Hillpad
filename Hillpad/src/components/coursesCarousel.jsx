@@ -20,7 +20,7 @@ function CoursesCarousel() {
     return (
         <div className="">
           
-          <div id="contentB" className="carousel flex items-center lg:justify-between overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-2 md:gap-x-6 lg:gap-x-6 xl:mx-4">
+          <div id="contentB" className="carousel flex items-center lg:justify-between overflow-x-auto scroll-smooth  no-scrollbar max-w-full gap-x-2 md:gap-x-6 lg:gap-x-6 xl:mx-0">
             {degrees.map((degree, index) => ( <div className="flex w-full max-w-full"><CourseCard className='col' key={index} prop={degree} isActive={index === currentIndex} /></div> ))}
             </div>
         </div>

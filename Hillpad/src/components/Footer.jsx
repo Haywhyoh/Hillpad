@@ -37,7 +37,7 @@ export default function Footer() {
                                             <li>Browse by discipline</li>
                                         </ul>
                                     </div>
-                                    <div className='xs:mt-8'>
+                                    <div className='xs:mt-8 md:mt-0'>
                                         <div className='font-medium my-4 text-base md:text-lg md:font-bold'>Quick Links</div>
                                         <ul className='text-white opacity-50 flex flex-col gap-2 text-sm'>
                                             <li>About Us</li>

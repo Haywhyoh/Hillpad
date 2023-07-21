@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react';
 import Login from './login';
 import { IoCloseOutline } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
-
+import '../components/modal.css'
 export default function Header({props}) {
     const [modal, setModal] = useState(false);
     const [isHovering, setIsHovering] = useState(false);

@@ -129,14 +129,14 @@ export default function Login({handleModal}) {
                             toggleLogin ? <div className="flex flex-col lg:flex-row p-2 lg:p-4 lg:min-w-fit lg:w-full max-w-4xl items-center">
                                 <div className="lg:w-1/2">
                                     <div className="flex flex-col gap-y-10">
-                                        <div className=" font-bold text-3xl">
+                                        <div className=" font-bold text-3xl leading-normal">
                                             <h2>Hey there!</h2>
                                             <h2>Welcome back.</h2>
                                         </div>
         
         
-                                        <div className="text-sm text-light_black">
-                                            <div>Don't have an account? <span className="text-light underline hover:no-underline" onClick={toggle}> Sign up here</span></div>
+                                        <div className="text-base text-light_black">
+                                            <div>Don't have an account? <span className="text-light underline hover:no-underline px-1" onClick={toggle}> Sign up here</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +145,7 @@ export default function Login({handleModal}) {
                                     </div>
                                     <div className="w-64 mx-auto flex flex-col justify-center lg:w-full">
 
-                                        <form onSubmit={handleSubmit} className="w-68 lg:w-full mb-6">
+                                        <form onSubmit={handleSubmit} className="w-68 lg:w-full mb-2">
                                             {inputs.map((input) => (
                                                 <FormInput
                                                     key={input.id}
@@ -157,13 +157,13 @@ export default function Login({handleModal}) {
                                            
                                                 <button className="text-white bg-orange font-bold w-full py-4 rounded-md" onClick={handleSubmit}>Sign In</button>
                                           
-                                            <div className='text-sm text-orange text-right underline hover:no-underline' onClick={showLogin}>Forgot Password</div>
+                                            <div className='text-sm text-orange text-right underline hover:no-underline py-2' onClick={showLogin}>Forgot Password?</div>
         
                                         </form>
                                         <div className="flex items-center lg:gap-x-4">
-                                            <div className="border-t w-36 border-light_black border-opacity-30 "></div>
+                                            <div className="border-t w-36 border-light_black border-opacity-20 "></div>
                                             <div className=" opacity-70">or</div>
-                                            <div className="border-t w-36 border-light_black border-opacity-30 "></div>
+                                            <div className="border-t w-36 xl:w-40 border-light_black border-opacity-20 "></div>
                                         </div>
                                         <div >
                                             <button className="text-white bg-blue font-bold w-full py-4 rounded-md my-2 flex items-center lg:gap-x-12 px-4"><span className="text-lg"><FaFacebookF /></span><span>Continue with Facebook</span></button>
