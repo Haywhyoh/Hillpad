@@ -52,7 +52,9 @@ export default function CourseDetails({ props }) {
     }
     return (
         <>
-            <div className="w-screen my-20 xl:px-4">
+                        {/* ----------------------------- Desktop View  -----------------------------------*/}
+
+            <div className="w-screen my-20 xl:px-4 hidden">
                 <div className="w-full text-lg ">
                     <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white absolute -z-10 ' style={{ width: '100vw', height: '600px', background: `url(${hero})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className='bannerBg w-full ' style={{ heigth: '600px' }}>
@@ -236,6 +238,7 @@ export default function CourseDetails({ props }) {
                 </div>
 
             </div>
+                {/* ----------------------------- Mobile View  -----------------------------------*/}
 
         </>
     )
