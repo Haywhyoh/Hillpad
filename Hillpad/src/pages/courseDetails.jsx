@@ -319,7 +319,7 @@ export default function CourseDetails({ props }) {
                 </section>
                 <section>
                     <div className='flex flex-col text-light_black text-lg font-medium'>
-                        <div className='border-t border-1 w-full py-2 px-4 border-opacity-10 ' onClick={() => setShowBg(!showBg)}>
+                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showBg)}>
                             <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showBg ?
@@ -328,7 +328,7 @@ export default function CourseDetails({ props }) {
                                 }
                             </div>
                         </div>
-                        <div className='border-t border-1 w-full py-2 px-4 border-opacity-10 ' onClick={() => setShowBg(!showAdmission)}>
+                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showAdmission)}>
                             <div className='flex items-center justify-between'><div  >Admission Requirements </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showAdmission ?
@@ -337,7 +337,7 @@ export default function CourseDetails({ props }) {
                                 }
                             </div>
                         </div>
-                        <div className='border-t border-1 w-full py-2 px-4 border-opacity-10 ' onClick={() => setShowScholarship(!showScholarship)}>
+                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowScholarship(!showScholarship)}>
                             <div className='flex items-center justify-between'><div  >Scholarships</div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showScholarship ?
@@ -346,7 +346,7 @@ export default function CourseDetails({ props }) {
                                 }
                             </div>
                         </div>
-                        <div className='border-t border-1 w-full py-2 px-4 border-opacity-10 ' onClick={() => setShowFees(!showFees)}>
+                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowFees(!showFees)}>
                             <div className='flex items-center justify-between'><div  >Fees and Funding </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showFees ?
@@ -355,7 +355,7 @@ export default function CourseDetails({ props }) {
                                 }
                             </div>
                         </div>
-                        <div className='border-t border-1 w-full py-2 px-4 border-opacity-10 ' onClick={() => setShowStructure(!showStructure)}>
+                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowStructure(!showStructure)}>
                             <div className='flex items-center justify-between'><div  >Programme Structure </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showStructure ?
