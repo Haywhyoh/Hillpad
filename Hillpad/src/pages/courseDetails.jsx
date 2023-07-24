@@ -64,7 +64,7 @@ export default function CourseDetails({ props }) {
                             <section className='mx-auto flex flex-col max-w-full text-white'>
                                 <div className='max-w-full w-full mx-auto mt-6 w-max-full'>
                                     <div className="w-full">
-                                        <div className='text-white flex gap-x-4'>
+                                        <div className='text-white gap-x-4 hidden'>
                                             <div className='flex items-center gap-x-2'> <span>Courses</span><span><FiChevronsRight /></span></div>
                                             <div className='flex items-center gap-x-2'><span>Sciences</span><span><FiChevronsRight /></span></div>
                                             <div><span>Chemistry</span><span></span></div>
@@ -126,7 +126,7 @@ export default function CourseDetails({ props }) {
 
                             </section>
                         </div>
-                        <aside className="w-100 flex flex-col py-20 items-end">
+                        <aside className="w-100 lg:flex flex-col py-20 items-end">
                             <div className='sticky' style={{ top: '12rem', zIndex: '10' }}>
 
                                 <div className=' card shadow-2 w-88 bg-white p-4 h-fit rounded-lg text-light_black flex flex-col justify-between '>
