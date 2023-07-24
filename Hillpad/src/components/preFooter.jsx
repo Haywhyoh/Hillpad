@@ -30,7 +30,7 @@ export default function Prefooter() {
               </div>
             </div>
           </div>
-          <div className=" ">
+          <div className="  md:ms-0 ">
             <CountryCarousel />
           </div>
         </section>
