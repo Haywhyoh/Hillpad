@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { fetchUser2, update } from './redux/userSlice'
 import axios from 'axios'
 import CourseDetails from './pages/courseDetails'
+import Disciplines from './pages/discipline'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
@@ -40,7 +41,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
           <Route path='/course/:name' element={<CourseDetails props={user}/>} />
-          <Route path='/discipline/' element={<DisciplineDetails />} />
+          <Route path='/discipline/' element={<Disciplines />} />
           <Route path='/discipline/:name' element={<DisciplineDetails />} />
           <Route path='/test' element={<SearchBar/>} />
           <Route path='*' element={<h1>Not Found</h1>} />

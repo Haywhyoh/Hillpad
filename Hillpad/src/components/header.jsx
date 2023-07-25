@@ -94,8 +94,8 @@ export default function Header({props}) {
                         </div>
                     </Link>
                 </div>
-                <div className='flex w-4/5 lg:w-8/12 xl:w-8/12 gap-x-4 items-center '>
-                    <div className='' onMouseOver={handleMouseOver}>
+                <div className='flex w-4/5 lg:w-8/12 xl:w-8/12 gap-x-4 items-center ' onMouseOver={handleMouseOver}>
+                    <div className='' >
                         <div className='flex gap-3 items-center '>
                             <div className='flex gap-3 items-center relative'>
                             <div className='flex gap-3 items-center hover:text-orange'>
@@ -106,7 +106,7 @@ export default function Header({props}) {
                             { isHovering ?
                                 <div className='absolute top-8 left-0 shadow bg-white w-52  rounded-lg p-4 font-normal ' id='subMenu1'  onMouseOut={handleMouseOut}>
                                     <Link to='/countries'><div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 hover:text-orange' onMouseOver={handleMouseOut2} ><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div></Link>
-                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2  hover:text-orange' onMouseOver={handleMouseOut2} ><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div>
+                                    <Link to='/discipline/'><div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2  hover:text-orange' onMouseOver={handleMouseOut2} ><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div></Link>
                                     <div className='flex gap-x-2 justify-between py-2  hover:text-orange' onMouseOver={handleMouseOver2}>
                                         <div className='flex gap-x-2 relative' >
                                             <FaGraduationCap className='text-xl text-light_black text-opacity-60' />
@@ -203,7 +203,7 @@ export default function Header({props}) {
                                 <div className='border-e border-opacity-30 border-light_black'></div>
                                 <div className='font-normal px-4 w-full text-sm'>
                                     <Link to='/countries'><div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2'><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div></Link>
-                                    <div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 '><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div>
+                                    <Link to='/discipline'><div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 '><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div></Link>
                                     <div className='flex gap-x-2'><FaGraduationCap className='text-xl text-light_black text-opacity-60' /> <div className=''>Programmes</div></div>
                                     <div className='flex'>
                                         <div className='border-e border-opacity-30 border-light_black'></div>
@@ -212,7 +212,6 @@ export default function Header({props}) {
                                         <div className='p-1 w-32 hover:text-orange'>Masters</div>
                                         <div className='p-1 w-32 hover:text-orange'>Doctorate</div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
