@@ -175,13 +175,13 @@ export default function Login({handleModal}) {
                             </div> :
         
                                 <div className="flex p-4 min-w-fit w-full max-w-4xl items-center">
-                                    <div className="w-1/2">
+                                    <div className="hidden sm:block sm:w-1/2">
                                         <div className="flex flex-col gap-y-10">
                                             <div className="xl:font-bold xl:text-2xl">
                                                 <h2>Register for free!</h2>
                                                 <h2>Get Premium benefits:</h2>
                                             </div>
-        
+    
                                             <div className="">
                                                 <ul className="text-base">
                                                     <li className="text-light_black flex items-center gap-x-1"><span className="text-orange"><IoCheckmarkCircleOutline /> </span> <span>Access to Institutuions official portal</span></li>
@@ -195,10 +195,10 @@ export default function Login({handleModal}) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="w-1/2 p-4 flex items-center gap-x-10 ">
-                                        <div className="border-s h-60 border-light_black border-opacity-20">
+                                    <div className=" w-full sm:w-1/2  sm:p-4 flex items-center gap-x-0 sm:gap-x-10 ">
+                                        <div className="sm:block hidden border-s h-60 border-light_black border-opacity-20">
                                         </div>
-                                        <div className="w-full">
+                                        <div className="sm:w-full w-10/12">
                                             <form onSubmit={handleSubmit} className="w-full mb-6">
                                                 {register.map((input) => (
                                                     <FormInput
