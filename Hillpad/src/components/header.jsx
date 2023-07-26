@@ -1,6 +1,6 @@
 import logo from '../assets/images/hillpad-transparent.png';
 import  signlogo from '../assets/images/user.png';
-import { FiMenu, FiLayers } from 'react-icons/fi';
+import { FiMenu, FiLayers, FiUser } from 'react-icons/fi';
 import { FaGraduationCap, FaPaperPlane } from 'react-icons/fa';
 import { LuUser } from 'react-icons/lu';
 import { RiArrowDropDownLine, RiArrowRightSLine } from 'react-icons/ri';
@@ -184,7 +184,11 @@ export default function Header({props}) {
                         <img src={logo} />
                     </div>
                     </Link>
-                    <div className='text-2xl text-light_black font-bold' onClick={toggleHeader}><FiMenu /></div>
+                    <div className='flex gap-x-6'>
+                    <div className='text-2xl text-light_black font-bold' onClick={toggleModal}><FiUser /></div>
+                    <div className='text-2xl text-light_black font-bold' onClick={toggleHeader}><FiMenu/></div>
+
+                    </div>
                 </div>
 
                 <div className='hidden justify-normal' id='headerNav'>
@@ -226,7 +230,7 @@ export default function Header({props}) {
 
             {
                 modal && (<div className="modal " > <div onClick={toggleModal}
-                    className="overlay" ></div> <div className="modal-content px-0 w-72 sm:w-full lg:w-fit bg-white" >
+                    className="overlay " ></div> <div className="modal-content mx-1 w-84 2xs:w-88 sm:w-screen lg:w-fit bg-white" >
                         <Login handleModal={() => {setModal(!modal)}} />
                         <button className="close-modal text-2xl" onClick={toggleModal}> <IoCloseOutline /> </button> </div> </div>
                 )

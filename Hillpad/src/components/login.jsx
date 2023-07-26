@@ -124,12 +124,12 @@ export default function Login({handleModal}) {
         <>
             <div>
             
-                        <div className=" w-screen loginModal">
+                        <div className=" w-full loginModal">
                         {
-                            toggleLogin ? <div className="flex flex-col lg:flex-row p-2 lg:p-4 lg:min-w-fit lg:w-full max-w-4xl items-center">
-                                <div className="lg:w-1/2">
+                            toggleLogin ? <div className="flex w-full flex-col sm:flex-row p-2 lg:p-4 sm:min-w-fit lg:w-full max-w-4xl items-center">
+                                <div className="sm:w-1/2 lg:w-1/2">
                                     <div className="flex flex-col gap-y-10 lg:px-6 xl:px-0">
-                                        <div className=" font-bold text-3xl leading-normal">
+                                        <div className=" font-bold text-2xl sm:text-3xl leading-normal">
                                             <h2>Hey there!</h2>
                                             <h2>Welcome back.</h2>
                                         </div>
@@ -140,7 +140,7 @@ export default function Login({handleModal}) {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="lg:w-1/2 lg:p-4 flex items-center justify-center lg:gap-x-10 ">
+                                <div className="sm:w-1/2 lg:p-4 flex items-center justify-center lg:gap-x-10 ">
                                     <div className="hidden lg:block lg:border-s h-60 border-light_black border-opacity-20">
                                     </div>
                                     <div className="w-64 mx-auto flex flex-col justify-center lg:w-full">
