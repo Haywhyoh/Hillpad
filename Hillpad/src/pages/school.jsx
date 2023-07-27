@@ -76,7 +76,7 @@ export default function School({props}) {
                                             <div><span>Chemistry</span><span></span></div>
                                         </div>
                                         <div className='my-4 text-2xl'>
-                                            <h2>University of BalaBlu</h2>
+                                            <Link to='/school/demo'><h2>University of BalaBlu</h2></Link>
                                         </div>
                                         <div className='max-w-lg'>
                                             <h1 className='text-5xl font-bold leading-tight'>
@@ -137,7 +137,8 @@ export default function School({props}) {
 
                                 <div className=' card shadow-2 w-88 bg-white p-4 h-fit rounded-lg text-light_black flex flex-col justify-between '>
                                     <div>
-                                        <h3 className='font-semibold text-lg'>University of Balablu</h3>
+                                    <Link to='/school/demo'><h3 className='font-semibold text-lg'>University of Balablu</h3></Link>
+
                                         <div className='text-sm'>
                                             <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>Toronto Canada</span></div>
                                             <div className='flex items-center gap-x-2'><span><FiStar /></span><span>4.4 (53 Reviews)</span></div>

@@ -42,7 +42,6 @@ function CountryCarousel() {
                         <div className="py-4 font-bold text-base text-light_black text-center ">NewYork</div>
                     </div>
                 </div>
-
                 <div className="rounded-t-2xl mx-2 2xs:mx-0" >
                     <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-56 lg:w-card xl:w-73 2xl:w-card xs:mx-4 2xs:mx-4 sm:mx-0  border border-border_white">
                         <div className="rounded-2xl">
@@ -54,7 +53,6 @@ function CountryCarousel() {
                         <div className="py-4 font-bold text-base text-light_black text-center">Canada</div>
                     </div>
                 </div>
-
                 <div className="rounded-t-2xl mx-2 2xs:mx-0">
                     <div className="shadow rounded-2xl w-76 2xs:w-80 sm:w-72 md:w-56 lg:w-card xl:w-73 2xl:w-card xs:mx-2 2xs:mx-4 sm:mx-0  border border-border_white ">
                         <div className="rounded-2xl">
