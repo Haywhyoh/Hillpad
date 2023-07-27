@@ -9,7 +9,7 @@ export default function CourseCard({ prop, isActive }) {
   return (
       <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-60 lg:w-card xl:w-73 2xl:w-card justify-center mx-2 xs:ms-4 2xs:ms-7 sm:mx-0 '>
         <Link to={`/course/${prop.course}`} >
-        <div className="shadow-2 rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
+        <div className=" rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
           <div className=" rounded-xl h-imgHeight">
             <img
               className=" rounded-t-xl h-imgHeight w-full"

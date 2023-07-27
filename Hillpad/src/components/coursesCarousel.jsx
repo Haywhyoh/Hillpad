@@ -5,13 +5,11 @@ import { degrees } from "../pages/degree2";
 
 function CoursesCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
-
-
     const scrollLeft = () => {
-        document.getElementById("contentB").scrollLeft -= 312;
+        document.getElementById("contentB").scrollLeft -= 340;
     }
     const scrollRight = () => {
-        document.getElementById("contentB").scrollLeft += 306;
+        document.getElementById("contentB").scrollLeft += 340;
     }
 
    

@@ -10,12 +10,7 @@ function CountryCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
 
-    const scrollLeft = () => {
-        document.getElementById("content3").scrollLeft -= 312;
-    }
-    const scrollRight = () => {
-        document.getElementById("content3").scrollLeft += 306;
-    }
+  
 
 
     return (

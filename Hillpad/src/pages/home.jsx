@@ -41,12 +41,17 @@ export default function Home() {
   const [currentDegreeIndex, setCurrentDegreeIndex] = useState(0);
 
   const scrollLeft = () => {
-    document.getElementById("content2").scrollLeft -= 305;
+    document.getElementById("contentB").scrollLeft -= 305;
   }
   const scrollRight = () => {
-    document.getElementById("content2").scrollLeft += 305;
+    document.getElementById("contentB").scrollLeft += 305;
   }
-
+  const scrollLeft2 = () => {
+    document.getElementById("content3").scrollLeft -= 312;
+}
+const scrollRight2 = () => {
+    document.getElementById("content3").scrollLeft += 306;
+}
   const showBar = () => {
     document.getElementById('bar').classList.add = 'lg:block';
   };
@@ -629,10 +634,10 @@ export default function Home() {
           </div>
 
           <div className="relative">
-          <button onClick={scrollLeft} className="hidden xl:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
+          <button onClick={scrollLeft2} className="hidden xl:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
 
             <CountryCarousel />
-             <button onClick={scrollRight} className="hidden xl:block p-2 shadow rounded-full absolute -right-12 top-24"><FiChevronRight /></button>
+             <button onClick={scrollRight2} className="hidden xl:block p-2 shadow rounded-full absolute -right-12 top-24"><FiChevronRight /></button>
 
           </div>
         </section>
