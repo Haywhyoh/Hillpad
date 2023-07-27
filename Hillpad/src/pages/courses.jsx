@@ -44,8 +44,8 @@ export default function Courses() {
     return (
         <div >
 
-            <div className="lg:flex flex-row mt-32 justify-start w-screen max-w-screen">
-                <div className="hidden lg:block px-8 shadow lg:w-80 max-h-screen h-screen fixed left-0 top-24  bg-white">
+            <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10">
+                <aside className="hidden lg:block px-8 shadow-2 py-8 lg:w-74 max-h-screen h-screen sticky left-0 top-24  bg-white max-w-full">
                     <div className="">
                         <div className="flex items-center gap-x-2 rounded-full border border-light_black border-opacity-20 shadow p-4">
                             <div onClick={searchQuery}> <AiOutlineSearch className="text-light_black text-2xl opacity-50" /></div>
@@ -217,22 +217,20 @@ export default function Courses() {
                                 ))}
                             </div>
                         </div>
-                        <div className="my-8">
+                        <div className="my-8 hidden">
                             <button className=" text-orange border-orange border py-2 px-4 rounded-full hidden lg:block">Filter</button>
                         </div>
                     </div>
 
 
-                </div>
+                </aside>
 
-                <div className=" flex w-screen">
-                    {/*Never delete this div */}
-                    <div className="hidden 2xl:w-3 "></div>
-                    <div className="mb-4 me-4 lg:ms-80 w-full px-4">
-                        <h1 className="text-3xl font-semibold">Courses</h1>
-                        <div className="xl:w-full">
+                <div className=" flex w-full">
+                    <div className="mb-4 me-4 w-full px-4">
+                        <h1 className="text-3xl font-semibold w-fit">Courses</h1>
+                        <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
-                                <div className="flex justify-between gap-x-4 my-4 items-center">
+                                <div className="flex justify-between gap-x-4 my-4 items-center w-5/12">
                                     <span >Sort By: </span>
                                     <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32">
                                         <option>Courses</option>
@@ -251,7 +249,7 @@ export default function Courses() {
 
                                 </div>
                                 <div className="text-md text-light_black hidden md:flex gap-x-8 items-center w-7/12">
-                                    <hr className=" opacity-30 w-28  md:w-56 lg:w-3/5  "></hr>
+                                    <hr className=" opacity-30 w-28  md:w-56 lg:w-4/5  "></hr>
                                     <div className="flex gap-x-2">
                                         <span>{courses.length}</span>
                                         <span>results</span>
@@ -260,8 +258,8 @@ export default function Courses() {
                                 </div>
                             </div>
 
-                            <div className="flex justify-center w-full mx-auto">
-                            <div className="flex gap-x-4 gap-y-8 flex-wrap justify-center ld:justify-start w-full">
+                            <div className="flex justify-start w-full max-w-full">
+                            <div className="flex gap-x-4 flex-wrap justify-end w-full">
                                 {courses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
 
                             </div>
