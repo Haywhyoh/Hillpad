@@ -224,7 +224,7 @@ export default function Header({props}) {
 
                     </div>
 
-                    <Link to='/courses'></Link><button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><FaPaperPlane /></span></button>
+                    <Link to='/courses'><button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><FaPaperPlane /></span></button></Link>
                 </div>
             </nav>
 

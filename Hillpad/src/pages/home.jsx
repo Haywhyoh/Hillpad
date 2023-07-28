@@ -199,12 +199,12 @@ const scrollRight2 = () => {
         {/* ----------------------------------- {Browse by discipline } -------------------------------------------------- */}
 
         <section className="my-12 w-full lg:mx-4 xl:pe-8 2xl:mx-4  max-w-full">
-          <div className="flex lg:justify-between   2xl:mx-auto">
+          <div className="flex justify-between items-center  2xl:mx-auto">
             <h2 className="font-bold text-2xl md:text-3xl lg:text-5x lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
             </h2>
             <Link to='/'>
-              <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm hover:text-light">
+              <div className="flex gap-x-2 items-center text-light_black text-sm hover:text-light">
                 <div>View all</div>
                 <div>
                   <BsArrowRight />
@@ -577,7 +577,7 @@ const scrollRight2 = () => {
 
           </div>
           <Link to='/courses'>
-              <div className="hidden md:flex gap-x-2 items-center text-light_black text-sm hover:text-light">
+              <div className="flex gap-x-2 items-center text-light_black text-sm hover:text-light">
                 <div>Search courses</div>
                 <div className="font-bold">
                   <BsArrowRight />
