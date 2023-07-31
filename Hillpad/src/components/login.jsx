@@ -245,9 +245,6 @@ export default function Login({handleModal}) {
                                             <div className="text-base text-orange text-left underline hover:no-underline" onClick={showLogin}>Return to Sign in</div>
         
                     </div> </div>
-                
-        
-            
         </>
     )
 }
