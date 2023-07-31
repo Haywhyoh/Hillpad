@@ -58,7 +58,7 @@ export default {
       '88': '23rem',
       '54p': '54%', 
       '98': '26rem',
-      'card': '19.0rem',
+      'card': '19.1rem',
     },
     height:{
       'card':'440.56px',

@@ -635,8 +635,10 @@ const scrollRight2 = () => {
 
           <div className="relative">
           <button onClick={scrollLeft2} className="hidden xl:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
+<div className="xl:mx-4">
+<CountryCarousel />
 
-            <CountryCarousel />
+</div>
              <button onClick={scrollRight2} className="hidden xl:block p-2 shadow rounded-full absolute -right-12 top-24"><FiChevronRight /></button>
 
           </div>

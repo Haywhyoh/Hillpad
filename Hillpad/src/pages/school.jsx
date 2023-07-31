@@ -1,7 +1,7 @@
 import { FiCalendar, FiChevronsRight, FiClock, FiLock, FiMapPin, FiStar, FiUnlock } from 'react-icons/fi';
-import hero from '../assets/images/Rectangle_3.png';
+import hero from '../assets/images/harvard.jpg';
 import { HiOutlineCash, HiOutlinePlusCircle } from 'react-icons/hi';
-import { FaCoins, FaFlagCheckered, FaPaperPlane } from 'react-icons/fa';
+import { FaCoins, FaFlagCheckered, FaPaperPlane, FaRainbow } from 'react-icons/fa';
 import Overview from '../components/overview';
 import { useState } from 'react';
 import KeyInfo from '../components/keyInfo';
@@ -9,7 +9,7 @@ import AdmissionReq from '../components/admissionRequirement';
 import ProjectStructure from '../components/projectStructure';
 import Prefooter from '../components/preFooter';
 import { Link } from 'react-router-dom';
-export default function School({props}) {
+export default function School({ props }) {
     const [info, setInfo] = useState('background');
     const [showBg, setShowBg] = useState(true);
     const [showAdmission, setshowAdmission] = useState(false)
@@ -58,86 +58,205 @@ export default function School({props}) {
         <>
             {/* ----------------------------- Desktop View  -----------------------------------*/}
 
-            <div className="w-screen my-20 xl:px-4 hidden lg:block">
+            <div className="w-screen my-20 hidden lg:block mx-4 ">
                 <div className="w-full text-lg ">
-                    <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white absolute -z-10 ' style={{ width: '100vw', height: '600px', background: `url(${hero})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                        <div className='bannerBg w-full ' style={{ heigth: '600px' }}>
-
+                    <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white -z-10 ' style={{ width: '100vw', height: '600px', background: `url(${hero})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <div className='bannerBg w-full flex flex-col justify-center mx-auto  ' style={{ heigth: '600px' }}>
+                            <div className=' text-8xl font-bold  mx-auto'>
+                                <Link to='/school/demo'><h2>University of BalaBlu</h2></Link>
+                            </div>
                         </div>
                     </div>
-                    <div className='flex justify-between w-full max-w-full mx-auto xl:mx-4 2xl:mx-auto'>
-                        <div className=' py-20 xl:w-7/12'>
-                            <section className='mx-auto flex flex-col max-w-full text-white'>
-                                <div className='max-w-full w-full mx-auto mt-6 w-max-full'>
-                                    <div className="w-full">
-                                        <div className='text-white gap-x-4 hidden'>
-                                            <div className='flex items-center gap-x-2'> <span>Courses</span><span><FiChevronsRight /></span></div>
-                                            <div className='flex items-center gap-x-2'><span>Sciences</span><span><FiChevronsRight /></span></div>
-                                            <div><span>Chemistry</span><span></span></div>
-                                        </div>
-                                        <div className='my-4 text-2xl'>
-                                            <Link to='/school/demo'><h2>University of BalaBlu</h2></Link>
-                                        </div>
-                                        <div className='max-w-lg'>
-                                            <h1 className='text-5xl font-bold leading-tight'>
-                                                (Hons) Chemistry and Applied Sciences
-                                            </h1>
-                                        </div>
-                                        <div className='mt-3'>
 
-                                            <p>
-                                                The chemistry course explores the fascinating world of matter and its interactions.
-                                                Through engaging experiments and discussions, you will uncover the building blocks of life,
-                                                understand chemical reactions, and discover how chemistry impacts our daily lives.
-                                                Get -webkit-fill-availableready to unlock the secrets of atoms, molecules, and the wonders of the periodic table!
-                                            </p>
-                                        </div>
-                                    </div>
-
+                    <section className='w-full mx-auto mb-6 text-light_black max-w-full flex justify-between'>
+                        <div className='w-full xl:w-7/12'>
+                            <div>
+                                <div>
+                                    <h2 className='font-semibold text-black text-3xl my-6'>About School</h2>
                                 </div>
-                            </section>
-                            <section className=' w-full mt-40 mx-auto relative'>
-                                <div className='absolute top-4 text-white font-bold text-3xl px-8'>Course details</div>
-
-                                <div className='w-3/5  trapezium '>
-                                    {/* <div className='flex w-100 text-3xl font-bold px-8 text-white text-opacity-90 items-center py-4 '>
-                                        <div onClick={() => setInfo('overview')} className='courseButton py-6 text-2xl '> <button>Overview</button></div>
-                                        <div onClick={() => setInfo('requirements')} className='courseButton py-6 text-2xl' id=''><button >Requirements</button></div>
-                                        <div onClick={() => setInfo('keyInfo')} className='courseButton py-6 text-2xl' id='keyInfo'><button>KeyInfo</button></div>
-                                        Course Details
-                                    </div> */}
+                                <div className=''>
+                                    <p> By taking the Electrical Engineering program at Toronto Metropolitan University,
+                                        you’ll use your knowledge of engineering principles and practices to design,
+                                        develop and implement electrical circuit relationships, electronic devices,
+                                        integrated circuits, microprocessors, computers and control systems.
+                                    </p>
                                 </div>
-
-                            </section>
-                            <section className='w-full mx-auto max-w-full my-6 text-light_black xl:mx-4'>
-                                <div className='w-full'>
-                                    <div>
-                                        <h2 className='font-semibold text-black text-2xl my-6'>About Course</h2>
-                                    </div>
-                                    <div className=''>
-                                        <p> By taking the Electrical Engineering program at Toronto Metropolitan University,
-                                            you’ll use your knowledge of engineering principles and practices to design,
-                                            develop and implement electrical circuit relationships, electronic devices,
-                                            integrated circuits, microprocessors, computers and control systems.
-                                        </p>
-                                    </div>
-                                    <a href="" className='text-light underline py-1'>Show more</a>
-                                    <div className='my-12'>
-                                        <Overview props={props} />
-
-                                    </div>
-
+                                <a href="" className='text-light underline py-1'>Show more</a>
+                                
+                            </div>
+                            <div className='my-6'>
+                                <div className='my-6'>
+                                    <h2 className='font-bold text-light_black text-3xl'>
+                                        Bachelor's Programme
+                                    </h2>
                                 </div>
+                                <div className='flex flex-col'>
+                                    <div className='border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black  border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black  border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black  border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div className='my-6'>
+                                <div className='my-6'>
+                                    <h2 className='font-bold text-light_black text-3xl'>
+                                        Bachelor's Programme
+                                    </h2>
+                                </div>
+                                <div className='flex flex-col'>
+                                    <div className='border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black  border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black  border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black  border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            </section>
+                            <div className='my-6'>
+                                <div className='my-6'>
+                                    <h2 className='font-bold text-light_black text-3xl'>
+                                        Bachelor's Programme
+                                    </h2>
+                                </div>
+                                <div className='flex flex-col'>
+                                    <div className='border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black  border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black  border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='border-t border-light_black  border-1 w-full py-3 px-4 border-opacity-30 ' onClick={() => setShowBg(!showBg)}>
+                                        <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                        <div>
+                                            {showBg ?
+                                                <KeyInfo />
+                                                : null
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+
                         <aside className="w-100 lg:flex flex-col py-20 items-end">
-                            <div className='sticky' style={{ top: '12rem', zIndex: '10' }}>
+                            <div className='sticky' style={{ top: '2 rem', zIndex: '10' }}>
 
                                 <div className=' card shadow-2 w-88 bg-white p-4 h-fit rounded-lg text-light_black flex flex-col justify-between '>
                                     <div>
-                                    <Link to='/school/demo'><h3 className='font-semibold text-lg'>University of Balablu</h3></Link>
+                                        <Link to='/school/demo'><h3 className='font-semibold text-lg'>University of Balablu</h3></Link>
 
                                         <div className='text-sm'>
                                             <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>Toronto Canada</span></div>
@@ -151,10 +270,10 @@ export default function School({props}) {
                                         <span className='font-semibold text-2xl px-2'>$10, 000</span>
                                     </div>
                                     <div className='flex flex-col gap-y-2 py-2 font-semibold text-opacity-40'>
-                                        <div className='flex items-center gap-x-2'><span><FiCalendar /></span><span>4 years</span><span className='text-xs font-normal'>Duration</span></div>
-                                        <div className='flex items-center gap-x-2'><span><FiClock /></span><span>Full-Time</span><span className='text-xs font-normal'>Format</span></div>
-                                        <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>On Campus</span><span className='text-xs font-normal'>Attendance</span></div>
-                                        <div className='flex items-center gap-x-2'><span><FaPaperPlane /></span><span>Anytime</span><span className='text-xs font-normal'>Apply Date</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FaRainbow /></span><span>4 </span><span className='text-xs font-normal'>Ranking</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FiClock /></span><span>323</span><span className='text-xs font-normal'>Bachelors</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>24</span><span className='text-xs font-normal'>Master's</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FaPaperPlane /></span><span>Public</span><span className='text-xs font-normal'>Institution Type</span></div>
                                         <div className='flex items-center gap-x-2'><span><FaFlagCheckered /></span><span>Sep 2023</span><span className='text-xs font-normal'>Start Date</span></div>
 
                                     </div>
@@ -180,63 +299,10 @@ export default function School({props}) {
                             </div>
 
                         </aside>
-
-                    </div>
-                    <section className='w-full max-w-full mx-auto xl:mx-4 2xl:mx-auto 2xl:px-4'>
-                        <div className=''>
-                            <h2 className='font-semibold text-light_black text-3xl my-6'>Key Information</h2>
-                        </div>
-                        <div className='flex'>
-                            <div className='w-3/12'>
-
-                                <div className='flex gap-y-4 flex-col text-light_black'>
-                                    <div><button className='border-orange bg-orange text-white border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('background')} >Background</button></div>
-                                    <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => { setInfo('requirements') }} >Admission Requirements</button></div>
-                                    <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('scholarships')} >Scholarships</button></div>
-                                    <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('funding')} >Fees and Funding</button></div>
-                                    <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('programme')} >Programme Structure</button></div>
-                                </div>
-                            </div>
-                            <div className='shadow-2 w-9/12 border-black h-100 p-8'>
-                                <div>
-                                    <div className="text-light_black text-base">
-                                        <div>
-                                            <div>
-                                                <h2 className='font-semibold text-black text-2xl my-6'>Key Information</h2>
-                                            </div>
-
-                                            <div>
-                                                <h3 className="text-light font-semibold text-base">Discipline</h3>
-                                                <div className="my-3">
-                                                    Political Sciences
-                                                </div>
-
-                                            </div>
-                                            <div>
-                                                <h3 className="text-light font-semibold text-base mt-8">Language</h3>
-                                                <div className="my-3">
-                                                    English
-                                                </div>
-
-                                            </div>
-                                            <div className="font-semibold mt-8">
-                                                <h3 className="text-light text-base">Dates and Deadlines</h3>
-                                                <div className="my-3">
-                                                    Starting October 2024
-                                                </div>
-                                                <div className="my-3">
-                                                    Starting January 2024
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {() => renderInfo(info)}
-                                </div>
-                            </div>
-                        </div>
                     </section>
-                    <div className='w-full max-w-full mx-auto my-10 xl:mx-4 2xl:mx-auto 2xl:px-4'>
+
+
+                    <div className='w-full max-w-full mx-auto my-10 xl:mx-4 2xl:mx-auto '>
                         <Prefooter />
 
                     </div>
@@ -319,7 +385,7 @@ export default function School({props}) {
                 </section>
                 <section>
                     <div className='flex flex-col text-light_black text-lg font-medium'>
-                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showBg)}>
+                        <div className='border-t border-1 border-light_black w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showBg)}>
                             <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showBg ?
@@ -328,7 +394,7 @@ export default function School({props}) {
                                 }
                             </div>
                         </div>
-                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showAdmission)}>
+                        <div className='border-t border-1 border-light_black w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showAdmission)}>
                             <div className='flex items-center justify-between'><div  >Admission Requirements </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showAdmission ?
@@ -337,7 +403,7 @@ export default function School({props}) {
                                 }
                             </div>
                         </div>
-                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowScholarship(!showScholarship)}>
+                        <div className='border-t border-1 border-light_black w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowScholarship(!showScholarship)}>
                             <div className='flex items-center justify-between'><div  >Scholarships</div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showScholarship ?
@@ -346,7 +412,7 @@ export default function School({props}) {
                                 }
                             </div>
                         </div>
-                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowFees(!showFees)}>
+                        <div className='border-t border-1 border-light_black w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowFees(!showFees)}>
                             <div className='flex items-center justify-between'><div  >Fees and Funding </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showFees ?
@@ -355,7 +421,7 @@ export default function School({props}) {
                                 }
                             </div>
                         </div>
-                        <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowStructure(!showStructure)}>
+                        <div className='border-t border-1 border-light_black w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowStructure(!showStructure)}>
                             <div className='flex items-center justify-between'><div  >Programme Structure </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showStructure ?
@@ -365,10 +431,10 @@ export default function School({props}) {
                             </div>
                         </div>  </div>
                 </section>
-                <div className='w-full  my-10 flex  justify-center px-4 '>
-                        <Prefooter />
+                <div className='w-full  my-10 flex max-w-full justify-center px-4 '>
+                    <Prefooter />
 
-                    </div>
+                </div>
             </div>
         </>
     )
