@@ -252,7 +252,7 @@ export default function School({ props }) {
                         </div>
 
                         <aside className="w-100 lg:flex flex-col py-20 items-end">
-                            <div className='sticky' style={{ top: '2 rem', zIndex: '10' }}>
+                            <div className='sticky' style={{ top: '20 rem', zIndex: '10' }}>
 
                                 <div className=' card shadow-2 w-88 bg-white p-4 h-fit rounded-lg text-light_black flex flex-col justify-between '>
                                     <div>
