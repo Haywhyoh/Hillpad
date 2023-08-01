@@ -37,7 +37,7 @@ export default function CourseDetails({ props }) {
     }
 
     let buttons = document.querySelectorAll('.courseButton');
-    var selectedButton = null;
+    var selectedButton = buttons[0];
 
     function buttonClick(button) {
         if (selectedButton) {
@@ -97,7 +97,7 @@ export default function CourseDetails({ props }) {
 
                                 </div>
                             </section>
-                            <section className=' w-full mt-40 mx-auto relative'>
+                            <section className=' w-full mt-40 mx-auto relative hidden'>
                                 <div className='absolute top-4 text-white font-bold text-3xl px-8'>Course details</div>
 
                                 <div className='w-full h-fit trapezium '>
@@ -110,10 +110,10 @@ export default function CourseDetails({ props }) {
                                 </div>
 
                             </section>
-                            <section className='w-full mx-auto max-w-full my-6 text-light_black xl:mx-4'>
+                            <section className='w-full mx-auto max-w-full my-6 text-light_black xl:mx-4 mt-56'>
                                 <div className='w-full'>
                                     <div>
-                                        <h2 className='font-semibold text-black text-2xl my-6'>About Course</h2>
+                                        <h2 className='font-semibold text-black text-3xl my-6'>About Course</h2>
                                     </div>
                                     <div className=''>
                                         <p> By taking the Electrical Engineering program at Toronto Metropolitan University,
