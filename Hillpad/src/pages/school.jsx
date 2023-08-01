@@ -142,7 +142,7 @@ export default function School({ props }) {
                             <div className='my-6'>
                                 <div className='my-6'>
                                     <h2 className='font-bold text-light_black text-3xl'>
-                                        Bachelor's Programme
+                                        Master's Programme
                                     </h2>
                                 </div>
                                 <div className='flex flex-col'>
@@ -197,7 +197,7 @@ export default function School({ props }) {
                             <div className='my-6'>
                                 <div className='my-6'>
                                     <h2 className='font-bold text-light_black text-3xl'>
-                                        Bachelor's Programme
+                                        Doctorate's Programme
                                     </h2>
                                 </div>
                                 <div className='flex flex-col'>
@@ -252,7 +252,7 @@ export default function School({ props }) {
                         </div>
 
                         <aside className="w-100 lg:flex flex-col py-20 items-end">
-                            <div className='sticky' style={{ top: '20 rem', zIndex: '10' }}>
+                            <div className='sticky' style={{ top: '2rem', zIndex: '10' }}>
 
                                 <div className=' card shadow-2 w-88 bg-white p-4 h-fit rounded-lg text-light_black flex flex-col justify-between '>
                                     <div>

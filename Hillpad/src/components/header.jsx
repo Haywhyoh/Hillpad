@@ -94,8 +94,8 @@ export default function Header({props}) {
                         </div>
                     </Link>
                 </div>
-                <div className='flex w-4/5 lg:w-8/12 xl:w-8/12 gap-x-4 items-center ' onMouseOver={handleMouseOver}>
-                    <div className='' >
+                <div className='flex w-4/5 lg:w-8/12 xl:w-8/12 gap-x-4 items-center ' >
+                    <div className=''onMouseOver={handleMouseOver} >
                         <div className='flex gap-3 items-center '>
                             <div className='flex gap-3 items-center relative'>
                             <div className='flex gap-3 items-center hover:text-orange'>
@@ -165,7 +165,22 @@ export default function Header({props}) {
                     </div>
                 </div>
                 {props.isLoggedIn ? <div className='flex gap-x-3 w-52 justify-between'>
-                    <button className='text-orange flex items-center gap-x-2'><div className='w-8'><img src={signlogo} className='w-8' /></div><div>{ props.userInfo.firstName}</div></button>
+                    <button className='text-orange flex items-center gap-x-2 relative'><div className='w-8'><img src={signlogo} className='w-8' /></div><div>{ props.userInfo.firstName}</div></button>
+                    <div className='w-60 absolute top-16 right-64 border rounded-md p-2 bg-white'>
+                                    <div className='flex gap-x-4 items-center'>
+                                    <div className='w-8'><img src={signlogo} className='w-8' /></div>
+                                    <div> 
+                                        <div>
+                                            <span>{ props.userInfo.firstName}</span>
+                                            <span>{ props.userInfo.lastName}</span>
+
+                                        </div>
+                                        <div className='font-normal'>
+                                        { props.userInfo.email}
+                                        </div>
+                                    </div>
+                                    </div>
+                    </div>
                     <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
                 </div> : 
                 <div className='flex gap-x-3 w-52 justify-between'>
