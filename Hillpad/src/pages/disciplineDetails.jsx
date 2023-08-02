@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
 import { FaGraduationCap } from 'react-icons/fa';
-import CourseCard from '../components/searchCourseCard';
+import CourseCard from '../components/flatCourseCard';
 import Footer from '../components/Footer';
 import Header from '../components/header';
 import { degrees } from "./degree";

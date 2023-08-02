@@ -1,17 +1,19 @@
 import { FiCalendar, FiClock, FiMapPin } from 'react-icons/fi';
 import logo from '../assets/images/schLogo.png';
 import { AiFillStar } from 'react-icons/ai';
+import { Link } from 'react-router-dom'
 import { FaFlagCheckered, FaPaperPlane } from 'react-icons/fa';
-export default function SearchBar() {
+export default function FlatCourseCard({prop}) {
   return (
     <div>
-      <div className='mt-60 w-screen w-max-full flex flex-col justify-center mx-auto '>
-        <div className=' border border-light_black border-opacity-20 mx-auto p-3 flex gap-x-4 items-center shadow-2' style={{ width: '650px' }}>
+        <Link to={`/course/${prop.course}`} >
+
+        <div className=' card-hover border border-light_black border-opacity-20 p-3 flex gap-x-4 items-center shadow-2 w-full'>
           <div className='w-1/5'>
-            <img src={logo} className='' />
+            <img src={`/images/${prop.url}`} className='' />
           </div>
-          <div className='text-light_black'>
-            <div className='text-2xl '><h2>Electronics and Electrical Engineering</h2></div>
+          <div className='text-light_black w-4/5'>
+          <div className="font-bold text-2xl text-light_black ">{prop.course.length > 60 ? `${prop.course.substring(0, 64) + '...'} ` : prop.course}</div>
             <div>
               <div className='flex gap-x-8 items-center'>
                 <div className='text-lg'><h3>University of Balablu</h3></div>
@@ -44,7 +46,7 @@ export default function SearchBar() {
             </div>
           </div>
         </div>
+        </Link>
       </div>
-    </div>
   )
 }

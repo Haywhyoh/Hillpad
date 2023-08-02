@@ -1,4 +1,5 @@
 import CourseCard from "../components/coursecard";
+import FlatCourseCard from "../components/flatCourseCard";
 import { FiFilter } from "react-icons/fi";
 import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
 import { useState } from 'react';
@@ -24,6 +25,8 @@ export default function Courses() {
     const [showDuration, setDurationInfo] = useState(false);
     const [showAttendance, setAttendanceInfo] = useState(false);
     const [showFormat, setFormatInfo] = useState(true);
+    
+    const [view, setView] = useState('list');
 
     const [query, setQuery] = useState('');
     const [courses, setCourses] = useState(degrees);
@@ -255,13 +258,19 @@ export default function Courses() {
 
                                 </div>
                             </div>
-
-                            <div className="flex justify-start w-full max-w-full">
+                            { view === 'grid' ? <div className="flex justify-start w-full max-w-full">
                             <div className="flex gap-x-4 flex-wrap justify-end w-full">
                                 {courses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
 
                             </div>
+                            </div> : <div className=" w-full max-w-full">
+                            <div className="flex flex-col w-full gap-y-4">
+                                {courses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
+
                             </div>
+                            </div>
+                            }
+                            
                             
 
 
