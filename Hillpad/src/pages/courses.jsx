@@ -231,7 +231,7 @@ export default function Courses() {
                         <h1 className="text-3xl font-semibold w-fit">Courses</h1>
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
-                                <div className="flex justify-between gap-x-4 my-4 items-center w-full  md:w-5/12">
+                                <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-5/12">
                                     <span >Sort By: </span>
                                     <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32">
                                         <option>Courses</option>
@@ -250,7 +250,7 @@ export default function Courses() {
 
                                 </div>
                                 <div className="text-md text-light_black hidden md:flex gap-x-8 items-center w-7/12">
-                                    <hr className=" opacity-30 w-28  md:w-56 lg:w-4/5  "></hr>
+                                    <hr className=" opacity-30 w-28  md:w-40 lg:w-4/5  "></hr>
                                     <div className="flex gap-x-2">
                                         <span>{courses.length}</span>
                                         <span>results</span>
