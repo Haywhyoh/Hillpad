@@ -1,12 +1,25 @@
 import disciplines from '../data/discipline.json';
 import { FiChevronRight, FiChevronLeft, FiCheckCircle } from "react-icons/fi";
 import { FaBriefcase } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import Prefooter from '../components/preFooter';
+import axios from 'axios';
 export default function Disciplines() {
-    const disciplineList = disciplines["results"];
-    const count = disciplines["count"];
+    const [disciplines, setDisciplines] = useState([]);
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        axios.get(`https://54.221.177.186/api/academics/discipline/list`)
+            .then(res => {
+                const disciplineRes = res.data.results;
+                setDisciplines(disciplineRes);
+                setCount(res.data.count);
+                console.log(res);
+            })
+    }, []);
+    const disciplineList = disciplines;
+    console.log(disciplineList);
 
     const [isHovDiscipline, setIsHovDiscipline] = useState(false);
 
@@ -45,8 +58,8 @@ export default function Disciplines() {
                                 {isHovDiscipline ?
                                     <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                                         <div className=" p-2 w-32 lg:w-fit ">
-                                            <div className={`bg-${discipline.color} p-2 w-fit rounded-full mx-auto`}>
-                                                <div className={`text-3xl  flex  text-${discipline.color} justify-center p-1`}>
+                                            <div className={`bg-${discipline.icon_color} p-2 w-fit rounded-full mx-auto`}>
+                                                <div className={`text-3xl  flex  text-${discipline.icon_color} justify-center p-1`}>
                                                     <i className={` fa fa-${discipline.icon}`}></i>
                                                 </div>
                                             </div>
@@ -57,8 +70,8 @@ export default function Disciplines() {
                                     :
                                     <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
                                         <div className=" p-2 w-32 lg:w-fit ">
-                                            <div className={` bg-${discipline.color} p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
-                                                <div className={`text-3xl  flex text-${discipline.color} justify-center p-1`}>
+                                            <div className={` bg-${discipline.icon_color} p-2 w-fit rounded-full mx-auto bg-opacity-10`}>
+                                                <div className={`text-3xl  flex text-${discipline.icon_color} justify-center p-1`}>
                                                     <i className={` fa fa-${discipline.icon}`}></i>
                                                 </div>
                                             </div>

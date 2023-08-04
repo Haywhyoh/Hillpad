@@ -1,7 +1,8 @@
 import '../assets/flag-icons/css/flag-icons.css';
 import countries from '../data/country.json';
 import { FiChevronRight, FiChevronLeft, FiCheckCircle } from "react-icons/fi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios';
 import newyork from '../assets/images/new-york.jpeg';
 import canada from '../assets/images/san-diego.jpeg';
 import belgium from '../assets/images/dallas.jpeg';
@@ -11,9 +12,16 @@ import { degrees } from "../pages/degree";
 import { Link } from 'react-router-dom';
 import Prefooter from '../components/preFooter';
 export default function Countries() {
-    const countriesList = countries["results"];
+
+    const [countriesList, setCountries] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0);
-    
+     useEffect(() => {
+        axios.get(`https://54.221.177.186/api/academics/country/list`)
+            .then(res => {
+                const countriesRes = res.data.results;
+                setCountries(countriesRes);
+            })
+    }, []);
     return (
         <div className=" my-6 px-2 xl:px-4 2xl:px-0">
             <section className=" max-w-full lg:flex mx-auto flex-col justify-center">
