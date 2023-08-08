@@ -16,10 +16,13 @@ import axios from 'axios'
 import CourseDetails from './pages/courseDetails'
 import Disciplines from './pages/discipline'
 import School from './pages/school'
+import { fetchCountry } from './redux/countrySlice'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
+  const countries = useSelector((state) => state.country.countryList);
   const dispatch = useDispatch() 
+  const dispatch2 = useDispatch();
   // const callApi = async () => {
   //   axios.defaults.withCredentials = true;
   //   const details = await axios.get('https://54.221.177.186/api/account/detail');
@@ -28,7 +31,8 @@ function App() {
   //   dispatch(update(res));
   // }
   useEffect( () => {
-      dispatch(fetchUser2())    
+      dispatch(fetchUser2())
+      dispatch2(fetchCountry())
       return () => {
       if (user.userInfo.firstName) {
         setUserName(user.userInfo.firstName)

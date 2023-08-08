@@ -30,7 +30,6 @@ const userSlice = createSlice({
         isLoggedIn: false,
 
     },
-
     reducers: {
       update: (state, action) => {
         state.userInfo = action.payload
@@ -47,7 +46,6 @@ const userSlice = createSlice({
           state.userInfo = action.payload;
           state.pending = false;
           state.isLoggedIn = true;
-
         },
         [fetchUser.rejected]: (state) => {
           state.pending = false;
@@ -58,13 +56,11 @@ const userSlice = createSlice({
           state.pending = true;
           state.error = false;
           state.isLoggedIn = false;
-
         },
         [fetchUser2.fulfilled]: (state, action) => {
           state.userInfo = action.payload;
           state.pending = false;
           state.isLoggedIn = true;
-
         },
         [fetchUser2.rejected]: (state) => {
           state.pending = false;

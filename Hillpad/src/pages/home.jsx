@@ -12,6 +12,7 @@ import { RiBook2Fill } from "react-icons/ri";
 import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useState } from "react";
 import { degrees } from "./degree";
+import { useSelector } from 'react-redux/es/hooks/useSelector'
 import review1 from '../assets/images/01.jpeg';
 import review2 from '../assets/images/02.jpeg';
 
@@ -20,8 +21,11 @@ import CoursesCarousel from "../components/coursesCarousel";
 import CountryCarousel from "../components/countryCarousel";
 export default function Home() {
   const disciplines = data.results;
+
+  const countries = useSelector((state) => state.country.countryList);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+
   const [isHovering2, setIsHovering2] = useState(false);
   const [isHovering3, setIsHovering3] = useState(false);
 
@@ -40,6 +44,9 @@ export default function Home() {
 
   const [currentDegreeIndex, setCurrentDegreeIndex] = useState(0);
 
+  const [hideCountryList, setCountryList] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState('Where ?');
+
   const scrollLeft = () => {
     document.getElementById("contentB").scrollLeft -= 305;
   }
@@ -48,10 +55,10 @@ export default function Home() {
   }
   const scrollLeft2 = () => {
     document.getElementById("content3").scrollLeft -= 312;
-}
-const scrollRight2 = () => {
+  }
+  const scrollRight2 = () => {
     document.getElementById("content3").scrollLeft += 306;
-}
+  }
   const showBar = () => {
     document.getElementById('bar').classList.add = 'lg:block';
   };
@@ -102,7 +109,7 @@ const scrollRight2 = () => {
         {/* ----------------------------------- {hero start} -------------------------------------------------- */}
         <section className=" max-w-full lg:mx-4 xl:me-4 xl:ms-1 2xl:mx-4  ">
           <div className=" md:mx-0 lg:flex lg:flex-row-reverse lg:mx-2 lg:items-center max-w-full 2xl:mx-0 justify-between w-full">
-         
+
             <div className="mx-4 xs:mx-0 my-8 md:mx-0 -z-20 2xl:mt-16 lg:w-7/12">
               <img src='./hero-img.jpeg' alt="hillpad_courses" className="" />
             </div>
@@ -117,7 +124,7 @@ const scrollRight2 = () => {
               </p>
               <div className="lg:w-100 xl:w-110 rounded-lg lg:my-8 xl:my-4 2xl:my-8">
                 <div className="hidden mx-auto md:w-full md:rounded-full bg-white shadow-2 lg:block" id='bar '>
-                  <form className="lg:w-100 xl:w-110 rounded-full md:flex justify-between md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0  lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
+                  <form className="lg:w-100 xl:w-110 rounded-full md:flex justify-between relative md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0  lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
                     <fieldset className=" mx-2 px-2 md:border-0 lg:w-48 xl:w-80 ">
                       <div className="flex items-center gap-x-2">
                         <AiOutlineSearch className="text-light_black" />
@@ -128,20 +135,30 @@ const scrollRight2 = () => {
                         ></input>
                       </div>
                     </fieldset>
-                    <fieldset className="my-0 border-s border-opacity-40 border-light_black">
-                      <div></div>
-                      <select className="text-left w-full px-2 text-light_black bg-white focus:outline-none lg:w-fit">
-                        <option className="text-light_black text-opacity-10" value={"China"}>
-                          Where ?
-                        </option>
-                        <option className="text-text_black" value={"Belgium"}>
-                          Belgium
-                        </option>
-                        <option className="text-text_black" value={"Canada"}>
-                          Canada
-                        </option>
-                      </select>
-                    </fieldset>
+                    <div className="">
+                      <div>
+                        <div className="ps-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black" onClick={() => setCountryList(!hideCountryList)}>
+                         <div>
+                         {selectedCountry}
+                          </div> 
+                        </div>
+                      </div>
+
+                        { hideCountryList &&
+                        <div className="text-left left-80 top-16 shadow p-4 rounded-sm  max-h-44 overflow-y-scroll  my-0 w-full px-2 text-light_black bg-white focus:outline-none lg:w-40 absolute">
+                          {
+                            countries.map((country) => (
+                              <div className="text-light_black text-xs py-2" value={country} key={country.id} onClick={() => {setSelectedCountry(country.name); setCountryList(false)}}>
+                                {country.name}
+                              </div>
+                            ))
+                          }
+                          </div>
+                        }
+                        
+                    </div>
+
+
                     <button className="w-full md text-white bg-orange py-4 px-4 text-base font-bold rounded-3xl md:w-28 md:rounded-full">
                       Search
                     </button>
@@ -176,9 +193,9 @@ const scrollRight2 = () => {
                     </select>
                   </fieldset>
                   <div className="mx-2 xs:mx-2 ">
-                  <button className="w-60 xs:w-full 2xs:w-full mb-2 md:mb-0 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
-                    Search
-                  </button>
+                    <button className="w-60 xs:w-full 2xs:w-full mb-2 md:mb-0 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
+                      Search
+                    </button>
                   </div>
                 </form>
               </div>
@@ -572,11 +589,11 @@ const scrollRight2 = () => {
 
         <section className="relative  mt-5 lg:mx-4 2xl:mx-4">
           <div className="flex justify-between items-baseline">
-          <div className="  text-left text-2xl font-bold my-8 md:text-3xl  md:my-2 lg:my-0 lg:text-3xl lg:font-semibold">
-            Featured <span className="text-orange">Courses</span>
+            <div className="  text-left text-2xl font-bold my-8 md:text-3xl  md:my-2 lg:my-0 lg:text-3xl lg:font-semibold">
+              Featured <span className="text-orange">Courses</span>
 
-          </div>
-          <Link to='/courses'>
+            </div>
+            <Link to='/courses'>
               <div className="flex gap-x-2 items-center text-light_black text-sm hover:text-light">
                 <div>Search courses</div>
                 <div className="font-bold">
@@ -584,7 +601,7 @@ const scrollRight2 = () => {
                 </div>
               </div>
             </Link>
-            </div>
+          </div>
           <button onClick={scrollLeft} className="hidden lg:block p-2 shadow rounded-full absolute -left-12 top-80"> <FiChevronLeft /></button>
 
           <div className="flex items-center">
@@ -592,7 +609,7 @@ const scrollRight2 = () => {
             <div className="overflow-hidden ">
               <CoursesCarousel />
             </div>
-           
+
           </div>
           <button onClick={scrollRight} className="hidden lg:block p-2 shadow rounded-full absolute -right-12 top-80"><FiChevronRight /></button>
 
@@ -634,12 +651,12 @@ const scrollRight2 = () => {
           </div>
 
           <div className="relative">
-          <button onClick={scrollLeft2} className="hidden xl:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
-<div className="xl:mx-4">
-<CountryCarousel />
+            <button onClick={scrollLeft2} className="hidden xl:block p-2 shadow-2 rounded-full absolute -left-12 top-24"> <FiChevronLeft /></button>
+            <div className="xl:mx-4">
+              <CountryCarousel />
 
-</div>
-             <button onClick={scrollRight2} className="hidden xl:block p-2 shadow rounded-full absolute -right-12 top-24"><FiChevronRight /></button>
+            </div>
+            <button onClick={scrollRight2} className="hidden xl:block p-2 shadow rounded-full absolute -right-12 top-24"><FiChevronRight /></button>
 
           </div>
         </section>
@@ -650,7 +667,7 @@ const scrollRight2 = () => {
 
           <div className="flex mx-auto justify-center w-full md:hidden">
             <div className="text-left relative w-72 2xs:w-88 sm:w-76 justify-center lg:flex-row mx-auto mb-72">
-            <div className="">
+              <div className="">
                 <img
                   src={review1}
                   className="rounded-2xl"
@@ -699,7 +716,7 @@ const scrollRight2 = () => {
                   </div>
                 </div>
               </div>
-             
+
             </div>
           </div>
 

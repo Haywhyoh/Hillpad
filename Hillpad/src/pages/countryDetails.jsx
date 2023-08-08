@@ -92,13 +92,13 @@ export default function CountryDetail() {
                             </div>
                             <div className="flex gap-x-2 items-center">
                                 <div><FaUserGraduate /></div>
-                                <div className="font-bold">1123</div>
+                                <div className="font-bold">{props.students}</div>
                                 <div className="text-sm">Students</div>
                             </div>
                             <div className="flex gap-x-2 items-center">
                                 <div><FaSuitcaseRolling /></div>
                                 <div className="font-bold">23232</div>
-                                <div className="text-sm">International students</div>
+                                <div className="text-sm">{props.international_students}</div>
                             </div>
                         </div>
                     </div>

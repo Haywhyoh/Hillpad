@@ -18,6 +18,11 @@ export default function Header({ props }) {
     const [isHovering2, setIsHovering2] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
+    const [hideCountryList, setCountryList] = useState(false);
+    const [selectedCountry, setSelectedCountry] = useState('Where ?');
+
+    const countries = useSelector((state) => state.country.countryList);
+
     useEffect(() => {
         window.onscroll = function () {
             if (window.scrollY > 50) {
@@ -82,7 +87,6 @@ export default function Header({ props }) {
         nav.classList.toggle('hidden')
     }
 
-    const user = useSelector((state) => state.user);
 
     function showUser() {
         let user = document.querySelector('#userCard');
@@ -137,7 +141,7 @@ export default function Header({ props }) {
 
 
                     <div className="w-72 mx-auto md:w-full md:rounded-full bg-white 2xl:w-9/12">
-                        <form className="rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 bg-white z-20 2xl:w-full border border-light_black border-opacity-60 ">
+                        <form className="relative rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 bg-white z-20 2xl:w-full border border-light_black border-opacity-60 ">
                             <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-2 md:border-0  ">
                                 <div className="flex items-center gap-x-2">
                                     <AiOutlineSearch className="text-light_black" />
@@ -148,20 +152,28 @@ export default function Header({ props }) {
                                     ></input>
                                 </div>
                             </fieldset>
-                            <fieldset className="my-2 border-s border-opacity-40 border-light_black">
-                                <div></div>
-                                <select className="text-left w-full p-2 text-light_black bg-white focus:outline-none lg:w-fit">
-                                    <option className="text-light_black text-opacity-10" value={"China"}>
-                                        Where ?
-                                    </option>
-                                    <option className="text-text_black" value={"Belgium"}>
-                                        Belgium
-                                    </option>
-                                    <option className="text-text_black" value={"Canada"}>
-                                        Canada
-                                    </option>
-                                </select>
-                            </fieldset>
+                            <div className="">
+                      <div className='py-4'>
+                        <div className="ps-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black text-opacity-60" onClick={() => setCountryList(!hideCountryList)}>
+                         <div>
+                         {selectedCountry}
+                          </div> 
+                        </div>
+                      </div>
+
+                        { hideCountryList &&
+                        <div className="text-left ms-4 left-100 top-10 shadow p-4 rounded-md  max-h-44 overflow-y-scroll  text-opacity-60 my-0 w-full px-2 text-light_black bg-white focus:outline-none lg:w-40 absolute">
+                          {
+                            countries.map((country) => (
+                              <div className="text-light_black text-xs py-2" value={country} key={country.id} onClick={() => {setSelectedCountry(country.name); setCountryList(false)}}>
+                                {country.name}
+                              </div>
+                            ))
+                          }
+                          </div>
+                        }
+                        
+                    </div>
                             <button className="w-full text-white bg-orange py-3 px-3 text-lg font-bold rounded-3xl md:w-fit md:rounded-full">
                                 <AiOutlineSearch className="text-white" />
 
