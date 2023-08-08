@@ -10,12 +10,19 @@ import uk from '../assets/images/chicago.jpeg';
 import CourseCard from "../components/flatCourseCard";
 import { degrees } from "../pages/degree";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 import Prefooter from '../components/preFooter';
 export default function Countries() {
 
     const [countriesList, setCountries] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const countries = useSelector((state) => state.country.countryList);
+
      useEffect(() => {
+        if (countries.length > 0) {
+            setCountries(countries);
+        }
         axios.get(`https://54.221.177.186/api/academics/country/list`)
             .then(res => {
                 const countriesRes = res.data.results;

@@ -4,7 +4,6 @@ import axios from 'axios';
 export const fetchCountry = createAsyncThunk('country/fetchCountry', async () => {
   const details = await axios.get('https://54.221.177.186/api/academics/country/list');
   const result = details.data.results;
-  console.log(result);
   return result;
 })
 
