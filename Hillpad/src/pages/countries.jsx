@@ -3,12 +3,7 @@ import countries from '../data/country.json';
 import { FiChevronRight, FiChevronLeft, FiCheckCircle } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import newyork from '../assets/images/new-york.jpeg';
-import canada from '../assets/images/san-diego.jpeg';
-import belgium from '../assets/images/dallas.jpeg';
-import uk from '../assets/images/chicago.jpeg';
-import CourseCard from "../components/flatCourseCard";
-import { degrees } from "../pages/degree";
+
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import Prefooter from '../components/preFooter';

@@ -174,3 +174,22 @@ button span {
 background: linear-gradient(90deg, rgba(52,9,9,1) 22%, rgba(255,87,87,0.3757878151260504) 54%, rgba(178,175,190,0.5354516806722689) 100%);
 }
 
+#livingCost h2{
+  color: #1f1b2d;
+  font-size: 1.3rem;
+}
+
+#livingCost li{
+ list-style-type: disc;
+ margin: 0 2rem;
+}
+
+#aboutCountry h2{
+  color: #1f1b2d;
+  font-size: 1.3rem;
+}
+
+#aboutCountry li{
+ list-style-type: disc;
+ margin: 0 1rem;
+}

@@ -2,7 +2,7 @@ import {FiExternalLink} from 'react-icons/fi'
 
 export default function AboutCountry({props}) {
     return (
-            <div className='w-full'>
+            <div className='w-full' id='aboutCountry'>
                 <div>
                     <div className="text-light_black w-full">
                        <div dangerouslySetInnerHTML={{__html: props.about}} />
