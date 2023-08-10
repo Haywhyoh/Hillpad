@@ -1,6 +1,6 @@
 import logo from '../assets/images/hillpad-transparent.png';
 import signlogo from '../assets/images/user.png';
-import { FiMenu, FiLayers, FiUser, FiHeart, FiSettings, FiLogOut } from 'react-icons/fi';
+import { FiMenu, FiLayers, FiUser, FiHeart, FiSettings, FiLogOut, FiChevronDown } from 'react-icons/fi';
 import { FaGraduationCap, FaHeart, FaPaperPlane } from 'react-icons/fa';
 import { LuUser } from 'react-icons/lu';
 import { RiArrowDropDownLine, RiArrowRightSLine } from 'react-icons/ri';
@@ -12,6 +12,7 @@ import Login from './login';
 import { IoCloseOutline } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 import '../components/modal.css'
+import { BsViewList } from 'react-icons/bs';
 export default function Header({ props }) {
     const [modal, setModal] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
@@ -154,13 +155,20 @@ export default function Header({ props }) {
                             </fieldset>
                             <div className="">
                       <div className='py-4'>
-                        <div className="ps-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black text-opacity-60" onClick={() => setCountryList(!hideCountryList)}>
+                        <div className="ps-4 flex items-center gap-x-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black text-opacity-60" onClick={() => setCountryList(!hideCountryList)}>
+                        <div>
+                            <BsViewList />
+                          </div>
                          <div>
                          {selectedCountry}
                           </div> 
+                          <div>
+                          <FiChevronDown/>
+                         </div>
                         </div>
                       </div>
 
+                      
                         { hideCountryList &&
                         <div className="text-left ms-4 left-100 top-10 shadow p-4 rounded-md  max-h-44 overflow-y-scroll  text-opacity-60 my-0 w-full px-2 text-light_black bg-white focus:outline-none lg:w-40 absolute">
                           {

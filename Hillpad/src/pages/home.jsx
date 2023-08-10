@@ -1,4 +1,4 @@
-import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck, BsArrowLeft } from "react-icons/bs";
+import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck, BsArrowLeft, BsViewList } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineSearch, AiFillStar, AiOutlineTwitter } from "react-icons/ai";
 import { FaTractor, FaFacebookF, FaLinkedinIn, FaThermometerEmpty, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
 import hero from '../assets/images/hero-img.jpeg'
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 import { HiOutlineCalculator, HiOutlineDesktopComputer, HiUsers } from "react-icons/hi";
 import { RiBook2Fill } from "react-icons/ri";
-import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight, FiList, FiArrowDown, FiChevronDown } from "react-icons/fi";
 import { useState } from "react";
 import { degrees } from "./degree";
 import { useSelector } from 'react-redux/es/hooks/useSelector'
@@ -137,10 +137,16 @@ export default function Home() {
                     </fieldset>
                     <div className="">
                       <div>
-                        <div className="ps-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black" onClick={() => setCountryList(!hideCountryList)}>
+                        <div className="ps-4 flex items-center gap-x-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black" onClick={() => setCountryList(!hideCountryList)}>
+                        <div>
+                            <BsViewList />
+                          </div>
                          <div>
                          {selectedCountry}
                           </div> 
+                         <div>
+                          <FiChevronDown/>
+                         </div>
                         </div>
                       </div>
 
