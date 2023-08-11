@@ -84,7 +84,7 @@ export default function School({ props }) {
                                 <a href="" className='text-light underline py-1'>Show more</a>
                                 
                             </div>
-                            <div className='my-6'>
+                            <div className='my-6 hidden'>
                                 <div className='my-6'>
                                     <h2 className='font-bold text-light_black text-3xl'>
                                         Bachelor's Programme
@@ -139,7 +139,7 @@ export default function School({ props }) {
                                 </div>
                             </div>
 
-                            <div className='my-6'>
+                            <div className='my-6 hidden'>
                                 <div className='my-6'>
                                     <h2 className='font-bold text-light_black text-3xl'>
                                         Master's Programme
@@ -194,7 +194,7 @@ export default function School({ props }) {
                                 </div>
                             </div>
 
-                            <div className='my-6'>
+                            <div className='my-6 hidden'>
                                 <div className='my-6'>
                                     <h2 className='font-bold text-light_black text-3xl'>
                                         Doctorate's Programme
@@ -277,7 +277,7 @@ export default function School({ props }) {
                                         <div className='flex items-center gap-x-2'><span><FaFlagCheckered /></span><span>Sep 2023</span><span className='text-xs font-normal'>Start Date</span></div>
 
                                     </div>
-                                    <div className='py-3'>
+                                    <div className='py-3 hidden'>
                                         {
                                             props.isLoggedIn ?
                                                 <a href="https://www.studyatulawbs.com/programmes/undergraduate/bsc-hons-business-management-with-foundation-and-placement-years/?utm_source=studyportals&utm_medium=listing324053&utm_campaign=ULAWBS&utm_term=324053" target='_blank'>

@@ -95,7 +95,7 @@ export default function Header({ props }) {
     }
 
     return (
-        <header className={scrolled ? ' w-screen py-4 fixed top-0 bg-white z-40 shadow-md ' : ' w-screen py-4 fixed top-0 bg-white z-40'}>
+        <header className={scrolled ? ' w-screen py-4 fixed top-0 bg-white z-40 shadow-md ' : ' w-screen py-4 fixed top-0 bg-white z-40'} >
             <nav className="max-w-full text-sm font-bold mx-auto justify-between hidden lg:flex px-2 xl:px-4 items-center gap-x-4">
                 <div>
                     <Link to='/'>
@@ -191,14 +191,13 @@ export default function Header({ props }) {
                 </div>
                 {props.isLoggedIn ? <div className='flex gap-x-3 w-52 justify-between'>
                     <button className='text-orange flex items-center gap-x-2 relative'onClick={showUser} onMouseEnter={showUser}><div className='w-8'><img src={signlogo} className='w-8' /></div><div>{props.userInfo.firstName}</div></button>
-                    <div className='hidden w-70 text-base absolute top-20 right-1/4 deepShadow rounded-md py-2 px-6 bg-white font-normal text-light_black' id='userCard'  >
+                    <div className='hidden w-70 text-sm absolute top-20 right-1/5 deepShadow rounded-md py-2 px-6 bg-white font-normal text-light_black' id='userCard'  >
                         <div className='flex gap-x-4 items-center py-2'>
                             <div className='w-8'><img src={signlogo} className='w-8' /></div>
                             <div>
                                 <div className='font-bold'>
                                     <span>{props.userInfo.firstName}</span>
                                     <span>{props.userInfo.lastName}</span>
-
                                 </div>
                                 <div className='font-normal'>
                                     {props.userInfo.email}
@@ -225,10 +224,7 @@ export default function Header({ props }) {
                         <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
                     </div>
                 }
-
-
             </nav>
-
             <nav className='mx-auto px-3 lg:hidden'>
                 <div className='flex justify-between '>
                     <Link to='/'>
@@ -239,10 +235,8 @@ export default function Header({ props }) {
                     <div className='flex gap-x-6'>
                         <div className='text-2xl text-light_black font-bold' onClick={toggleModal}><FiUser /></div>
                         <div className='text-2xl text-light_black font-bold' onClick={toggleHeader}><FiMenu /></div>
-
                     </div>
                 </div>
-
                 <div className='hidden justify-normal' id='headerNav'>
                     <div className='font-bold text-black text-opacity-80 flex flex-col gap-y-6 mt-12'>
                         <div className='border border-light_black border-opacity-20 px-2 py-4 rounded-md justify-between items-center mb-2' >
