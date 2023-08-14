@@ -23,13 +23,7 @@ function App() {
   const countries = useSelector((state) => state.country.countryList);
   const dispatch = useDispatch() 
   const dispatch2 = useDispatch();
-  // const callApi = async () => {
-  //   axios.defaults.withCredentials = true;
-  //   const details = await axios.get('https://54.221.177.186/api/account/detail');
-  //   const result = details.data;
-  //   const res = { email: result.email, firstName: result.first_name, lastame: result.last_name};
-  //   dispatch(update(res));
-  // }
+  
   useEffect( () => {
       dispatch(fetchUser2())
       dispatch2(fetchCountry())
