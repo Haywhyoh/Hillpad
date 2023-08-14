@@ -2,14 +2,27 @@ import CourseCard from "../components/coursecard";
 import FlatCourseCard from "../components/flatCourseCard";
 import { FiFilter } from "react-icons/fi";
 import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiSettingsKnobs } from "react-icons/gi";
 import data from '../data/discipline';
 import degreeType from '../data/degree_type.json';
+import axios from "axios";
 
-import { degrees } from "./degree2";
 export default function Courses() {
+    const [count, setCount] = useState(0);
+    const [courses, setCourses] = useState([]);
+    useEffect(() => {
+        axios.get('https://54.221.177.186/api/academics/course/list').then((res) => {
+            setCourses(res.data.results)
+            setCount(res.data.count)
+            console.log(res.data.results)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, []);
+
+
 
     const disciplines = data.results;
     const degreeTypes = degreeType.results;
@@ -29,12 +42,9 @@ export default function Courses() {
     const [view, setView] = useState('list');
 
     const [query, setQuery] = useState('');
-    const [courses, setCourses] = useState(degrees);
-
-    let allDegrees = degrees;
 
     const searchQuery = () => {
-        const new_deg = allDegrees.filter(degree => degree.course.toLowerCase().includes(query.toLowerCase()) || degree.school.toLowerCase().includes(query.toLowerCase()));
+        const new_deg = degrees.filter(degree => degree.name.toLowerCase().includes(query.toLowerCase()) || degree.school.name.toLowerCase().includes(query.toLowerCase()));
         setCourses(new_deg);
 
     }
@@ -252,7 +262,7 @@ export default function Courses() {
                                 <div className="text-md text-light_black hidden md:flex gap-x-8 items-center w-7/12">
                                     <hr className=" opacity-30 w-28  md:w-40 lg:w-4/5  "></hr>
                                     <div className="flex gap-x-2">
-                                        <span>{courses.length}</span>
+                                        <span>{count}</span>
                                         <span>results</span>
                                     </div>
 
