@@ -4,19 +4,33 @@ import { AiFillStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom'
 import { FaFlagCheckered, FaPaperPlane } from 'react-icons/fa';
 export default function FlatCourseCard({prop}) {
+  const month = {
+    '1': 'Jan',
+    '2': 'Feb',
+    '3': 'Mar',
+    '4': 'Apr',
+    '5': 'May ',
+    '6': 'Jun',
+    '7': 'Jul',
+    '8': 'Aug',
+    '9': 'Sep',
+    '10': 'Oct ',
+    '11': 'Nov',
+    '12': 'Dec',
+  }
   return (
-    <div>
-        <Link to={`/course/${prop.course}`} >
+    <div >
+        <Link to={`/course/${prop.slug}`} state={prop}>
 
         <div className=' card-hover border border-light_black border-opacity-20 p-3 flex gap-x-4 items-center shadow-2 w-full'>
-          <div className='w-1/5 hidden md:block'>
-            <img src={`/images/${prop.url}`} className='' />
+          <div className='w-28 hidden md:block '>
+            <img src={prop.school.logo} className='h-28 w-full' />
           </div>
           <div className='text-light_black w-full md:w-4/5'>
-          <div className="font-bold text-lg md:text-2xl text-light_black ">{prop.course.length > 60 ? `${prop.course.substring(0, 64) + '...'} ` : prop.course}</div>
+          <div className="font-bold text-lg md:text-2xl text-light_black ">{prop.name.length > 60 ? `${prop.name.substring(0, 64) + '...'} ` : prop.name}</div>
             <div>
               <div className='flex gap-x-8 items-center'>
-                <div className='md:text-lg text-normal'><h3>University of Balablu</h3></div>
+                <div className='md:text-lg text-normal'><h3>{prop.school.name}</h3></div>
                 <div className='md:flex items-center gap-x-2  hidden'>
 
                   <div className="flex text-yellow text-normal ">
@@ -33,14 +47,14 @@ export default function FlatCourseCard({prop}) {
               </div>
               <div>
                 <p className='text-xs py-1'>
-                  <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </span><span className='hidden md:block'>Modi, illo ratione fuga unde tempore nostrum architecto? Aspernatur, animi, corporis id ser ducimus?</span>
+                  <span>{prop.about.length  > 250 ? `${prop.about.substring(0, 250) + '...'} ` : prop.about}</span>
                 </p>
               </div>
               <div className='flex font-semibold text-xs md:text-sm text-opacity-40 gap-x-4 mt-2'>
-                                        <div className='flex items-center gap-x-2'><span className='hidden md:block'><FiCalendar /></span><span>4 years</span></div>
-                                        <div className='flex items-center gap-x-2'><span className='hidden md:block'><FiClock /></span><span>Full-Time</span></div>
-                                        <div className='flex items-center gap-x-2'><span className='hidden md:block'><FiMapPin /></span><span>On Campus</span></div>
-                                        <div className='flex items-center gap-x-2'><span className='hidden md:block'><FaFlagCheckered /></span><span>Sep 2023</span></div>
+                                        <div className='flex items-center gap-x-2'><span className='hidden md:block'><FiCalendar /></span><span>{prop.duration } {prop.duration_base}</span></div>
+                                        <div className='flex items-center gap-x-2'><span className='hidden md:block'><FiClock /></span><span>{prop.course_format.toLowerCase()}-Time</span></div>
+                                        <div className='flex items-center gap-x-2'><span className='hidden md:block'><FiMapPin /></span><span>{prop.attendance === 'SITE' ? 'On-Site' : 'Online'}</span></div>
+                                        <div className='flex items-center gap-x-2'><span className='hidden md:block'><FaFlagCheckered /></span><span>{month[prop.course_dates.start_month]} {prop.course_dates.start_year}</span></div>
 
                                     </div>
             </div>
