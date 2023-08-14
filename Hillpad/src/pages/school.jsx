@@ -3,13 +3,28 @@ import hero from '../assets/images/harvard.jpg';
 import { HiOutlineCash, HiOutlinePlusCircle } from 'react-icons/hi';
 import { FaCoins, FaFlagCheckered, FaPaperPlane, FaRainbow } from 'react-icons/fa';
 import Overview from '../components/overview';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import KeyInfo from '../components/keyInfo';
 import AdmissionReq from '../components/admissionRequirement';
 import ProjectStructure from '../components/projectStructure';
 import Prefooter from '../components/preFooter';
 import { Link } from 'react-router-dom';
-export default function School({ props }) {
+import axios from 'axios';
+export default function School(id = 13) {
+    const [school, setSchool] = useState({});
+    useEffect( () => {
+        const schoolDetail = axios.get(`https://54.221.177.186/api/academics/school/detail/${id}`).then(
+            res => {
+                const school = res.data;
+                console.log(school)
+                setSchool(school);
+            }
+        ).catch(err => {
+            console.log(err)
+        });
+        
+    }, []);
+
     const [info, setInfo] = useState('background');
     const [showBg, setShowBg] = useState(true);
     const [showAdmission, setshowAdmission] = useState(false)
@@ -63,7 +78,7 @@ export default function School({ props }) {
                     <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white -z-10 ' style={{ width: '100vw', height: '600px', background: `url(${hero})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className='bannerBg w-full flex flex-col justify-center mx-auto  ' style={{ heigth: '600px' }}>
                             <div className=' text-8xl font-bold  mx-auto'>
-                                <Link to='/school/demo'><h2>University of BalaBlu</h2></Link>
+                                <Link to='/school/demo'><h2>{school.name}</h2></Link>
                             </div>
                         </div>
                     </div>
@@ -74,12 +89,7 @@ export default function School({ props }) {
                                 <div>
                                     <h2 className='font-semibold text-black text-3xl my-6'>About School</h2>
                                 </div>
-                                <div className=''>
-                                    <p> By taking the Electrical Engineering program at Toronto Metropolitan University,
-                                        you’ll use your knowledge of engineering principles and practices to design,
-                                        develop and implement electrical circuit relationships, electronic devices,
-                                        integrated circuits, microprocessors, computers and control systems.
-                                    </p>
+                                <div className='' dangerouslySetInnerHTML={{__html: school.about}}>
                                 </div>
                                 <a href="" className='text-light underline py-1'>Show more</a>
                                 
@@ -256,10 +266,10 @@ export default function School({ props }) {
 
                                 <div className=' card shadow-2 w-88 bg-white p-4 h-fit rounded-lg text-light_black flex flex-col justify-between '>
                                     <div>
-                                        <Link to='/school/demo'><h3 className='font-semibold text-lg'>University of Balablu</h3></Link>
+                                        <Link to='/school/demo'><h3 className='font-semibold text-lg'>{school.name}</h3></Link>
 
                                         <div className='text-sm'>
-                                            <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>Toronto Canada</span></div>
+                                            <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>{school.city} </span> <span> {school.country.name}</span></div>
                                             <div className='flex items-center gap-x-2'><span><FiStar /></span><span>4.4 (53 Reviews)</span></div>
                                             <div></div>
                                         </div>
@@ -270,31 +280,14 @@ export default function School({ props }) {
                                         <span className='font-semibold text-2xl px-2'>$10, 000</span>
                                     </div>
                                     <div className='flex flex-col gap-y-2 py-2 font-semibold text-opacity-40'>
-                                        <div className='flex items-center gap-x-2'><span><FaRainbow /></span><span>4 </span><span className='text-xs font-normal'>Ranking</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FaRainbow /></span><span>{school.ranking}</span><span className='text-xs font-normal'>Ranking</span></div>
                                         <div className='flex items-center gap-x-2'><span><FiClock /></span><span>323</span><span className='text-xs font-normal'>Bachelors</span></div>
                                         <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>24</span><span className='text-xs font-normal'>Master's</span></div>
-                                        <div className='flex items-center gap-x-2'><span><FaPaperPlane /></span><span>Public</span><span className='text-xs font-normal'>Institution Type</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FaPaperPlane /></span><span>{school.institution_type}</span><span className='text-xs font-normal'>Institution Type</span></div>
                                         <div className='flex items-center gap-x-2'><span><FaFlagCheckered /></span><span>Sep 2023</span><span className='text-xs font-normal'>Start Date</span></div>
 
                                     </div>
-                                    <div className='py-3 hidden'>
-                                        {
-                                            props.isLoggedIn ?
-                                                <a href="https://www.studyatulawbs.com/programmes/undergraduate/bsc-hons-business-management-with-foundation-and-placement-years/?utm_source=studyportals&utm_medium=listing324053&utm_campaign=ULAWBS&utm_term=324053" target='_blank'>
-                                                    <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
-                                                        <span className='text-white font-semibold'>Visit University Website</span>
-                                                        <div><FiUnlock className='font-bold text-lg' /></div>
-                                                    </button>
-
-                                                </a>
-                                                :
-                                                <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
-                                                    <span className='text-white font-semibold'>Visit University Website</span>
-                                                    <div><FiLock className='font-bold text-lg' /></div>
-                                                </button>
-                                        }
-
-                                    </div>
+                                   
                                 </div>
                             </div>
 
@@ -337,24 +330,7 @@ export default function School({ props }) {
                                     <div className='flex items-center gap-x-2'><span><FaFlagCheckered /></span><span>Sep 2023</span><span className='text-xs font-normal'>Start Date</span></div>
 
                                 </div>
-                                <div className='py-3'>
-                                    {
-                                        props.isLoggedIn ?
-                                            <a href="https://www.studyatulawbs.com/programmes/undergraduate/bsc-hons-business-management-with-foundation-and-placement-years/?utm_source=studyportals&utm_medium=listing324053&utm_campaign=ULAWBS&utm_term=324053" target='_blank'>
-                                                <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
-                                                    <span className='text-white font-semibold'>Visit University Website</span>
-                                                    <div><FiUnlock className='font-bold text-lg' /></div>
-                                                </button>
-
-                                            </a>
-                                            :
-                                            <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
-                                                <span className='text-white font-semibold'>Visit University Website</span>
-                                                <div><FiLock className='font-bold text-lg' /></div>
-                                            </button>
-                                    }
-
-                                </div>
+                              
                             </div>
                         </div>
 
@@ -375,7 +351,7 @@ export default function School({ props }) {
                         </div>
                         <a href="" className='text-light underline py-1'>Show more</a>
                         <div className=''>
-                            <Overview props={props} />
+                            { 'Overview'}
 
                         </div>
 
