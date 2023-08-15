@@ -8,15 +8,21 @@ import { GiSettingsKnobs } from "react-icons/gi";
 import data from '../data/discipline';
 import degreeType from '../data/degree_type.json';
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 export default function Courses() {
     const [count, setCount] = useState(0);
     const [courses, setCourses] = useState([]);
+
+    const courseList = useSelector((state) => state.courses.coursesList);
+
     useEffect(() => {
+        if (courseList.length > 0) {
+            setCourses(courseList);
+        }
         axios.get('https://54.221.177.186/api/academics/course/list').then((res) => {
             setCourses(res.data.results)
             setCount(res.data.count)
-            console.log(res.data.results)
         }).catch((err) => {
             console.log(err)
         })

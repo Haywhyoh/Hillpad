@@ -1,4 +1,4 @@
-export default function KeyInfo() {
+export default function Background({prop}) {
     return (
         <div className="text-light_black text-base">
             <div>
@@ -9,7 +9,16 @@ export default function KeyInfo() {
         <div>
             <h3 className="text-light font-semibold text-base">Discipline</h3>
             <div className="my-3">
-                Political Sciences
+               {
+                    prop.disciplines.map((discipline, index) => {
+                        console.log(discipline.name)
+                        return (
+                           <div key={index}>
+                              {discipline.name}
+                           </div>
+                        )
+                    })
+               }
             </div>
             
         </div>

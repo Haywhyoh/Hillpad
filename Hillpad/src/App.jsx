@@ -17,16 +17,20 @@ import CourseDetails from './pages/courseDetails'
 import Disciplines from './pages/discipline'
 import School from './pages/school'
 import { fetchCountry } from './redux/countrySlice'
+import { fetchCourses } from './redux/courseSlice'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
   const countries = useSelector((state) => state.country.countryList);
   const dispatch = useDispatch() 
   const dispatch2 = useDispatch();
+  const courses = useDispatch();
+
   
   useEffect( () => {
       dispatch(fetchUser2())
       dispatch2(fetchCountry())
+      courses(fetchCourses())
       return () => {
       if (user.userInfo.firstName) {
         setUserName(user.userInfo.firstName)

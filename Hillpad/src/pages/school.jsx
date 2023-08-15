@@ -4,7 +4,7 @@ import { HiOutlineCash, HiOutlinePlusCircle } from 'react-icons/hi';
 import { FaCoins, FaFlagCheckered, FaPaperPlane, FaRainbow } from 'react-icons/fa';
 import Overview from '../components/overview';
 import { useEffect, useState } from 'react';
-import KeyInfo from '../components/keyInfo';
+import KeyInfo from '../components/background';
 import AdmissionReq from '../components/admissionRequirement';
 import ProjectStructure from '../components/projectStructure';
 import Prefooter from '../components/preFooter';
