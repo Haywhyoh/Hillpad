@@ -194,3 +194,41 @@ background: linear-gradient(90deg, rgba(52,9,9,1) 22%, rgba(255,87,87,0.37578781
  margin: 0 1rem;
 }
 
+#requirements h2{
+  color: #FF5757;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#requirements h3{
+  color: #FF5757;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#requirements li{
+  list-style-type: disc;
+  margin: 0rem 2rem;
+ }
+
+ #requirements ul{
+  margin: 1rem 0rem;
+ }
+
+ #programmes h2{
+  color: #FF5757;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#programmes h3{
+  color: #FF5757;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#programmes ul li{
+  list-style-type: disc;
+  margin: 0rem 2rem;
+ }
+

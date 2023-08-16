@@ -26,7 +26,6 @@ function App() {
   const dispatch2 = useDispatch();
   const courses = useDispatch();
 
-  
   useEffect( () => {
       dispatch(fetchUser2())
       dispatch2(fetchCountry())
@@ -36,7 +35,7 @@ function App() {
         setUserName(user.userInfo.firstName)
       }
     }
-  }, [])
+  }, [dispatch, dispatch2, courses])
   return (
     < div >
         <Header props={user}/>
@@ -44,7 +43,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
           <Route path='/school/:name' element={<School  props={user} />} />
-          <Route path='/course/:name' element={<CourseDetails props={user}/>} />
+          <Route path='/course/:slug' element={<CourseDetails/>} />
           <Route path='/discipline/' element={<Disciplines />} />
           <Route path='/discipline/:name' element={<DisciplineDetails />} />
           <Route path='/test' element={<SearchBar/>} />

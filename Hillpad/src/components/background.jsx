@@ -1,4 +1,34 @@
+import { useSelector } from "react-redux"
+import { useState } from "react"
+import { useLocation, useParams } from "react-router-dom"
+
 export default function Background({prop}) {
+    const location = useLocation();
+    const [data, setData] = useState(location.state);
+    const param = useParams();
+    const courses = useSelector((state) => state.courses.coursesList);    
+
+    const month = {
+        '1': 'Januaru',
+        '2': 'February',
+        '3': 'March',
+        '4': 'April',
+        '5': 'May ',
+        '6': 'June',
+        '7': 'July',
+        '8': 'August',
+        '9': 'September',
+        '10': 'October',
+        '11': 'November',
+        '12': 'December',
+    }
+
+    if(location.state === undefined) {
+        const course = courses.find(course => course.slug === param.slug);
+        setData(course);
+        
+    }
+    const disciplines = data.disciplines;
     return (
         <div className="text-light_black text-base">
             <div>
@@ -10,8 +40,7 @@ export default function Background({prop}) {
             <h3 className="text-light font-semibold text-base">Discipline</h3>
             <div className="my-3">
                {
-                    prop.disciplines.map((discipline, index) => {
-                        console.log(discipline.name)
+                    disciplines.map((discipline, index) => {
                         return (
                            <div key={index}>
                               {discipline.name}
@@ -25,18 +54,19 @@ export default function Background({prop}) {
         <div>
             <h3 className="text-light font-semibold text-base mt-8">Language</h3>
             <div className="my-3">
-                English
+               {data.language.name}
             </div>
             
         </div>
         <div className="font-semibold mt-8">
             <h3 className="text-light text-base">Dates and Deadlines</h3>
-            <div className="my-3">
-            Starting October 2024
+            <div className="my-3"> <span>Application Deadline: </span>
+            {month[data.course_dates.deadline_month]} {data.course_dates.deadline_year}
             </div>
-            <div className="my-3">
-               Starting January 2024
+            <div className="my-3"> <span>Session Starts: </span>
+            {month[data.course_dates.start_month]} {data.course_dates.start_year}
             </div>
+            
             
         </div>
             </div>

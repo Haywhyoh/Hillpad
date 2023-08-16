@@ -9,12 +9,20 @@ import Background from '../components/background';
 import AdmissionReq from '../components/admissionRequirement';
 import ProjectStructure from '../components/projectStructure';
 import Prefooter from '../components/preFooter';
-import { Link, useLocation } from 'react-router-dom';
-import { render } from 'react-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 export default function CourseDetails() {
     const location = useLocation();
-    const props = location.state;
+    const [data, setData] = useState(location.state);
+    const param = useParams();
+    const courses = useSelector((state) => state.courses.coursesList);
 
+    if(location.state === undefined) {
+        const course = courses.find(course => course.slug === param.slug);
+        setData(course);
+        console.log('we used param')
+    }
+    console.log(data)
     const month = {
         '1': 'Jan',
         '2': 'Feb',
@@ -25,10 +33,10 @@ export default function CourseDetails() {
         '7': 'Jul',
         '8': 'Aug',
         '9': 'Sep',
-        '10': 'Oct ',
+        '10': 'Oct',
         '11': 'Nov',
         '12': 'Dec',
-      }
+    }
 
     const [info, setInfo] = useState('background');
     const [showBg, setShowBg] = useState(true);
@@ -39,19 +47,13 @@ export default function CourseDetails() {
 
     function renderInfo(info) {
         if (info === 'background') {
-            return <Background prop={props.disciplines}/>
-        }
-        if (info === 'funding') {
-            return <Background props={props}/>
-        }
-        if (info === 'scholarships') {
-            return <Background props={props}/>
-        }
-        if (info === 'programmes') {
-            return <ProjectStructure prop={props}/>
+            return <Background prop={data}/>
         }
         if (info === 'requirements') {
-            return <AdmissionReq prop={props}/>
+            return <AdmissionReq prop={data} />
+        }
+        if (info === 'programme') {
+            return <ProjectStructure prop={data} />
         }
     }
 
@@ -80,14 +82,14 @@ export default function CourseDetails() {
 
             <div className="w-screen my-20 xl:px-4 hidden lg:block">
                 <div className="w-full text-lg ">
-                    <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white absolute -z-10 ' style={{ width: '100vw', height: '600px', background: `url(${props.school.banner})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                    <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white absolute -z-10 ' style={{ width: '100vw', height: '600px', background: `url(${data.school.banner})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className='bannerBg w-full ' style={{ heigth: '600px' }}>
 
                         </div>
                     </div>
                     <div className='flex justify-between w-full max-w-full mx-auto xl:mx-4 2xl:mx-auto'>
-                        <div className=' py-20 xl:w-9/12'>
-                            <section className='mx-auto flex flex-col max-w-full text-white'>
+                        <div className=' py-20 xl:w-9/12' >
+                            <section className='mx-auto flex flex-col max-w-full text-white ' style={{ minHeight: '800px !important'}}>
                                 <div className='max-w-full w-full mx-auto mt-6 w-max-full'>
                                     <div className="w-full">
                                         <div className='text-white gap-x-4 hidden'>
@@ -96,42 +98,30 @@ export default function CourseDetails() {
                                             <div><span>Chemistry</span><span></span></div>
                                         </div>
                                         <div className='my-4 text-2xl'>
-                                            <h2>{props.school.name}</h2>
+                                            <h2>{data.school.name}</h2>
                                         </div>
                                         <div className='max-w-lg'>
                                             <h1 className='text-5xl font-bold leading-tight'>
-                                                {props.name}
+                                                {data.name}
                                             </h1>
                                         </div>
                                         <div className='mt-3'>
 
                                             <p>
-                                                {props.about}
+                                                {data.about}
                                             </p>
                                         </div>
                                     </div>
 
                                 </div>
                             </section>
-                            <section className=' w-full mt-40 mx-auto relative hidden'>
-                                <div className='absolute top-4 text-white font-bold text-3xl px-8'>Course details</div>
-
-                                <div className='w-full h-fit trapezium '>
-                                    {/* <div className='flex w-100 text-3xl font-bold px-8 text-white text-opacity-90 items-center py-4 '>
-                                        <div onClick={() => setInfo('overview')} className='courseButton py-6 text-2xl '> <button>Overview</button></div>
-                                        <div onClick={() => setInfo('requirements')} className='courseButton py-6 text-2xl' id=''><button >Requirements</button></div>
-                                        <div onClick={() => setInfo('keyInfo')} className='courseButton py-6 text-2xl' id='keyInfo'><button>KeyInfo</button></div>
-                                        Course Details
-                                    </div> */}
-                                </div>
-
-                            </section>
+                            
                             <section className='w-full mx-auto max-w-full my-6 text-light_black xl:mx-4 mt-56'>
                                 <div className='w-full'>
                                     <div>
                                         <h2 className='font-semibold text-black text-3xl my-6'>Course Overview</h2>
                                     </div>
-                                    <div className='' dangerouslySetInnerHTML={{__html:props.overview}}>
+                                    <div className='' dangerouslySetInnerHTML={{__html:data.overview}}>
                                         
                                     </div>
                                     <a href="" className='text-light underline py-1'>Show more</a>
@@ -147,9 +137,9 @@ export default function CourseDetails() {
 
                                 <div className=' card shadow-2 w-88 bg-white p-4 h-fit rounded-lg text-light_black flex flex-col justify-between '>
                                     <div>
-                                        <h3 className='font-semibold text-lg'>{props.school.name}</h3>
+                                        <h3 className='font-semibold text-lg'>{data.school.name}</h3>
                                         <div className='text-sm'>
-                                            <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>{props.school.city} {props.school.country.name}</span></div>
+                                            <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>{data.school.city} {data.school.country.name}</span></div>
                                             <div className='flex items-center gap-x-2'><span><FiStar /></span><span>4.4 (53 Reviews)</span></div>
                                             <div></div>
                                         </div>
@@ -157,20 +147,20 @@ export default function CourseDetails() {
                                     <div className='flex items-center gap-x-2 text-light_black border-b border-light_black border-opacity-30 py-2'>
                                         <span className='text-xl text-light_black'><FaCoins /></span>
                                         <span className='text-light_black'>Tution: </span>
-                                        <span className='font-semibold text-2xl'>{props.tuition_fee > 1 ? props.tuition_fee.toLocaleString() : 0}</span> <span> {props.tuition_currency ? props.tuition_currency.short_code.toUpperCase() : null}</span>
+                                        <span className='font-semibold text-2xl'>{data.tuition_fee > 1 ? data.tuition_fee.toLocaleString() : 0}</span> <span> {data.tuition_currency ? data.tuition_currency.short_code.toUpperCase() : null}</span>
                                     </div>
                                     <div className='flex flex-col gap-y-2 py-2 font-semibold text-opacity-40'>
-                                        <div className='flex items-center gap-x-2'><span><FiCalendar /></span><span>{props.duration} {props.duration_base}</span><span className='text-xs font-normal'>Duration</span></div>
-                                        <div className='flex items-center gap-x-2'><span><FiClock /></span><span>{props.course_format.toLowerCase()}-Time</span><span className='text-xs font-normal'>Format</span></div>
-                                        <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>{props.attendance === 'SITE' ? 'On-Site' : props.attendance}</span><span className='text-xs font-normal'>Attendance</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FiCalendar /></span><span>{data.duration} {data.duration_base}</span><span className='text-xs font-normal'>Duration</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FiClock /></span><span>{data.course_format.toLowerCase()}-Time</span><span className='text-xs font-normal'>Format</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>{data.attendance === 'SITE' ? 'On-Site' : data.attendance}</span><span className='text-xs font-normal'>Attendance</span></div>
                                         <div className='flex items-center gap-x-2'><span><FaPaperPlane /></span><span>Anytime</span><span className='text-xs font-normal'>Apply Date</span></div>
-                                        <div className='flex items-center gap-x-2'><span><FaFlagCheckered /></span><span>{month[props.course_dates.start_month]} {props.course_dates.start_year}</span><span className='text-xs font-normal'>Start Date</span></div>
+                                        <div className='flex items-center gap-x-2'><span><FaFlagCheckered /></span><span>{month[data.course_dates.start_month]} {data.course_dates.start_year}</span><span className='text-xs font-normal'>Start Date</span></div>
 
                                     </div>
                                     <div className='py-3'>
                                         {
-                                            props.isLoggedIn ?
-                                                <a href={props.official_programme_website} target='_blank'>
+                                            data.isLoggedIn ?
+                                                <a href={data.official_programme_website} target='_blank'>
                                                     <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
                                                         <span className='text-white font-semibold'>Visit University Website</span>
                                                         <div><FiUnlock className='font-bold text-lg' /></div>
@@ -250,7 +240,7 @@ export default function CourseDetails() {
                                 </div>
                                 <div className='py-3'>
                                     {
-                                        props.isLoggedIn ?
+                                        data.isLoggedIn ?
                                             <a href="https://www.studyatulawbs.com/programmes/undergraduate/bsc-hons-business-management-with-foundation-and-placement-years/?utm_source=studyportals&utm_medium=listing324053&utm_campaign=ULAWBS&utm_term=324053" target='_blank'>
                                                 <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
                                                     <span className='text-white font-semibold'>Visit University Website</span>
@@ -286,7 +276,7 @@ export default function CourseDetails() {
                         </div>
                         <a href="" className='text-light underline py-1'>Show more</a>
                         <div className=''>
-                            <Overview props={props} />
+                            {/* <Overview data={data} /> */}
 
                         </div>
 
