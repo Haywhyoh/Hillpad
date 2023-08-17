@@ -126,9 +126,9 @@ export default function Header({ props }) {
                                         </div>
                                         {
                                             isHovering2 ? <div className='absolute  font-normal left-52 p-4 shadow top-28 rounded-md bg-white text-light_black' id='subMenu2' onMouseOver={handleMouseOver2} onMouseOut={handleMouseOut2}>
-                                                <div className='p-1 w-32 hover:text-orange'>Bachelors</div>
-                                                <div className='p-1 w-32 hover:text-orange'>Masters</div>
-                                                <div className='p-1 w-32 hover:text-orange'>Doctorate</div>
+                                                <Link to='/bachelors'><div className='p-1 w-32 hover:text-orange'>Bachelors</div></Link>
+                                                <Link to='/masters'><div className='p-1 w-32 hover:text-orange'>Masters</div></Link>
+                                                <Link to='/doctorates'><div className='p-1 w-32 hover:text-orange'>Doctorate</div></Link>
 
                                             </div> : null
                                         }
@@ -258,9 +258,9 @@ export default function Header({ props }) {
                                     <div className='flex'>
                                         <div className='border-e border-opacity-30 border-light_black'></div>
                                         <div className='px-2'>
-                                            <div className='p-1 w-32 hover:text-orange'>Bachelors</div>
-                                            <div className='p-1 w-32 hover:text-orange'>Masters</div>
-                                            <div className='p-1 w-32 hover:text-orange'>Doctorate</div>
+                                        <Link to='/bachelors'><div className='p-1 w-32 hover:text-orange'>Bachelors</div></Link>
+                                        <Link to='/masters'><div className='p-1 w-32 hover:text-orange'>Masters</div></Link>
+                                        <Link to='/coctorates'><div className='p-1 w-32 hover:text-orange'>Doctorate</div></Link>
                                         </div>
                                     </div>
                                 </div>

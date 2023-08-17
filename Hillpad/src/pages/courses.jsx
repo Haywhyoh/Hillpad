@@ -5,23 +5,32 @@ import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
 import { useEffect, useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiSettingsKnobs } from "react-icons/gi";
-import data from '../data/discipline';
 import degreeType from '../data/degree_type.json';
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
 export default function Courses() {
-    const { programme } = useParams();
+    const links = [
+
+    ];
+    const param  = useParams();
+    let programme = param.programme;
+    let id  = param.id;
+
+    const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
+    const courseList = useSelector((state) => state.courses.coursesList);
+    const [courseUrl, setCourseUrl] = useState('');
     const [count, setCount] = useState(0);
     const [courses, setCourses] = useState([]);
-
-    const courseList = useSelector((state) => state.courses.coursesList);
+    const [disciplines, setDisciplines] = useState([]);
+    console.log(programme)
 
     useEffect(() => {
         console.log('use effect called')
-        if(programme === 'bachelors' || programme === 'masters' || programme === 'doctorates'){
-            axios.get(`https://54.221.177.186/api/academics/course/list?programme=${programme}`).then((res) => {
+        if(programme){
+            setCourseUrl(`https://54.221.177.186/api/academics/course/list?programme=${programme}`)
+            axios.get(courseUrl).then((res) => {
             const programmeData = res.data.results;
             setCourses(programmeData);
             setCount(res.data.count);
@@ -44,12 +53,25 @@ export default function Courses() {
             console.log(err)
         })
     }
-    }, []);
+
+    if (disciplinesList.length > 0) {
+        setDisciplines(disciplinesList);
+        setCount(disciplinesList.length);
+        console.log('redux discipline called');
+    } else {
+        axios.get(`https://54.221.177.186/api/academics/discipline/list`)
+        .then(res => {
+            const disciplineRes = res.data.results;
+            setDisciplines(disciplineRes);
+        })
+        .catch(err => { 
+            console.log(err)
+        })};
+    }, [programme]);
 
     const dispatch = useDispatch();
     dispatch({ type: 'courses/updateCourses', payload: courses });
-
-    const disciplines = data.results;
+    console.log(disciplinesList)
     const degreeTypes = degreeType.results;
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
@@ -63,10 +85,7 @@ export default function Courses() {
     const [showDuration, setDurationInfo] = useState(false);
     const [showAttendance, setAttendanceInfo] = useState(false);
     const [showFormat, setFormatInfo] = useState(true);
-    
-    if (programme === 'bachelors') {
-        setMastersInfo(false);
-    }
+
     const [view, setView] = useState('list');
 
     const [query, setQuery] = useState('');
@@ -106,16 +125,17 @@ export default function Courses() {
                             </div>
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
-                                    <div className="flex gap-x-2 py-1 text-sm text-light_black">
+                                    <Link to={discipline.id}><div className="flex gap-x-2 py-1 text-sm text-light_black" onClick={() => setCourseUrl(`https://54.221.177.186/api/academics/course/list?programme=${programme}&discipline=${discipline.id}`) } >
                                         <div> <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
                                             <div className="text-xs"> {discipline.name} </div></span> </div>
                                     </div>
+                                    </Link>
                                 ))}
                             </div>
 
 
                         </div>
-                        <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
+                        <div className={programme === 'bachelors' || programme === undefined ? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
                                 {showBach ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
@@ -137,7 +157,7 @@ export default function Courses() {
                                 ))}
                             </div>
                         </div>
-                        <div className={programme === 'masters' ? 'block' : 'hidden'}>
+                        <div className={programme !== 'masters' || programme === undefined ? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setMastersInfo(!showMasters); }}><div>Masters</div>  <button className='' >
                                 {showMasters ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
@@ -158,7 +178,7 @@ export default function Courses() {
                                 ))}
                             </div>
                         </div>
-                        <div id="doctorates" className={programme === 'doctorates' ? 'block' : 'hidden'}>
+                        <div id="doctorates" className={programme !== 'doctorates' || programme === undefined ? 'block' : 'hidden'}>
 
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDocInfo(!showDoc); }}><div>Doctorate</div>  <button className='' >
                                 {showDoc ? <AiOutlineUp /> : <AiOutlineDown />}

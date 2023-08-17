@@ -18,6 +18,7 @@ import Disciplines from './pages/discipline'
 import School from './pages/school'
 import { fetchCountry } from './redux/countrySlice'
 import { fetchCourses } from './redux/courseSlice'
+import { fetchDisciplines } from './redux/disciplineSlice'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
@@ -25,11 +26,13 @@ function App() {
   const dispatch = useDispatch() 
   const dispatch2 = useDispatch();
   const courses = useDispatch();
+  const disciplines = useDispatch();
 
   useEffect( () => {
       dispatch(fetchUser2())
       dispatch2(fetchCountry())
       courses(fetchCourses())
+      disciplines(fetchDisciplines())
       return () => {
       if (user.userInfo.firstName) {
         setUserName(user.userInfo.firstName)
@@ -43,6 +46,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
           <Route path='/:programme' element={<Courses />} />
+          <Route path='/:programme' element={<Courses />} />
+          <Route path='/:programme/:id' element={<Courses />} />
+
           <Route path='/school/:name' element={<School  props={user} />} />
           <Route path='/course/:slug' element={<CourseDetails/>} />
           <Route path='/discipline/' element={<Disciplines />} />

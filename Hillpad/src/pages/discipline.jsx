@@ -5,21 +5,29 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import Prefooter from '../components/preFooter';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 export default function Disciplines() {
     const [disciplines, setDisciplines] = useState([]);
     const [count, setCount] = useState(0);
 
+    const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
+
     useEffect(() => {
-        axios.get(`https://54.221.177.186/api/academics/discipline/list`)
+        if (disciplinesList.length > 0) {
+            setDisciplines(disciplinesList);
+            setCount(disciplinesList.length);
+            console.log('redux discipline called');
+        } else {
+            axios.get(`https://54.221.177.186/api/academics/discipline/list`)
             .then(res => {
                 const disciplineRes = res.data.results;
                 setDisciplines(disciplineRes);
                 setCount(res.data.count);
-                console.log(res);
             })
-    }, []);
-    const disciplineList = disciplines;
-    console.log(disciplineList);
+            .catch(err => { 
+                console.log(err)
+            })};
+    },[] );
 
     const [isHovDiscipline, setIsHovDiscipline] = useState(false);
 
@@ -53,7 +61,7 @@ export default function Disciplines() {
                 </div>
                 <div className='xl:mt-20'>
                 <div className="flex flex-wrap gap-x-4 gap-y-4 justify-center xl:justify-between my-6 font-medium w-full mx-auto xl:gap-y-6">
-                        {disciplineList.map((discipline) => (
+                        {disciplines.map((discipline) => (
                             <Link to={`/discipline/${discipline.name}`} state={discipline}>
                                 {isHovDiscipline ?
                                     <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
