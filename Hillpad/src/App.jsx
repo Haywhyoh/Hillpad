@@ -42,6 +42,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
+          <Route path='/:programme' element={<Courses />} />
           <Route path='/school/:name' element={<School  props={user} />} />
           <Route path='/course/:slug' element={<CourseDetails/>} />
           <Route path='/discipline/' element={<Disciplines />} />
