@@ -9,8 +9,10 @@ import data from '../data/discipline';
 import degreeType from '../data/degree_type.json';
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
 export default function Courses() {
+    const { programme } = useParams();
     const [count, setCount] = useState(0);
     const [courses, setCourses] = useState([]);
 
@@ -18,9 +20,19 @@ export default function Courses() {
 
     useEffect(() => {
         console.log('use effect called')
-        if (courseList.length > 0) {
+        if(programme === 'bachelors' || programme === 'masters' || programme === 'doctorates'){
+            axios.get(`https://54.221.177.186/api/academics/course/list?programme=${programme}`).then((res) => {
+            const programmeData = res.data.results;
+            setCourses(programmeData);
+            setCount(res.data.count);
+            console.log('api programme called');
+        }).catch((err) => {
+            console.log(err)
+        })
+        } else if (courseList.length > 0) {
             setCourses(courseList);
-            console.log('redux called')
+            setCount(courseList.length);
+            console.log('redux called');
         } else {
         axios.get('https://54.221.177.186/api/academics/course/list').then((res) => {
             let courseData = res.data.results;
@@ -52,6 +64,9 @@ export default function Courses() {
     const [showAttendance, setAttendanceInfo] = useState(false);
     const [showFormat, setFormatInfo] = useState(true);
     
+    if (programme === 'bachelors') {
+        setMastersInfo(false);
+    }
     const [view, setView] = useState('list');
 
     const [query, setQuery] = useState('');
@@ -100,7 +115,7 @@ export default function Courses() {
 
 
                         </div>
-                        <div >
+                        <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
                                 {showBach ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
@@ -122,7 +137,7 @@ export default function Courses() {
                                 ))}
                             </div>
                         </div>
-                        <div >
+                        <div className={programme === 'masters' ? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setMastersInfo(!showMasters); }}><div>Masters</div>  <button className='' >
                                 {showMasters ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
@@ -143,7 +158,8 @@ export default function Courses() {
                                 ))}
                             </div>
                         </div>
-                        <div >
+                        <div id="doctorates" className={programme === 'doctorates' ? 'block' : 'hidden'}>
+
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDocInfo(!showDoc); }}><div>Doctorate</div>  <button className='' >
                                 {showDoc ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
