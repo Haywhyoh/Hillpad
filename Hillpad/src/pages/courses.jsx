@@ -101,7 +101,6 @@ export default function Courses() {
     };
     return (
         <div >
-
             <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10">
                 <aside className="hidden lg:block px-8 shadow-2 py-8 lg:w-74 max-h-screen h-screen sticky left-0 top-24  bg-white max-w-full">
                     <div className="">
@@ -115,7 +114,6 @@ export default function Courses() {
                             ></input>
                         </div>
                     </div>
-
                     <div className="text-orange text-center text-xl font-bold my-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
                     <div className=" h-screen ">
                         <div className="" >
