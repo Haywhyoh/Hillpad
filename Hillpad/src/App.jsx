@@ -38,17 +38,17 @@ function App() {
         setUserName(user.userInfo.firstName)
       }
     }
-  }, [dispatch, dispatch2, courses])
+  }, [])
   return (
     < div >
         <Header props={user}/>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/courses' element={<Courses />} />
-          <Route path='/:programme' element={<Courses />} />
-          <Route path='/:programme' element={<Courses />} />
-          <Route path='/:programme/:id' element={<Courses />} />
-
+          <Route path='/courses' element={<Courses props={{ url: ''}}/>} />
+          <Route path='/bachelors' element={<Courses props={{url: '?programme=bachelors', programme: 'bachelors'}}/>} />
+          <Route path='/masters' element={<Courses props={{ url: '?programme=masters', programme: 'masters'}}/>} />
+          <Route path='/doctorates' element={<Courses props={{ url: '?programme=doctorates', programme: 'doctorates'}}/>} />
+          <Route path='/:programme/:id' element={<Courses  />} />
           <Route path='/school/:name' element={<School  props={user} />} />
           <Route path='/course/:slug' element={<CourseDetails/>} />
           <Route path='/discipline/' element={<Disciplines />} />

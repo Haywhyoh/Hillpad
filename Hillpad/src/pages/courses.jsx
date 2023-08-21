@@ -10,50 +10,28 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
-export default function Courses() {
-    const links = [
-
-    ];
+import { fetchCourses } from "../redux/courseSlice";
+export default function Courses({ props }) {
+    let url = props.url
+    const programme = props.programme;
     const param  = useParams();
-    let programme = param.programme;
     let id  = param.id;
-
+    const getCourses = useDispatch();
     const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
-    const courseList = useSelector((state) => state.courses.coursesList);
-    const [courseUrl, setCourseUrl] = useState('');
+    let courseList = useSelector((state) => state.courses.coursesList);
     const [count, setCount] = useState(0);
     const [courses, setCourses] = useState([]);
     const [disciplines, setDisciplines] = useState([]);
-    console.log(programme)
 
     useEffect(() => {
-        console.log('use effect called')
-        if(programme){
-            setCourseUrl(`https://54.221.177.186/api/academics/course/list?programme=${programme}`)
-            axios.get(courseUrl).then((res) => {
-            const programmeData = res.data.results;
-            setCourses(programmeData);
-            setCount(res.data.count);
-            console.log('api programme called');
+        axios.get(`https://54.221.177.186/api/academics/course/list${url}`).then((res) => {
+        let programmeData = res.data.results;
+        setCourses(programmeData);
+        setCount(res.data.count);
+        console.log(res.data.results);
         }).catch((err) => {
             console.log(err)
         })
-        } else if (courseList.length > 0) {
-            setCourses(courseList);
-            setCount(courseList.length);
-            console.log('redux called');
-        } else {
-        axios.get('https://54.221.177.186/api/academics/course/list').then((res) => {
-            let courseData = res.data.results;
-            setCourses(courseData)
-            setCount(res.data.count)
-           
-            console.log('api called')
-        }).catch((err) => {
-            console.log(err)
-        })
-    }
-
     if (disciplinesList.length > 0) {
         setDisciplines(disciplinesList);
         setCount(disciplinesList.length);
@@ -68,10 +46,6 @@ export default function Courses() {
             console.log(err)
         })};
     }, [programme]);
-
-    const dispatch = useDispatch();
-    dispatch({ type: 'courses/updateCourses', payload: courses });
-    console.log(disciplinesList)
     const degreeTypes = degreeType.results;
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']

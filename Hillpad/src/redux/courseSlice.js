@@ -16,7 +16,7 @@ const coursesSlice = createSlice({
     },
     reducers: {
       updateCourses: (state, action) => {
-        state.coursesInfo = action.payload
+        state.coursesList = action.payload
       }
     },
     extraReducers: {
