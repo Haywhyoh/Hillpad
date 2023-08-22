@@ -12,10 +12,14 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { fetchCourses } from "../redux/courseSlice";
 export default function Courses({ props }) {
-    let url = props.url
-    const programme = props.programme;
+    let baseUrl = 'https://54.221.177.186/api/academics/course/list'
+    let programme = '';
+    if (props) {
+        programme = props.programme;
+
+    }
     const param  = useParams();
-    let id  = param.id;
+    const [id, setId]  = (param.id) ? useState(param.id) : useState('');
     const getCourses = useDispatch();
     const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
     let courseList = useSelector((state) => state.courses.coursesList);
@@ -24,28 +28,54 @@ export default function Courses({ props }) {
     const [disciplines, setDisciplines] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://54.221.177.186/api/academics/course/list${url}`).then((res) => {
+        if ( props == {} ){ axios.get(`${baseUrl}`).then((res) => {
+            console.log(programmeData)
+            setCourses(programmeData);
+            setCount(res.data.count);
+            }).catch((err) => {
+                console.log(err)
+            })
+            }
+        else if (programme && id) {
+            console.log('na me do am')
+            axios.get(`${baseUrl}?programme=${programme}&discipline=${id}`).then((res) => {
+                let programmeData = res.data.results;
+                setCourses(programmeData);
+                setCount(res.data.count);
+                console.log(res.data.results);
+                }).catch((err) => {
+                    console.log(err)
+                })
+        } else if (id && !programme) {
+            console.log('una papa')
+            axios.get(`${baseUrl}?discipline=${id}`).then((res) => {
+                let programmeData = res.data.results;
+                setCourses(programmeData);
+                setCount(res.data.count);
+                }).catch((err) => {
+                    console.log(err)
+                })
+        } else if (programme ) {
+            axios.get(`${baseUrl}?programme=${programme}`).then((res) => {
+                console.log(`${baseUrl}?programme=${programme}`)
+                let programmeData = res.data.results;
+                setCourses(programmeData);
+                setCount(res.data.count);
+                }).catch((err) => {
+                    console.log(err)
+                })
+        } else {
+        axios.get(`${baseUrl}`).then((res) => {
         let programmeData = res.data.results;
         setCourses(programmeData);
         setCount(res.data.count);
-        console.log(res.data.results);
         }).catch((err) => {
             console.log(err)
         })
-    if (disciplinesList.length > 0) {
+        }
         setDisciplines(disciplinesList);
-        setCount(disciplinesList.length);
-        console.log('redux discipline called');
-    } else {
-        axios.get(`https://54.221.177.186/api/academics/discipline/list`)
-        .then(res => {
-            const disciplineRes = res.data.results;
-            setDisciplines(disciplineRes);
-        })
-        .catch(err => { 
-            console.log(err)
-        })};
-    }, [programme]);
+
+    }, [programme, id, disciplinesList ]);
     const degreeTypes = degreeType.results;
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
@@ -97,8 +127,9 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
-                                    <Link to={discipline.id}><div className="flex gap-x-2 py-1 text-sm text-light_black" onClick={() => setCourseUrl(`https://54.221.177.186/api/academics/course/list?programme=${programme}&discipline=${discipline.id}`) } >
-                                        <div> <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
+                                    <Link to={!programme ? `/courses/${discipline.id}` : `/${programme}/${discipline.id}` }><div className="flex gap-x-2 py-1 text-sm text-light_black" >
+                                        <div onClick={ ()=> { setDisciplines([discipline.name]); setId(discipline.id);} } > 
+                                            <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
                                             <div className="text-xs"> {discipline.name} </div></span> </div>
                                     </div>
                                     </Link>

@@ -44,11 +44,18 @@ function App() {
         <Header props={user}/>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/courses' element={<Courses props={{ url: ''}}/>} />
-          <Route path='/bachelors' element={<Courses props={{url: '?programme=bachelors', programme: 'bachelors'}}/>} />
-          <Route path='/masters' element={<Courses props={{ url: '?programme=masters', programme: 'masters'}}/>} />
-          <Route path='/doctorates' element={<Courses props={{ url: '?programme=doctorates', programme: 'doctorates'}}/>} />
-          <Route path='/:programme/:id' element={<Courses  />} />
+          <Route path='/courses' element={<Courses props={{}}/>} >
+            <Route path=':id' element={<Courses />} />
+          </Route>
+          <Route path='/bachelors' element={<Courses props={{ programme: 'bachelors'}}/>}>
+            <Route path=':id' element={<Courses  props={{url: '?programme=bachelors&discipline=', programme: 'bachelors'}} />} />
+          </Route>
+          <Route path='/masters' element={<Courses props={{  programme: 'masters'}}/>} >
+            <Route path=':id' element={<Courses  />} />
+          </Route>
+          <Route path='/doctorates' element={<Courses props={{programme: 'doctorates'}}/>} >
+            <Route path=':id' element={<Courses  />} />
+          </Route>
           <Route path='/school/:name' element={<School  props={user} />} />
           <Route path='/course/:slug' element={<CourseDetails/>} />
           <Route path='/discipline/' element={<Disciplines />} />

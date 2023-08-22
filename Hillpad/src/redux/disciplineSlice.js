@@ -26,7 +26,7 @@ const disciplinesSlice = createSlice({
 
         },
         [fetchDisciplines.fulfilled]: (state, action) => {
-          state.DisciplinesList = action.payload;
+          state.disciplinesList = action.payload;
           state.pending = false;
         },
         [fetchDisciplines.rejected]: (state) => {
