@@ -3,6 +3,9 @@ import userReducer from './userSlice';
 import countryReducer from './countrySlice';
 import coursesReducer from './courseSlice';
 import disciplinesReducer from './disciplineSlice';
+import bachelorsReducer from './bachelorsSlice';
+import mastersReducer from './mastersSlice'
+import doctoratesReducer from './doctoratesSlice';
 import { combineReducers } from 'redux';
 
 const reducer = combineReducers({
@@ -10,6 +13,10 @@ const reducer = combineReducers({
     country: countryReducer,
     courses: coursesReducer,
     disciplines: disciplinesReducer,
+    bachelors: bachelorsReducer,
+    masters: mastersReducer,
+    doctorates: doctoratesReducer,
+
    });
 export default configureStore({
     reducer,

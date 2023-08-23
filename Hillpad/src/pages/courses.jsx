@@ -23,58 +23,77 @@ export default function Courses({ props }) {
     const getCourses = useDispatch();
     const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
     let courseList = useSelector((state) => state.courses.coursesList);
+    let bachelorsList = useSelector((state) => state.bachelors.bachelorsList);
+    let mastersList = useSelector((state) => state.masters.mastersList);
+    let doctoratesList = useSelector((state) => state.doctorates.doctoratesList);
+    let courseCount = useSelector((state) => state.courses.count);
+    let bachelorsCount = useSelector((state) => state.bachelors.count);
+    let mastersCount = useSelector((state) => state.masters.count);
+    let doctoratesCount = useSelector((state) => state.doctorates.count);
     const [count, setCount] = useState(0);
     const [courses, setCourses] = useState([]);
     const [disciplines, setDisciplines] = useState([]);
 
     useEffect(() => {
-        if ( props == {} ){ axios.get(`${baseUrl}`).then((res) => {
-            console.log(programmeData)
-            setCourses(programmeData);
-            setCount(res.data.count);
-            }).catch((err) => {
-                console.log(err)
-            })
-            }
-        else if (programme && id) {
-            console.log('na me do am')
-            axios.get(`${baseUrl}?programme=${programme}&discipline=${id}`).then((res) => {
-                let programmeData = res.data.results;
-                setCourses(programmeData);
-                setCount(res.data.count);
-                console.log(res.data.results);
-                }).catch((err) => {
-                    console.log(err)
-                })
-        } else if (id && !programme) {
-            console.log('una papa')
-            axios.get(`${baseUrl}?discipline=${id}`).then((res) => {
-                let programmeData = res.data.results;
-                setCourses(programmeData);
-                setCount(res.data.count);
-                }).catch((err) => {
-                    console.log(err)
-                })
-        } else if (programme ) {
-            axios.get(`${baseUrl}?programme=${programme}`).then((res) => {
-                console.log(`${baseUrl}?programme=${programme}`)
-                let programmeData = res.data.results;
-                setCourses(programmeData);
-                setCount(res.data.count);
-                }).catch((err) => {
-                    console.log(err)
-                })
-        } else {
-        axios.get(`${baseUrl}`).then((res) => {
-        let programmeData = res.data.results;
-        setCourses(programmeData);
-        setCount(res.data.count);
-        }).catch((err) => {
-            console.log(err)
-        })
+        // if ( !props.id && programme ){ axios.get(`${baseUrl}?programme=${programme}`).then((res) => {
+        //     let programmeData = res.data.results;
+        //     console.log(programmeData)
+        //     setCourses(programmeData);
+        //     setCount(res.data.count);
+        //     }).catch((err) => {
+        //         console.log(err)
+        //     })
+        //     }
+        // else if (programme && id) {
+        //     console.log('na me do am')
+        //     axios.get(`${baseUrl}?programme=${programme}&discipline=${id}`).then((res) => {
+        //         let programmeData = res.data.results;
+        //         setCourses(programmeData);
+        //         setCount(res.data.count);
+        //         console.log(res.data.results);
+        //         }).catch((err) => {
+        //             console.log(err)
+        //         })
+        // } else if (id && !programme) {
+        //     console.log('una papa')
+        //     axios.get(`${baseUrl}?discipline=${id}`).then((res) => {
+        //         let programmeData = res.data.results;
+        //         setCourses(programmeData);
+        //         setCount(res.data.count);
+        //         }).catch((err) => {
+        //             console.log(err)
+        //         })
+        // } else if (programme ) {
+        //     axios.get(`${baseUrl}?programme=${programme}`).then((res) => {
+        //         console.log(`${baseUrl}?programme=${programme}`)
+        //         let programmeData = res.data.results;
+        //         setCourses(programmeData);
+        //         setCount(res.data.count);
+        //         }).catch((err) => {
+        //             console.log(err)
+        //         })
+        // } else {
+        //     console.log('total courses')
+        //     setCourses(courseList)
+        // }
+        if (programme == 'bachelors') {
+            setCourses(bachelorsList)
+            setCount(bachelorsCount)
+            console.log('na me bachelors')
+        }
+        else if (programme == 'masters') {
+            setCourses(mastersList)
+            setCount(mastersCount)
+        }
+        else if (programme == 'doctorates') {
+            setCourses(doctoratesList)
+            setCount(doctoratesCount)
+        }
+        else {
+            setCourses(courseList)
+            setCount(courseCount)
         }
         setDisciplines(disciplinesList);
-
     }, [programme, id, disciplinesList ]);
     const degreeTypes = degreeType.results;
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']

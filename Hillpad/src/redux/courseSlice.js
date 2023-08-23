@@ -3,7 +3,9 @@ import axios from 'axios';
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
   const details = await axios.get('https://54.221.177.186/api/academics/course/list');
-  const result = details.data.results;
+  const data = details.data.results;
+  const count = details.data.count;
+  const result = { data, count}
   return result;
 })
 
@@ -26,7 +28,8 @@ const coursesSlice = createSlice({
 
         },
         [fetchCourses.fulfilled]: (state, action) => {
-          state.coursesList = action.payload;
+          state.coursesList = action.payload.data;
+          state.count = action.payload.count
           state.pending = false;
         },
         [fetchCourses.rejected]: (state) => {
