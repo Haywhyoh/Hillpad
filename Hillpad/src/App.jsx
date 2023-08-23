@@ -22,6 +22,7 @@ import { fetchDisciplines } from './redux/disciplineSlice'
 import { fetchBachelors } from './redux/bachelorsSlice'
 import { fetchMasters } from './redux/mastersSlice'
 import { fetchDoctorates } from './redux/doctoratesSlice'
+import Explore from './pages/explore'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
@@ -63,6 +64,7 @@ function App() {
         <Header props={user}/>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/explore' element={<Explore />} />
           <Route path='/courses' element={<Courses props={{courses: allCourses, count: allCoursesCount}}/>} >
             <Route path=':id' element={<Courses />} />
           </Route>

@@ -88,7 +88,7 @@ function Carousel() {
                                         Choose from more than 1000 Bachelor's programmes at
                                         universities, colleges, and school worldwide
                                     </div>
-                                    <Link to='/courses'>
+                                    <Link to='/bachelors'>
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                             Search Bachelors
                                         </button>
@@ -105,7 +105,7 @@ function Carousel() {
                                         Choose from more than 1000 Bachelor's programmes at
                                         universities, colleges, and school worldwide
                                     </div>
-                                    <Link to='/courses'>
+                                    <Link to='/bachelors'>
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white">                      Search Bachelors
                                         </button>
                                     </Link>
@@ -129,7 +129,7 @@ function Carousel() {
                                     Choose from more than 1000 Master's programmes at
                                     universities, colleges, and school worldwide
                                 </div>
-                                <Link to='/courses'>
+                                <Link to='/masters'>
                                     <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                         Search Masters
                                     </button>
@@ -147,7 +147,7 @@ function Carousel() {
                                         Choose from more than 1000 Master's programmes at
                                         universities, colleges, and school worldwide
                                     </div>
-                                    <Link to='/courses'>
+                                    <Link to='/masters'>
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white"> Search Masters
                                         </button>
                                     </Link>
@@ -173,7 +173,7 @@ function Carousel() {
                                     Choose from more than 1000 Doctorate programmes at
                                     universities, colleges, and school worldwide
                                 </div>
-                                <Link to='/courses'>
+                                <Link to='/doctorates'>
                                     <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                         Search PhDs
                                     </button>
@@ -191,7 +191,7 @@ function Carousel() {
                                         Choose from more than 1000 Doctorates programmes at
                                         universities, colleges, and school worldwide
                                     </div>
-                                    <Link to='/courses'>
+                                    <Link to='/doctorates'>
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white"> Search PhDs
                                         </button>
                                     </Link>

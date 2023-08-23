@@ -10,8 +10,9 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import { fetchCourses } from "../redux/courseSlice";
+import { fetchBachelors } from "../redux/bachelorsSlice";
 export default function Courses({ props }) {
+     const fetchbatch  = useDispatch(fetchBachelors())
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {
@@ -34,6 +35,7 @@ export default function Courses({ props }) {
     const [courses, setCourses] = useState([]);
     const [disciplines, setDisciplines] = useState([]);
 
+    console.log(bachelorsList)
     useEffect(() => {
         // if ( !props.id && programme ){ axios.get(`${baseUrl}?programme=${programme}`).then((res) => {
         //     let programmeData = res.data.results;
@@ -80,6 +82,7 @@ export default function Courses({ props }) {
             setCourses(bachelorsList)
             setCount(bachelorsCount)
             console.log('na me bachelors')
+            console.log(bachelorsList)
         }
         else if (programme == 'masters') {
             setCourses(mastersList)
@@ -94,7 +97,7 @@ export default function Courses({ props }) {
             setCount(courseCount)
         }
         setDisciplines(disciplinesList);
-    }, [programme, id, disciplinesList ]);
+    });
     const degreeTypes = degreeType.results;
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
@@ -309,7 +312,7 @@ export default function Courses({ props }) {
 
                 <div className=" flex w-full">
                     <div className="mb-4 me-4 w-full px-4">
-                        <h1 className="text-3xl font-semibold w-fit">Courses</h1>
+                        <h1 className="text-3xl font-semibold w-fit">{programme ? programme.charAt(0).toUpperCase() + programme.slice(1) : ''} Courses</h1>
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
                                 <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-5/12">

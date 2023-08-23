@@ -217,11 +217,11 @@ export default function Header({ props }) {
                             <div>Sign Out</div>
                         </div>
                     </div>
-                    <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
+                    <Link to='/explore'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
                 </div> :
                     <div className='flex gap-x-3 w-52 justify-between'>
                         <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>Sign in</div></button>
-                        <Link to='/courses'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
+                        <Link to='/explore'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
                     </div>
                 }
             </nav>
@@ -270,7 +270,7 @@ export default function Header({ props }) {
 
                     </div>
 
-                    <Link to='/courses'><button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><FaPaperPlane /></span></button></Link>
+                    <Link to='/explore'><button className='bg-orange text-white flex gap-1 items-center py-2 px-4 rounded-full w-full justify-center mx-auto' ><span>Explore</span><span><FaPaperPlane /></span></button></Link>
                 </div>
             </nav>
 
