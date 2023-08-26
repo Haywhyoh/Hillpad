@@ -6,7 +6,6 @@ import hillpadBig from '../assets/images/hillpad-transparent.png';
 import data from '../data/discipline';
 import './home.css'
 import { Link } from "react-router-dom";
-
 import { HiOutlineCalculator, HiOutlineDesktopComputer, HiUsers } from "react-icons/hi";
 import { RiBook2Fill } from "react-icons/ri";
 import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight, FiList, FiArrowDown, FiChevronDown } from "react-icons/fi";
