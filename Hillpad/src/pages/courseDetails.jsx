@@ -11,17 +11,29 @@ import ProjectStructure from '../components/projectStructure';
 import Prefooter from '../components/preFooter';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import axios from 'axios';
 export default function CourseDetails() {
-    const location = useLocation();
-    const [data, setData] = useState(location.state);
+    const location = useLocation()
     const param = useParams();
-    const courses = useSelector((state) => state.courses.coursesList);
+    const slug = param.slug
+    const [loading, setLoading] = useState(true)
+    const [data, setData] = useState({});
+    useEffect(() => {
+            axios.get(`https://54.221.177.186/api/academics/course/detail/${slug}`).then((res) => {
+                let programmeData = res.data;
+                setData(programmeData);
+                setLoading(false)
+                }).catch((err) => {
+                    console.log(err)
+        })
+    }, []);
 
-    if(location.state === undefined) {
-        const course = courses.find(course => course.slug === param.slug);
-        setData(course);
-        console.log('we used param')
-    }
+    // if(location.state === undefined) {
+    //     const course = courses.find(course => course.slug === param.slug);
+    //     setData(course);
+    //     console.log('we used param')
+    // }
     console.log(data)
     const month = {
         '1': 'Jan',
@@ -78,6 +90,12 @@ export default function CourseDetails() {
     }
     return (
         <>
+        {loading ? 
+            <div>
+                I dey load
+            </div>    
+            :
+            <div>
             {/* ----------------------------- Desktop View  -----------------------------------*/}
 
             <div className="w-screen my-20 xl:px-4 hidden lg:block">
@@ -290,7 +308,7 @@ export default function CourseDetails() {
                             <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showBg ?
-                                    <Background />
+                                    <Background prop={data}/>
                                     : null
                                 }
                             </div>
@@ -299,7 +317,7 @@ export default function CourseDetails() {
                             <div className='flex items-center justify-between'><div  >Admission Requirements </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showAdmission ?
-                                    <Background />
+                                    <Background prop={data}/>
                                     : null
                                 }
                             </div>
@@ -308,7 +326,7 @@ export default function CourseDetails() {
                             <div className='flex items-center justify-between'><div  >Scholarships</div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showScholarship ?
-                                    <Background />
+                                    <Background prop={data}/>
                                     : null
                                 }
                             </div>
@@ -317,7 +335,7 @@ export default function CourseDetails() {
                             <div className='flex items-center justify-between'><div  >Fees and Funding </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showFees ?
-                                    <Background />
+                                    <Background prop={data}/>
                                     : null
                                 }
                             </div>
@@ -326,7 +344,7 @@ export default function CourseDetails() {
                             <div className='flex items-center justify-between'><div  >Programme Structure </div><div><HiOutlinePlusCircle /></div></div>
                             <div>
                                 {showStructure ?
-                                    <Background />
+                                    <Background prop={data}/>
                                     : null
                                 }
                             </div>
@@ -337,6 +355,9 @@ export default function CourseDetails() {
 
                     </div>
             </div>
+        </div>
+    }
         </>
+       
     )
 }
