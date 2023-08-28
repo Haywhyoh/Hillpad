@@ -17,7 +17,28 @@ export default function Courses({ props }) {
     let programme = '';
     if (props) {
         programme = props.programme;
+    }
 
+    async function fetchCourses( discipline, duration, attendance, format) {
+        let url = `${baseUrl}?`;
+        if (discipline) {
+            url = url + `discipline=${discipline}&`
+        }
+        if (duration) {
+            url = url + `duration=${duration}&`
+        }
+        if (attendance) {
+            url = url + `attendance=${attendance}&`
+        }
+        if (format) {
+            url = url + `format=${format}&`
+        }
+        console.log(url);
+        const res = await axios.get(url);
+        const data = await res.data;
+        setCourses(data.results);
+        setCount(res.data.count)
+        return data;
     }
     const param  = useParams();
     const [id, setId]  = (param.id) ? useState(param.id) : useState('');
@@ -81,8 +102,6 @@ export default function Courses({ props }) {
         if (programme == 'bachelors') {
             setCourses(bachelorsList)
             setCount(bachelorsCount)
-            console.log('na me bachelors')
-            console.log(bachelorsList)
         }
         else if (programme == 'masters') {
             setCourses(mastersList)
@@ -97,7 +116,7 @@ export default function Courses({ props }) {
             setCount(courseCount)
         }
         setDisciplines(disciplinesList);
-    });
+    }, [disciplinesList, programme]);
     const degreeTypes = degreeType.results;
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
@@ -150,17 +169,17 @@ export default function Courses({ props }) {
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
                                     <Link to={!programme ? `/courses/${discipline.id}` : `/${programme}/${discipline.id}` }><div className="flex gap-x-2 py-1 text-sm text-light_black" >
-                                        <div onClick={ ()=> { setDisciplines([discipline.name]); setId(discipline.id);} } > 
+                                        <div onClick={ ()=> { setId(discipline.id); fetchCourses(discipline=discipline.id)} } > 
                                             <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
                                             <div className="text-xs"> {discipline.name} </div></span> </div>
-                                    </div>
+                                        </div>
                                     </Link>
                                 ))}
                             </div>
 
 
                         </div>
-                        <div className={programme === 'bachelors' || programme === undefined ? 'block' : 'hidden'}>
+                        <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
                                 {showBach ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
@@ -182,7 +201,7 @@ export default function Courses({ props }) {
                                 ))}
                             </div>
                         </div>
-                        <div className={programme !== 'masters' || programme === undefined ? 'block' : 'hidden'}>
+                        <div className={programme === 'masters'? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setMastersInfo(!showMasters); }}><div>Masters</div>  <button className='' >
                                 {showMasters ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
@@ -203,7 +222,7 @@ export default function Courses({ props }) {
                                 ))}
                             </div>
                         </div>
-                        <div id="doctorates" className={programme !== 'doctorates' || programme === undefined ? 'block' : 'hidden'}>
+                        <div id="doctorates" className={programme === 'doctorates' ? 'block' : 'hidden'}>
 
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDocInfo(!showDoc); }}><div>Doctorate</div>  <button className='' >
                                 {showDoc ? <AiOutlineUp /> : <AiOutlineDown />}
