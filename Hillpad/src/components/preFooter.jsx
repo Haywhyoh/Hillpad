@@ -23,12 +23,14 @@ export default function Prefooter() {
             <div className="font-bold text-2xl mb-8 md:text-3xl lg:text-5x lg:font-semibold lg:text-3xl text-left">
               Popular <span className="text-orange">Destination</span>
             </div>
+            <Link to='/countries'>
             <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm">
               <div>View all</div>
               <div>
                 <BsArrowRight />
               </div>
             </div>
+            </Link>
           </div>
           <div className="  md:ms-0 ">
             <CountryCarousel />

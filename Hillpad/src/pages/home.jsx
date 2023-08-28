@@ -225,7 +225,7 @@ export default function Home() {
             <h2 className="font-bold text-2xl md:text-3xl lg:text-5x lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
             </h2>
-            <Link to='/'>
+            <Link to='/discipline'>
               <div className="flex gap-x-2 items-center text-light_black text-sm hover:text-light">
                 <div>View all</div>
                 <div>
@@ -647,12 +647,14 @@ export default function Home() {
             <div className="font-bold text-2xl mb-8 md:text-3xl lg:text-5x lg:font-semibold lg:text-3xl text-left">
               Browse By <span className="text-orange">Country</span>
             </div>
+            <Link to='/countries'>
             <div className="hidden xl:flex gap-x-2 items-center text-light_black text-sm">
               <div>View all</div>
               <div>
                 <BsArrowRight />
               </div>
             </div>
+            </Link>
           </div>
 
           <div className="relative">
