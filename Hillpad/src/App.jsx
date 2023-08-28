@@ -23,6 +23,7 @@ import { fetchBachelors } from './redux/bachelorsSlice'
 import { fetchMasters } from './redux/mastersSlice'
 import { fetchDoctorates } from './redux/doctoratesSlice'
 import Explore from './pages/explore'
+import DisciplinesList from './components/test'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
@@ -81,7 +82,7 @@ function App() {
           <Route path='/course/:slug' element={<CourseDetails/>} />
           <Route path='/discipline/' element={<Disciplines />} />
           <Route path='/discipline/:name' element={<DisciplineDetails />} />
-          <Route path='/test' element={<SearchBar/>} />
+          <Route path='/test' element={<DisciplinesList/>} />
           <Route path='*' element={<h1>Not Found</h1>} />
           <Route path='/countries' element={<Countries />} />
           <Route path='/countries/:name' element={<CountryDetail />} />

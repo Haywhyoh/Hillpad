@@ -1,5 +1,5 @@
 import Carousel from "../components/carousel";
-
+import DisciplinesList from "../components/disciplineList";
 export default function Explore() {
     return(
         <div className="max-w-full mx-auto mt-40">
@@ -12,6 +12,14 @@ export default function Explore() {
             <Carousel />
           </div>
         </section>
+        <section className="w-full">
+        <div>
+                    <h1 className="lg:mt-24 font-bold lg:text-4xl mx-auto ">Browse By Disciplines</h1>
+
+          </div>
+          <DisciplinesList />
+        </section>
+        
         </div>
     )
 }

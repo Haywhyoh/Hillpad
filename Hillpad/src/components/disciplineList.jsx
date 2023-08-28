@@ -1,6 +1,3 @@
-import disciplines from '../data/discipline.json';
-import { FiChevronRight, FiChevronLeft, FiCheckCircle } from "react-icons/fi";
-import { FaBriefcase } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
