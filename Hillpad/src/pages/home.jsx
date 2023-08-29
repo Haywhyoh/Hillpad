@@ -1,7 +1,6 @@
 import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck, BsArrowLeft, BsViewList } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineSearch, AiFillStar, AiOutlineTwitter } from "react-icons/ai";
 import { FaTractor, FaFacebookF, FaLinkedinIn, FaThermometerEmpty, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
-import hero from '../assets/images/hero-img.jpeg'
 import hillpadBig from '../assets/images/hillpad-transparent.png';
 import data from '../data/discipline';
 import './home.css'
@@ -10,11 +9,9 @@ import { HiOutlineCalculator, HiOutlineDesktopComputer, HiUsers } from "react-ic
 import { RiBook2Fill } from "react-icons/ri";
 import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight, FiList, FiArrowDown, FiChevronDown } from "react-icons/fi";
 import { useState } from "react";
-import { degrees } from "./degree";
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import review1 from '../assets/images/01.jpeg';
 import review2 from '../assets/images/02.jpeg';
-
 import Carousel from "../components/carousel";
 import CoursesCarousel from "../components/coursesCarousel";
 import CountryCarousel from "../components/countryCarousel";
@@ -41,7 +38,6 @@ export default function Home() {
   const [isHovDiscipline11, setIsHovDiscipline11] = useState(false);
   const [isHovDiscipline12, setIsHovDiscipline12] = useState(false);
 
-  const [currentDegreeIndex, setCurrentDegreeIndex] = useState(0);
 
   const [hideCountryList, setCountryList] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState('Where ?');
@@ -58,45 +54,7 @@ export default function Home() {
   const scrollRight2 = () => {
     document.getElementById("content3").scrollLeft += 306;
   }
-  const showBar = () => {
-    document.getElementById('bar').classList.add = 'lg:block';
-  };
 
-
-  const handleMouseOver = () => {
-    setIsHovering(true);
-
-  };
-
-  const handleMouseOver2 = () => {
-    setIsHovering2(true);
-
-  };
-
-  const handleMouseOver3 = () => {
-    setIsHovering3(true);
-
-  };
-
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
-  const handleMouseOut2 = () => {
-    setIsHovering2(false);
-  };
-  const handleMouseOut3 = () => {
-    setIsHovering3(false);
-  };
-
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? degrees.length - 1 : prevIndex - 1));
-    console.log(currentIndex);
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === degrees.length - 1 ? 0 : prevIndex + 1));
-    console.log(currentIndex);
-  };
   return (
     <>
 
@@ -122,21 +80,21 @@ export default function Home() {
                 focus on taking your education to the next level.
               </p>
               <div className="lg:w-100 xl:w-110 rounded-lg lg:my-8 xl:my-4 2xl:my-8">
-                <div className="hidden mx-auto md:w-full md:rounded-full bg-white shadow-2 lg:block" id='bar '>
-                  <form className="lg:w-100 xl:w-110 rounded-full md:flex justify-between relative md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0  lg:left-4 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
-                    <fieldset className=" mx-2 px-2 md:border-0 lg:w-48 xl:w-80 ">
+                <div className="hidden mx-auto lg:w-100 xl:w-110  md:w-full md:rounded-full bg-white shadow-2 lg:block" id='bar '>
+                  <form className="lg:w-100 xl:w-full rounded-full md:flex justify-between relative md:px-2 lg:p-2 xl:py-2 md:rounded-full md:mx-8 md:items-center lg:mx-0  lg:left-0 2xl:left-0 bg-white z-20 border border-light_black border-opacity-10">
+                    <fieldset className=" mx-2 px-2 md:border-0 lg:w-40 xl:w-80 ">
                       <div className="flex items-center gap-x-2">
                         <AiOutlineSearch className="text-light_black" />
                         <input
                           type="text "
-                          className="focus:outline-none md:w-60 lg:w-48 xl:w-60 "
+                          className="focus:outline-none text-xs xl:text-sm md:w-60 lg:w-40 xl:w-60 "
                           placeholder="What do you want to study?"
                         ></input>
                       </div>
                     </fieldset>
                     <div className="">
                       <div>
-                        <div className="ps-4 flex items-center gap-x-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black" onClick={() => setCountryList(!hideCountryList)}>
+                        <div className="ps-4 lg:ps-2 flex text-xs items-center gap-x-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black" onClick={() => setCountryList(!hideCountryList)}>
                         <div>
                             <BsViewList />
                           </div>
