@@ -22,12 +22,14 @@ import { fetchDisciplines } from './redux/disciplineSlice'
 import { fetchBachelors } from './redux/bachelorsSlice'
 import { fetchMasters } from './redux/mastersSlice'
 import { fetchDoctorates } from './redux/doctoratesSlice'
+import { fetchDegreeTypes } from './redux/degreeTypeSlice'
 import Explore from './pages/explore'
 import DisciplinesList from './components/test'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
   const countries = useSelector((state) => state.country.countryList);
+  const degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
   const allCourses = useSelector((state) => state.courses.coursesList);
   const allCoursesCount = useSelector((state) => state.courses.count);
   const bachelorsCourses = useSelector((state) => state.bachelors.bachelorsList);
@@ -44,6 +46,7 @@ function App() {
   const bachelors = useDispatch();
   const masters = useDispatch();
   const doctorates = useDispatch();
+  const degree = useDispatch();
 
 
   useEffect( () => {
@@ -54,6 +57,7 @@ function App() {
       bachelors(fetchBachelors())
       masters(fetchMasters())
       doctorates(fetchDoctorates())
+      degree(fetchDegreeTypes())
       return () => {
       if (user.userInfo.firstName) {
         setUserName(user.userInfo.firstName)

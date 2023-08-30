@@ -2,7 +2,7 @@ import CourseCard from "../components/coursecard";
 import FlatCourseCard from "../components/flatCourseCard";
 import { FiFilter } from "react-icons/fi";
 import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiSettingsKnobs } from "react-icons/gi";
 import degreeType from '../data/degree_type.json';
@@ -12,33 +12,47 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { fetchBachelors } from "../redux/bachelorsSlice";
 export default function Courses({ props }) {
-     const fetchbatch  = useDispatch(fetchBachelors())
+    const selectedDiscipline = useRef();
+     let degreeTypesMap = [];
+    const fetchbatch  = useDispatch(fetchBachelors())
+
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {
         programme = props.programme;
     }
 
-    async function fetchCourses( discipline, duration, attendance, format) {
-        let url = `${baseUrl}?`;
+    async function fetchCourses( discipline ='', degree_type = [], duration=0,) {
+        let url = `${baseUrl}?programme=${programme}&`;
         if (discipline) {
             url = url + `discipline=${discipline}&`
         }
-        if (duration) {
-            url = url + `duration=${duration}&`
+        if (discipline && degree_type.length > 0) {
+            if (degree_type.length > 0) {
+                degree_type.map((degree) => {
+                    url = url + `degree_type=${degree}&`
+                })
+            }
         }
-        if (attendance) {
-            url = url + `attendance=${attendance}&`
-        }
-        if (format) {
-            url = url + `format=${format}&`
-        }
+        // if (duration) {
+        //     url = url + `duration=${duration}&`
+        // }
+        // if (attendance) {
+        //     url = url + `attendance=${attendance}&`
+        // }
+        // if (format) {
+        //     url = url + `format=${format}&`
+        // }
         console.log(url);
         const res = await axios.get(url);
         const data = await res.data;
         setCourses(data.results);
         setCount(res.data.count)
         return data;
+    }
+
+    function changeColor() {
+        selectedDiscipline.current.style.color = 'red';
     }
     const param  = useParams();
     const [id, setId]  = (param.id) ? useState(param.id) : useState('');
@@ -52,11 +66,12 @@ export default function Courses({ props }) {
     let bachelorsCount = useSelector((state) => state.bachelors.count);
     let mastersCount = useSelector((state) => state.masters.count);
     let doctoratesCount = useSelector((state) => state.doctorates.count);
+    let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
+
     const [count, setCount] = useState(0);
     const [courses, setCourses] = useState([]);
     const [disciplines, setDisciplines] = useState([]);
 
-    console.log(bachelorsList)
     useEffect(() => {
         // if ( !props.id && programme ){ axios.get(`${baseUrl}?programme=${programme}`).then((res) => {
         //     let programmeData = res.data.results;
@@ -116,8 +131,7 @@ export default function Courses({ props }) {
             setCount(courseCount)
         }
         setDisciplines(disciplinesList);
-    }, [disciplinesList, programme]);
-    const degreeTypes = degreeType.results;
+    }, [disciplinesList, programme, id, courseList, bachelorsList, mastersList, doctoratesList, courseCount, bachelorsCount, mastersCount, doctoratesCount]);
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
     const format = ['Full Time', 'Part Time']
@@ -168,8 +182,8 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
-                                    <Link to={!programme ? `/courses/${discipline.id}` : `/${programme}/${discipline.id}` }><div className="flex gap-x-2 py-1 text-sm text-light_black" >
-                                        <div onClick={ ()=> { setId(discipline.id); fetchCourses(discipline=discipline.id)} } > 
+                                    <Link to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}` }><div className="flex gap-x-2 py-1 text-sm text-light_black" >
+                                        <div onClick={ ()=> { setId(discipline.id);  fetchCourses(discipline=discipline.id)} } > 
                                             <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
                                             <div className="text-xs"> {discipline.name} </div></span> </div>
                                         </div>
@@ -185,8 +199,8 @@ export default function Courses({ props }) {
                             </button>
                             </div>
                             <div className={showBach ? 'block py-4' : 'hidden'}>
-                                {degreeTypes.filter(function (degrees) { return degrees.programme_type === 1 }).map((degree) => (
-                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black">
+                                {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 6 }).map((degree) => (
+                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => {degreeTypesMap.push(degree.id); fetchCourses(id,degreeTypesMap )}}>
                                         <input
                                             type="checkbox"
                                             id=''
@@ -207,8 +221,8 @@ export default function Courses({ props }) {
                             </button>
                             </div>
                             <div className={showMasters ? 'block py-4' : 'hidden'}>
-                                {degreeTypes.filter(function (degrees) { return degrees.programme_type === 2 }).map((degree) => (
-                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black">
+                                {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 5 }).map((degree) => (
+                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => {degreeTypesMap.push(degree.id); fetchCourses(id,degreeTypesMap )}}>
                                         <input
                                             type="checkbox"
                                             id=''
@@ -229,14 +243,13 @@ export default function Courses({ props }) {
                             </button>
                             </div>
                             <div className={showDoc ? 'block py-4' : 'hidden'}>
-                                {degreeTypes.filter(function (degrees) { return degrees.programme_type === 3 }).map((degree) => (
-                                    <div className="flex gap-x-2">
+                                {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 4 }).map((degree) => (
+                                    <div className="flex gap-x-2" onClick={() => {degreeTypesMap.push(degrees.id); fetchCourses(discipline=id, degree_type=degreeTypesMap, )}}>
                                         <input
                                             type="checkbox"
-                                            id=''
-                                            name=''
-                                            value=''
-
+                                            id={degree.id}
+                                            name={degree.name}
+                                            value={degree.name}
                                         />
                                         <label htmlFor=''> <span className="flex items-center gap-x-1">
                                             <div className="text-xs"><span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>

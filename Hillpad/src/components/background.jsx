@@ -28,7 +28,6 @@ export default function Background({ prop }) {
     if (prop) {
         console.log(prop)
         disciplines = prop.disciplines;
-        console.log(disciplines)
     }
 
     return (

@@ -91,8 +91,8 @@ export default function CourseDetails() {
     return (
         <>
         {loading ? 
-            <div>
-                I dey load
+            <div className="w-screen my-20 xl:px-4 lg:block flex justify-center mx-auto">
+               <div className="lds-ripple text-6xl text-light_black mx-auto w-full flex justify-center mt-40 "><div className='text-6xl text-light_black mx-auto w-full flex justify-center'></div><div className='text-6xl text-light_black mx-auto w-full flex justify-center'></div></div>
             </div>    
             :
             <div>

@@ -6,6 +6,7 @@ import disciplinesReducer from './disciplineSlice';
 import bachelorsReducer from './bachelorsSlice';
 import mastersReducer from './mastersSlice'
 import doctoratesReducer from './doctoratesSlice';
+import degreeTypesReducer from './degreeTypeSlice';
 import { combineReducers } from 'redux';
 
 const reducer = combineReducers({
@@ -16,6 +17,7 @@ const reducer = combineReducers({
     bachelors: bachelorsReducer,
     masters: mastersReducer,
     doctorates: doctoratesReducer,
+    degreeTypes: degreeTypesReducer,
 
    });
 export default configureStore({

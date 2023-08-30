@@ -13,6 +13,7 @@ const coursesSlice = createSlice({
     name: 'courses',
     initialState: {
         coursesList : [],
+        count: 0,
         pending:false,
         error: false,
     },
@@ -23,6 +24,7 @@ const coursesSlice = createSlice({
     },
     extraReducers: {
         [fetchCourses.pending]: (state) => {
+          state.count = 0;
           state.pending = true;
           state.error = false;
 
@@ -33,6 +35,7 @@ const coursesSlice = createSlice({
           state.pending = false;
         },
         [fetchCourses.rejected]: (state) => {
+          state.count = 0;
           state.pending = false;
           state.error = true;
         }
