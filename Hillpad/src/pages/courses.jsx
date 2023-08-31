@@ -159,9 +159,9 @@ export default function Courses({ props }) {
         setIsChecked(!isChecked);
     };
     return (
-        <div >
-            <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10">
-                <aside className="hidden lg:block px-8 shadow-2 py-8 lg:w-74 max-h-screen h-screen sticky left-0 top-24  bg-white max-w-full">
+        <div className="w-screen">
+            <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10 mx-auto">
+                <aside className="hidden lg:block px-8 shadow-2 py-8 lg:w-74 h-screen sticky left-0 top-24  bg-white max-w-full">
                     <div className="">
                         <div className="flex items-center gap-x-2 rounded-full border border-light_black border-opacity-20 shadow p-4">
                             <div onClick={searchQuery}> <AiOutlineSearch className="text-light_black text-2xl opacity-50" /></div>
@@ -343,7 +343,7 @@ export default function Courses({ props }) {
                 </aside>
 
                 <div className=" flex w-full">
-                    <div className="mb-4 me-4 w-full px-4">
+                    <div className="mb-4 w-full px-4">
                         <h1 className="text-3xl font-semibold w-fit">{programme ? programme.charAt(0).toUpperCase() + programme.slice(1) : ''} Courses</h1>
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
