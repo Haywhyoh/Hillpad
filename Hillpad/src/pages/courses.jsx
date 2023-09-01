@@ -13,7 +13,15 @@ import { Link } from 'react-router-dom';
 import { fetchBachelors } from "../redux/bachelorsSlice";
 export default function Courses({ props }) {
     const selectedDiscipline = useRef();
-     let degreeTypesMap = [];
+      let search = {
+        programme: [],
+        discipline: '',
+        degree_type: [],
+        duration: [],
+        attendance: [],
+        format: []
+     }
+     const [searchParam, setSearchParam] = useState(search);
     const fetchbatch  = useDispatch(fetchBachelors())
 
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
@@ -22,10 +30,13 @@ export default function Courses({ props }) {
         programme = props.programme;
     }
 
-    async function fetchCourses( discipline ='', degree_type = [], duration=0,) {
+    async function fetchCourses(searchParam = {} ) {
+        let discipline = searchParam.discipline
+        let degree_type = searchParam.degree_type
         let url = `${baseUrl}?programme=${programme}&`;
         if (discipline) {
             url = url + `discipline=${discipline}&`
+            console.log(url)
         }
         if (discipline && degree_type.length > 0) {
             if (degree_type.length > 0) {
@@ -44,6 +55,7 @@ export default function Courses({ props }) {
         //     url = url + `format=${format}&`
         // }
         console.log(url);
+        console.log(searchParam)
         const res = await axios.get(url);
         const data = await res.data;
         setCourses(data.results);
@@ -161,8 +173,8 @@ export default function Courses({ props }) {
     return (
         <div className="w-screen">
             <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10 mx-auto">
-                <aside className="hidden lg:block px-8 shadow-2 py-8 lg:w-74 h-screen sticky left-0 top-24  bg-white max-w-full">
-                    <div className="">
+                <aside className="hidden lg:block px-8 shadow-2 py-4 lg:w-74 h-fit sticky left-0 top-24  bg-white max-w-full">
+                    {/* <div className="">
                         <div className="flex items-center gap-x-2 rounded-full border border-light_black border-opacity-20 shadow p-4">
                             <div onClick={searchQuery}> <AiOutlineSearch className="text-light_black text-2xl opacity-50" /></div>
                             <input
@@ -172,8 +184,8 @@ export default function Courses({ props }) {
                                 onChange={(e) => { setQuery(e.target.value); searchQuery(); }}
                             ></input>
                         </div>
-                    </div>
-                    <div className="text-orange text-center text-xl font-bold my-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
+                    </div> */}
+                    <div className="text-orange text-center text-xl lg:text-3xl font-bold mb-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
                     <div className=" h-screen ">
                         <div className="" >
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setShowInfo(!showInfo); }}><div>Disciplines</div>  <button className='' >
@@ -183,7 +195,7 @@ export default function Courses({ props }) {
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
                                     <Link to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}` }><div className="flex gap-x-2 py-1 text-sm text-light_black" >
-                                        <div onClick={ ()=> { setId(discipline.id);  fetchCourses(discipline=discipline.id)} } > 
+                                        <div onClick={ ()=> { setId(discipline.id); searchParam.discipline = discipline.id;  fetchCourses(searchParam)} } > 
                                             <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
                                             <div className="text-xs"> {discipline.name} </div></span> </div>
                                         </div>
@@ -200,7 +212,7 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showBach ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 6 }).map((degree) => (
-                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => {degreeTypesMap.push(degree.id); fetchCourses(id,degreeTypesMap )}}>
+                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => { setSearchParam(searchParam.degree_type.push(degree.id));  fetchCourses(searchParam)}}>
                                         <input
                                             type="checkbox"
                                             id=''
@@ -222,7 +234,7 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showMasters ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 5 }).map((degree) => (
-                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => {degreeTypesMap.push(degree.id); fetchCourses(id,degreeTypesMap )}}>
+                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => { setSearchParam(searchParam.degree_type.push(degree.id));  fetchCourses(searchParam)}}>
                                         <input
                                             type="checkbox"
                                             id=''
@@ -244,7 +256,7 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showDoc ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 4 }).map((degree) => (
-                                    <div className="flex gap-x-2" onClick={() => {degreeTypesMap.push(degrees.id); fetchCourses(discipline=id, degree_type=degreeTypesMap, )}}>
+                                    <div className="flex gap-x-2" onClick={() => { setSearchParam(searchParam.degree_type.push(degree.id));  fetchCourses(searchParam)}}>
                                         <input
                                             type="checkbox"
                                             id={degree.id}
