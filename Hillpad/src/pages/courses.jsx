@@ -4,7 +4,7 @@ import { FiFilter } from "react-icons/fi";
 import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
 import { useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
-import { GiSettingsKnobs } from "react-icons/gi";
+import { GiConsoleController, GiSettingsKnobs } from "react-icons/gi";
 import degreeType from '../data/degree_type.json';
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,50 +12,33 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { fetchBachelors } from "../redux/bachelorsSlice";
 export default function Courses({ props }) {
-    const selectedDiscipline = useRef();
-      let search = {
-        programme: [],
-        discipline: '',
-        degree_type: [],
-        duration: [],
-        attendance: [],
-        format: []
-     }
-     const [searchParam, setSearchParam] = useState(search);
-    const fetchbatch  = useDispatch(fetchBachelors())
-
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {
         programme = props.programme;
     }
+    const [isChecked, setIsChecked] = useState(false);
 
-    async function fetchCourses(searchParam = {} ) {
-        let discipline = searchParam.discipline
-        let degree_type = searchParam.degree_type
+    const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [] });
+
+    let fetchData = async (searchParams = {discipine: '', degree_type: []}) => {
+        let discipline = searchParams.discipline
+        let degree_type = searchParams.degree_type
         let url = `${baseUrl}?programme=${programme}&`;
         if (discipline) {
             url = url + `discipline=${discipline}&`
             console.log(url)
         }
-        if (discipline && degree_type.length > 0) {
+        if (discipline && degree_type) {
             if (degree_type.length > 0) {
                 degree_type.map((degree) => {
                     url = url + `degree_type=${degree}&`
                 })
+                console.log(url)
             }
         }
-        // if (duration) {
-        //     url = url + `duration=${duration}&`
-        // }
-        // if (attendance) {
-        //     url = url + `attendance=${attendance}&`
-        // }
-        // if (format) {
-        //     url = url + `format=${format}&`
-        // }
         console.log(url);
-        console.log(searchParam)
+        console.log(searchParams)
         const res = await axios.get(url);
         const data = await res.data;
         setCourses(data.results);
@@ -63,12 +46,9 @@ export default function Courses({ props }) {
         return data;
     }
 
-    function changeColor() {
-        selectedDiscipline.current.style.color = 'red';
-    }
-    const param  = useParams();
-    const [id, setId]  = (param.id) ? useState(param.id) : useState('');
-    const getCourses = useDispatch();
+
+    const param = useParams();
+    const [id, setId] = (param.id) ? useState(param.id) : useState('');
     const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
     let courseList = useSelector((state) => state.courses.coursesList);
     let bachelorsList = useSelector((state) => state.bachelors.bachelorsList);
@@ -85,47 +65,8 @@ export default function Courses({ props }) {
     const [disciplines, setDisciplines] = useState([]);
 
     useEffect(() => {
-        // if ( !props.id && programme ){ axios.get(`${baseUrl}?programme=${programme}`).then((res) => {
-        //     let programmeData = res.data.results;
-        //     console.log(programmeData)
-        //     setCourses(programmeData);
-        //     setCount(res.data.count);
-        //     }).catch((err) => {
-        //         console.log(err)
-        //     })
-        //     }
-        // else if (programme && id) {
-        //     console.log('na me do am')
-        //     axios.get(`${baseUrl}?programme=${programme}&discipline=${id}`).then((res) => {
-        //         let programmeData = res.data.results;
-        //         setCourses(programmeData);
-        //         setCount(res.data.count);
-        //         console.log(res.data.results);
-        //         }).catch((err) => {
-        //             console.log(err)
-        //         })
-        // } else if (id && !programme) {
-        //     console.log('una papa')
-        //     axios.get(`${baseUrl}?discipline=${id}`).then((res) => {
-        //         let programmeData = res.data.results;
-        //         setCourses(programmeData);
-        //         setCount(res.data.count);
-        //         }).catch((err) => {
-        //             console.log(err)
-        //         })
-        // } else if (programme ) {
-        //     axios.get(`${baseUrl}?programme=${programme}`).then((res) => {
-        //         console.log(`${baseUrl}?programme=${programme}`)
-        //         let programmeData = res.data.results;
-        //         setCourses(programmeData);
-        //         setCount(res.data.count);
-        //         }).catch((err) => {
-        //             console.log(err)
-        //         })
-        // } else {
-        //     console.log('total courses')
-        //     setCourses(courseList)
-        // }
+        let param = searchParam
+        fetchData(param);    
         if (programme == 'bachelors') {
             setCourses(bachelorsList)
             setCount(bachelorsCount)
@@ -143,12 +84,11 @@ export default function Courses({ props }) {
             setCount(courseCount)
         }
         setDisciplines(disciplinesList);
-    }, [disciplinesList, programme, id, courseList, bachelorsList, mastersList, doctoratesList, courseCount, bachelorsCount, mastersCount, doctoratesCount]);
+    }, [param, isChecked , disciplinesList]);
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
     const format = ['Full Time', 'Part Time']
 
-    const [isChecked, setIsChecked] = useState(false);
     const [showInfo, setShowInfo] = useState(true);
     const [showBach, setBachInfo] = useState(false);
     const [showMasters, setMastersInfo] = useState(false);
@@ -167,26 +107,30 @@ export default function Courses({ props }) {
 
     }
 
-    const handleOnChange = () => {
+    const handleOnChange = (event) => {
+        const selectedDegreeType = parseInt(event.target.value);
         setIsChecked(!isChecked);
-    };
+
+        const newParam = searchParam;
+        if (newParam.degree_type.includes(selectedDegreeType)) {
+            // If selected, remove it
+            newParam.degree_type = newParam.degree_type.filter((type) => type !== selectedDegreeType)
+           console.log(newParam.degree_type)
+            console.log('removed')        
+            setSearchParam(newParam);
+        } else {
+            newParam.degree_type.push(selectedDegreeType);
+          // If not selected, add it
+          console.log('added')  
+          setSearchParam(newParam);
+        }
+      };
     return (
         <div className="w-screen">
             <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10 mx-auto">
                 <aside className="hidden lg:block px-8 shadow-2 py-4 lg:w-74 h-fit sticky left-0 top-24  bg-white max-w-full">
-                    {/* <div className="">
-                        <div className="flex items-center gap-x-2 rounded-full border border-light_black border-opacity-20 shadow p-4">
-                            <div onClick={searchQuery}> <AiOutlineSearch className="text-light_black text-2xl opacity-50" /></div>
-                            <input
-                                type="text "
-                                className="focus:outline-none md:w-72 text-sm"
-                                placeholder="Search for courses"
-                                onChange={(e) => { setQuery(e.target.value); searchQuery(); }}
-                            ></input>
-                        </div>
-                    </div> */}
                     <div className="text-orange text-center text-xl lg:text-3xl font-bold mb-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
-                    <div className=" h-screen ">
+                    <div className=" h-fit ">
                         <div className="" >
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setShowInfo(!showInfo); }}><div>Disciplines</div>  <button className='' >
                                 {showInfo ? <AiOutlineUp /> : <AiOutlineDown />}
@@ -194,11 +138,11 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
-                                    <Link to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}` }><div className="flex gap-x-2 py-1 text-sm text-light_black" >
-                                        <div onClick={ ()=> { setId(discipline.id); searchParam.discipline = discipline.id;  fetchCourses(searchParam)} } > 
+                                    <Link to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}`}><div className="flex gap-x-2 py-1 text-sm text-light_black" >
+                                        <div onClick={() => { setId(discipline.id); setSearchParam({ discipline: discipline.id, degree_type: []})}} >
                                             <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
-                                            <div className="text-xs"> {discipline.name} </div></span> </div>
-                                        </div>
+                                                <div className="text-xs"> {discipline.name} </div></span> </div>
+                                    </div>
                                     </Link>
                                 ))}
                             </div>
@@ -212,14 +156,14 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showBach ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 6 }).map((degree) => (
-                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => { setSearchParam(searchParam.degree_type.push(degree.id));  fetchCourses(searchParam)}}>
+                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black">
                                         <input
                                             type="checkbox"
                                             id=''
                                             name=''
-                                            value=''
-
-                                            onChange={() => handleOnChange()}
+                                            value={degree.id}
+                                            checked={searchParam.degree_type.includes(degree.id)}
+                                            onChange={handleOnChange}
                                         />
                                         <label htmlFor=''> <span className="flex items-center gap-x-1">
                                             <div className="text-xs"> <span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
@@ -227,15 +171,23 @@ export default function Courses({ props }) {
                                 ))}
                             </div>
                         </div>
-                        <div className={programme === 'masters'? 'block' : 'hidden'}>
+                        <div className={programme === 'masters' ? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setMastersInfo(!showMasters); }}><div>Masters</div>  <button className='' >
                                 {showMasters ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
                             </div>
                             <div className={showMasters ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 5 }).map((degree) => (
-                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => { setSearchParam(searchParam.degree_type.push(degree.id));  fetchCourses(searchParam)}}>
-                                        <input
+                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => {
+                                        const updatedSearchParam = { ...searchParam }
+                                        updatedSearchParam.degree_type.push(degree.id);
+
+                                        // Set the updated searchParam
+                                        setSearchParam(updatedSearchParam);
+
+                                        // Call fetchCourses with the updated searchParam
+                                        fetchCourses(updatedSearchParam);
+                                    }}>                                        <input
                                             type="checkbox"
                                             id=''
                                             name=''
@@ -256,7 +208,7 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showDoc ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 4 }).map((degree) => (
-                                    <div className="flex gap-x-2" onClick={() => { setSearchParam(searchParam.degree_type.push(degree.id));  fetchCourses(searchParam)}}>
+                                    <div className="flex gap-x-2" onClick={() => { setSearchParam(searchParam.degree_type.push(degree.id)); fetchCourses(searchParam) }}>
                                         <input
                                             type="checkbox"
                                             id={degree.id}
@@ -386,20 +338,20 @@ export default function Courses({ props }) {
 
                                 </div>
                             </div>
-                            { view === 'grid' ? <div className="flex justify-start w-full max-w-full">
-                            <div className="flex gap-x-4 flex-wrap justify-end w-full">
-                                {courses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
+                            {view === 'grid' ? <div className="flex justify-start w-full max-w-full">
+                                <div className="flex gap-x-4 flex-wrap justify-end w-full">
+                                    {courses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
 
-                            </div>
+                                </div>
                             </div> : <div className=" w-full max-w-full">
-                            <div className="flex flex-col w-full gap-y-4">
-                                {courses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
+                                <div className="flex flex-col w-full gap-y-4">
+                                    {courses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
 
-                            </div>
+                                </div>
                             </div>
                             }
-                            
-                            
+
+
 
 
                         </div>
