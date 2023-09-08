@@ -44,6 +44,16 @@ export default function Courses({ props }) {
                 })
                 console.log(url)
             }
+        }else  if (degree_type.length > 0) {
+            degree_type.map((degree) => {
+                url = url + `degree_type=${degree}&`
+            })
+            console.log(url)
+        }else if ( learning.length > 0) {
+            learning.map((style) => {
+                url = url + `attendance=${style}&`
+            })
+            console.log(url)
         }
         // if (discipline && degree_type && duration) {
         //     if (duration.length > 0) {
@@ -90,17 +100,21 @@ export default function Courses({ props }) {
         else if (programme == 'masters') {
             setCourses(mastersList)
             setCount(mastersCount)
+
         }
         else if (programme == 'doctorates') {
             setCourses(doctoratesList)
             setCount(doctoratesCount)
+
         }
         else {
             setCourses(courseList)
             setCount(courseCount)
+            console.log(courses)
+
         }
         setDisciplines(disciplinesList);
-    }, [ searchParam, isChecked , attendanceChecked, disciplinesList]);
+    }, [  searchParam, isChecked , attendanceChecked, disciplinesList]);
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
     const format = ['Full Time', 'Part Time']
@@ -192,8 +206,6 @@ export default function Courses({ props }) {
                                     </Link>
                                 ))}
                             </div>
-
-
                         </div>
                         <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
