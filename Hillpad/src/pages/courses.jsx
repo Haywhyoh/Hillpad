@@ -114,11 +114,6 @@ export default function Courses({ props }) {
     useEffect(() => {
         let param = searchParam
         fetchData(param);    
-        
-   
-            setCourses(courseList)
-            setCount(courseCount)
-
 
         setDisciplines(disciplinesList);
     }, [ programme,  searchParam, isChecked , attendanceChecked, disciplinesList]);
