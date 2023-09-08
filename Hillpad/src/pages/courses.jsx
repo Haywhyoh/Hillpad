@@ -38,8 +38,8 @@ export default function Courses({ props }) {
                 })
                 console.log(url)
             } 
-            else if ( attendance.length > 0) {
-                attendance.map((style) => {
+            else if ( learning.length > 0) {
+                learning.map((style) => {
                     url = url + `attendance=${style}&`
                 })
                 console.log(url)
@@ -304,7 +304,7 @@ export default function Courses({ props }) {
                                                  id=''
                                                  name=''
                                                  value={attendance[key]}
-                                                 checked=''
+                                                 checked={searchParam.attendance.includes(attendance[key])}
                                                  onChange={handleAttendanceChange}
                                             />
                                         </div>
