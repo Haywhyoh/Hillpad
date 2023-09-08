@@ -46,15 +46,17 @@ export default function Courses({ props }) {
         if (programme == 'bachelors' && !discipline && !degree_type && !learning) {
             setCourses(bachelorsList)
             setCount(bachelorsCount)
+            return
         } 
         if (programme == 'masters' && !discipline && !degree_type && !learning) {
             setCourses(mastersList)
             setCount(mastersCount)
-
+            return
         }
         else if (programme == 'doctorates' && !discipline && !degree_type && !learning) {
             setCourses(doctoratesList)
             setCount(doctoratesCount)
+            return
 
         }
         if (discipline && programme) {
