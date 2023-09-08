@@ -12,10 +12,22 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { fetchBachelors } from "../redux/bachelorsSlice";
 export default function Courses({ props }) {
+    let courseList = useSelector((state) => state.courses.coursesList);
+    let bachelorsList = useSelector((state) => state.bachelors.bachelorsList);
+    let mastersList = useSelector((state) => state.masters.mastersList);
+    let doctoratesList = useSelector((state) => state.doctorates.doctoratesList);
+    let courseCount = useSelector((state) => state.courses.count);
+    let bachelorsCount = useSelector((state) => state.bachelors.count);
+    let mastersCount = useSelector((state) => state.masters.count);
+    let doctoratesCount = useSelector((state) => state.doctorates.count);
+    let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
+
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {
         programme = props.programme;
+    } else {
+        programme = '';
     }
     const [isChecked, setIsChecked] = useState(false);
     const [attendanceChecked, setIsAttendanceChecked] = useState(false);
@@ -26,8 +38,12 @@ export default function Courses({ props }) {
         let degree_type = Params.degree_type
         let learning = Params.attendance
         let url = `${baseUrl}?programme=${programme}&`;
-
-        if (discipline) {
+        if (!programme) {
+            setCourses(courseList);
+            setCount(courseCount);
+            return
+        }
+        if (discipline && programme) {
             url = url + `discipline=${discipline}&`
             console.log(url)
         }
@@ -76,16 +92,7 @@ export default function Courses({ props }) {
     const param = useParams();
     const [id, setId] = (param.id) ? useState(param.id) : useState('');
     const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
-    let courseList = useSelector((state) => state.courses.coursesList);
-    let bachelorsList = useSelector((state) => state.bachelors.bachelorsList);
-    let mastersList = useSelector((state) => state.masters.mastersList);
-    let doctoratesList = useSelector((state) => state.doctorates.doctoratesList);
-    let courseCount = useSelector((state) => state.courses.count);
-    let bachelorsCount = useSelector((state) => state.bachelors.count);
-    let mastersCount = useSelector((state) => state.masters.count);
-    let doctoratesCount = useSelector((state) => state.doctorates.count);
-    let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
-
+    
     const [count, setCount] = useState(0);
     const [courses, setCourses] = useState([]);
     const [disciplines, setDisciplines] = useState([]);
