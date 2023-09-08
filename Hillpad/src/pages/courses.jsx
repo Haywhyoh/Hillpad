@@ -100,7 +100,7 @@ export default function Courses({ props }) {
             setCount(courseCount)
         }
         setDisciplines(disciplinesList);
-    }, [ searchParam, param, isChecked , attendanceChecked, disciplinesList]);
+    }, [ searchParam, isChecked , attendanceChecked, disciplinesList]);
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
     const format = ['Full Time', 'Part Time']
@@ -185,7 +185,7 @@ export default function Courses({ props }) {
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
                                     <Link to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}`}><div className="flex gap-x-2 py-1 text-sm text-light_black" >
-                                        <div onClick={() => { setId(discipline.id); setSearchParam({ discipline: discipline.id, degree_type: []})}} >
+                                        <div onClick={() => { setId(discipline.id); setSearchParam({ discipline: discipline.id, degree_type: [], attendance: []})}} >
                                             <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
                                                 <div className="text-xs"> {discipline.name} </div></span> </div>
                                     </div>
