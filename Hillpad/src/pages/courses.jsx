@@ -18,27 +18,43 @@ export default function Courses({ props }) {
         programme = props.programme;
     }
     const [isChecked, setIsChecked] = useState(false);
+    const [attendanceChecked, setIsAttendanceChecked] = useState(false);
+    const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [], attendance: [] });
 
-    const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [] });
-
-    let fetchData = async (searchParams = {discipine: '', degree_type: []}) => {
-        let discipline = searchParams.discipline
-        let degree_type = searchParams.degree_type
+    let fetchData = async (Params = {discipine: '', degree_type: [], attendance: []}) => {
+        let discipline = Params.discipline
+        let degree_type = Params.degree_type
+        let learning = Params.attendance
         let url = `${baseUrl}?programme=${programme}&`;
+
         if (discipline) {
             url = url + `discipline=${discipline}&`
             console.log(url)
         }
-        if (discipline && degree_type) {
+        if (discipline && degree_type || discipline && learning) {  
             if (degree_type.length > 0) {
                 degree_type.map((degree) => {
                     url = url + `degree_type=${degree}&`
                 })
                 console.log(url)
+            } 
+            else if ( attendance.length > 0) {
+                attendance.map((style) => {
+                    url = url + `attendance=${style}&`
+                })
+                console.log(url)
             }
         }
+        // if (discipline && degree_type && duration) {
+        //     if (duration.length > 0) {
+        //         duration.map((degree) => {
+        //             url = url + `degree_type=${degree}&`
+        //         })
+        //         console.log(url)
+        //     }
+        // }
         console.log(url);
-        console.log(searchParams)
+        console.log(Params)
         const res = await axios.get(url);
         const data = await res.data;
         setCourses(data.results);
@@ -84,11 +100,16 @@ export default function Courses({ props }) {
             setCount(courseCount)
         }
         setDisciplines(disciplinesList);
-    }, [param, isChecked , disciplinesList]);
+    }, [ searchParam, param, isChecked , attendanceChecked, disciplinesList]);
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
     const format = ['Full Time', 'Part Time']
-
+    const [attendance, setAttendance] = useState({
+        'Blended Learning': 'BLENDED',
+        'Online Learning': 'ONLINE',
+        'On Campus Learning': 'SITE'
+      });
+      
     const [showInfo, setShowInfo] = useState(true);
     const [showBach, setBachInfo] = useState(false);
     const [showMasters, setMastersInfo] = useState(false);
@@ -110,21 +131,46 @@ export default function Courses({ props }) {
     const handleOnChange = (event) => {
         const selectedDegreeType = parseInt(event.target.value);
         setIsChecked(!isChecked);
-
-        const newParam = searchParam;
-        if (newParam.degree_type.includes(selectedDegreeType)) {
-            // If selected, remove it
-            newParam.degree_type = newParam.degree_type.filter((type) => type !== selectedDegreeType)
-           console.log(newParam.degree_type)
-            console.log('removed')        
-            setSearchParam(newParam);
-        } else {
-            newParam.degree_type.push(selectedDegreeType);
-          // If not selected, add it
-          console.log('added')  
-          setSearchParam(newParam);
-        }
+      
+        // Create a new object with the updated degree_type array
+        const newParam = {
+          ...searchParam,
+          degree_type: searchParam.degree_type.includes(selectedDegreeType)
+            ? searchParam.degree_type.filter((type) => type !== selectedDegreeType)
+            : [...searchParam.degree_type, selectedDegreeType],
+        };
+      
+        // Set the state with the new object
+        setSearchParam(newParam);
       };
+      
+
+      const handleAttendanceChange = (event) => {
+        const selectedAttendance = event.target.value;
+        setIsAttendanceChecked(!attendanceChecked);
+      
+        // Clone the current searchParam object
+        let latestParam = { ...searchParam };
+      
+        if (!latestParam.attendance) {
+          latestParam.attendance = []; // Initialize attendance as an empty array if it doesn't exist
+        }
+      
+        if (latestParam.attendance.includes(selectedAttendance)) {
+          // If selected, remove it
+          latestParam.attendance = latestParam.attendance.filter((type) => type !== selectedAttendance);
+          console.log('removed attendance');
+        } else {
+          // If not selected, add it
+          latestParam.attendance.push(selectedAttendance);
+          console.log('added attendance');
+        }
+      
+        // Update the searchParam state
+        setSearchParam(latestParam);
+      };
+      
+
     return (
         <div className="w-screen">
             <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10 mx-auto">
@@ -178,20 +224,13 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showMasters ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 5 }).map((degree) => (
-                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black" onClick={() => {
-                                        const updatedSearchParam = { ...searchParam }
-                                        updatedSearchParam.degree_type.push(degree.id);
-
-                                        // Set the updated searchParam
-                                        setSearchParam(updatedSearchParam);
-
-                                        // Call fetchCourses with the updated searchParam
-                                        fetchCourses(updatedSearchParam);
-                                    }}>                                        <input
-                                            type="checkbox"
-                                            id=''
-                                            name=''
-                                            value=''
+                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black"> <input
+                                    type="checkbox"
+                                    id=''
+                                    name=''
+                                    value={degree.id}
+                                    checked={searchParam.degree_type.includes(degree.id)}
+                                    onChange={handleOnChange}
 
                                         />
                                         <label htmlFor=''> <span className="flex items-center gap-x-1">
@@ -208,12 +247,14 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showDoc ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 4 }).map((degree) => (
-                                    <div className="flex gap-x-2" onClick={() => { setSearchParam(searchParam.degree_type.push(degree.id)); fetchCourses(searchParam) }}>
+                                    <div className="flex gap-x-2">
                                         <input
-                                            type="checkbox"
-                                            id={degree.id}
-                                            name={degree.name}
-                                            value={degree.name}
+                                             type="checkbox"
+                                             id=''
+                                             name=''
+                                             value={degree.id}
+                                             checked={searchParam.degree_type.includes(degree.id)}
+                                             onChange={handleOnChange}
                                         />
                                         <label htmlFor=''> <span className="flex items-center gap-x-1">
                                             <div className="text-xs"><span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
@@ -254,18 +295,20 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showAttendance ? 'block py-4' : 'hidden'}>
 
-                                {learning.map((duration) => (
+                                {Object.keys(attendance).map((key) => (
                                     <div className="flex gap-x-2">
 
                                         <div className="flex gap-x-2">
                                             <input
-                                                type="checkbox"
-                                                id=''
-                                                name=''
-                                                value=''
+                                                 type="checkbox"
+                                                 id=''
+                                                 name=''
+                                                 value={attendance[key]}
+                                                 checked=''
+                                                 onChange={handleAttendanceChange}
                                             />
                                         </div>
-                                        <label htmlFor=''> {duration}
+                                        <label htmlFor=''> {key}
                                         </label>
                                     </div>
 
