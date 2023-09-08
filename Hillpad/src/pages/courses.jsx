@@ -42,6 +42,20 @@ export default function Courses({ props }) {
             setCourses(courseList);
             setCount(courseCount);
             return
+        };
+        if (programme == 'bachelors' && !discipline && !degree_type && !learning) {
+            setCourses(bachelorsList)
+            setCount(bachelorsCount)
+        } 
+        if (programme == 'masters' && !discipline && !degree_type && !learning) {
+            setCourses(mastersList)
+            setCount(mastersCount)
+
+        }
+        else if (programme == 'doctorates' && !discipline && !degree_type && !learning) {
+            setCourses(doctoratesList)
+            setCount(doctoratesCount)
+
         }
         if (discipline && programme) {
             url = url + `discipline=${discipline}&`
@@ -100,28 +114,14 @@ export default function Courses({ props }) {
     useEffect(() => {
         let param = searchParam
         fetchData(param);    
-        if (programme == 'bachelors') {
-            setCourses(bachelorsList)
-            setCount(bachelorsCount)
-        }
-        else if (programme == 'masters') {
-            setCourses(mastersList)
-            setCount(mastersCount)
-
-        }
-        else if (programme == 'doctorates') {
-            setCourses(doctoratesList)
-            setCount(doctoratesCount)
-
-        }
-        else {
+        
+   
             setCourses(courseList)
             setCount(courseCount)
-            console.log(courses)
 
-        }
+
         setDisciplines(disciplinesList);
-    }, [  searchParam, isChecked , attendanceChecked, disciplinesList]);
+    }, [ programme,  searchParam, isChecked , attendanceChecked, disciplinesList]);
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
     const format = ['Full Time', 'Part Time']
