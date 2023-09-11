@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Login from './login';
 import { IoCloseOutline } from 'react-icons/io5';
+import axios from 'axios';
 import { useSelector } from 'react-redux';
 import '../components/modal.css'
 import { BsViewList } from 'react-icons/bs';
@@ -92,6 +93,28 @@ export default function Header({ props }) {
     function showUser() {
         let user = document.querySelector('#userCard');
         user.classList.toggle('hidden');
+    }
+
+    const handleSignOut = async () => {
+        try {
+            axios.defaults.withCredentials = true;
+            const response = await axios.post('https://54.221.177.186/api/account/logout', {}, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${props.userInfo.token}`
+                }
+            });
+            if (response.status === 200) {
+                // Handle successful logout here
+                console.log('Signed Out')
+                // window.location.reload(); // Refresh the app
+
+            } else {
+                // Handle logout failure here
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 
     return (
@@ -212,10 +235,11 @@ export default function Header({ props }) {
                             <div className='text-xl text-light_black'><FiSettings /> </div>
                             <div>Account Settings</div>
                         </div>
-                        <div className='flex gap-x-4  pt-6'>
+                        <button className='flex gap-x-4  pt-6' onClick={handleSignOut}>
                             <div className='text-xl text-light_black'><FiLogOut/> </div>
                             <div>Sign Out</div>
-                        </div>
+                        </button>
+
                     </div>
                     <Link to='/explore'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
                 </div> :

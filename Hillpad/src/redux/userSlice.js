@@ -9,6 +9,7 @@ export const fetchUser = createAsyncThunk('users/fetchUser', async (user) => {
     const res = { email: result.email, firstName: result.first_name, lastame: result.last_name};
     return res;
 })
+
 export const fetchUser2 = createAsyncThunk('users/fetchUser2', async () => {
   axios.defaults.withCredentials = true;
   const details = await axios.get('https://54.221.177.186/api/account/detail');
@@ -16,6 +17,7 @@ export const fetchUser2 = createAsyncThunk('users/fetchUser2', async () => {
   const res = { email: result.email, firstName: result.first_name, lastame: result.last_name};
   return res;
 })
+
 const userSlice = createSlice({
     name: 'user',
     initialState: {
