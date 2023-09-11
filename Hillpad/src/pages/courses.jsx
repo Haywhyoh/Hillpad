@@ -7,10 +7,12 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { GiConsoleController, GiSettingsKnobs } from "react-icons/gi";
 import degreeType from '../data/degree_type.json';
 import axios from "axios";
+import ReactPaginate from 'react-paginate';
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { fetchBachelors } from "../redux/bachelorsSlice";
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 export default function Courses({ props }) {
     let courseList = useSelector((state) => state.courses.coursesList);
     let bachelorsList = useSelector((state) => state.bachelors.bachelorsList);
@@ -33,13 +35,12 @@ export default function Courses({ props }) {
     const [attendanceChecked, setIsAttendanceChecked] = useState(false);
     const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [], attendance: [] });
     const [clickedDiscipline, setClickedDiscipline] = useState(null);
-
+    const [currentPage, setCurrentPage] = useState(0);
     let fetchData = async (Params = {discipine: '', degree_type: [], attendance: []}) => {
         let discipline = Params.discipline
         let degree_type = Params.degree_type
         let learning = Params.attendance
-        let url = `${baseUrl}?programme=${programme}&`;
-        if (!programme) {
+        let url = `${baseUrl}?programme=${programme}&page=${currentPage + 1}&`;        if (!programme) {
             setCourses(courseList);
             setCount(courseCount);
             return
@@ -188,7 +189,11 @@ export default function Courses({ props }) {
         // Update the searchParam state
         setSearchParam(latestParam);
       };
-      
+      const handlePageChange = (data) => {
+        let selected = data.selected;
+        setCurrentPage(selected);
+        fetchData(searchParam);
+      };
 
     return (
         <div className="w-screen">
@@ -436,6 +441,19 @@ export default function Courses({ props }) {
                     <div>Filter</div>
                 </div>
             </div>
+            <ReactPaginate
+  previousLabel={<FaChevronLeft />}
+  nextLabel={<FaChevronRight />}
+  breakLabel={'...'}
+  breakClassName={'break-me'}
+  pageCount={Math.ceil(count / 20)}
+  marginPagesDisplayed={2}
+  pageRangeDisplayed={5}
+  onPageChange={handlePageChange}
+  containerClassName={'flex gap-x-6 mx-auto text-center items-center justify-center mb-2 text-2xl text-orange '}
+  subContainerClassName={'pages pagination'}
+  activeClassName={'active'}
+/>
         </div>
     );
 }
