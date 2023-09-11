@@ -107,7 +107,7 @@ export default function Header({ props }) {
             if (response.status === 200) {
                 // Handle successful logout here
                 console.log('Signed Out')
-                // window.location.reload(); // Refresh the app
+                window.location.reload(); // Refresh the app
 
             } else {
                 // Handle logout failure here
