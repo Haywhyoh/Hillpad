@@ -452,7 +452,7 @@ export default function Courses({ props }) {
   onPageChange={handlePageChange}
   containerClassName={'flex gap-x-6 mx-auto text-center items-center justify-center mb-2 text-2xl text-orange '}
   subContainerClassName={'pages pagination'}
-  activeClassName={'active'}
+  activeClassName={'text-black border-2 p-2'}
 />
         </div>
     );
