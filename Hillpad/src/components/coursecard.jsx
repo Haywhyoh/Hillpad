@@ -5,10 +5,10 @@ import { BiTimeFive } from "react-icons/bi";
 import { SlLocationPin } from "react-icons/sl";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { Link } from 'react-router-dom';
-export default function CourseCard({ prop, isActive }) {
+export default function CourseCard({ prop }) {
   return (
       <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-60 lg:w-card xl:w-73 2xl:w-card justify-center mx-2 xs:ms-4 2xs:ms-7 sm:mx-0 '>
-        <Link to={`/course/${prop.course}`} >
+        <Link to={`/course/${prop.slug}`} state={prop}>
         <div className=" rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
           <div className=" rounded-xl h-imgHeight">
             <img
@@ -19,14 +19,14 @@ export default function CourseCard({ prop, isActive }) {
           </div>
           <div className="text-left m-4">
             <div className="font-normal text-sm text-orange">{prop.type}</div>
-            <div className="font-bold pb-2 text-light_black ">{prop.course.length > 50 ? `${prop.course.substring(0, 54) + '...'} ` : prop.course}</div>
+            <div className="font-bold pb-2 text-light_black ">{prop.name.length > 50 ? `${prop.name.substring(0, 54) + '...'} ` : prop.name}</div>
             <div className='flex items-center gap-x-4'>
               <div className='w-6'>
                 <img src={logo} alt="logo" />
               </div>
               <div>
                 <div className="text-light_black text-sm italic opacity-70 ">
-                  {prop.school.length > 30 ? `${prop.school.substring(0, 30) + '...'} ` : prop.school}
+                  {prop.school.name.length > 30 ? `${prop.school.name.substring(0, 30) + '...'} ` : prop.school.name}
                 </div>
                 <div className="text-light_black text-sm opacity-70">
                   Toronto, Canada
@@ -48,19 +48,19 @@ export default function CourseCard({ prop, isActive }) {
               <div className='font-bold text-xl  md:text-xs xl:text-xl'>
                 <AiOutlineCalendar />
               </div>
-              <div>4 years</div>
+              <div>{prop.duration } {prop.duration_base}</div>
             </div>
             <div className="flex items-center gap-x-1">
               <div className='font-bold text-xl md:text-xs xl:text-xl '>
                 <BiTimeFive />
               </div>
-              <div>Full Time</div>{" "}
+              <div>{prop.course_format.toLowerCase()} Time</div>{" "}
             </div>
             <div className="flex items-center gap-x-1">
               <div className='font-bold text-xl  md:text-xs xl:text-xl'>
                 <SlLocationPin />
               </div>
-              <div>On Campus</div>{" "}
+              <div>{prop.attendance === 'SITE' ? 'On-Site' : 'Online'}</div>{" "}
             </div>
           </div>
         </div>

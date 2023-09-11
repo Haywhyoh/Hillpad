@@ -31,6 +31,7 @@ export default function Courses({ props }) {
     } else {
         programme = '';
     }
+    const [sortOrder, setSortOrder] = useState('Ascending');
     const [isChecked, setIsChecked] = useState(false);
     const [attendanceChecked, setIsAttendanceChecked] = useState(false);
     const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [], attendance: [] });
@@ -106,7 +107,10 @@ export default function Courses({ props }) {
         return data;
     }
 
-
+    const handleSortChange = (event) => {
+        setSortOrder(event.target.value);
+      };
+      
     const param = useParams();
     const [id, setId] = (param.id) ? useState(param.id) : useState('');
     const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
@@ -114,6 +118,13 @@ export default function Courses({ props }) {
     const [count, setCount] = useState(0);
     const [courses, setCourses] = useState([]);
     const [disciplines, setDisciplines] = useState([]);
+
+    let sortedCourses = [...courses];
+if (sortOrder === 'Ascending') {
+  sortedCourses.sort((a, b) => a.name.localeCompare(b.name));
+} else if (sortOrder === 'Descending') {
+  sortedCourses.sort((a, b) => b.name.localeCompare(a.name));
+}
 
     useEffect(() => {
         let param = searchParam
@@ -138,7 +149,7 @@ export default function Courses({ props }) {
     const [showAttendance, setAttendanceInfo] = useState(false);
     const [showFormat, setFormatInfo] = useState(true);
 
-    const [view, setView] = useState('list');
+    const [view, setView] = useState('grid');
 
     const [query, setQuery] = useState('');
 
@@ -395,9 +406,10 @@ export default function Courses({ props }) {
                                     </select>
                                     <div>
                                         <span>Order: </span>
-                                        <select className="focus:outline-none p-2 rounded-md bg-white border  border-light_black border-opacity-30  w-20 md:w-32">
-                                            <option>Ascending</option>
-                                            <option>Desc</option>
+                                        <select className="focus:outline-none p-2 rounded-md bg-white border  border-light_black border-opacity-30  w-20 md:w-32" value={sortOrder}
+                                            onChange={handleSortChange}>
+                                            <option value='Ascending'>Ascending</option>
+                                            <option value='Descending'>Desc</option>
                                         </select>
                                     </div>
 
@@ -414,12 +426,11 @@ export default function Courses({ props }) {
                             </div>
                             {view === 'grid' ? <div className="flex justify-start w-full max-w-full">
                                 <div className="flex gap-x-4 flex-wrap justify-end w-full">
-                                    {courses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
-
+                                {sortedCourses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
                                 </div>
                             </div> : <div className=" w-full max-w-full">
                                 <div className="flex flex-col w-full gap-y-4">
-                                    {courses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
+                                {sortedCourses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
 
                                 </div>
                             </div>
