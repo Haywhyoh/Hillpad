@@ -32,6 +32,7 @@ export default function Courses({ props }) {
     const [isChecked, setIsChecked] = useState(false);
     const [attendanceChecked, setIsAttendanceChecked] = useState(false);
     const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [], attendance: [] });
+    const [clickedDiscipline, setClickedDiscipline] = useState(null);
 
     let fetchData = async (Params = {discipine: '', degree_type: [], attendance: []}) => {
         let discipline = Params.discipline
@@ -201,15 +202,24 @@ export default function Courses({ props }) {
                             </button>
                             </div>
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
-                                {disciplines.map((discipline) => (
-                                    <Link to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}`}><div className="flex gap-x-2 py-1 text-sm text-light_black" >
-                                        <div onClick={() => { setId(discipline.id); setSearchParam({ discipline: discipline.id, degree_type: [], attendance: []})}} >
-                                            <span className="flex items-center gap-x-1"><i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
-                                                <div className="text-xs"> {discipline.name} </div></span> </div>
-                                    </div>
-                                    </Link>
-                                ))}
+                {disciplines.map((discipline) => (
+                    <Link 
+                        to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}`} 
+                        onClick={() => setClickedDiscipline(discipline.id)}  // Add this line
+                    >
+                        <div 
+                            className={`flex gap-x-2 py-1 text-sm text-light_black ${clickedDiscipline === discipline.id ? 'text-orange' : ''}`}  // Update this line
+                        >
+                            <div onClick={() => { setId(discipline.id); setSearchParam({ discipline: discipline.id, degree_type: [], attendance: []})}} >
+                                <span className="flex items-center gap-x-1">
+                                    <i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
+                                    <div className="text-xs"> {discipline.name} </div>
+                                </span> 
                             </div>
+                        </div>
+                    </Link>
+                ))}
+            </div>
                         </div>
                         <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
