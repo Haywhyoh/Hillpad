@@ -52,7 +52,6 @@ export default function Courses({ props }) {
         if (programme == 'bachelors' && !discipline && !degree_type && !learning) {
             setCourses(bachelorsList)
             setCount(bachelorsCount)
-            // setSearchParam(emptyParam)
             return
         }
         if (programme == 'masters' && !discipline && !degree_type && !learning) {
@@ -459,7 +458,7 @@ export default function Courses({ props }) {
                                 </div>
                             </div>
                             {view === 'Grid' ? <div className="flex justify-start w-full max-w-full">
-                                <div className="flex gap-x-4 flex-wrap justify-end w-full">
+                                <div className="flex gap-x-4 flex-wrap justify-start w-full">
                                     {sortedCourses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
                                 </div>
                             </div> : <div className=" w-full max-w-full">
