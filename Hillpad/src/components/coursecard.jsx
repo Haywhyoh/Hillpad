@@ -13,7 +13,7 @@ export default function CourseCard({ prop }) {
           <div className=" rounded-xl h-imgHeight">
             <img
               className=" rounded-t-xl h-imgHeight w-full"
-              src={`/images/${prop.url}`}
+              src={prop.school.banner}
               alt="bachelors_degree"
             />
           </div>
@@ -22,7 +22,7 @@ export default function CourseCard({ prop }) {
             <div className="font-bold pb-2 text-light_black ">{prop.name.length > 50 ? `${prop.name.substring(0, 54) + '...'} ` : prop.name}</div>
             <div className='flex items-center gap-x-4'>
               <div className='w-6'>
-                <img src={logo} alt="logo" />
+                <img src={prop.school.logo} alt="logo" />
               </div>
               <div>
                 <div className="text-light_black text-sm italic opacity-70 ">

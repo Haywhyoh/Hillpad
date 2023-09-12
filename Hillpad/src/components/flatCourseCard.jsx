@@ -1,5 +1,4 @@
 import { FiCalendar, FiClock, FiMapPin } from 'react-icons/fi';
-import logo from '../assets/images/schLogo.png';
 import { AiFillStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom'
 import { FaFlagCheckered, FaPaperPlane } from 'react-icons/fa';

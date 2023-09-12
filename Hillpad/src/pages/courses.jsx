@@ -23,7 +23,6 @@ export default function Courses({ props }) {
     let mastersCount = useSelector((state) => state.masters.count);
     let doctoratesCount = useSelector((state) => state.doctorates.count);
     let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
-
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {
@@ -34,14 +33,17 @@ export default function Courses({ props }) {
     const [sortOrder, setSortOrder] = useState('Ascending');
     const [isChecked, setIsChecked] = useState(false);
     const [attendanceChecked, setIsAttendanceChecked] = useState(false);
-    const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [], attendance: [] });
+    const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [], attendance: [], format: [] });
     const [clickedDiscipline, setClickedDiscipline] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
-    let fetchData = async (Params = {discipine: '', degree_type: [], attendance: []}) => {
+    const [formatChecked, setFormatChecked] = useState([]);
+    let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [] }) => {
         let discipline = Params.discipline
         let degree_type = Params.degree_type
         let learning = Params.attendance
-        let url = `${baseUrl}?programme=${programme}&page=${currentPage + 1}&`;        if (!programme) {
+        let formatList = Params.format
+        let url = `${baseUrl}?programme=${programme}&page=${currentPage + 1}&`;
+         if (!programme) {
             setCourses(courseList);
             setCount(courseCount);
             return
@@ -50,7 +52,7 @@ export default function Courses({ props }) {
             setCourses(bachelorsList)
             setCount(bachelorsCount)
             return
-        } 
+        }
         if (programme == 'masters' && !discipline && !degree_type && !learning) {
             setCourses(mastersList)
             setCount(mastersCount)
@@ -66,25 +68,31 @@ export default function Courses({ props }) {
             url = url + `discipline=${discipline}&`
             console.log(url)
         }
-        if (discipline && degree_type || discipline && learning) {  
+        if (formatList.length > 0) {
+            formatList.map((format) => {
+                url = url + `format=${format}&`
+                console.log(url)
+            })
+        }
+        if (discipline && degree_type || discipline && learning) {
             if (degree_type.length > 0) {
                 degree_type.map((degree) => {
                     url = url + `degree_type=${degree}&`
                 })
                 console.log(url)
-            } 
-            else if ( learning.length > 0) {
+            }
+            else if (learning.length > 0) {
                 learning.map((style) => {
                     url = url + `attendance=${style}&`
                 })
                 console.log(url)
             }
-        }else  if (degree_type.length > 0) {
+        } else if (degree_type.length > 0) {
             degree_type.map((degree) => {
                 url = url + `degree_type=${degree}&`
             })
             console.log(url)
-        }else if ( learning.length > 0) {
+        } else if (learning.length > 0) {
             learning.map((style) => {
                 url = url + `attendance=${style}&`
             })
@@ -109,38 +117,45 @@ export default function Courses({ props }) {
 
     const handleSortChange = (event) => {
         setSortOrder(event.target.value);
-      };
-      
+    };
+
+    const handleViewChange = (event) => {
+        setView(event.target.value);
+    };
+
     const param = useParams();
     const [id, setId] = (param.id) ? useState(param.id) : useState('');
     const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
-    
+
     const [count, setCount] = useState(0);
     const [courses, setCourses] = useState([]);
     const [disciplines, setDisciplines] = useState([]);
 
     let sortedCourses = [...courses];
-if (sortOrder === 'Ascending') {
-  sortedCourses.sort((a, b) => a.name.localeCompare(b.name));
-} else if (sortOrder === 'Descending') {
-  sortedCourses.sort((a, b) => b.name.localeCompare(a.name));
-}
+    if (sortOrder === 'Ascending') {
+        sortedCourses.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortOrder === 'Descending') {
+        sortedCourses.sort((a, b) => b.name.localeCompare(a.name));
+    }
 
     useEffect(() => {
         let param = searchParam
-        fetchData(param);    
+        fetchData(param);
 
         setDisciplines(disciplinesList);
-    }, [ programme,  searchParam, isChecked , attendanceChecked, disciplinesList]);
+    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList]);
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
-    const learning = ['Blended Learning', 'Online Learning', 'On Campus Learning']
-    const format = ['Full Time', 'Part Time']
+    const format = ['Full_Time', 'Part_Time']
+    const formatDict = {
+        Full_Time : '',
+        Part_Time : ''
+    }
     const [attendance, setAttendance] = useState({
         'Blended Learning': 'BLENDED',
         'Online Learning': 'ONLINE',
         'On Campus Learning': 'SITE'
-      });
-      
+    });
+
     const [showInfo, setShowInfo] = useState(true);
     const [showBach, setBachInfo] = useState(false);
     const [showMasters, setMastersInfo] = useState(false);
@@ -149,7 +164,7 @@ if (sortOrder === 'Ascending') {
     const [showAttendance, setAttendanceInfo] = useState(false);
     const [showFormat, setFormatInfo] = useState(true);
 
-    const [view, setView] = useState('grid');
+    const [view, setView] = useState('List');
 
     const [query, setQuery] = useState('');
 
@@ -162,49 +177,67 @@ if (sortOrder === 'Ascending') {
     const handleOnChange = (event) => {
         const selectedDegreeType = parseInt(event.target.value);
         setIsChecked(!isChecked);
-      
+
         // Create a new object with the updated degree_type array
         const newParam = {
-          ...searchParam,
-          degree_type: searchParam.degree_type.includes(selectedDegreeType)
-            ? searchParam.degree_type.filter((type) => type !== selectedDegreeType)
-            : [...searchParam.degree_type, selectedDegreeType],
+            ...searchParam,
+            degree_type: searchParam.degree_type.includes(selectedDegreeType)
+                ? searchParam.degree_type.filter((type) => type !== selectedDegreeType)
+                : [...searchParam.degree_type, selectedDegreeType],
         };
-      
+
         // Set the state with the new object
         setSearchParam(newParam);
-      };
-      
+    };
 
-      const handleAttendanceChange = (event) => {
+
+    const handleAttendanceChange = (event) => {
         const selectedAttendance = event.target.value;
         setIsAttendanceChecked(!attendanceChecked);
-      
+
         // Clone the current searchParam object
         let latestParam = { ...searchParam };
-      
+
         if (!latestParam.attendance) {
-          latestParam.attendance = []; // Initialize attendance as an empty array if it doesn't exist
+            latestParam.attendance = []; // Initialize attendance as an empty array if it doesn't exist
         }
-      
+
         if (latestParam.attendance.includes(selectedAttendance)) {
-          // If selected, remove it
-          latestParam.attendance = latestParam.attendance.filter((type) => type !== selectedAttendance);
-          console.log('removed attendance');
+            // If selected, remove it
+            latestParam.attendance = latestParam.attendance.filter((type) => type !== selectedAttendance);
+            console.log('removed attendance');
         } else {
-          // If not selected, add it
-          latestParam.attendance.push(selectedAttendance);
-          console.log('added attendance');
+            // If not selected, add it
+            latestParam.attendance.push(selectedAttendance);
+            console.log('added attendance');
         }
-      
+
         // Update the searchParam state
         setSearchParam(latestParam);
-      };
-      const handlePageChange = (data) => {
+    };
+    const handlePageChange = (data) => {
         let selected = data.selected;
         setCurrentPage(selected);
         fetchData(searchParam);
-      };
+    };
+
+    const handleFormatChange = (event) => {
+        let latestParam = { ...searchParam };
+        if (!latestParam.format) {
+            latestParam.format = [];    // Initialize attendance as an empty array if it doesn't exist
+        }
+        const selectedFormat = event.target.value;
+
+        if (latestParam.format.includes(selectedFormat)) {
+            latestParam.format = latestParam.format.filter((type) => type !== selectedFormat);
+        } else {
+            latestParam.format.push(selectedFormat);
+            console.log('added format');
+
+        }
+        setSearchParam(latestParam);
+        
+    };
 
     return (
         <div className="w-screen">
@@ -218,24 +251,24 @@ if (sortOrder === 'Ascending') {
                             </button>
                             </div>
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
-                {disciplines.map((discipline) => (
-                    <Link 
-                        to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}`} 
-                        onClick={() => setClickedDiscipline(discipline.id)}  // Add this line
-                    >
-                        <div 
-                            className={`flex gap-x-2 py-1 text-sm text-light_black ${clickedDiscipline === discipline.id ? 'text-orange' : ''}`}  // Update this line
-                        >
-                            <div onClick={() => { setId(discipline.id); setSearchParam({ discipline: discipline.id, degree_type: [], attendance: []})}} >
-                                <span className="flex items-center gap-x-1">
-                                    <i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
-                                    <div className="text-xs"> {discipline.name} </div>
-                                </span> 
+                                {disciplines.map((discipline) => (
+                                    <Link
+                                        to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}`}
+                                        onClick={() => setClickedDiscipline(discipline.id)}  // Add this line
+                                    >
+                                        <div
+                                            className={`flex gap-x-2 py-1 text-sm text-light_black ${clickedDiscipline === discipline.id ? 'text-orange' : ''}`}  // Update this line
+                                        >
+                                            <div onClick={() => { setId(discipline.id); setSearchParam({ discipline: discipline.id, degree_type: [], attendance: [],format: [] }) }} >
+                                                <span className="flex items-center gap-x-1">
+                                                    <i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
+                                                    <div className="text-xs"> {discipline.name} </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
                             </div>
-                        </div>
-                    </Link>
-                ))}
-            </div>
                         </div>
                         <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
                             <div className="text-sm font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
@@ -267,14 +300,14 @@ if (sortOrder === 'Ascending') {
                             <div className={showMasters ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 5 }).map((degree) => (
                                     <div className="flex gap-x-2 pb-1 text-sm text-light_black"> <input
-                                    type="checkbox"
-                                    id=''
-                                    name=''
-                                    value={degree.id}
-                                    checked={searchParam.degree_type.includes(degree.id)}
-                                    onChange={handleOnChange}
+                                        type="checkbox"
+                                        id=''
+                                        name=''
+                                        value={degree.id}
+                                        checked={searchParam.degree_type.includes(degree.id)}
+                                        onChange={handleOnChange}
 
-                                        />
+                                    />
                                         <label htmlFor=''> <span className="flex items-center gap-x-1">
                                             <div className="text-xs"> <span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
                                     </div>
@@ -291,12 +324,12 @@ if (sortOrder === 'Ascending') {
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 4 }).map((degree) => (
                                     <div className="flex gap-x-2">
                                         <input
-                                             type="checkbox"
-                                             id=''
-                                             name=''
-                                             value={degree.id}
-                                             checked={searchParam.degree_type.includes(degree.id)}
-                                             onChange={handleOnChange}
+                                            type="checkbox"
+                                            id=''
+                                            name=''
+                                            value={degree.id}
+                                            checked={searchParam.degree_type.includes(degree.id)}
+                                            onChange={handleOnChange}
                                         />
                                         <label htmlFor=''> <span className="flex items-center gap-x-1">
                                             <div className="text-xs"><span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
@@ -342,12 +375,12 @@ if (sortOrder === 'Ascending') {
 
                                         <div className="flex gap-x-2">
                                             <input
-                                                 type="checkbox"
-                                                 id=''
-                                                 name=''
-                                                 value={attendance[key]}
-                                                 checked={searchParam.attendance.includes(attendance[key])}
-                                                 onChange={handleAttendanceChange}
+                                                type="checkbox"
+                                                id=''
+                                                name=''
+                                                value={attendance[key]}
+                                                checked={searchParam.attendance.includes(attendance[key])}
+                                                onChange={handleAttendanceChange}
                                             />
                                         </div>
                                         <label htmlFor=''> {key}
@@ -364,22 +397,21 @@ if (sortOrder === 'Ascending') {
                             </button>
                             </div>
                             <div className={showFormat ? 'block border-b border-light_black border-opacity-20' : 'hidden'}>
-
-                                {format.map((duration) => (
+                                {format.map((format) => (
                                     <div className="flex gap-x-2 text-xs ">
-
                                         <div className="flex gap-x-2">
                                             <input
                                                 type="checkbox"
                                                 id=''
                                                 name=''
-                                                value=''
+                                                value={format}
+                                                checked={searchParam.format.includes(format)}
+                                                onChange={handleFormatChange}
                                             />
                                         </div>
-                                        <label htmlFor='' className="text-xs"> {duration}
+                                        <label htmlFor='' className="text-xs"> {format}
                                         </label>
                                     </div>
-
                                 ))}
                             </div>
                         </div>
@@ -397,12 +429,12 @@ if (sortOrder === 'Ascending') {
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
                                 <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-5/12">
-                                    <span >Sort By: </span>
-                                    <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32">
-                                        <option>Courses</option>
-                                        <option>School</option>
-                                        <option>Tuition</option>
-                                        <option>Duration</option>
+                                    <span > View: </span>
+                                    <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32" value={view}
+                                        onChange={handleViewChange}>
+                                        <option value='List'>List</option>
+                                        <option value='Grid'>Grid</option>
+
                                     </select>
                                     <div>
                                         <span>Order: </span>
@@ -424,13 +456,13 @@ if (sortOrder === 'Ascending') {
 
                                 </div>
                             </div>
-                            {view === 'grid' ? <div className="flex justify-start w-full max-w-full">
+                            {view === 'Grid' ? <div className="flex justify-start w-full max-w-full">
                                 <div className="flex gap-x-4 flex-wrap justify-end w-full">
-                                {sortedCourses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
+                                    {sortedCourses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
                                 </div>
                             </div> : <div className=" w-full max-w-full">
                                 <div className="flex flex-col w-full gap-y-4">
-                                {sortedCourses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
+                                    {sortedCourses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
 
                                 </div>
                             </div>
@@ -453,18 +485,18 @@ if (sortOrder === 'Ascending') {
                 </div>
             </div>
             <ReactPaginate
-  previousLabel={<FaChevronLeft />}
-  nextLabel={<FaChevronRight />}
-  breakLabel={'...'}
-  breakClassName={'break-me'}
-  pageCount={Math.ceil(count / 20)}
-  marginPagesDisplayed={2}
-  pageRangeDisplayed={5}
-  onPageChange={handlePageChange}
-  containerClassName={'flex gap-x-6 mx-auto text-center items-center justify-center mb-2 text-2xl text-orange '}
-  subContainerClassName={'pages pagination'}
-  activeClassName={'text-black border-2 p-2'}
-/>
+                previousLabel={<FaChevronLeft />}
+                nextLabel={<FaChevronRight />}
+                breakLabel={'...'}
+                breakClassName={'break-me'}
+                pageCount={Math.ceil(count / 20)}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageChange}
+                containerClassName={'flex gap-x-6 mx-auto text-center items-center justify-center mb-2 text-2xl text-orange '}
+                subContainerClassName={'pages pagination'}
+                activeClassName={'text-black border-2 p-2'}
+            />
         </div>
     );
 }
