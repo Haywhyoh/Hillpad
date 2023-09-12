@@ -30,6 +30,7 @@ export default function Courses({ props }) {
     } else {
         programme = '';
     }
+    const emptyParam = { discipline: '', degree_type: [], attendance: [], format: [] }
     const [sortOrder, setSortOrder] = useState('Ascending');
     const [isChecked, setIsChecked] = useState(false);
     const [attendanceChecked, setIsAttendanceChecked] = useState(false);
@@ -51,6 +52,7 @@ export default function Courses({ props }) {
         if (programme == 'bachelors' && !discipline && !degree_type && !learning) {
             setCourses(bachelorsList)
             setCount(bachelorsCount)
+            // setSearchParam(emptyParam)
             return
         }
         if (programme == 'masters' && !discipline && !degree_type && !learning) {
@@ -70,7 +72,7 @@ export default function Courses({ props }) {
         }
         if (formatList.length > 0) {
             formatList.map((format) => {
-                url = url + `format=${format}&`
+                url = url + `course_format=${format}&`
                 console.log(url)
             })
         }
@@ -147,8 +149,8 @@ export default function Courses({ props }) {
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 5 years']
     const format = ['Full_Time', 'Part_Time']
     const formatDict = {
-        Full_Time : '',
-        Part_Time : ''
+        Full_Time : 'FULL',
+        Part_Time : 'PART'
     }
     const [attendance, setAttendance] = useState({
         'Blended Learning': 'BLENDED',
@@ -259,7 +261,7 @@ export default function Courses({ props }) {
                                         <div
                                             className={`flex gap-x-2 py-1 text-sm text-light_black ${clickedDiscipline === discipline.id ? 'text-orange' : ''}`}  // Update this line
                                         >
-                                            <div onClick={() => { setId(discipline.id); setSearchParam({ discipline: discipline.id, degree_type: [], attendance: [],format: [] }) }} >
+                                            <div onClick={() => { setId(discipline.id); let latestParam = { ...searchParam}; latestParam.discipline = (discipline.id); setSearchParam(latestParam) }} >
                                                 <span className="flex items-center gap-x-1">
                                                     <i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
                                                     <div className="text-xs"> {discipline.name} </div>
@@ -404,8 +406,8 @@ export default function Courses({ props }) {
                                                 type="checkbox"
                                                 id=''
                                                 name=''
-                                                value={format}
-                                                checked={searchParam.format.includes(format)}
+                                                value={formatDict[format]}
+                                                checked={searchParam.format.includes(formatDict[format])}
                                                 onChange={handleFormatChange}
                                             />
                                         </div>
