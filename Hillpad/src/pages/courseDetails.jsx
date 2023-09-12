@@ -30,7 +30,7 @@ export default function CourseDetails() {
         }).catch((err) => {
             console.log(err)
         })
-    }, []);
+    }, [isLoggedIn]);
     console.log(data)
     const month = {
         '1': 'Jan',
@@ -177,7 +177,7 @@ export default function CourseDetails() {
                                             </div>
                                             <div className='py-3'>
                                                 {
-                                                    data ?
+                                                    isLoggedIn ?
                                                         <a href={data.official_programme_website} target='_blank'>
                                                             <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
                                                                 <span className='text-white font-semibold'>Visit University Website</span>
@@ -228,6 +228,9 @@ export default function CourseDetails() {
                         </div>
 
                     </div>
+
+
+
                     {/* ----------------------------- Mobile View  -----------------------------------*/}
                     <div className='w-screen lg:hidden'>
                         <div className='flex mx-auto items-center justify-center bg-no-repeat bg-cover bg-center text-white  mt-16 relative' style={{ width: '100vw', height: '400px', background: `url(${hero})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -236,9 +239,9 @@ export default function CourseDetails() {
 
                                     <div className=' card shadow-2 w-72 2xs:w-88 bg-white p-4 h-fit rounded-lg text-light_black flex flex-col justify-between '>
                                         <div>
-                                            <h3 className='font-semibold text-2xl'>University of Balablu</h3>
+                                            <h3 className='font-semibold text-2xl'>{data.school.name}</h3>
                                             <div className='text-sm'>
-                                                <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>Toronto Canada</span></div>
+                                                <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>{data.school.city} {data.school.country.name}</span></div>
                                                 <div className='flex items-center gap-x-2'><span><FiStar /></span><span>4.4 (53 Reviews)</span></div>
                                                 <div></div>
                                             </div>
@@ -246,19 +249,19 @@ export default function CourseDetails() {
                                         <div className='flex items-center gap-x-2 text-light_black border-b border-light_black border-opacity-30 py-2'>
                                             <span className='text-xl text-light_black'><FaCoins /></span>
                                             <span className='text-light_black'>Tution: </span>
-                                            <span className='font-semibold text-2xl px-2'>$10, 000</span>
+                                            <span className='font-semibold text-2xl px-2'>{data.tuition_fee > 1 ? data.tuition_fee.toLocaleString() : 0}</span> <span> {data.tuition_currency ? data.tuition_currency.short_code.toUpperCase() : null}</span>
                                         </div>
                                         <div className='flex flex-col gap-y-2 py-2 font-semibold text-opacity-40'>
-                                            <div className='flex items-center gap-x-2'><span><FiCalendar /></span><span>4 years</span><span className='text-xs font-normal'>Duration</span></div>
-                                            <div className='flex items-center gap-x-2'><span><FiClock /></span><span>Full-Time</span><span className='text-xs font-normal'>Format</span></div>
-                                            <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>On Campus</span><span className='text-xs font-normal'>Attendance</span></div>
+                                            <div className='flex items-center gap-x-2'><span><FiCalendar /></span><span>{data.duration} {data.duration_base}</span><span className='text-xs font-normal'>Duration</span></div>
+                                            <div className='flex items-center gap-x-2'><span><FiClock /></span><span>{data.course_format.toLowerCase()}-Time</span><span className='text-xs font-normal'>Format</span></div>
+                                            <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>{data.attendance === 'SITE' ? 'On-Site' : data.attendance}</span><span className='text-xs font-normal'>Attendance</span></div>
                                             <div className='flex items-center gap-x-2'><span><FaPaperPlane /></span><span>Anytime</span><span className='text-xs font-normal'>Apply Date</span></div>
-                                            <div className='flex items-center gap-x-2'><span><FaFlagCheckered /></span><span>Sep 2023</span><span className='text-xs font-normal'>Start Date</span></div>
+                                            <div className='flex items-center gap-x-2'><span><FaFlagCheckered /></span><span>{month[data.course_dates.start_month]} {data.course_dates.start_year}</span><span className='text-xs font-normal'>Start Date</span></div>
 
                                         </div>
                                         <div className='py-3'>
                                             {
-                                                data ?
+                                                isLoggedIn ?
                                                     <a href={data.official_programme_website} target='_blank'>
                                                         <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
                                                             <span className='text-white font-semibold'>Visit University Website</span>
@@ -285,18 +288,21 @@ export default function CourseDetails() {
                                 <div>
                                     <h2 className='font-semibold text-black text-2xl my-6'>About Course</h2>
                                 </div>
-                                <div className=''>
-                                    <p> By taking the Electrical Engineering program at Toronto Metropolitan University,
-                                        you’ll use your knowledge of engineering principles and practices to design,
-                                        develop and implement electrical circuit relationships, electronic devices,
-                                        integrated circuits, microprocessors, computers and control systems.
+                                <div className={data.about.length < 320 ? 'mt-3 mb-16' : 'mt-3'}>
+                                    <p>  {data.about}
                                     </p>
                                 </div>
-                                <a href="" className='text-light underline py-1'>Show more</a>
-                                <div className=''>
-                                    {/* <Overview data={data} /> */}
+                                <div className='w-full'>
+                                            <div>
+                                                <h2 className='font-semibold text-black text-3xl my-6'>Course Overview</h2>
+                                            </div>
+                                            <div className='' dangerouslySetInnerHTML={{ __html: data.overview }}>
 
-                                </div>
+                                            </div>
+                                            <a href="" className='text-light underline py-1'>Show more</a>
+
+
+                                        </div>
 
                             </div>
 
