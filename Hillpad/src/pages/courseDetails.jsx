@@ -18,22 +18,19 @@ export default function CourseDetails() {
     const param = useParams();
     const slug = param.slug
     const [loading, setLoading] = useState(true)
+    const user = useSelector((state) => state.user);
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [data, setData] = useState({});
     useEffect(() => {
         axios.get(`https://54.221.177.186/api/academics/course/detail/${slug}`).then((res) => {
             let programmeData = res.data;
             setData(programmeData);
             setLoading(false)
+            setIsLoggedIn(user.isLoggedIn)
         }).catch((err) => {
             console.log(err)
         })
     }, []);
-
-    // if(location.state === undefined) {
-    //     const course = courses.find(course => course.slug === param.slug);
-    //     setData(course);
-    //     console.log('we used param')
-    // }
     console.log(data)
     const month = {
         '1': 'Jan',
@@ -123,7 +120,7 @@ export default function CourseDetails() {
                                                         {data.name}
                                                     </h1>
                                                 </div>
-                                                <div className='mt-3'>
+                                                <div className={data.about.length < 320 ? 'mt-3 mb-16' : 'mt-3'}>
 
                                                     <p>
                                                         {data.about}
@@ -180,7 +177,7 @@ export default function CourseDetails() {
                                             </div>
                                             <div className='py-3'>
                                                 {
-                                                    data.isLoggedIn ?
+                                                    data ?
                                                         <a href={data.official_programme_website} target='_blank'>
                                                             <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
                                                                 <span className='text-white font-semibold'>Visit University Website</span>
@@ -261,8 +258,8 @@ export default function CourseDetails() {
                                         </div>
                                         <div className='py-3'>
                                             {
-                                                data.isLoggedIn ?
-                                                    <a href="https://www.studyatulawbs.com/programmes/undergraduate/bsc-hons-business-management-with-foundation-and-placement-years/?utm_source=studyportals&utm_medium=listing324053&utm_campaign=ULAWBS&utm_term=324053" target='_blank'>
+                                                data ?
+                                                    <a href={data.official_programme_website} target='_blank'>
                                                         <button className='bg-orange px-4 py-3 rounded-md w-full text-white flex items-center gap-x-2 justify-center'>
                                                             <span className='text-white font-semibold'>Visit University Website</span>
                                                             <div><FiUnlock className='font-bold text-lg' /></div>
