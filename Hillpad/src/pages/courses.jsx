@@ -263,7 +263,7 @@ export default function Courses({ props }) {
                                             <div onClick={() => { setId(discipline.id); let latestParam = { ...searchParam}; latestParam.discipline = (discipline.id); setSearchParam(latestParam) }} >
                                                 <span className="flex items-center gap-x-1">
                                                     <i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
-                                                    <div className="text-xs"> {discipline.name} </div>
+                                                    <div className="text-xs"> {discipline.name} ({programme === 'bachelors' && discipline.courses_bachelors  }{programme === 'masters' && discipline.courses_masters  }{programme === 'doctorates' && discipline.courses_doctorates  })</div>
                                                 </span>
                                             </div>
                                         </div>
