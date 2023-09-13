@@ -19,7 +19,7 @@ export default function CourseDetails() {
     const slug = param.slug
     const [loading, setLoading] = useState(true)
     const user = useSelector((state) => state.user);
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(user.isLoggedIn)
     const [data, setData] = useState({});
     useEffect(() => {
         axios.get(`https://54.221.177.186/api/academics/course/detail/${slug}`).then((res) => {
@@ -30,7 +30,7 @@ export default function CourseDetails() {
         }).catch((err) => {
             console.log(err)
         })
-    }, [isLoggedIn]);
+    }, [isLoggedIn, user.isLoggedIn]);
     console.log(data)
     const month = {
         '1': 'Jan',
@@ -146,14 +146,37 @@ export default function CourseDetails() {
 
 
                                     </section>
+
+                                    <section className='w-full max-w-full mx-auto xl:mx-4 2xl:mx-auto 2xl:px-4'>
+                                        <div className=''>
+                                            <h2 className='font-semibold text-light_black text-3xl my-6'>Key Information</h2>
+                                        </div>
+                                        <div className='flex w-full justify-between h-fit'>
+                                            <div className='w-3/12 '>
+
+                                                <div className='flex gap-y-4 flex-col text-light_black justify-center my-auto h-full'>
+                                                    <div><button className='border-orange bg-orange text-white border-2 w-60 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('background')} >Background</button></div>
+                                                    <div><button className='border-orange border-2 w-60 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => { setInfo('requirements') }} >Requirements</button></div>
+                                                    {/* <div><button className='border-orange border-2 w-60 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('scholarships')} >Scholarships</button></div> */}
+                                                    {/* <div><button className='border-orange border-2 w-60 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('funding')} >Fees and Funding</button></div> */}
+                                                    <div><button className='border-orange border-2 w-60 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('programme')} >Programme Structure</button></div>
+                                                </div>
+                                            </div>
+                                            <div className='shadow-2 w-8/12 border-black h-100 p-8'>
+                                                {
+                                                    renderInfo(info)
+                                                }
+                                            </div>
+                                        </div>
+                                    </section>
                                 </div>
                                 <aside className="w-100 lg:flex flex-col py-20 items-end">
                                     <div className='sticky' style={{ top: '12rem', zIndex: '10' }}>
-                                        
-                                        <div className=' card shadow-2 w-88 bg-white h-fit  text-light_black flex flex-col justify-between '>
-                                        <div className="w-88">
-                                        <iframe width="368" height="315" src="https://www.youtube.com/embed/Uk4xjhq2QjE?si=dOn-PbbIEo3aTcfZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                        </div>
+
+                                        <div className=' rounded-none card shadow-2 w-88 bg-white h-fit p-2 text-light_black flex flex-col justify-between '>
+                                            <div className="w-88">
+                                                <iframe width="350" height="250" src="https://www.youtube.com/embed/Uk4xjhq2QjE?si=dOn-PbbIEo3aTcfZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                            </div>
                                             <div>
                                                 <h3 className='font-semibold text-lg px-4'>{data.school.name}</h3>
                                                 <div className='text-sm px-4'>
@@ -199,28 +222,7 @@ export default function CourseDetails() {
                                 </aside>
 
                             </div>
-                            <section className='w-full max-w-full mx-auto xl:mx-4 2xl:mx-auto 2xl:px-4'>
-                                <div className=''>
-                                    <h2 className='font-semibold text-light_black text-3xl my-6'>Key Information</h2>
-                                </div>
-                                <div className='flex'>
-                                    <div className='w-3/12'>
 
-                                        <div className='flex gap-y-4 flex-col text-light_black'>
-                                            <div><button className='border-orange bg-orange text-white border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('background')} >Background</button></div>
-                                            <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => { setInfo('requirements') }} >Admission Requirements</button></div>
-                                            <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('scholarships')} >Scholarships</button></div>
-                                            <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('funding')} >Fees and Funding</button></div>
-                                            <div><button className='border-orange border-2 w-72 py-3 px-4 rounded-sm courseButton font-semibold' onClick={() => setInfo('programme')} >Programme Structure</button></div>
-                                        </div>
-                                    </div>
-                                    <div className='shadow-2 w-9/12 border-black h-100 p-8'>
-                                        {
-                                            renderInfo(info)
-                                        }
-                                    </div>
-                                </div>
-                            </section>
                             <div className='w-full max-w-full mx-auto my-10 xl:mx-4 2xl:mx-auto 2xl:px-4'>
                                 <Prefooter />
 
@@ -293,16 +295,16 @@ export default function CourseDetails() {
                                     </p>
                                 </div>
                                 <div className='w-full'>
-                                            <div>
-                                                <h2 className='font-semibold text-black text-3xl my-6'>Course Overview</h2>
-                                            </div>
-                                            <div className='' dangerouslySetInnerHTML={{ __html: data.overview }}>
+                                    <div>
+                                        <h2 className='font-semibold text-black text-3xl my-6'>Course Overview</h2>
+                                    </div>
+                                    <div className='' dangerouslySetInnerHTML={{ __html: data.overview }}>
 
-                                            </div>
-                                            <a href="" className='text-light underline py-1'>Show more</a>
+                                    </div>
+                                    <a href="" className='text-light underline py-1'>Show more</a>
 
 
-                                        </div>
+                                </div>
 
                             </div>
 
