@@ -175,7 +175,7 @@ export default function CourseDetails() {
 
                                         <div className=' rounded-none card shadow-2 w-88 bg-white h-fit p-2 text-light_black flex flex-col justify-between '>
                                             <div className="w-88">
-                                                <iframe width="350" height="200" src="https://www.youtube.com/embed/Uk4xjhq2QjE?si=dOn-PbbIEo3aTcfZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                                <iframe width="350" height="190" src="https://www.youtube.com/embed/Uk4xjhq2QjE?si=dOn-PbbIEo3aTcfZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                             </div>
                                             <div>
                                                 <h3 className='font-semibold text-lg px-4'>{data.school.name}</h3>
