@@ -45,7 +45,7 @@ export default function Courses({ props }) {
         let durationList = Params.duration
         let tuitionVal = Params.tuition
         let url = `${baseUrl}?programme=${programme}&page=${currentPage + 1}&`;
-         if (!programme) {
+        if (!programme) {
             setCourses(courseList);
             setCount(courseCount);
             return
@@ -110,7 +110,7 @@ export default function Courses({ props }) {
             })
             console.log(url)
         }
-       
+
         console.log(url);
         console.log(Params)
         const res = await axios.get(url);
@@ -145,7 +145,7 @@ export default function Courses({ props }) {
 
     const handleTuition = () => {
         const tuitionRange = `${minTuition},${maxTuition}`;
-        let anotherParam = { ...searchParam};
+        let anotherParam = { ...searchParam };
         anotherParam.tuition = (tuitionRange);
         setSearchParam(anotherParam);
         console.log(tuitionRange);
@@ -156,19 +156,19 @@ export default function Courses({ props }) {
 
         setDisciplines(disciplinesList);
     }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList]);
-    
+
     const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 4 years']
     const format = ['Full_Time', 'Part_Time']
     const formatDict = {
-        Full_Time : 'FULL',
-        Part_Time : 'PART'
+        Full_Time: 'FULL',
+        Part_Time: 'PART'
     }
     const durationDict = {
-        'Less than 1 year' : '0,364',
-        '2 years': '365, 728',
-        '3 years': '729, 1095',
-        '4 years': '730, 1460',
-        'More than 4 years': '1461, -1',
+        'Less than 1 year': '0,364',
+        '2 years': '365,728',
+        '3 years': '729,1095',
+        '4 years': '730,1460',
+        'More than 4 years': '1461,-1',
     }
     const [attendance, setAttendance] = useState({
         'Blended Learning': 'BLENDED',
@@ -186,7 +186,7 @@ export default function Courses({ props }) {
     const [showTuition, setTuitionInfo] = useState(true);
     const [minTuition, setMinTuition] = useState(0);
     const [maxTuition, setMaxTuition] = useState(10000); // Set this to the maximum tuition fee
-    
+
 
     const [view, setView] = useState('List');
 
@@ -259,9 +259,9 @@ export default function Courses({ props }) {
 
         }
         setSearchParam(latestParam);
-        
+
     };
-    
+
     const handleDurationChange = (event) => {
         let latestParam = { ...searchParam };
         if (!latestParam.duration) {
@@ -277,7 +277,7 @@ export default function Courses({ props }) {
 
         }
         setSearchParam(latestParam);
-        
+
     };
 
     return (
@@ -300,10 +300,10 @@ export default function Courses({ props }) {
                                         <div
                                             className={`flex gap-x-2 py-2 text-sm text-light_black ${clickedDiscipline === discipline.id ? 'text-orange' : ''}`}  // Update this line
                                         >
-                                            <div onClick={() => { setId(discipline.id); let latestParam = { ...searchParam}; latestParam.discipline = (discipline.id); setSearchParam(latestParam) }} >
+                                            <div onClick={() => { setId(discipline.id); let latestParam = { ...searchParam }; latestParam.discipline = (discipline.id); setSearchParam(latestParam) }} >
                                                 <span className="flex items-center gap-x-1 gap-y-2">
                                                     <i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
-                                                    <div className="text-sm"> {discipline.name} ({programme === 'bachelors' && discipline.courses_bachelors  }{programme === 'masters' && discipline.courses_masters  }{programme === 'doctorates' && discipline.courses_doctorates  })</div>
+                                                    <div className="text-sm"> {discipline.name} ({programme === 'bachelors' && discipline.courses_bachelors}{programme === 'masters' && discipline.courses_masters}{programme === 'doctorates' && discipline.courses_doctorates})</div>
                                                 </span>
                                             </div>
                                         </div>
@@ -407,48 +407,48 @@ export default function Courses({ props }) {
                                 ))}
                             </div>
                         </div>
-                       <div>
-    <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between">
-        <div>Tuition</div>
-        <button className=''>
-            {showTuition ? <AiOutlineUp /> : <AiOutlineDown />}
-        </button>
-    </div>
-    <div className={showTuition ? 'block my-2' : 'hidden'}>
-        <div className="flex gap-x-2 gap-y-4 flex-col ">
-            <div className="flex gap-x-2 ">
-                <input
-                    type="range"
-                    id='minTuition'
-                    name='minTuition'
-                    min="0"
-                    max="10000" // Set this to the maximum tuition fee
-                    value={minTuition}
-                    onChange={(e) => setMinTuition(e.target.value)}
-                />
-                <input
-                    type="range"
-                    id='maxTuition'
-                    name='maxTuition'
-                    min="10000"
-                    max="100000" // Set this to the maximum tuition fee
-                    value={maxTuition}
-                    onChange={(e) => setMaxTuition(e.target.value)}
-                />
-            </div>
-            <div className='flex gap-x-4'>
-                <div className="flex items-center">
-                <span className="text-xl me-2">Min: </span> <div className="px-4 py-2 border">{minTuition} </div> 
-                </div>
-               
-                <div className="flex items-center">
-                <span className="text-xl me-2">Max: </span> <div className="px-4 py-2 border">{maxTuition} </div> 
-                </div>
-            </div>
-            <button className="text-orange font-semibold  hover:border-2 hover:border-orange  w-28 mx-auto py-2 px-1 hover:text-orange" onClick={handleTuition}>APPLY</button>
-        </div>
-    </div>
-</div>
+                        <div>
+                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between">
+                                <div>Tuition</div>
+                                <button className=''>
+                                    {showTuition ? <AiOutlineUp /> : <AiOutlineDown />}
+                                </button>
+                            </div>
+                            <div className={showTuition ? 'block my-2' : 'hidden'}>
+                                <div className="flex gap-x-2 gap-y-4 flex-col ">
+                                    <div className="flex gap-x-2 ">
+                                        <input
+                                            type="range"
+                                            id='minTuition'
+                                            name='minTuition'
+                                            min="0"
+                                            max="10000" // Set this to the maximum tuition fee
+                                            value={minTuition}
+                                            onChange={(e) => setMinTuition(e.target.value)}
+                                        />
+                                        <input
+                                            type="range"
+                                            id='maxTuition'
+                                            name='maxTuition'
+                                            min="10000"
+                                            max="100000" // Set this to the maximum tuition fee
+                                            value={maxTuition}
+                                            onChange={(e) => setMaxTuition(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className='flex gap-x-4'>
+                                        <div className="flex items-center">
+                                            <span className="text-xl me-2">Min: </span> <div className="px-4 py-2 border">{minTuition} </div>
+                                        </div>
+
+                                        <div className="flex items-center">
+                                            <span className="text-xl me-2">Max: </span> <div className="px-4 py-2 border">{maxTuition} </div>
+                                        </div>
+                                    </div>
+                                    <button className="text-orange font-semibold  hover:border-2 hover:border-orange  w-28 mx-auto py-2 px-1 hover:text-orange" onClick={handleTuition}>APPLY</button>
+                                </div>
+                            </div>
+                        </div>
                         <div >
                             <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setAttendanceInfo(!showAttendance); }}><div>Attendance</div>  <button className='' >
                                 {showAttendance ? <AiOutlineUp /> : <AiOutlineDown />}
