@@ -157,7 +157,7 @@ export default function Courses({ props }) {
         setDisciplines(disciplinesList);
     }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList]);
 
-    const duration = ['Less than 1 year', '2 years', '3 years', '4 years', 'More than 4 years']
+    const duration = ['Less than 1 year', '1 - 2 years', '2 - 3 years', '3 - 4 years', 'More than 4 years']
     const format = ['Full_Time', 'Part_Time']
     const formatDict = {
         Full_Time: 'FULL',
@@ -165,9 +165,9 @@ export default function Courses({ props }) {
     }
     const durationDict = {
         'Less than 1 year': '0,364',
-        '2 years': '365,728',
-        '3 years': '729,1095',
-        '4 years': '730,1460',
+        '1 - 2 years': '365,728',
+        '2 - 3 years': '729,1095',
+        '3 - 4 years': '730,1460',
         'More than 4 years': '1461,-1',
     }
     const [attendance, setAttendance] = useState({
