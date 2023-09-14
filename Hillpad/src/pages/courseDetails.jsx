@@ -231,8 +231,6 @@ export default function CourseDetails() {
 
                     </div>
 
-
-
                     {/* ----------------------------- Mobile View  -----------------------------------*/}
                     <div className='w-screen lg:hidden'>
                         <div className='flex mx-auto items-center justify-center bg-no-repeat bg-cover bg-center text-white  mt-16 relative' style={{ width: '100vw', height: '400px', background: `url(${hero})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>

@@ -59,7 +59,7 @@ export default function Countries() {
                             <div className='flex w-64 lg:w-60 xl:w-64 px-4 py-1 gap-x-4 text-base'>
                                 <div className={`fi fi-${country.short_code}`}></div>
                                 <div className='text-light'>{country.name}</div>
-                                <div className='text-light_black'>(8)</div>
+                                {/* <div className='text-light_black'>(8)</div> */}
                             </div>
                             </Link>
                         ))}
