@@ -10,9 +10,6 @@ function CountryCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
 
-  
-
-
     return (
         <div className="">
 <div>
@@ -24,7 +21,7 @@ function CountryCarousel() {
                         <div className="rounded-2xl">
                             <img src={newyork} className="rounded-t-2xl bg-black" />
                         </div>
-                        <div className=" hidden text-white text-xs text-left font-thin p-4 transition-all duration-1000 bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-20 rounded-t-2xl" id='newyork'>
+                        <div className=" hidden text-white text-xs text-left font-thin p-4 transition-all duration-1000 bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-60 rounded-t-2xl" id='newyork'>
                             <div className="flex items-center gap-x-2">
                                 <FaGlobeAmericas className="text-orange"/>
                                 <div className="font-semibold">
@@ -49,7 +46,7 @@ function CountryCarousel() {
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl bg-black" />
                         </div>
-                        <div className=" hidden text-white text-xs text-left font-thin p-4 transition-all duration-1000 bg-black absolute left-0 top-0 h-4/5 bg-opacity-20 rounded-t-2xl" id='canada'>
+                        <div className=" hidden text-white text-xs text-left font-thin p-4 transition-all duration-1000 bg-black absolute left-0 top-0 h-4/5 bg-opacity-60 rounded-t-2xl" id='canada'>
                             <div className="flex items-center gap-x-2">
                                 <FaGlobeAmericas className="text-orange"/>
                                 <div className="font-semibold">
@@ -74,7 +71,7 @@ function CountryCarousel() {
                         <div className="rounded-2xl">
                             <img src={belgium} className="rounded-t-2xl" />
                         </div>
-                        <div className=" hidden text-white text-xs text-left font-thin p-4 transition-all duration-1000 bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-20 rounded-t-2xl" id='belgium'>
+                        <div className=" hidden text-white text-xs text-left font-thin p-4 transition-all duration-1000 bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-60 rounded-t-2xl" id='belgium'>
                             <div className="flex items-center gap-x-2">
                                 <FaGlobeAmericas className="text-orange"/>
                                 <div className="font-semibold">
@@ -100,7 +97,7 @@ function CountryCarousel() {
                         <div className="rounded-2xl">
                             <img src={uk} className="rounded-t-2xl" />
                         </div>
-                        <div className=" hidden text-white text-xs text-left font-thin p-4 transition-all duration-1000 bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-20 rounded-t-2xl" id='uk'>
+                        <div className=" hidden text-white text-xs text-left font-thin p-4 transition-all duration-1000 bg-black absolute left-0 top-0 w-full h-4/5 bg-opacity-60 rounded-t-2xl" id='uk'>
                             <div className="flex items-center gap-x-2">
                                 <FaGlobeAmericas className="text-orange"/>
                                 <div className="font-semibold">
