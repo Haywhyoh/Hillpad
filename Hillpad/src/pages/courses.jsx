@@ -15,6 +15,7 @@ import { fetchBachelors } from "../redux/bachelorsSlice";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 export default function Courses({ props }) {
     let courseList = useSelector((state) => state.courses.coursesList);
+    const countriesList = useSelector((state) => state.country.countryList);
     let bachelorsList = useSelector((state) => state.bachelors.bachelorsList);
     let mastersList = useSelector((state) => state.masters.mastersList);
     let doctoratesList = useSelector((state) => state.doctorates.doctoratesList);
@@ -37,6 +38,20 @@ export default function Courses({ props }) {
     const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '' });
     const [clickedDiscipline, setClickedDiscipline] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
+    const [countries, setCountries] = useState(countriesList);
+    const [showCountryDropdown, setShowCountryDropdown] = useState(false);
+    const [selectedCountries, setSelectedCountries] = useState([]);
+
+    const handleCountryChange = (event) => {
+        const selectedCountryName = event.target.value;
+        const selectedCountryCode = countries.find(country => country.name === selectedCountryName).short_code;
+        setSelectedCountries(prevCountries => [...prevCountries, { name: selectedCountryName, code: selectedCountryCode }]);
+    };
+
+    const handleCountryDeselect = (deselectedCountryCode) => {
+        setSelectedCountries(prevCountries => prevCountries.filter(country => country.code !== deselectedCountryCode));
+    };
+
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '' }) => {
         let discipline = Params.discipline
         let degree_type = Params.degree_type
@@ -476,6 +491,32 @@ export default function Courses({ props }) {
                                 ))}
                             </div>
                         </div>
+                        <div>
+            <button onClick={() => setShowCountryDropdown(!showCountryDropdown)}>Add</button>
+            {showCountryDropdown && (
+                <>
+                    {selectedCountries.map((country, index) => (
+                        <div key={index}>
+                            <input
+                                type="checkbox"
+                                id={country.code}
+                                name={country.code}
+                                checked={true}
+                                onChange={() => handleCountryDeselect(country.code)}
+                            />
+                            <label htmlFor={country.code}>{country.name}</label>
+                        </div>
+                    ))}
+                    <select onChange={handleCountryChange}>
+                        {countries.map((country, index) => (
+                            <option key={index} value={country.name}>
+                                {country.name}
+                            </option>
+                        ))}
+                    </select>
+                </>
+            )}
+        </div>
 
                         <div>
                             <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setFormatInfo(!showFormat); }}><div>Format</div>  <button className=''>

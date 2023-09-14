@@ -28,7 +28,6 @@ import DisciplinesList from './components/test'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
-  const countries = useSelector((state) => state.country.countryList);
   const degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
   const allCourses = useSelector((state) => state.courses.coursesList);
   const allCoursesCount = useSelector((state) => state.courses.count);
@@ -47,6 +46,7 @@ function App() {
   const masters = useDispatch();
   const doctorates = useDispatch();
   const degree = useDispatch();
+  const country = useDispatch();
 
 
   useEffect( () => {
@@ -58,6 +58,7 @@ function App() {
       masters(fetchMasters())
       doctorates(fetchDoctorates())
       degree(fetchDegreeTypes())
+      country(fetchCountry())
       return () => {
       if (user.userInfo.firstName) {
         setUserName(user.userInfo.firstName)
