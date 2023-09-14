@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { HiOutlineCalculator, HiOutlineDesktopComputer, HiUsers } from "react-icons/hi";
 import { RiBook2Fill } from "react-icons/ri";
 import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight, FiList, FiArrowDown, FiChevronDown } from "react-icons/fi";
-import { useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import review1 from '../assets/images/01.jpeg';
 import review2 from '../assets/images/02.jpeg';
@@ -43,6 +43,8 @@ export default function Home() {
   const [hideCountryList, setCountryList] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState('Where ?');
 
+  const dropdownRef = useRef(null);
+
   const scrollLeft = () => {
     document.getElementById("contentB").scrollLeft -= 305;
   }
@@ -55,6 +57,23 @@ export default function Home() {
   const scrollRight2 = () => {
     document.getElementById("content3").scrollLeft += 306;
   }
+
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      // If the menu is open and the clicked target is not within the menu, then close the menu
+      if (hideCountryList && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setCountryList(false);
+      }
+    }
+  
+    document.addEventListener("mousedown", checkIfClickedOutside)
+  
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside)
+    }
+  
+  }, [hideCountryList]);
 
   return (
     <>
@@ -109,7 +128,7 @@ export default function Home() {
                       </div>
 
                         { hideCountryList &&
-                        <div className="text-left left-80 top-16 shadow p-4 rounded-sm  max-h-44 overflow-y-scroll  my-0 w-full px-2 text-light_black bg-white focus:outline-none lg:w-40 absolute">
+                        <div ref={dropdownRef} className="text-left left-80 top-16 shadow p-4 rounded-sm  max-h-44 overflow-y-scroll  my-0 w-full px-2 text-light_black bg-white focus:outline-none lg:w-40 absolute">
                           {
                             countries.map((country) => (
                               <div className="text-light_black text-xs py-2" value={country} key={country.id} onClick={() => {setSelectedCountry(country.name); setCountryList(false)}}>
