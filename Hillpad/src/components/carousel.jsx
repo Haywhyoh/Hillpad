@@ -89,14 +89,17 @@ function Carousel() {
                                         universities, colleges, and school worldwide
                                     </div>
                                     <Link to='/bachelors'>
+                                        <div className="flex justify-center">
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                             Search Bachelors
                                         </button>
+                                        </div>
+                                        
                                     </Link>
                                 </div>
 
                             </div> : <div className=" flex-1  transition-all duration-300">
-                                <div className="xl:pt-6 p-2">
+                                <div className="xl:pt-6 p-2 flex flex-col justify-center">
                                     <div className="w-40 mx-auto p-2">
                                         <img src={bachelor} alt="bachelors_degree" />
                                     </div>
@@ -106,8 +109,12 @@ function Carousel() {
                                         universities, colleges, and school worldwide
                                     </div>
                                     <Link to='/bachelors'>
-                                        <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white">                      Search Bachelors
+                                        <div className="flex justify-center">
+                                        <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange mx-auto hover:bg-orange mb-8 hover:text-white">
+                                            Search Bachelors
                                         </button>
+                                        </div>
+                                        
                                     </Link>
                                 </div>
 
@@ -130,9 +137,12 @@ function Carousel() {
                                     universities, colleges, and school worldwide
                                 </div>
                                 <Link to='/masters'>
+                                    <div className="flex justify-center">
                                     <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                         Search Masters
                                     </button>
+                                    </div>
+                                    
                                 </Link>
                             </div>
 
@@ -148,8 +158,10 @@ function Carousel() {
                                         universities, colleges, and school worldwide
                                     </div>
                                     <Link to='/masters'>
+                                    <div className="flex justify-center">
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white"> Search Masters
                                         </button>
+                                    </div>
                                     </Link>
                                 </div>
 
@@ -174,9 +186,12 @@ function Carousel() {
                                     universities, colleges, and school worldwide
                                 </div>
                                 <Link to='/doctorates'>
+                                    <div className="flex justify-center">
                                     <button className="border-orange border rounded-md font-bold text-base py-2 px-6 mb-8 bg-orange text-white">
                                         Search PhDs
                                     </button>
+                                    </div>
+                                   
                                 </Link>
                             </div>
 
@@ -192,8 +207,11 @@ function Carousel() {
                                         universities, colleges, and school worldwide
                                     </div>
                                     <Link to='/doctorates'>
+                                        <div className="flex justify-center">
                                         <button className="border-orange border rounded-md font-bold text-base py-2 px-6 text-orange  hover:bg-orange mb-8 hover:text-white"> Search PhDs
                                         </button>
+                                        </div>
+                                       
                                     </Link>
                                 </div>
 
