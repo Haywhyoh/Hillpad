@@ -519,7 +519,6 @@ export default function Courses({ props }) {
                                     <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32" value={view}
                                         onChange={handleViewChange}>
                                         <option value='List'>List</option>
-                                        <option value='Grid'>Grid</option>
 
                                     </select>
                                     <div>
