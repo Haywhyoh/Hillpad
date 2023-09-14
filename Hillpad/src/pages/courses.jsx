@@ -15,7 +15,7 @@ import { fetchBachelors } from "../redux/bachelorsSlice";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 export default function Courses({ props }) {
     let courseList = useSelector((state) => state.courses.coursesList);
-    const countriesList = useSelector((state) => state.country.countryList);
+    let countriesList = useSelector((state) => state.country.countryList);
     let bachelorsList = useSelector((state) => state.bachelors.bachelorsList);
     let mastersList = useSelector((state) => state.masters.mastersList);
     let doctoratesList = useSelector((state) => state.doctorates.doctoratesList);
@@ -41,16 +41,21 @@ export default function Courses({ props }) {
     const [countries, setCountries] = useState(countriesList);
     const [showCountryDropdown, setShowCountryDropdown] = useState(false);
     const [selectedCountries, setSelectedCountries] = useState([]);
+    const [searchCountry, setSearchCountry] = useState('');
 
-    const handleCountryChange = (event) => {
-        const selectedCountryName = event.target.value;
-        const selectedCountryCode = countries.find(country => country.name === selectedCountryName).short_code;
-        setSelectedCountries(prevCountries => [...prevCountries, { name: selectedCountryName, code: selectedCountryCode }]);
+    const handleCountrySelect = (country) => {
+        setSelectedCountries(prevCountries => [...prevCountries, country]);
     };
 
-    const handleCountryDeselect = (deselectedCountryCode) => {
-        setSelectedCountries(prevCountries => prevCountries.filter(country => country.code !== deselectedCountryCode));
+    const handleCountryDeselect = (deselectedCountry) => {
+        setSelectedCountries(prevCountries => prevCountries.filter(country => country !== deselectedCountry));
     };
+
+    const handleSearchChange = (event) => {
+        setSearchCountry(event.target.value);
+    };
+
+    const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(searchCountry.toLowerCase()));
 
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '' }) => {
         let discipline = Params.discipline
@@ -170,7 +175,8 @@ export default function Courses({ props }) {
         fetchData(param);
 
         setDisciplines(disciplinesList);
-    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList]);
+        setCountries(countriesList)
+    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList, countriesList]);
 
     const duration = ['Less than 1 year', '1 - 2 years', '2 - 3 years', '3 - 4 years', 'More than 4 years']
     const format = ['Full_Time', 'Part_Time']
@@ -194,6 +200,7 @@ export default function Courses({ props }) {
     const [showInfo, setShowInfo] = useState(false);
     const [showBach, setBachInfo] = useState(false);
     const [showMasters, setMastersInfo] = useState(false);
+    const [showCountries, setShowCountries] = useState(false);
     const [showDoc, setDocInfo] = useState(false);
     const [showDuration, setDurationInfo] = useState(false);
     const [showAttendance, setAttendanceInfo] = useState(false);
@@ -492,34 +499,38 @@ export default function Courses({ props }) {
                             </div>
                         </div>
                         <div>
-            <button onClick={() => setShowCountryDropdown(!showCountryDropdown)}>Add</button>
-            {showCountryDropdown && (
-                <>
-                    {selectedCountries.map((country, index) => (
+                <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between">
+                    <div>Countries</div>  
+                </div>
+                <div className="w-full flex gap-x-2 flex-col">
+                    {selectedCountries.map((selectedCountry, index) => (
                         <div key={index}>
                             <input
                                 type="checkbox"
-                                id={country.code}
-                                name={country.code}
+                                id={selectedCountry.code}
+                                name={selectedCountry.code}
                                 checked={true}
-                                onChange={() => handleCountryDeselect(country.code)}
+                                onChange={() => handleCountryDeselect(selectedCountry)}
                             />
-                            <label htmlFor={country.code}>{country.name}</label>
+                            <label htmlFor={selectedCountry.code} className="mx-3 text-lg text-light_black">{selectedCountry.name}</label>
                         </div>
                     ))}
-                    <select onChange={handleCountryChange}>
-                        {countries.map((country, index) => (
-                            <option key={index} value={country.name}>
-                                {country.name}
-                            </option>
-                        ))}
-                    </select>
-                </>
-            )}
-        </div>
-
+                    <input
+                        type="text"
+                        placeholder="Search countries..."
+                        value={searchCountry}
+                        onChange={handleSearchChange}
+                    />
+                    {filteredCountries.map((country, index) => (
+                        <div key={index} onClick={() => handleCountrySelect(country)}>
+                            {country.name}
+                        </div>
+                    ))}
+                </div>
+            </div>
                         <div>
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setFormatInfo(!showFormat); }}><div>Format</div>  <button className=''>
+                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setFormatInfo(!showFormat); }}><div>Format</div>  
+                            <button className=''>
                                 {showFormat ? <AiOutlineUp /> : <AiOutlineDown />}
                             </button>
                             </div>
