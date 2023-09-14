@@ -111,6 +111,11 @@ export default function Header({ props }) {
         user.classList.toggle('hidden');
     }
 
+    function hideUser() {
+        let user = document.querySelector('#userCard');
+        user.classList.add('hidden');
+    }
+
     const handleSignOut = async () => {
         try {
             axios.defaults.withCredentials = true;
@@ -232,7 +237,7 @@ export default function Header({ props }) {
 
                 {props.isLoggedIn ? 
                     <div className='flex gap-x-3 w-52 justify-between'>
-                        <button className='text-orange flex items-center gap-x-2 relative'onClick={showUser} onMouseEnter={showUser}><div className='w-8'><img src={signlogo} className='w-8' /></div><div>{props.userInfo.firstName}</div></button>
+                        <button className='text-orange flex items-center gap-x-2 relative'onClick={showUser} onMouseEnter={showUser} onMouseLeave={hideUser}><div className='w-8'><img src={signlogo} className='w-8' /></div><div>{props.userInfo.firstName}</div></button>
                         <div className='hidden w-70 text-sm absolute top-20 right-1/5 deepShadow rounded-md py-2 px-6 bg-white font-normal text-light_black' id='userCard'  >
                             <div className='flex gap-x-4 items-center py-2'>
                                 <div className='w-8'><img src={signlogo} className='w-8' /></div>
