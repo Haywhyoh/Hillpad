@@ -11,9 +11,6 @@ import { useSelector } from 'react-redux/es/hooks/useSelector'
 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
- 
-
-
 
 export default function DisciplinesList() {
     const [disciplines, setDisciplines] = useState([]);
@@ -144,7 +141,7 @@ export default function DisciplinesList() {
                         </div>
                       </div>
 
-                      <div className="font-semibold text-sm my-2">Applied Science & Profession</div>
+                      <div className="font-semibold text-sm my-2 ">Applied Science & Profession</div>
                     </div>
                   </div> :
                   <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-44  border border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white shadow-2 rounded-lg">
@@ -155,7 +152,7 @@ export default function DisciplinesList() {
                         </div>
                       </div>
 
-                      <div className="font-semibold text-sm my-2">Applied Science & Profession</div>
+                      <div className="font-semibold text-sm my-2 text-center ">Applied Science & Profession</div>
                     </div>
                   </div>
               }
@@ -172,7 +169,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Art and Design</div>
+                    <div className="font-semibold text-sm my-2 text-center">Art and Design</div>
                   </div>
                 </div>
                 :
@@ -184,7 +181,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Art and Design</div>
+                    <div className="font-semibold text-sm my-2 text-center">Art and Design</div>
                   </div>
                 </div>
               }
@@ -201,7 +198,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Business Management</div>
+                    <div className="font-semibold text-sm my-2 text-center">Business Management</div>
                   </div>
                 </div>
                 :
@@ -213,7 +210,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Business Management</div>
+                    <div className="font-semibold text-sm my-2 text-center">Business Management</div>
                   </div>
                 </div>
               }
@@ -229,7 +226,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Computer Science and IT</div>
+                    <div className="font-semibold text-sm my-2 text-center">Computer Science and IT</div>
                   </div>
                 </div>
                 :
@@ -241,7 +238,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Computer Science and IT</div>
+                    <div className="font-semibold text-sm my-2 text-center">Computer Science and IT</div>
                   </div>
                 </div>
               }
@@ -257,7 +254,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Education and Training</div>
+                    <div className="font-semibold text-sm my-2 text-center">Education and Training</div>
                   </div>
                 </div>
                 :
@@ -269,7 +266,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Education and Training</div>
+                    <div className="font-semibold text-sm my-2 text-center">Education and Training</div>
                   </div>
                 </div>
               }
@@ -285,7 +282,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Engineering and Technology</div>
+                    <div className="font-semibold text-sm my-2 text-center">Engineering and Technology</div>
                   </div>
                 </div>
                 :
@@ -297,7 +294,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Engineering and Technology</div>
+                    <div className="font-semibold text-sm my-2 text-center">Engineering and Technology</div>
                   </div>
                 </div>
               }
@@ -313,7 +310,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Natural Sciences & Mathematics</div>
+                    <div className="font-semibold text-sm my-2 text-center">Natural Sciences & Mathematics</div>
                   </div>
                 </div>
                 :
@@ -325,7 +322,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Natural Sciences & Mathematics</div>
+                    <div className="font-semibold text-sm my-2 text-center">Natural Sciences & Mathematics</div>
                   </div>
                 </div>
               }
@@ -341,7 +338,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Hospitality, Lesiure and Sport</div>
+                    <div className="font-semibold text-sm my-2 text-center">Hospitality, Lesiure and Sport</div>
                   </div>
                 </div>
                 :
@@ -353,7 +350,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Hospitality, Lesiure and Sport</div>
+                    <div className="font-semibold text-sm my-2 text-center">Hospitality, Lesiure and Sport</div>
                   </div>
                 </div>
               }
@@ -370,7 +367,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Humanities & Social Science </div>
+                    <div className="font-semibold text-sm my-2 text-center">Humanities & Social Science </div>
                   </div>
                 </div>
                 :
@@ -382,7 +379,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Humanities & Social Science </div>
+                    <div className="font-semibold text-sm my-2 text-center">Humanities & Social Science </div>
                   </div>
                 </div>
               }
@@ -398,7 +395,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Journalism, Media & Communication </div>
+                    <div className="font-semibold text-sm my-2 text-center">Journalism, Media & Communication </div>
                   </div>
                 </div>
                 :
@@ -410,7 +407,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Journalism, Media & Communication </div>
+                    <div className="font-semibold text-sm my-2 text-center">Journalism, Media & Communication </div>
                   </div>
                 </div>
               }
@@ -426,7 +423,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Environmental Sciences</div>
+                    <div className="font-semibold text-sm my-2 text-center">Environmental Sciences</div>
                   </div>
                 </div>
                 :
@@ -438,7 +435,7 @@ export default function DisciplinesList() {
                       </div>
                     </div>
 
-                    <div className="font-semibold text-sm my-2">Environmental Sciences</div>
+                    <div className="font-semibold text-sm my-2 text-center">Environmental Sciences</div>
                   </div>
                 </div>
               }

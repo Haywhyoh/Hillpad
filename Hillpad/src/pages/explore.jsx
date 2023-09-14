@@ -21,7 +21,6 @@ export default function Explore() {
       <section className="w-full max-w-full mx-auto">
         <div>
           <h1 className="lg:mt-24 font-bold lg:text-4xl mx-auto ">Browse By Disciplines</h1>
-
         </div>
         <DisciplinesList />
       </section>
