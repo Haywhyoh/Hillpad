@@ -182,7 +182,7 @@ function Carousel() {
                                 </div>
                                 <div className="font-bold text-xl text-center mt-6 mx-8">Doctorate's Programme</div>
                                 <div className="text-sm text-light_black sm:p-2 lg:p-6 my-2">
-                                    Choose from more than 1000 Doctorate programmes at
+                                    Choose from more than 1000 Doctorates programmes at
                                     universities, colleges, and school worldwide
                                 </div>
                                 <Link to='/doctorates'>

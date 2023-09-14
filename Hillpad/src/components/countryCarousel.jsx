@@ -25,17 +25,18 @@ function CountryCarousel() {
                             <div className="flex items-center gap-x-2">
                                 <FaGlobeAmericas className="text-orange"/>
                                 <div className="font-semibold">
-                                    Europe
+                                    North America
                                 </div>
                             </div>
                             <p className="my-4">
-                            New York City, a vibrant global metropolis,
-                            sboasts iconic landmarks, diverse neighborhoods, 
-                            and a rich cultural scene. With its towering skyscrapers and endless energy, the city offers a unique blend of history, art, and cuisine. 
-                            As a symbol of innovation and ambition, it remains an alluring destination for visitors worldwide.
+                            
+                            The United States of America is a country primarily located in North America.
+                            It is the world's third-largest country by both land and total area.
+                            With a population of over 333 million, it is the most populous country
+                            in the Americas and the third most populous in the world.
                             </p>
                         </div>
-                        <div className="py-4 font-bold text-base text-light_black text-center ">NewYork</div>
+                        <div className="py-4 font-bold text-base text-light_black text-center ">United States</div>
                     </div>
                 </div>
                 <div className="rounded-t-2xl mx-2 2xs:mx-0 relative">
@@ -50,14 +51,14 @@ function CountryCarousel() {
                             <div className="flex items-center gap-x-2">
                                 <FaGlobeAmericas className="text-orange"/>
                                 <div className="font-semibold">
-                                    Europe
+                                    North America
                                 </div>
                             </div>
                             <p className="my-4">
-                            New York City, a vibrant global metropolis,
-                            sboasts iconic landmarks, diverse neighborhoods, 
-                            and a rich cultural scene. With its towering skyscrapers and endless energy, the city offers a unique blend of history, art, and cuisine. 
-                            As a symbol of innovation and ambition, it remains an alluring destination for visitors worldwide.
+                            Canada is a country in North America. 
+                            Its ten provinces and three territories extend from the Atlantic Ocean to the Pacific Ocean
+                            and northward into the Arctic Ocean, covering over 9.98 million square kilometres
+                            (3.85 million square miles), making it the world's second-largest country by total area.
                             </p>
                         </div>
                         <div className="py-4 font-bold text-base text-light_black text-center">Canada</div>
@@ -79,10 +80,10 @@ function CountryCarousel() {
                                 </div>
                             </div>
                             <p className="my-4">
-                            New York City, a vibrant global metropolis,
-                            sboasts iconic landmarks, diverse neighborhoods, 
-                            and a rich cultural scene. With its towering skyscrapers and endless energy, the city offers a unique blend of history, art, and cuisine. 
-                            As a symbol of innovation and ambition, it remains an alluring destination for visitors worldwide.
+                            Belgium, officially the Kingdom of Belgium, is a country in Northwestern Europe.
+                            The country is bordered by the Netherlands to the north,
+                            Germany to the east, Luxembourg to the southeast, France to the southwest,
+                            and the North Sea to the northwest. 
                             </p>
                         </div>
                         <div
@@ -105,10 +106,10 @@ function CountryCarousel() {
                                 </div>
                             </div>
                             <p className="my-4">
-                            New York City, a vibrant global metropolis,
-                            sboasts iconic landmarks, diverse neighborhoods, 
-                            and a rich cultural scene. With its towering skyscrapers and endless energy, the city offers a unique blend of history, art, and cuisine. 
-                            As a symbol of innovation and ambition, it remains an alluring destination for visitors worldwide.
+                                The United Kingdom is a country in Europe, off the north-western coast of the continental mainland.
+                                It comprises England, Scotland, Wales and Northern Ireland.
+                                Its total area is 242,495 square kilometres (93,628 sq mi),
+                                with an estimated 2020 population of more than 67 million people.
                             </p>
                         </div>
                         <div
@@ -129,7 +130,7 @@ function CountryCarousel() {
                         <div className="rounded-2xl">
                             <img src={canada} className="rounded-t-2xl" />
                         </div>
-                        <div className="py-4 font-bold text-base text-light_black text-center">NewYork</div>
+                        <div className="py-4 font-bold text-base text-light_black text-center">Nigeria</div>
                     </div>
                 </div>
             </div>
