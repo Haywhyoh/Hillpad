@@ -107,31 +107,41 @@ export default function CourseDetails() {
                                     <section className='mx-auto flex flex-col max-w-full text-white ' style={{ minHeight: '800px !important' }}>
                                         <div className='max-w-full w-full mx-auto mt-6 w-max-full'>
                                             <div className="w-full">
-                                                <div className='text-white gap-x-4 hidden'>
-                                                    <div className='flex items-center gap-x-2'> <span>Courses</span><span><FiChevronsRight /></span></div>
-                                                    <div className='flex items-center gap-x-2'><span>Sciences</span><span><FiChevronsRight /></span></div>
-                                                    <div><span>Chemistry</span><span></span></div>
-                                                </div>
-                                                <div className='my-4 text-2xl'>
-                                                    <h2>{data.school.name}</h2>
-                                                </div>
-                                                <div className='max-w-lg'>
-                                                    <h1 className='text-5xl font-bold leading-tight'>
-                                                        {data.name}
-                                                    </h1>
-                                                </div>
-                                                <div className={data.about.length < 320 ? 'mt-3 mb-16' : 'mt-3'}>
 
-                                                    <p>
-                                                        {data.about}
-                                                    </p>
+                                                <div className='w-full items-center'>
+                                                    <div className='flex items-center gap-x-4'>
+                                                    <div className='w-32'>
+                                                        <img src={data.school.logo} alt={data.school.name} />
+                                                    </div>
+                                                    <div>
+                                                    <div className='my-2 text-2xl'>
+                                                            <h2>{data.school.name}</h2>
+                                                        </div>
+                                                        <div className='max-w-lg'>
+                                                            <h1 className='text-5xl font-bold leading-tight'>
+                                                                {data.name}
+                                                            </h1>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                   
+                                                    <div className='my-6'>
+                                                        
+                                                        <div className={data.about.length < 320 ? 'mt-3 mb-28' : 'mt-3'}>
+
+                                                            <p>
+                                                                {data.about}
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
                                             </div>
 
                                         </div>
                                     </section>
 
-                                    <section className='w-full mx-auto max-w-full my-6 text-light_black xl:mx-4 mt-56'>
+                                    <section className='w-full mx-auto max-w-full my-6 text-light_black xl:mx-4 mt-40'>
                                         <div className='w-full'>
                                             <div>
                                                 <h2 className='font-semibold text-black text-3xl my-6'>Course Overview</h2>
