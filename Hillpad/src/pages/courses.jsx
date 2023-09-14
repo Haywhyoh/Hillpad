@@ -519,13 +519,17 @@ export default function Courses({ props }) {
                         type="text"
                         placeholder="Search countries..."
                         value={searchCountry}
+                        className="w-full border border-light_black p-1 mb-2"
                         onChange={handleSearchChange}
                     />
+                    <div className="h-40 overflow-y-scroll">
                     {filteredCountries.map((country, index) => (
-                        <div key={index} onClick={() => handleCountrySelect(country)}>
+                        <div className="" key={index} onClick={() => handleCountrySelect(country)}>
                             {country.name}
                         </div>
                     ))}
+                    </div>
+                   
                 </div>
             </div>
                         <div>
