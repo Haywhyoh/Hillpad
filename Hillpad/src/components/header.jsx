@@ -7,7 +7,7 @@ import { RiArrowDropDownLine, RiArrowRightSLine } from 'react-icons/ri';
 import { BiWorld, BiBriefcase } from 'react-icons/bi';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Login from './login';
 import { IoCloseOutline } from 'react-icons/io5';
 import axios from 'axios';
@@ -25,6 +25,8 @@ export default function Header({ props }) {
 
     const countries = useSelector((state) => state.country.countryList);
 
+    const dropdownRef = useRef(null);
+
     useEffect(() => {
         window.onscroll = function () {
             if (window.scrollY > 50) {
@@ -33,7 +35,21 @@ export default function Header({ props }) {
                 setScrolled(false);
             }
         };
-    }, []);
+
+        const checkIfClickedOutside = e => {
+            // If the menu is open and the clicked target is not within the menu, then close the menu
+            if (hideCountryList && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+              setCountryList(false);
+            }
+          }
+        
+          document.addEventListener("mousedown", checkIfClickedOutside)
+        
+          return () => {
+            // Cleanup the event listener
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+          }
+    }, [hideCountryList]);
 
     const handleMouseOver = () => {
         setIsHovering(true);
@@ -127,6 +143,7 @@ export default function Header({ props }) {
                         </div>
                     </Link>
                 </div>
+
                 <div className='flex w-4/5 lg:w-8/12 xl:w-8/12 gap-x-4 items-center ' >
                     <div className='' onMouseOver={handleMouseOver} >
                         <div className='flex gap-3 items-center '>
@@ -193,7 +210,7 @@ export default function Header({ props }) {
 
                       
                         { hideCountryList &&
-                        <div className="text-left ms-4 left-100 top-10 shadow p-4 rounded-md  max-h-44 overflow-y-scroll  text-opacity-60 my-0 w-full px-2 text-light_black bg-white focus:outline-none lg:w-40 absolute">
+                        <div ref={dropdownRef} className="text-left ms-4 left-100 top-10 shadow p-4 rounded-md  max-h-44 overflow-y-scroll  text-opacity-60 my-0 w-full px-2 text-light_black bg-white focus:outline-none lg:w-40 absolute">
                           {
                             countries.map((country) => (
                               <div className="text-light_black text-xs py-2" value={country} key={country.id} onClick={() => {setSelectedCountry(country.name); setCountryList(false)}}>
@@ -212,37 +229,39 @@ export default function Header({ props }) {
                         </form>
                     </div>
                 </div>
-                {props.isLoggedIn ? <div className='flex gap-x-3 w-52 justify-between'>
-                    <button className='text-orange flex items-center gap-x-2 relative'onClick={showUser} onMouseEnter={showUser}><div className='w-8'><img src={signlogo} className='w-8' /></div><div>{props.userInfo.firstName}</div></button>
-                    <div className='hidden w-70 text-sm absolute top-20 right-1/5 deepShadow rounded-md py-2 px-6 bg-white font-normal text-light_black' id='userCard'  >
-                        <div className='flex gap-x-4 items-center py-2'>
-                            <div className='w-8'><img src={signlogo} className='w-8' /></div>
-                            <div>
-                                <div className='font-bold'>
-                                    <span>{props.userInfo.firstName}</span>
-                                    <span>{props.userInfo.lastName}</span>
-                                </div>
-                                <div className='font-normal'>
-                                    {props.userInfo.email}
+
+                {props.isLoggedIn ? 
+                    <div className='flex gap-x-3 w-52 justify-between'>
+                        <button className='text-orange flex items-center gap-x-2 relative'onClick={showUser} onMouseEnter={showUser}><div className='w-8'><img src={signlogo} className='w-8' /></div><div>{props.userInfo.firstName}</div></button>
+                        <div className='hidden w-70 text-sm absolute top-20 right-1/5 deepShadow rounded-md py-2 px-6 bg-white font-normal text-light_black' id='userCard'  >
+                            <div className='flex gap-x-4 items-center py-2'>
+                                <div className='w-8'><img src={signlogo} className='w-8' /></div>
+                                <div>
+                                    <div className='font-bold'>
+                                        <span>{props.userInfo.firstName}</span>
+                                        <span>{props.userInfo.lastName}</span>
+                                    </div>
+                                    <div className='font-normal'>
+                                        {props.userInfo.email}
+                                    </div>
                                 </div>
                             </div>
+                            <div className='flex gap-x-4 py-3 border-y-light_black border-opacity-20 border-y'>
+                                <div className='text-xl text-light_black'><FiHeart /> </div>
+                                <div>Wishlist</div>
+                            </div>
+                            <div className='flex gap-x-4 py-3 border-b-light_black border-opacity-20 border-b'>
+                                <div className='text-xl text-light_black'><FiSettings /> </div>
+                                <div>Account Settings</div>
+                            </div>
+                            <button className='flex gap-x-4  pt-6' onClick={handleSignOut}>
+                                <div className='text-xl text-light_black'><FiLogOut/> </div>
+                                <div>Sign Out</div>
+                            </button>
                         </div>
-                        <div className='flex gap-x-4 py-3 border-y-light_black border-opacity-20 border-y'>
-                            <div className='text-xl text-light_black'><FiHeart /> </div>
-                            <div>Wishlist</div>
-                        </div>
-                        <div className='flex gap-x-4 py-3 border-b-light_black border-opacity-20 border-b'>
-                            <div className='text-xl text-light_black'><FiSettings /> </div>
-                            <div>Account Settings</div>
-                        </div>
-                        <button className='flex gap-x-4  pt-6' onClick={handleSignOut}>
-                            <div className='text-xl text-light_black'><FiLogOut/> </div>
-                            <div>Sign Out</div>
-                        </button>
+                        <Link to='/explore'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
+                    </div> :
 
-                    </div>
-                    <Link to='/explore'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
-                </div> :
                     <div className='flex gap-x-3 w-52 justify-between'>
                         <button className='text-orange flex items-center gap-x-2' onClick={toggleModal}><div><LuUser /></div><div>Sign in</div></button>
                         <Link to='/explore'><button className='bg-orange text-white px-4 py-2 rounded-full flex items-center gap-2'><div className='text-md'><FaPaperPlane /></div> <div>Explore</div></button></Link>
