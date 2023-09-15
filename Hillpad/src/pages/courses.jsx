@@ -13,6 +13,8 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { fetchBachelors } from "../redux/bachelorsSlice";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import RangeSlider from "../components/RangeSlider";
+
 export default function Courses({ props }) {
     let courseList = useSelector((state) => state.courses.coursesList);
     let countriesList = useSelector((state) => state.country.countryList);
@@ -472,26 +474,16 @@ export default function Courses({ props }) {
                                 </div>
                                 
                                 <div className="flex gap-x-2 gap-y-4 flex-col ">
-                                    <div className="flex gap-x-2 ">
-                                        <input
-                                            type="range"
-                                            id='minTuition'
-                                            name='minTuition'
-                                            min="0"
-                                            max="100000" // Set this to the maximum tuition fee
-                                            value={minTuition}
-                                            onChange={(e) => setMinTuition(e.target.value)}
-                                        />
-                                        <input
-                                            type="range"
-                                            id='maxTuition'
-                                            name='maxTuition'
-                                            min="10000"
-                                            max="100000" // Set this to the maximum tuition fee
-                                            value={maxTuition}
-                                            onChange={(e) => setMaxTuition(e.target.value)}
-                                        />
-                                    </div>
+                                    
+                                    <RangeSlider
+                                        min={0}
+                                        max={100000}
+                                        values={[minTuition, maxTuition]}
+                                        setValues={(values) => {
+                                            setMinTuition(values[0]);
+                                            setMaxTuition(values[1]);
+                                        }}
+                                    />
                                     <div className='flex gap-x-4'>
                                         <div className="flex items-center">
                                             <span className="text-xl me-2">Min: </span> <div className="px-4 py-2 border">{minTuition}</div>
@@ -501,6 +493,11 @@ export default function Courses({ props }) {
                                             <span className="text-xl me-2">Max: </span> <div className="px-4 py-2 border">{maxTuition}</div>
                                         </div>
                                     </div>
+
+
+                                    
+
+                                    
                                     <button className="text-orange font-semibold  hover:border-2 hover:border-orange  w-28 mx-auto py-2 px-1 hover:text-orange" onClick={handleTuition}>APPLY</button>
                                 </div>
                             </div>
