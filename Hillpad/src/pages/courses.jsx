@@ -44,8 +44,9 @@ export default function Courses({ props }) {
     const [searchCountry, setSearchCountry] = useState('');
 
     const handleCountrySelect = (country) => {
-        setSelectedCountries(prevCountries => [...prevCountries, country]);
-    };
+        if (!selectedCountries.includes(country)) {
+            setSelectedCountries(prevCountries => [...prevCountries, country]);
+        }    };
 
     const handleCountryDeselect = (deselectedCountry) => {
         setSelectedCountries(prevCountries => prevCountries.filter(country => country !== deselectedCountry));

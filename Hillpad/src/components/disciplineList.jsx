@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
-import { BsArrowRight, BsCloudSun, BsCloudSunFill, BsHouseCheck, BsArrowLeft, BsViewList } from "react-icons/bs";
-import { AiOutlineCalendar, AiOutlineSearch, AiFillStar, AiOutlineTwitter } from "react-icons/ai";
-import { FaTractor, FaFacebookF, FaLinkedinIn, FaThermometerEmpty, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
-import hillpadBig from '../assets/images/hillpad-transparent.png';
-import data from '../data/discipline';
+import { BsCloudSunFill, BsHouseCheck } from "react-icons/bs";
+import { FaTractor, FaThermometerQuarter, FaBriefcase, FaPaintBrush } from "react-icons/fa";
 import { HiOutlineCalculator, HiOutlineDesktopComputer, HiUsers } from "react-icons/hi";
 import { RiBook2Fill } from "react-icons/ri";
-import { FiFilm, FiSettings, FiChevronLeft, FiChevronRight, FiList, FiArrowDown, FiChevronDown } from "react-icons/fi";
+import { FiFilm, FiSettings } from "react-icons/fi";
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 
 import { Link } from 'react-router-dom';
