@@ -198,6 +198,8 @@ export default function Courses({ props }) {
         'On Campus Learning': 'SITE'
     });
 
+    const [selectedCurrency, setSelectedCurrency] = useState("USD");
+
     const [showInfo, setShowInfo] = useState(false);
     const [showBach, setBachInfo] = useState(false);
     const [showMasters, setMastersInfo] = useState(false);
@@ -343,7 +345,7 @@ export default function Courses({ props }) {
                         </div>
                         <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
                             <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
-                                {showBach ? <AiOutlineUp /> : <FiChevronDown />}
+                                {showBach ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
                             </div>
                             <div className={showBach ? 'block py-4' : 'hidden'}>
@@ -440,13 +442,28 @@ export default function Courses({ props }) {
                             </div>
                         </div>
                         <div>
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setTuitionInfo(!showTuition); }}>
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setTuitionInfo(!showTuition); }}>
                                 <div>Tuition</div>
                                 <button className=''>
                                     {showTuition ? <FiChevronUp /> : <FiChevronDown />}
                                 </button>
                             </div>
                             <div className={showTuition ? 'block my-2' : 'hidden'}>
+                                <div className="mb-2">
+                                    <span className="font-bold">Annual tuition fee </span>
+                                    <select
+                                        className="currency-select"
+                                        id='currency'
+                                        name='currency'
+                                        value={selectedCurrency}
+                                        onChange={(e) => setSelectedCurrency(e.target.value)}
+                                    >
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                        <option value="GBP">GBP</option>
+                                        {/* Add more currency options as needed */}
+                                    </select>
+                                </div>
                                 <div className="flex gap-x-2 gap-y-4 flex-col ">
                                     <div className="flex gap-x-2 ">
                                         <input
@@ -470,11 +487,11 @@ export default function Courses({ props }) {
                                     </div>
                                     <div className='flex gap-x-4'>
                                         <div className="flex items-center">
-                                            <span className="text-xl me-2">Min: </span> <div className="px-4 py-2 border">{minTuition} </div>
+                                            <span className="text-xl me-2">Min: </span> <div className="px-4 py-2 border">{minTuition}</div>
                                         </div>
 
                                         <div className="flex items-center">
-                                            <span className="text-xl me-2">Max: </span> <div className="px-4 py-2 border">{maxTuition} </div>
+                                            <span className="text-xl me-2">Max: </span> <div className="px-4 py-2 border">{maxTuition}</div>
                                         </div>
                                     </div>
                                     <button className="text-orange font-semibold  hover:border-2 hover:border-orange  w-28 mx-auto py-2 px-1 hover:text-orange" onClick={handleTuition}>APPLY</button>

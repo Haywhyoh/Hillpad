@@ -281,3 +281,14 @@ background: linear-gradient(90deg, rgba(52,9,9,1) 22%, rgba(255,87,87,0.37578781
   margin: 0rem 2rem;
  }
 
+ .currency-select {
+  background: none;
+  border: none;
+  color: #ff5757;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
