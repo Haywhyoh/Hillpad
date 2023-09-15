@@ -7,7 +7,8 @@ const RangeSlider = ({ rtl, min=0, max=10000, step=1, values, setValues }) => {
       style={{
         display: 'flex',
         justifyContent: 'center',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+      
       }}
     >
       <Range
@@ -81,14 +82,14 @@ const RangeSlider = ({ rtl, min=0, max=10000, step=1, values, setValues }) => {
             type="number" 
             value={values[0]} 
             onChange={(e) => setValues([Number(e.target.value), values[1]])} 
-            style={{ padding: '5px', border: '1px solid black' }}
+            style={{ padding: '5px', border: '1px solid black', width: '100px' }}
         />
-        <span style={{marginLeft: '5px', marginRight: '5px'}}>-</span>
+        <span style={{marginLeft: '5px', marginRight: '5px'}}>--</span>
         <input 
             type="number" 
             value={values[1]} 
             onChange={(e) => setValues([values[0], Number(e.target.value)])} 
-            style={{ padding: '5px', border: '1px solid black' }}
+            style={{ padding: '5px', border: '1px solid black', width: '100px' }}
         />
     </output>
     </div>
