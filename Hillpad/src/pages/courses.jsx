@@ -1,6 +1,6 @@
 import CourseCard from "../components/coursecard";
 import FlatCourseCard from "../components/flatCourseCard";
-import { FiFilter } from "react-icons/fi";
+import { FiChevronDown, FiChevronUp, FiFilter } from "react-icons/fi";
 import { AiOutlineUp, AiOutlineDown } from 'react-icons/ai';
 import { useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
@@ -310,8 +310,8 @@ export default function Courses({ props }) {
                     <div className="text-orange text-center text-xl lg:text-3xl font-bold mb-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
                     <div className=" h-fit ">
                         <div className="" >
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setShowInfo(!showInfo); }}><div>Disciplines</div>  <button className='' >
-                                {showInfo ? <AiOutlineUp /> : <AiOutlineDown />}
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setShowInfo(!showInfo); }}><div>Disciplines</div>  <button className='' >
+                                {showInfo ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
                             </div>
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
@@ -335,8 +335,8 @@ export default function Courses({ props }) {
                             </div>
                         </div>
                         <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
-                                {showBach ? <AiOutlineUp /> : <AiOutlineDown />}
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
+                                {showBach ? <AiOutlineUp /> : <FiChevronDown />}
                             </button>
                             </div>
                             <div className={showBach ? 'block py-4' : 'hidden'}>
@@ -357,8 +357,8 @@ export default function Courses({ props }) {
                             </div>
                         </div>
                         <div className={programme === 'masters' ? 'block' : 'hidden'}>
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setMastersInfo(!showMasters); }}><div>Masters</div>  <button className='' >
-                                {showMasters ? <AiOutlineUp /> : <AiOutlineDown />}
+                            <div className="text-lg  py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setMastersInfo(!showMasters); }}><div>Masters</div>  <button className='' >
+                                {showMasters ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
                             </div>
                             <div className={showMasters ? 'block py-4' : 'hidden'}>
@@ -380,8 +380,8 @@ export default function Courses({ props }) {
                         </div>
                         <div id="doctorates" className={programme === 'doctorates' ? 'block' : 'hidden'}>
 
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDocInfo(!showDoc); }}><div>Doctorate</div>  <button className='' >
-                                {showDoc ? <AiOutlineUp /> : <AiOutlineDown />}
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDocInfo(!showDoc); }}><div>Doctorate</div>  <button className='' >
+                                {showDoc ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
                             </div>
                             <div className={showDoc ? 'block py-4' : 'hidden'}>
@@ -403,8 +403,8 @@ export default function Courses({ props }) {
 
                         </div>
                         <div >
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDurationInfo(!showDuration); }}><div>Duration</div>  <button className='' >
-                                {showDuration ? <AiOutlineUp /> : <AiOutlineDown />}
+                            <div className="text-lg  py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDurationInfo(!showDuration); }}><div>Duration</div>  <button className='' >
+                                {showDuration ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
                             </div>
                             <div className={showDuration ? 'block' : 'hidden'}>
@@ -431,10 +431,10 @@ export default function Courses({ props }) {
                             </div>
                         </div>
                         <div>
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between">
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between">
                                 <div>Tuition</div>
                                 <button className=''>
-                                    {showTuition ? <AiOutlineUp /> : <AiOutlineDown />}
+                                    {showTuition ? <FiChevronUp /> : <FiChevronDown />}
                                 </button>
                             </div>
                             <div className={showTuition ? 'block my-2' : 'hidden'}>
@@ -473,8 +473,8 @@ export default function Courses({ props }) {
                             </div>
                         </div>
                         <div >
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setAttendanceInfo(!showAttendance); }}><div>Attendance</div>  <button className='' >
-                                {showAttendance ? <AiOutlineUp /> : <AiOutlineDown />}
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setAttendanceInfo(!showAttendance); }}><div>Attendance</div>  <button className='' >
+                                {showAttendance ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
                             </div>
                             <div className={showAttendance ? 'block py-4' : 'hidden'}>
@@ -534,9 +534,9 @@ export default function Courses({ props }) {
                 </div>
             </div>
                         <div>
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setFormatInfo(!showFormat); }}><div>Format</div>  
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setFormatInfo(!showFormat); }}><div>Format</div>  
                             <button className=''>
-                                {showFormat ? <AiOutlineUp /> : <AiOutlineDown />}
+                                {showFormat ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
                             </div>
                             <div className={showFormat ? 'block border-b border-light_black border-opacity-20' : 'hidden'}>
@@ -568,7 +568,7 @@ export default function Courses({ props }) {
 
                 <div className=" flex w-full">
                     <div className="mb-4 w-full px-4">
-                        <h1 className="text-3xl font-semibold w-fit">{programme ? programme.charAt(0).toUpperCase() + programme.slice(1) : ''} Courses</h1>
+                        <h1 className="text-3xl w-fit">{programme ? programme.charAt(0).toUpperCase() + programme.slice(1) : ''} Courses</h1>
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
                                 <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-5/12">
