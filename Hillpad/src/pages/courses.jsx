@@ -180,10 +180,10 @@ export default function Courses({ props }) {
     }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList, countriesList]);
 
     const duration = ['Less than 1 year', '1 - 2 years', '2 - 3 years', '3 - 4 years', 'More than 4 years']
-    const format = ['Full_Time', 'Part_Time']
+    const format = ['Full-time', 'Part-time']
     const formatDict = {
-        Full_Time: 'FULL',
-        Part_Time: 'PART'
+        "Full-time": 'FULL',
+        "Part-time": 'PART'
     }
     const durationDict = {
         'Less than 1 year': '0,364',
@@ -205,7 +205,7 @@ export default function Courses({ props }) {
     const [showDoc, setDocInfo] = useState(false);
     const [showDuration, setDurationInfo] = useState(false);
     const [showAttendance, setAttendanceInfo] = useState(false);
-    const [showFormat, setFormatInfo] = useState(true);
+    const [showFormat, setFormatInfo] = useState(false);
     const [showTuition, setTuitionInfo] = useState(true);
     const [minTuition, setMinTuition] = useState(0);
     const [maxTuition, setMaxTuition] = useState(10000); // Set this to the maximum tuition fee
@@ -317,6 +317,7 @@ export default function Courses({ props }) {
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
                                     <Link
+                                        key={discipline.id}
                                         to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}`}
                                         onClick={() => setClickedDiscipline(discipline.id)}  // Add this line
                                     >
@@ -341,7 +342,7 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showBach ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 6 }).map((degree) => (
-                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black">
+                                    <div key={degree.id} className="flex gap-x-2 pb-1 text-sm text-light_black">
                                         <input
                                             type="checkbox"
                                             id=''
@@ -363,7 +364,7 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showMasters ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 5 }).map((degree) => (
-                                    <div className="flex gap-x-2 pb-1 text-sm text-light_black"> <input
+                                    <div key={degree.id} className="flex gap-x-2 pb-1 text-sm text-light_black"> <input
                                         type="checkbox"
                                         id=''
                                         name=''
@@ -386,7 +387,7 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showDoc ? 'block py-4' : 'hidden'}>
                                 {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 4 }).map((degree) => (
-                                    <div className="flex gap-x-2">
+                                    <div key={degree.id} className="flex gap-x-2">
                                         <input
                                             type="checkbox"
                                             id=''
@@ -403,14 +404,16 @@ export default function Courses({ props }) {
 
                         </div>
                         <div >
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDurationInfo(!showDuration); }}><div>Duration</div>  <button className='' >
-                                {showDuration ? <AiOutlineUp /> : <AiOutlineDown />}
-                            </button>
+                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDurationInfo(!showDuration); }}>
+                                <div>Duration</div>
+                                <button className='' >
+                                    {showDuration ? <AiOutlineUp /> : <AiOutlineDown />}
+                                </button>
                             </div>
                             <div className={showDuration ? 'block' : 'hidden'}>
 
-                                {duration.map((duration) => (
-                                    <div className="flex gap-x-2">
+                                {duration.map((duration, index) => (
+                                    <div key={index} className="flex gap-x-2">
 
                                         <div className="flex gap-x-2">
                                             <input
@@ -431,7 +434,7 @@ export default function Courses({ props }) {
                             </div>
                         </div>
                         <div>
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between">
+                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setTuitionInfo(!showTuition); }}>
                                 <div>Tuition</div>
                                 <button className=''>
                                     {showTuition ? <AiOutlineUp /> : <AiOutlineDown />}
@@ -445,7 +448,7 @@ export default function Courses({ props }) {
                                             id='minTuition'
                                             name='minTuition'
                                             min="0"
-                                            max="10000" // Set this to the maximum tuition fee
+                                            max="100000" // Set this to the maximum tuition fee
                                             value={minTuition}
                                             onChange={(e) => setMinTuition(e.target.value)}
                                         />
@@ -480,7 +483,7 @@ export default function Courses({ props }) {
                             <div className={showAttendance ? 'block py-4' : 'hidden'}>
 
                                 {Object.keys(attendance).map((key) => (
-                                    <div className="flex gap-x-2">
+                                    <div key={key} className="flex gap-x-2">
 
                                         <div className="flex gap-x-2">
                                             <input
@@ -541,7 +544,7 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showFormat ? 'block border-b border-light_black border-opacity-20' : 'hidden'}>
                                 {format.map((format) => (
-                                    <div className="flex gap-x-2 text-xs ">
+                                    <div key={format} className="flex gap-x-2 text-xs ">
                                         <div className="flex gap-x-2">
                                             <input
                                                 type="checkbox"
