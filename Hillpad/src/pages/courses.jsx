@@ -73,7 +73,7 @@ export default function Courses({ props }) {
             setCourses(courseList);
             setCount(courseCount);
             return
-        };
+        }
         if (programme == 'bachelors' && !discipline && !degree_type && !learning) {
             setCourses(bachelorsList)
             setCount(bachelorsCount)
@@ -168,7 +168,21 @@ export default function Courses({ props }) {
     }
 
     const handleTuition = () => {
-        const tuitionRange = `${minTuition},${maxTuition}`;
+        // Get the selected currency (convert to lowercase)
+        const userCurrency = selectedCurrency.toLowerCase();
+
+        // Get the currency USD exchange rate
+        const selectedUserCurrency = currencies.find(currency => currency.short_code == userCurrency);
+        const userCurrencyExchangeRate = selectedUserCurrency.usd_exchange_rate;
+
+        // minTuition, maxTuition * exchange rate == USD value
+        const minTuitionUSD = Math.round(minTuition * userCurrencyExchangeRate);
+        const maxTuitionUSD = Math.round(maxTuition * userCurrencyExchangeRate);
+
+        // tuitionRange = minTuitionUSD, maxTuitionUSD
+        const tuitionRange = `${minTuitionUSD},${maxTuitionUSD}`;
+
+        // const tuitionRange = `${minTuition},${maxTuition}`;
         let anotherParam = { ...searchParam };
         anotherParam.tuition = (tuitionRange);
         setSearchParam(anotherParam);
