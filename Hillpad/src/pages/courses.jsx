@@ -508,8 +508,8 @@ export default function Courses({ props }) {
                         <div key={index}>
                             <input
                                 type="checkbox"
-                                id={selectedCountry.code}
-                                name={selectedCountry.code}
+                                id={selectedCountry.short_code}
+                                name={selectedCountry.shocode}
                                 checked={true}
                                 onChange={() => handleCountryDeselect(selectedCountry)}
                             />
