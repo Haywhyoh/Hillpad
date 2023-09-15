@@ -23,6 +23,7 @@ import { fetchBachelors } from './redux/bachelorsSlice'
 import { fetchMasters } from './redux/mastersSlice'
 import { fetchDoctorates } from './redux/doctoratesSlice'
 import { fetchDegreeTypes } from './redux/degreeTypeSlice'
+import { fetchCurrencies } from './redux/currencySlice'
 import Explore from './pages/explore'
 import DisciplinesList from './components/test'
 function App() {
@@ -47,6 +48,7 @@ function App() {
   const doctorates = useDispatch();
   const degree = useDispatch();
   const country = useDispatch();
+  const currency = useDispatch();
 
 
   useEffect( () => {
@@ -58,6 +60,7 @@ function App() {
       masters(fetchMasters())
       doctorates(fetchDoctorates())
       degree(fetchDegreeTypes())
+      currency(fetchCurrencies())
       country(fetchCountry())
       return () => {
       if (user.userInfo.firstName) {

@@ -24,6 +24,7 @@ export default function Courses({ props }) {
     let mastersCount = useSelector((state) => state.masters.count);
     let doctoratesCount = useSelector((state) => state.doctorates.count);
     let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
+    let currencies = useSelector((state) => state.currencies.currenciesList);
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {
@@ -456,14 +457,20 @@ export default function Courses({ props }) {
                                         id='currency'
                                         name='currency'
                                         value={selectedCurrency}
-                                        onChange={(e) => setSelectedCurrency(e.target.value)}
+                                        onChange={(e) => {
+                                            setSelectedCurrency(e.target.value);
+                                        }}
                                     >
-                                        <option value="USD">USD</option>
-                                        <option value="EUR">EUR</option>
-                                        <option value="GBP">GBP</option>
-                                        {/* Add more currency options as needed */}
+                                        {currencies.map((currency) => (
+                                            <option key={currency.short_code} value={currency.short_code}>
+                                                {currency.short_code.toUpperCase()} - {currency.name}
+                                            </option>
+                                        ))}
+                                        
                                     </select>
+
                                 </div>
+                                
                                 <div className="flex gap-x-2 gap-y-4 flex-col ">
                                     <div className="flex gap-x-2 ">
                                         <input
