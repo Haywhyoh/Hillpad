@@ -306,7 +306,7 @@ export default function Courses({ props }) {
     return (
         <div className="w-screen">
             <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10 mx-auto">
-                <aside className="hidden lg:block px-8 shadow-2 py-4 lg:w-88 h-fit sticky left-0 top-24  bg-white max-w-full">
+                <aside className="hidden lg:block px-8 shadow-2 py-4 lg:w-100 h-fit sticky left-0 top-24  bg-white max-w-full">
                     <div className="text-orange text-center text-xl lg:text-3xl font-bold mb-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
                     <div className=" h-fit ">
                         <div className="" >
@@ -314,6 +314,10 @@ export default function Courses({ props }) {
                                 {showInfo ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
                             </div>
+                            <div className="flex gap-x-8 h-fit">
+                            <div className=" border-s h-100 mt-2 mb-6">
+
+                                </div>
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
                                     <Link
@@ -333,6 +337,8 @@ export default function Courses({ props }) {
                                         </div>
                                     </Link>
                                 ))}
+                               
+                            </div>
                             </div>
                         </div>
                         <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
