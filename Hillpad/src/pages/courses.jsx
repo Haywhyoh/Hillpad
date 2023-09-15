@@ -176,8 +176,8 @@ export default function Courses({ props }) {
         const userCurrencyExchangeRate = selectedUserCurrency.usd_exchange_rate;
 
         // minTuition, maxTuition * exchange rate == USD value
-        const minTuitionUSD = Math.round(minTuition * userCurrencyExchangeRate);
-        const maxTuitionUSD = Math.round(maxTuition * userCurrencyExchangeRate);
+        const minTuitionUSD = Math.round(minTuition / userCurrencyExchangeRate);
+        const maxTuitionUSD = Math.round(maxTuition / userCurrencyExchangeRate);
 
         // tuitionRange = minTuitionUSD, maxTuitionUSD
         const tuitionRange = `${minTuitionUSD},${maxTuitionUSD}`;
