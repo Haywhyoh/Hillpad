@@ -453,7 +453,6 @@ export default function Courses({ props }) {
                             </div>
                             <div className={showTuition ? 'block my-2' : 'hidden'}>
                                 <div className="mb-2">
-                                    <span className="font-bold">Annual tuition fee </span>
                                     <select
                                         className="currency-select"
                                         id='currency'
@@ -484,19 +483,6 @@ export default function Courses({ props }) {
                                             setMaxTuition(values[1]);
                                         }}
                                     />
-                                    <div className='flex gap-x-4'>
-                                        <div className="flex items-center">
-                                            <span className="text-xl me-2">Min: </span> <div className="px-4 py-2 border">{minTuition}</div>
-                                        </div>
-
-                                        <div className="flex items-center">
-                                            <span className="text-xl me-2">Max: </span> <div className="px-4 py-2 border">{maxTuition}</div>
-                                        </div>
-                                    </div>
-
-
-                                    
-
                                     
                                     <button className="text-orange font-semibold  hover:border-2 hover:border-orange  w-28 mx-auto py-2 px-1 hover:text-orange" onClick={handleTuition}>APPLY</button>
                                 </div>

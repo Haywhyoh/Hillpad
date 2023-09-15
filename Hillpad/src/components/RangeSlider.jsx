@@ -39,7 +39,7 @@ const RangeSlider = ({ rtl, min=0, max=10000, step=1, values, setValues }) => {
                 borderRadius: '4px',
                 background: getTrackBackground({
                   values,
-                  colors: ['#ccc', '#548BF4', '#ccc'],
+                  colors: ['#ccc', '#FF5757', '#ccc'],
                   min: min,
                   max: max,
                   rtl
@@ -56,29 +56,41 @@ const RangeSlider = ({ rtl, min=0, max=10000, step=1, values, setValues }) => {
             {...props}
             style={{
               ...props.style,
-              height: '42px',
-              width: '42px',
-              borderRadius: '4px',
-              backgroundColor: '#FFF',
+              height: '18px',
+              width: '18px',
+              borderRadius: '50%',
+              backgroundColor: '#FF5757',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
               boxShadow: '0px 2px 6px #AAA'
             }}
           >
-            <div
+            {/* <div
               style={{
-                height: '16px',
+                height: '5px',
                 width: '5px',
                 backgroundColor: isDragged ? '#548BF4' : '#CCC'
               }}
-            />
+            /> */}
           </div>
         )}
-      />
-      <output style={{ marginTop: '30px' }} id="output">
-        {values[0].toFixed(1)} - {values[1].toFixed(1)}
-      </output>
+    />
+    <output style={{ marginTop: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }} id="output">
+        <input 
+            type="number" 
+            value={values[0]} 
+            onChange={(e) => setValues([Number(e.target.value), values[1]])} 
+            style={{ padding: '5px', border: '1px solid black' }}
+        />
+        <span style={{marginLeft: '5px', marginRight: '5px'}}>-</span>
+        <input 
+            type="number" 
+            value={values[1]} 
+            onChange={(e) => setValues([values[0], Number(e.target.value)])} 
+            style={{ padding: '5px', border: '1px solid black' }}
+        />
+    </output>
     </div>
   );
 };
