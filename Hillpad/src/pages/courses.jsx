@@ -13,6 +13,8 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { fetchBachelors } from "../redux/bachelorsSlice";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import RangeSlider from "../components/RangeSlider";
+
 export default function Courses({ props }) {
     let courseList = useSelector((state) => state.courses.coursesList);
     let countriesList = useSelector((state) => state.country.countryList);
@@ -24,6 +26,7 @@ export default function Courses({ props }) {
     let mastersCount = useSelector((state) => state.masters.count);
     let doctoratesCount = useSelector((state) => state.doctorates.count);
     let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
+    let currencies = useSelector((state) => state.currencies.currenciesList);
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {
@@ -70,7 +73,7 @@ export default function Courses({ props }) {
             setCourses(courseList);
             setCount(courseCount);
             return
-        };
+        }
         if (programme == 'bachelors' && !discipline && !degree_type && !learning) {
             setCourses(bachelorsList)
             setCount(bachelorsCount)
@@ -165,7 +168,21 @@ export default function Courses({ props }) {
     }
 
     const handleTuition = () => {
-        const tuitionRange = `${minTuition},${maxTuition}`;
+        // Get the selected currency (convert to lowercase)
+        const userCurrency = selectedCurrency.toLowerCase();
+
+        // Get the currency USD exchange rate
+        const selectedUserCurrency = currencies.find(currency => currency.short_code == userCurrency);
+        const userCurrencyExchangeRate = selectedUserCurrency.usd_exchange_rate;
+
+        // minTuition, maxTuition * exchange rate == USD value
+        const minTuitionUSD = Math.round(minTuition * userCurrencyExchangeRate);
+        const maxTuitionUSD = Math.round(maxTuition * userCurrencyExchangeRate);
+
+        // tuitionRange = minTuitionUSD, maxTuitionUSD
+        const tuitionRange = `${minTuitionUSD},${maxTuitionUSD}`;
+
+        // const tuitionRange = `${minTuition},${maxTuition}`;
         let anotherParam = { ...searchParam };
         anotherParam.tuition = (tuitionRange);
         setSearchParam(anotherParam);
@@ -197,6 +214,8 @@ export default function Courses({ props }) {
         'Online Learning': 'ONLINE',
         'On Campus Learning': 'SITE'
     });
+
+    const [selectedCurrency, setSelectedCurrency] = useState("USD");
 
     const [showInfo, setShowInfo] = useState(false);
     const [showBach, setBachInfo] = useState(false);
@@ -343,7 +362,7 @@ export default function Courses({ props }) {
                         </div>
                         <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
                             <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
-                                {showBach ? <AiOutlineUp /> : <FiChevronDown />}
+                                {showBach ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
                             </div>
                             <div className={showBach ? 'block py-4' : 'hidden'}>
@@ -440,43 +459,45 @@ export default function Courses({ props }) {
                             </div>
                         </div>
                         <div>
-                            <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setTuitionInfo(!showTuition); }}>
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setTuitionInfo(!showTuition); }}>
                                 <div>Tuition</div>
                                 <button className=''>
                                     {showTuition ? <FiChevronUp /> : <FiChevronDown />}
                                 </button>
                             </div>
                             <div className={showTuition ? 'block my-2' : 'hidden'}>
-                                <div className="flex gap-x-2 gap-y-4 flex-col ">
-                                    <div className="flex gap-x-2 ">
-                                        <input
-                                            type="range"
-                                            id='minTuition'
-                                            name='minTuition'
-                                            min="0"
-                                            max="100000" // Set this to the maximum tuition fee
-                                            value={minTuition}
-                                            onChange={(e) => setMinTuition(e.target.value)}
-                                        />
-                                        <input
-                                            type="range"
-                                            id='maxTuition'
-                                            name='maxTuition'
-                                            min="10000"
-                                            max="100000" // Set this to the maximum tuition fee
-                                            value={maxTuition}
-                                            onChange={(e) => setMaxTuition(e.target.value)}
-                                        />
-                                    </div>
-                                    <div className='flex gap-x-4'>
-                                        <div className="flex items-center">
-                                            <span className="text-xl me-2">Min: </span> <div className="px-4 py-2 border">{minTuition} </div>
-                                        </div>
+                                <div className="mb-2">
+                                    <select
+                                        className="currency-select"
+                                        id='currency'
+                                        name='currency'
+                                        value={selectedCurrency}
+                                        onChange={(e) => {
+                                            setSelectedCurrency(e.target.value);
+                                        }}
+                                    >
+                                        {currencies.map((currency) => (
+                                            <option key={currency.short_code} value={currency.short_code}>
+                                                {currency.short_code.toUpperCase()} - {currency.name}
+                                            </option>
+                                        ))}
+                                        
+                                    </select>
 
-                                        <div className="flex items-center">
-                                            <span className="text-xl me-2">Max: </span> <div className="px-4 py-2 border">{maxTuition} </div>
-                                        </div>
-                                    </div>
+                                </div>
+                                
+                                <div className="flex gap-x-2 gap-y-4 flex-col ">
+                                    
+                                    <RangeSlider
+                                        min={0}
+                                        max={100000}
+                                        values={[minTuition, maxTuition]}
+                                        setValues={(values) => {
+                                            setMinTuition(values[0]);
+                                            setMaxTuition(values[1]);
+                                        }}
+                                    />
+                                    
                                     <button className="text-orange font-semibold  hover:border-2 hover:border-orange  w-28 mx-auto py-2 px-1 hover:text-orange" onClick={handleTuition}>APPLY</button>
                                 </div>
                             </div>

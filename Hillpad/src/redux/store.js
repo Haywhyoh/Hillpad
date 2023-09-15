@@ -7,6 +7,7 @@ import bachelorsReducer from './bachelorsSlice';
 import mastersReducer from './mastersSlice'
 import doctoratesReducer from './doctoratesSlice';
 import degreeTypesReducer from './degreeTypeSlice';
+import currenciesReducer from './currencySlice';
 import { combineReducers } from 'redux';
 
 const reducer = combineReducers({
@@ -18,6 +19,7 @@ const reducer = combineReducers({
     masters: mastersReducer,
     doctorates: doctoratesReducer,
     degreeTypes: degreeTypesReducer,
+    currencies: currenciesReducer,
 
    });
 export default configureStore({
