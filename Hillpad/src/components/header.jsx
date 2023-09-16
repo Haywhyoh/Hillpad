@@ -21,7 +21,7 @@ export default function Header({ props }) {
     const [scrolled, setScrolled] = useState(false);
 
     const [hideCountryList, setCountryList] = useState(false);
-    const [selectedCountry, setSelectedCountry] = useState('Where ?');
+    const [selectedCountry, setSelectedCountry] = useState('Where?');
 
     const countries = useSelector((state) => state.country.countryList);
 
@@ -153,33 +153,57 @@ export default function Header({ props }) {
                     <div className='' onMouseOver={handleMouseOver} >
                         <div className='flex gap-3 items-center '>
                             <div className='flex gap-3 items-center relative'>
-                                <div className='flex gap-3 items-center hover:text-orange'>
+                                <div className='flex gap-3 items-center hover:text-orange text-nav_black'>
                                     <FiLayers />
                                     <div className='hover:text-orange'>Browse</div>
                                     <div className='text-2xl'><RiArrowDropDownLine /></div>
                                 </div>
-                                {isHovering ?
-                                    <div className='absolute top-8 left-0 shadow bg-white w-52  rounded-lg p-4 font-normal ' id='subMenu1' onMouseOut={handleMouseOut}>
-                                        <Link to='/countries'><div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 hover:text-orange' onMouseOver={handleMouseOut2} ><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div></Link>
-                                        <Link to='/discipline/'><div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2  hover:text-orange' onMouseOver={handleMouseOut2} ><BiBriefcase className='text-xl text-light_black text-opacity-60 ' /><div className='mb-2'>Browse by discipline</div></div></Link>
-                                        <div className='flex gap-x-2 justify-between py-2  hover:text-orange' onMouseOver={handleMouseOver2}>
-                                            <div className='flex gap-x-2 relative' >
-                                                <FaGraduationCap className='text-xl text-light_black text-opacity-60' />
-                                                <div className='' >Programmes</div>
+                                {isHovering &&
+                                    <div
+                                        className='absolute top-8 left-0 deepShadow bg-white w-52 rounded-lg py-1 px-4 font-normal z-30'
+                                        id='subMenu1'
+                                        onMouseOut={handleMouseOut}
+                                    >
+                                        <Link to='/countries'>
+                                            <div
+                                                className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2 hover:text-orange'
+                                                onMouseOver={handleMouseOut2}
+                                            >
+                                                <BiWorld className='text-xl text-nav_black text-opacity-50' />
+                                                <div>Browse by country</div>
                                             </div>
-                                            <div className='text-2xl'><RiArrowRightSLine /></div>
+                                        </Link>
+                                        <Link to='/discipline/'>
+                                            <div
+                                                className='flex gap-x-2 border-b border-opacity-10 border-b-light_black pt-2  hover:text-orange'
+                                                onMouseOver={handleMouseOut2}
+                                            >
+                                                <BiBriefcase className='text-xl text-light_black text-opacity-60 ' />
+                                                <div className='mb-2'>Browse by discipline</div>
+                                            </div>
+                                        </Link>
+                                        <div 
+                                            className='flex gap-x-2 justify-between py-2 hover:text-orange'
+                                            onMouseOver={handleMouseOver2}
+                                        >
+                                            <div className='flex gap-x-2 relative'>
+                                                <FaGraduationCap className='text-xl text-light_black text-opacity-60' />
+                                                <div className=''>Programmes</div>
+                                            </div>
+                                            <div className='text-lg'><RiArrowRightSLine /></div>
                                         </div>
                                         {
-                                            isHovering2 ? <div className='absolute  font-normal left-52 p-4 shadow top-28 rounded-md bg-white text-light_black' id='subMenu2' onMouseOver={handleMouseOver2} onMouseOut={handleMouseOut2}>
+                                            isHovering2 &&
+                                            <div className='absolute  font-normal left-52 p-4 shadow top-28 rounded-md bg-white text-light_black' id='subMenu2' onMouseOver={handleMouseOver2} onMouseOut={handleMouseOut2}>
                                                 <Link to='/bachelors'><div className='p-1 w-32 hover:text-orange'>Bachelors</div></Link>
                                                 <Link to='/masters'><div className='p-1 w-32 hover:text-orange'>Masters</div></Link>
                                                 <Link to='/doctorates'><div className='p-1 w-32 hover:text-orange'>Doctorate</div></Link>
 
-                                            </div> : null
+                                            </div>
                                         }
 
                                     </div>
-                                    : null}
+                                }
                             </div>
 
                         </div >
@@ -193,49 +217,50 @@ export default function Header({ props }) {
                                     <AiOutlineSearch className="text-light_black" />
                                     <input
                                         type="text "
-                                        className="focus:outline-none md:w-72 "
+                                        className="focus:outline-none md:w-72 font-normal"
                                         placeholder="What do you want to study?"
                                     ></input>
                                 </div>
                             </fieldset>
                             <div className="">
-                      <div className='py-4'>
-                        <div className="ps-4 flex items-center gap-x-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black text-opacity-60" onClick={() => setCountryList(!hideCountryList)}>
-                        <div>
-                            <BsViewList />
-                          </div>
-                         <div>
-                         {selectedCountry}
-                          </div> 
-                          <div>
-                          <FiChevronDown/>
-                         </div>
-                        </div>
-                      </div>
-
-                      
-                        {
-                            hideCountryList &&
-                            <div ref={dropdownRef} className="text-left ms-4 left-100 top-10 shadow p-4 rounded-md  max-h-44 overflow-y-scroll  text-opacity-60 my-0 w-full px-2 text-light_black bg-white focus:outline-none lg:w-40 absolute">
-                                {
-                                    countries.map((country) => (
-                                        <div
-                                            className="text-light_black text-xs py-2"
-                                            value={country}
-                                            key={country.id}
-                                            onClick={() => {
-                                                setSelectedCountry(country.name);
-                                                setCountryList(false);
-                                            }}
-                                        >
-                                            {country.name}
+                                <div className='py-4'>
+                                    <div
+                                        className="ps-4 flex items-center gap-x-4 text-light_black border-s border-opacity-40 xl:w-44 border-light_black text-opacity-60"
+                                        onClick={() => setCountryList(!hideCountryList)}
+                                    >
+                                        <div>
+                                            <BsViewList />
                                         </div>
-                                    ))
+                                        <div className={`font-normal ${selectedCountry == "Where?" ? "" : "text-nav_black"}`}>
+                                            {selectedCountry}
+                                        </div> 
+                                        <div>
+                                            <FiChevronDown/>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                {hideCountryList &&
+                                    <div ref={dropdownRef} className="text-left ms-4 left-100 top-10 shadow p-4 rounded-md  max-h-44 overflow-y-scroll  text-opacity-60 my-0 w-full px-2 text-light_black bg-white focus:outline-none lg:w-40 absolute">
+                                        {
+                                            countries.map((country) => (
+                                                <div
+                                                    className="text-light_black text-xs py-2"
+                                                    value={country}
+                                                    key={country.id}
+                                                    onClick={() => {
+                                                        setSelectedCountry(country.name);
+                                                        setCountryList(false);
+                                                    }}
+                                                >
+                                                    {country.name}
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
                                 }
+                                
                             </div>
-                        }
-                        
-                    </div>
                             <button className="w-full text-white bg-orange py-3 px-3 text-lg font-bold rounded-3xl md:w-fit md:rounded-full">
                                 <AiOutlineSearch className="text-white" />
 
@@ -261,7 +286,7 @@ export default function Header({ props }) {
                                 </div>
                             </button>
                             <div
-                                className='hidden w-70 text-sm absolute top-20 right-1/5 deepShadow rounded-md py-2 px-6 bg-white font-normal text-light_black'
+                                className='hidden w-60 text-sm absolute top-20 right-1/5 deepShadow rounded-md py-2 px-6 bg-white font-normal text-light_black'
                                 id='userCard'
                                 // onMouseLeave={hideUser}
                             >
@@ -269,8 +294,8 @@ export default function Header({ props }) {
                                     <div className='w-8'><img src={signlogo} className='w-8' /></div>
                                     <div>
                                         <div className='font-bold'>
-                                            <span>{props.userInfo.firstName}</span>
                                             <span>{props.userInfo.lastName}</span>
+                                            <span>{props.userInfo.firstName}</span>
                                         </div>
                                         <div className='font-normal'>
                                             {props.userInfo.email}
