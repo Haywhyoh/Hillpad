@@ -1,19 +1,29 @@
 import { useState, useEffect } from "react";
 import CourseCard from "./coursecard";
 import { useSelector, useDispatch } from "react-redux";
+import axios from 'axios';
 
 
 function CoursesCarousel() {
     const courseList = useSelector((state) => state.courses.coursesList);
 
-    const [courses, setCourses] = useState([])
+    const [courses, setCourses] = useState(courseList)
 
     useEffect(() => {
-        if (courseList.length)  {
-            const selectedCourses = courseList.filter((course) => course.id < 210)
-            setCourses(selectedCourses)
-        }
-    }, [courseList]);
+        axios.get('https://54.221.177.186/api/academics/course/list?programme=bachelors')
+            .then(response => {
+                setCourses(response.data.results);
+            })
+            .catch(error => console.error('Error:', error));
+    }, []);
+
+    // useEffect(() => {
+    //     if (courses.length > 0)  {
+    //         const selectedCourses = courseList.filter((course) => course.country && course.country.name === "United States");
+    //                     setCourses(selectedCourses)
+    //                     console.log(selectedCourses)
+    //     }
+    // }, [courses]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const scrollLeft = () => {
         document.getElementById("contentB").scrollLeft -= 340;
