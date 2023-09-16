@@ -38,7 +38,7 @@ export default function Courses({ props }) {
     const [sortOrder, setSortOrder] = useState('Ascending');
     const [isChecked, setIsChecked] = useState(false);
     const [attendanceChecked, setIsAttendanceChecked] = useState(false);
-    const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '' });
+    const [searchParam, setSearchParam] = useState({ discipline: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] });
     const [clickedDiscipline, setClickedDiscipline] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
     const [countries, setCountries] = useState(countriesList);
@@ -48,11 +48,22 @@ export default function Courses({ props }) {
 
     const handleCountrySelect = (country) => {
         if (!selectedCountries.includes(country)) {
-            setSelectedCountries(prevCountries => [...prevCountries, country]);
-        }    };
-
+            setSelectedCountries(prevCountries => {
+                const updatedCountries = [...prevCountries, country];
+                const countryCode = updatedCountries.map(country => country.short_code);
+                setSearchParam(prevParam => ({...prevParam, countries: countryCode}));
+                return updatedCountries;
+            });
+        }
+    };
+    
     const handleCountryDeselect = (deselectedCountry) => {
-        setSelectedCountries(prevCountries => prevCountries.filter(country => country !== deselectedCountry));
+        setSelectedCountries(prevCountries => {
+            const updatedCountries = prevCountries.filter(country => country !== deselectedCountry);
+            const countryCode = updatedCountries.map(country => country.short_code);
+            setSearchParam(prevParam => ({...prevParam, countries: countryCode}));
+            return updatedCountries;
+        });
     };
 
     const handleSearchChange = (event) => {
@@ -61,13 +72,14 @@ export default function Courses({ props }) {
 
     const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(searchCountry.toLowerCase()));
 
-    let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '' }) => {
+    let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
         let discipline = Params.discipline
         let degree_type = Params.degree_type
         let learning = Params.attendance
         let formatList = Params.format
         let durationList = Params.duration
         let tuitionVal = Params.tuition
+        let chosenCountries = Params.countries
         let url = `${baseUrl}?programme=${programme}&page=${currentPage + 1}&`;
         if (!programme) {
             setCourses(courseList);
@@ -97,6 +109,12 @@ export default function Courses({ props }) {
         if (formatList.length > 0) {
             formatList.map((format) => {
                 url = url + `course_format=${format}&`
+                console.log(url)
+            })
+        }
+        if (chosenCountries.length > 0) {
+            chosenCountries.map((country) => {
+                url = url + `country=${country}&`
                 console.log(url)
             })
         }
@@ -188,6 +206,8 @@ export default function Courses({ props }) {
         setSearchParam(anotherParam);
         console.log(tuitionRange);
     }
+
+
     useEffect(() => {
         let param = searchParam
         fetchData(param);
