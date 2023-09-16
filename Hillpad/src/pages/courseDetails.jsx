@@ -141,7 +141,7 @@ export default function CourseDetails() {
                                         </div>
                                     </section>
 
-                                    <section className='w-full mx-auto max-w-full my-6 text-light_black xl:mx-4 mt-40'>
+                                    <section className='w-full mx-auto max-w-full my-6 text-light_black xl:mx-4 mt-52'>
                                         <div className='w-full'>
                                             <div>
                                                 <h2 className='font-semibold text-black text-3xl my-6'>Course Overview</h2>
