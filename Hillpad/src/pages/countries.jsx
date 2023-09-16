@@ -10,6 +10,7 @@ import Prefooter from '../components/preFooter';
 export default function Countries() {
 
     const [countriesList, setCountries] = useState([])
+    const [count, setCount] = useState(0)
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const countries = useSelector((state) => state.country.countryList);
@@ -17,11 +18,13 @@ export default function Countries() {
      useEffect(() => {
         if (countries.length > 0) {
             setCountries(countries);
+            setCount(countries.length)
         }
         axios.get(`https://54.221.177.186/api/academics/country/list`)
             .then(res => {
                 const countriesRes = res.data.results;
                 setCountries(countriesRes);
+                setCount(countriesRes.length)
             })
     }, []);
     return (
@@ -48,7 +51,7 @@ export default function Countries() {
                     </div>
                     <div className='md:flex items-center gap-x-2 text-light_black opacity-80 sm:w-4/12 lg:w-2/12 hidden '>
                         <div><FiCheckCircle /></div>
-                        <div>51 countries</div>
+                        <div>{count} countries</div>
                     </div>
 
                 </div>
