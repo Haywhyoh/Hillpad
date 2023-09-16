@@ -299,3 +299,7 @@ background: linear-gradient(90deg, rgba(52,9,9,1) 22%, rgba(255,87,87,0.37578781
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+#userCard {
+  border-radius: 0.75rem;
+}

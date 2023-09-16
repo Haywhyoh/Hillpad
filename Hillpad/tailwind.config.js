@@ -16,6 +16,7 @@ export default {
       
       'white': '#FFFFFF',
       'orange': '#FF5757',
+      'nav_black': '#454056',
       'black': '#1f1b2d',
       'light_black': '#666276',
       'green': '#07c98b',
