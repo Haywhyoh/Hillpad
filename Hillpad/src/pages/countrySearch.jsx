@@ -11,16 +11,10 @@ import { Link } from 'react-router-dom';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import RangeSlider from "../components/RangeSlider";
 
-export default function Courses({ props }) {
+export default function CountrySearch({ props }) {
     let courseList = useSelector((state) => state.courses.coursesList);
     let countriesList = useSelector((state) => state.country.countryList);
-    let bachelorsList = useSelector((state) => state.bachelors.bachelorsList);
-    let mastersList = useSelector((state) => state.masters.mastersList);
-    let doctoratesList = useSelector((state) => state.doctorates.doctoratesList);
     let courseCount = useSelector((state) => state.courses.count);
-    let bachelorsCount = useSelector((state) => state.bachelors.count);
-    let mastersCount = useSelector((state) => state.masters.count);
-    let doctoratesCount = useSelector((state) => state.doctorates.count);
     let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
     let currencies = useSelector((state) => state.currencies.currenciesList);
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
@@ -42,6 +36,7 @@ export default function Courses({ props }) {
     const [selectedCountries, setSelectedCountries] = useState([]);
     const [searchCountry, setSearchCountry] = useState('');
 
+    
     const handleCountrySelect = (country) => {
         if (!selectedCountries.includes(country)) {
             setSelectedCountries(prevCountries => {
@@ -76,28 +71,8 @@ export default function Courses({ props }) {
         let durationList = Params.duration
         let tuitionVal = Params.tuition
         let chosenCountries = Params.countries
-        let url = `${baseUrl}?programme=${programme}&page=${currentPage + 1}&`;
-        if (!programme) {
-            setCourses(courseList);
-            setCount(courseCount);
-            return
-        }
-        if (programme == 'bachelors' && !discipline && !degree_type && !learning) {
-            setCourses(bachelorsList)
-            setCount(bachelorsCount)
-            return
-        }
-        if (programme == 'masters' && !discipline && !degree_type && !learning) {
-            setCourses(mastersList)
-            setCount(mastersCount)
-            return
-        }
-        else if (programme == 'doctorates' && !discipline && !degree_type && !learning) {
-            setCourses(doctoratesList)
-            setCount(doctoratesCount)
-            return
-
-        }
+        let url = `${baseUrl}?country=${country_code}&page=${currentPage + 1}&`;
+       
         if (discipline && programme) {
             url = url + `discipline=${discipline}&`
             console.log(url)
