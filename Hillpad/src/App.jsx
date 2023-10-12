@@ -12,7 +12,6 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { fetchUser2, update } from './redux/userSlice'
-import axios from 'axios'
 import CourseDetails from './pages/courseDetails'
 import Disciplines from './pages/discipline'
 import School from './pages/school'
@@ -27,10 +26,10 @@ import { fetchCurrencies } from './redux/currencySlice'
 import Explore from './pages/explore'
 import DisciplinesList from './components/test'
 import CountrySearch from './pages/countrySearch'
+import SearchPage from './pages/searchPage'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
-  const degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
   const allCourses = useSelector((state) => state.courses.coursesList);
   const allCoursesCount = useSelector((state) => state.courses.count);
   const bachelorsCourses = useSelector((state) => state.bachelors.bachelorsList);
@@ -78,9 +77,11 @@ function App() {
           <Route path='/courses' element={<Courses props={{courses: allCourses, count: allCoursesCount}}/>} >
             <Route path=':id' element={<Courses />} />
           </Route>
+          <Route path='/search' element={<SearchPage />} />
           <Route path='/search/:country_code' element={<CountrySearch />} >
             <Route path=':discipline' element={<CountrySearch />} />
           </Route>
+          
           <Route path='/bachelors' element={<Courses props={{ programme: 'bachelors', courses: bachelorsCourses, count: bachelorsCount}}/>}>
             <Route path=':id' element={<Courses  props={{url: '?programme=bachelors&discipline=', programme: 'bachelors'}} />} />
           </Route>
