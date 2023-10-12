@@ -519,7 +519,7 @@ export default function CountrySearch({ props }) {
 
                 <div className=" flex w-full">
                     <div className="mb-4 w-full px-4">
-                        <h1 className="text-3xl w-fit">{props ? props.country : ''} Courses</h1>
+                        <h1 className="text-3xl w-fit">{country_code.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Courses</h1>
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
                                 <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-5/12">
