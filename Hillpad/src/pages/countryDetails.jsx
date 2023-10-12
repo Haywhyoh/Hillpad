@@ -3,8 +3,9 @@ import { BsInfoCircle } from "react-icons/bs";
 import { FiArrowLeft, FiChevronsRight, FiEdit, FiExternalLink, FiFlag, FiImage, FiHeart, FiShare2 } from "react-icons/fi";
 import { FaGlobeAmericas, FaGraduationCap, FaSchool, FaShoppingCart, FaSuitcaseRolling, FaUserGraduate, FaUsers } from "react-icons/fa";
 import countries from '../data/country.json';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { degrees } from "../pages/degree";
+import axios from "axios";
 import AboutCountry from "../components/aboutCountry";
 import LivingCost from "../components/livingCost";
 import CountrySchools from "../components/countrySchools";
@@ -21,25 +22,38 @@ export default function CountryDetail() {
         'oc': 'Oceania',
     }
     const [info, setInfo] = useState('about');
+    const [schools, setSchools] = useState([]);
 
-    const countriesList = countries["results"];
-    const [currentIndex, setCurrentIndex] = useState(0);
     const param = useParams();
     const location = useLocation();
     const props = location.state;
     const continent = props.continent.toLowerCase();
-
+    useEffect(() => {
+        const fetchSchools = async () => {
+            const response = await axios.get(`https://54.221.177.186/api/academics/school/list?country=${props.slug}`);
+            const data =  response.data.results;
+            console.log(data);
+            setSchools(data);
+        }
+        const fetchCountries = async () => {
+            const response = await axios.get('https://54.221.177.186/api/academics/country/list');
+            console.log(response.data);
+        }
+        fetchSchools();
+        fetchCountries();
+    }, []);
     function renderInfo(info) {
         if (info === 'about') {
             return <AboutCountry props={props} />
         }
         if(info === 'schools'){
-            return <CountrySchools props={props} />
+            return <CountrySchools props={schools} />
         }
         if(info === 'costs'){
             return <LivingCost props={props} />  
         }
     }
+   
     return (
         <div className="mt-24 xl:mt-40 mx-auto max-w-full px-4 xl:px-4 2xl:px-0">
             <div className="text-light_black flex gap-x-2 text-sm my-10"> 
@@ -82,23 +96,23 @@ export default function CountryDetail() {
                         <div className="py-4">
                             <div className="flex gap-x-2 items-center">
                                 <div> <FaUsers /> </div>
-                                <div className="font-bold">{props.population}</div>
-                                <div className="text-sm">population</div>
+                                <div className="font-bold">{props.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</div>
+                                <div className="text-base">population</div>
                             </div>
                             <div className="flex gap-x-2 items-center">
                                 <div><FaSchool /></div>
-                                <div className="font-bold">97</div>
-                                <div className="text-sm">Listed Schools</div>
+                                <div className="font-bold">{schools.length}</div>
+                                <div className="text-base">Listed Schools</div>
                             </div>
                             <div className="flex gap-x-2 items-center">
                                 <div><FaUserGraduate /></div>
-                                <div className="font-bold">{props.students}</div>
-                                <div className="text-sm">Students</div>
+                                <div className="font-bold">{props.students.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</div>
+                                <div className="text-base">Students</div>
                             </div>
                             <div className="flex gap-x-2 items-center">
                                 <div><FaSuitcaseRolling /></div>
-                                <div className="font-bold">23232</div>
-                                <div className="text-sm">{props.international_students}</div>
+                                <div className="font-bold">{props.international_students.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</div>
+                                <div className="text-base">International_students</div>
                             </div>
                         </div>
                     </div>
