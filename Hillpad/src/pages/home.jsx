@@ -39,6 +39,8 @@ export default function Home() {
   const [isHovDiscipline11, setIsHovDiscipline11] = useState(false);
   const [isHovDiscipline12, setIsHovDiscipline12] = useState(false);
 
+  const [searchValue, setSearchValue] = useState('');
+
 
   const [hideCountryList, setCountryList] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState('Where ?');
@@ -109,6 +111,8 @@ export default function Home() {
                           type="text "
                           className="focus:outline-none text-xs xl:text-sm md:w-60 lg:w-40 xl:w-60 "
                           placeholder="What do you want to study?"
+                          value={searchValue}
+                          onChange={(e) => setSearchValue(e.target.value)}
                         ></input>
                       </div>
                     </fieldset>
@@ -141,10 +145,11 @@ export default function Home() {
                         
                     </div>
 
-
+                    <Link to={`/coursefinder/${searchValue}/${selectedCountry}/`}>
                     <button className="w-full md text-white bg-orange py-4 px-4 text-base font-bold rounded-3xl md:w-28 md:rounded-full">
                       Search
                     </button>
+                    </Link>
                   </form>
                 </div>
               </div>
