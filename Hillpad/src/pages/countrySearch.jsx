@@ -12,11 +12,12 @@ import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import RangeSlider from "../components/RangeSlider";
 
 export default function CountrySearch({ props }) {
-    let courseList = useSelector((state) => state.courses.coursesList);
     let countriesList = useSelector((state) => state.country.countryList);
-    let courseCount = useSelector((state) => state.courses.count);
     let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
     let currencies = useSelector((state) => state.currencies.currenciesList);
+    
+    
+    const { country_code } = useParams();
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {
@@ -24,7 +25,6 @@ export default function CountrySearch({ props }) {
     } else {
         programme = '';
     }
-    const emptyParam = { discipline: '', degree_type: [], attendance: [], format: [] }
     const [sortOrder, setSortOrder] = useState('Ascending');
     const [isChecked, setIsChecked] = useState(false);
     const [attendanceChecked, setIsAttendanceChecked] = useState(false);
@@ -32,36 +32,6 @@ export default function CountrySearch({ props }) {
     const [clickedDiscipline, setClickedDiscipline] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
     const [countries, setCountries] = useState(countriesList);
-    const [showCountryDropdown, setShowCountryDropdown] = useState(false);
-    const [selectedCountries, setSelectedCountries] = useState([]);
-    const [searchCountry, setSearchCountry] = useState('');
-
-    
-    const handleCountrySelect = (country) => {
-        if (!selectedCountries.includes(country)) {
-            setSelectedCountries(prevCountries => {
-                const updatedCountries = [...prevCountries, country];
-                const countryCode = updatedCountries.map(country => country.short_code);
-                setSearchParam(prevParam => ({...prevParam, countries: countryCode}));
-                return updatedCountries;
-            });
-        }
-    };
-    
-    const handleCountryDeselect = (deselectedCountry) => {
-        setSelectedCountries(prevCountries => {
-            const updatedCountries = prevCountries.filter(country => country !== deselectedCountry);
-            const countryCode = updatedCountries.map(country => country.short_code);
-            setSearchParam(prevParam => ({...prevParam, countries: countryCode}));
-            return updatedCountries;
-        });
-    };
-
-    const handleSearchChange = (event) => {
-        setSearchCountry(event.target.value);
-    };
-
-    const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(searchCountry.toLowerCase()));
 
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
         let discipline = Params.discipline
@@ -70,10 +40,10 @@ export default function CountrySearch({ props }) {
         let formatList = Params.format
         let durationList = Params.duration
         let tuitionVal = Params.tuition
-        let chosenCountries = Params.countries
+        // let chosenCountries = Params.countries
         let url = `${baseUrl}?country=${country_code}&page=${currentPage + 1}&`;
        
-        if (discipline && programme) {
+        if (discipline) {
             url = url + `discipline=${discipline}&`
             console.log(url)
         }
@@ -83,12 +53,12 @@ export default function CountrySearch({ props }) {
                 console.log(url)
             })
         }
-        if (chosenCountries.length > 0) {
-            chosenCountries.map((country) => {
-                url = url + `country=${country}&`
-                console.log(url)
-            })
-        }
+        // if (chosenCountries) {
+           
+        
+               
+        //     }
+        // }
         if (tuitionVal.length > 0) {
             url = url + `tuition=${tuitionVal}&`
             console.log(url)
@@ -185,7 +155,7 @@ export default function CountrySearch({ props }) {
 
         setDisciplines(disciplinesList);
         setCountries(countriesList)
-    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList, countriesList]);
+    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList, ]);
 
     const duration = ['Less than 1 year', '1 - 2 years', '2 - 3 years', '3 - 4 years', 'More than 4 years']
     const format = ['Full-time', 'Part-time']
@@ -211,7 +181,6 @@ export default function CountrySearch({ props }) {
     const [showInfo, setShowInfo] = useState(false);
     const [showBach, setBachInfo] = useState(false);
     const [showMasters, setMastersInfo] = useState(false);
-    const [showCountries, setShowCountries] = useState(false);
     const [showDoc, setDocInfo] = useState(false);
     const [showDuration, setDurationInfo] = useState(false);
     const [showAttendance, setAttendanceInfo] = useState(false);
@@ -225,11 +194,6 @@ export default function CountrySearch({ props }) {
 
     const [query, setQuery] = useState('');
 
-    const searchQuery = () => {
-        const new_deg = degrees.filter(degree => degree.name.toLowerCase().includes(query.toLowerCase()) || degree.school.name.toLowerCase().includes(query.toLowerCase()));
-        setCourses(new_deg);
-
-    }
 
     const handleOnChange = (event) => {
         const selectedDegreeType = parseInt(event.target.value);
@@ -332,7 +296,7 @@ export default function CountrySearch({ props }) {
                                 {disciplines.map((discipline) => (
                                     <Link
                                         key={discipline.id}
-                                        to={!programme ? `/courses/${discipline.slug}` : `/${programme}/${discipline.slug}`}
+                                        to={!programme ? `/search/${country_code}/${discipline.slug}` : `/${programme}/${country_code}/${discipline.slug}`}
                                         onClick={() => setClickedDiscipline(discipline.id)}  // Add this line
                                     >
                                         <div
@@ -351,7 +315,7 @@ export default function CountrySearch({ props }) {
                             </div>
                             </div>
                         </div>
-                        <div className={programme === 'bachelors' ? 'block' : 'hidden'}>
+                        <div className='block'>
                             <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
                                 {showBach ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
@@ -373,7 +337,7 @@ export default function CountrySearch({ props }) {
                                 ))}
                             </div>
                         </div>
-                        <div className={programme === 'masters' ? 'block' : 'hidden'}>
+                        <div className='block'>
                             <div className="text-lg  py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setMastersInfo(!showMasters); }}><div>Masters</div>  <button className='' >
                                 {showMasters ? <FiChevronUp /> : <FiChevronDown />}
                             </button>
@@ -395,7 +359,7 @@ export default function CountrySearch({ props }) {
                                 ))}
                             </div>
                         </div>
-                        <div id="doctorates" className={programme === 'doctorates' ? 'block' : 'hidden'}>
+                        <div id="doctorates" className='block'>
 
                             <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDocInfo(!showDoc); }}><div>Doctorate</div>  <button className='' >
                                 {showDoc ? <FiChevronUp /> : <FiChevronDown />}
@@ -521,40 +485,6 @@ export default function CountrySearch({ props }) {
                             </div>
                         </div>
                         <div>
-                <div className="text-lg font-semibold py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between">
-                    <div>Countries</div>  
-                </div>
-                <div className="w-full flex gap-x-2 flex-col">
-                    {selectedCountries.map((selectedCountry, index) => (
-                        <div key={index}>
-                            <input
-                                type="checkbox"
-                                id={selectedCountry.short_code}
-                                name={selectedCountry.shocode}
-                                checked={true}
-                                onChange={() => handleCountryDeselect(selectedCountry)}
-                            />
-                            <label htmlFor={selectedCountry.code} className="mx-3 text-lg text-light_black">{selectedCountry.name}</label>
-                        </div>
-                    ))}
-                    <input
-                        type="text"
-                        placeholder="Search countries..."
-                        value={searchCountry}
-                        className="w-full border border-light_black p-1 mb-2"
-                        onChange={handleSearchChange}
-                    />
-                    <div className="h-40 overflow-y-scroll">
-                    {filteredCountries.map((country, index) => (
-                        <div className="" key={index} onClick={() => handleCountrySelect(country)}>
-                            {country.name}
-                        </div>
-                    ))}
-                    </div>
-                   
-                </div>
-            </div>
-                        <div>
                             <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setFormatInfo(!showFormat); }}><div>Format</div>  
                             <button className=''>
                                 {showFormat ? <FiChevronUp /> : <FiChevronDown />}
@@ -589,7 +519,7 @@ export default function CountrySearch({ props }) {
 
                 <div className=" flex w-full">
                     <div className="mb-4 w-full px-4">
-                        <h1 className="text-3xl w-fit">{programme ? programme.charAt(0).toUpperCase() + programme.slice(1) : ''} Courses</h1>
+                        <h1 className="text-3xl w-fit">{props ? props.country : ''} Courses</h1>
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
                                 <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-5/12">
@@ -663,3 +593,4 @@ export default function CountrySearch({ props }) {
         </div>
     );
 }
+

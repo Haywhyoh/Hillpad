@@ -26,6 +26,7 @@ import { fetchDegreeTypes } from './redux/degreeTypeSlice'
 import { fetchCurrencies } from './redux/currencySlice'
 import Explore from './pages/explore'
 import DisciplinesList from './components/test'
+import CountrySearch from './pages/countrySearch'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
@@ -76,6 +77,9 @@ function App() {
           <Route path='/explore' element={<Explore />} />
           <Route path='/courses' element={<Courses props={{courses: allCourses, count: allCoursesCount}}/>} >
             <Route path=':id' element={<Courses />} />
+          </Route>
+          <Route path='/search/:country_code' element={<CountrySearch />} >
+            <Route path=':discipline' element={<CountrySearch />} />
           </Route>
           <Route path='/bachelors' element={<Courses props={{ programme: 'bachelors', courses: bachelorsCourses, count: bachelorsCount}}/>}>
             <Route path=':id' element={<Courses  props={{url: '?programme=bachelors&discipline=', programme: 'bachelors'}} />} />
