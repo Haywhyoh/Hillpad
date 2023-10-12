@@ -77,7 +77,7 @@ function App() {
           <Route path='/courses' element={<Courses props={{courses: allCourses, count: allCoursesCount}}/>} >
             <Route path=':id' element={<Courses />} />
           </Route>
-          <Route path='/search' element={<SearchPage />} />
+          <Route path='/coursefinder/:courseName/:countryName' element={<SearchPage />} />
           <Route path='/search/:country_code' element={<CountrySearch />} >
             <Route path=':discipline' element={<CountrySearch />} />
           </Route>

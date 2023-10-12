@@ -41,7 +41,7 @@ export default function SearchPage({ props }) {
         let durationList = Params.duration
         let tuitionVal = Params.tuition
         // let chosenCountries = Params.countries
-        let url = `${baseUrl}name=${courseName}&country=${countryName}&page=${currentPage + 1}&`;
+        let url = `${baseUrl}?name=${courseName.replace(' ', '%20')}&country=${countryName.replace(' ', '-').toLowerCase()}&page=${currentPage + 1}&`;
        
         if (discipline) {
             url = url + `discipline=${discipline}&`
@@ -155,7 +155,7 @@ export default function SearchPage({ props }) {
 
         setDisciplines(disciplinesList);
         setCountries(countriesList)
-    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList, ]);
+    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList, courseName, countryName ]);
 
     const duration = ['Less than 1 year', '1 - 2 years', '2 - 3 years', '3 - 4 years', 'More than 4 years']
     const format = ['Full-time', 'Part-time']
@@ -296,7 +296,7 @@ export default function SearchPage({ props }) {
                                 {disciplines.map((discipline) => (
                                     <Link
                                         key={discipline.id}
-                                        to={!programme ? `/search/${country_code}/${discipline.slug}` : `/${programme}/${country_code}/${discipline.slug}`}
+                                        to={!programme ? `/search/${countryName}/${discipline.slug}` : `/${programme}/${countryName}/${discipline.slug}`}
                                         onClick={() => setClickedDiscipline(discipline.id)}  // Add this line
                                     >
                                         <div
@@ -519,7 +519,7 @@ export default function SearchPage({ props }) {
 
                 <div className=" flex w-full">
                     <div className="mb-4 w-full px-4">
-                        <h1 className="text-3xl w-fit">{country_code.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Courses</h1>
+                        <h1 className="text-3xl w-fit">{`"${courseName.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}"`} Courses</h1>
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
                                 <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-5/12">

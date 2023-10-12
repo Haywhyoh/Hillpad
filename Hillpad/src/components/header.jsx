@@ -19,7 +19,7 @@ export default function Header({ props }) {
     const [isHovering, setIsHovering] = useState(false);
     const [isHovering2, setIsHovering2] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-
+    const [searchValue, setSearchValue] = useState('');
     const [hideCountryList, setCountryList] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState('Where?');
 
@@ -219,7 +219,9 @@ export default function Header({ props }) {
                                         type="text "
                                         className="focus:outline-none md:w-72 font-normal"
                                         placeholder="What do you want to study?"
-                                    ></input>
+                                        value={searchValue}
+                                        onChange={(e) => setSearchValue(e.target.value)}
+                                    />
                                 </div>
                             </fieldset>
                             <div className="">
@@ -261,10 +263,11 @@ export default function Header({ props }) {
                                 }
                                 
                             </div>
-                            <button className="w-full text-white bg-orange py-3 px-3 text-lg font-bold rounded-3xl md:w-fit md:rounded-full">
-                                <AiOutlineSearch className="text-white" />
-
-                            </button>
+                            <Link to={`/coursefinder/${searchValue}/${selectedCountry}/`}>
+                                <button className="w-full text-white bg-orange py-3 px-3 text-lg font-bold rounded-3xl md:w-fit md:rounded-full">
+                                    <AiOutlineSearch className="text-white" />
+                                </button>
+                            </Link>
                         </form>
                     </div>
                 </div>
