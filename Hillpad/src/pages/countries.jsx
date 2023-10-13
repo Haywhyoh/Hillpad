@@ -13,13 +13,8 @@ export default function Countries() {
     const [count, setCount] = useState(0)
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const countries = useSelector((state) => state.country.countryList);
 
      useEffect(() => {
-        if (countries.length > 0) {
-            setCountries(countries);
-            setCount(countries.length)
-        }
         axios.get(`https://54.221.177.186/api/academics/country/list`)
             .then(res => {
                 const countriesRes = res.data.results;
