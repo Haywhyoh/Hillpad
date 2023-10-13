@@ -49,7 +49,7 @@ export default function Header({ props }) {
             // Cleanup the event listener
             document.removeEventListener("mousedown", checkIfClickedOutside)
           }
-    }, [hideCountryList]);
+    }, [hideCountryList, searchValue, selectedCountry]);
 
     const handleMouseOver = () => {
         setIsHovering(true);

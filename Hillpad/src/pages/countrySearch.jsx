@@ -32,6 +32,7 @@ export default function CountrySearch({ props }) {
     const [clickedDiscipline, setClickedDiscipline] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
     const [countries, setCountries] = useState(countriesList);
+    const [loading, setLoading] = useState(false);
 
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
         let discipline = Params.discipline
@@ -99,7 +100,8 @@ export default function CountrySearch({ props }) {
         const res = await axios.get(url);
         const data = await res.data;
         setCourses(data.results);
-        setCount(res.data.count)
+        setCount(res.data.count);
+        setLoading(true);
         return data;
     }
 
@@ -549,21 +551,28 @@ export default function CountrySearch({ props }) {
 
                                 </div>
                             </div>
-                            {view === 'Grid' ? <div className="flex justify-start w-full max-w-full">
-                                <div className="flex gap-x-4 flex-wrap justify-start w-full">
-                                    {sortedCourses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
-                                </div>
-                            </div> : <div className=" w-full max-w-full">
-                                <div className="flex flex-col w-full gap-y-4">
-                                    {sortedCourses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
+                            <div className="flex justify-start w-full max-w-full">
+                            { loading ? 
+                                <div className=" w-full max-w-full">
+                                    { sortedCourses.length > 0 ?
+                                        <div className="flex flex-col w-full gap-y-4">
+                                            {sortedCourses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
 
+                                        </div> 
+                                        : 
+                                        <div className="flex justify-center items-center h-screen">
+                                            <div className="flex justify-center items-center h-screen">
+                                                <div className="animate-bounce text-5xl opacity-20 text-light_black font-bold">No courses Available</div>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
+                            : 
+                            <div className="flex justify-center items-center h-screen mx-auto">
+                            <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-light"></div>
+                        </div>
+                       }
                             </div>
-                            }
-
-
-
-
                         </div>
 
                     </div>

@@ -32,6 +32,7 @@ export default function SearchPage({ props }) {
     const [clickedDiscipline, setClickedDiscipline] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
     const [countries, setCountries] = useState(countriesList);
+    const [loading, setLoading] = useState(false);
 
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
         let discipline = Params.discipline
@@ -41,8 +42,14 @@ export default function SearchPage({ props }) {
         let durationList = Params.duration
         let tuitionVal = Params.tuition
         // let chosenCountries = Params.countries
-        let url = `${baseUrl}?name=${courseName.replace(' ', '%20')}&country=${countryName.replace(' ', '-').toLowerCase()}&page=${currentPage + 1}&`;
-       
+        let url;
+        if ( countryName === "Where"){
+            console.log(countryName)
+            url = `${baseUrl}?name=${courseName.replace(' ', '%20')}&page=${currentPage + 1}&`;
+        } else {
+            url = `${baseUrl}?name=${courseName.replace(' ', '%20')}&country=${countryName.replace(' ', '-').toLowerCase()}&page=${currentPage + 1}&`;
+
+        }
         if (discipline) {
             url = url + `discipline=${discipline}&`
             console.log(url)
@@ -99,7 +106,9 @@ export default function SearchPage({ props }) {
         const res = await axios.get(url);
         const data = await res.data;
         setCourses(data.results);
-        setCount(res.data.count)
+        setCount(res.data.count);
+        setLoading(true)
+
         return data;
     }
 
@@ -192,7 +201,6 @@ export default function SearchPage({ props }) {
 
     const [view, setView] = useState('List');
 
-    const [query, setQuery] = useState('');
 
 
     const handleOnChange = (event) => {
@@ -516,7 +524,7 @@ export default function SearchPage({ props }) {
 
 
                 </aside>
-
+            
                 <div className=" flex w-full">
                     <div className="mb-4 w-full px-4">
                         <h1 className="text-3xl w-fit">{`"${courseName.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}"`} Courses</h1>
@@ -548,19 +556,26 @@ export default function SearchPage({ props }) {
                                     </div>
 
                                 </div>
+                            
                             </div>
-                            {view === 'Grid' ? <div className="flex justify-start w-full max-w-full">
-                                <div className="flex gap-x-4 flex-wrap justify-start w-full">
-                                    {sortedCourses.map((degree, index) => (<CourseCard key={index} prop={degree} />))}
-                                </div>
-                            </div> : <div className=" w-full max-w-full">
-                                <div className="flex flex-col w-full gap-y-4">
-                                    {sortedCourses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
+                           
+                            <div className="flex justify-start w-full max-w-full">
+                                <div className=" w-full max-w-full">
+                                    { sortedCourses.length > 0 ?
+                                        <div className="flex flex-col w-full gap-y-4">
+                                            {sortedCourses.map((degree, index) => (<FlatCourseCard key={index} prop={degree} />))}
 
+                                        </div> 
+                                        : 
+                                        <div className="flex justify-center items-center h-screen">
+                                            <div className="flex justify-center items-center h-screen">
+                                                <div className="animate-bounce text-5xl opacity-20 text-light_black font-bold">No Course Available</div>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
                             </div>
-                            }
-
+                            
 
 
 
