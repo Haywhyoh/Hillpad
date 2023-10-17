@@ -22,14 +22,14 @@ export default function FlatCourseCard({prop}) {
         <Link to={`/course/${prop.slug}`} state={prop}>
 
         <div className=' card-hover border border-light_black border-opacity-20 p-3 flex gap-x-4 items-center shadow-2 w-full'>
-          <div className='w-28 hidden md:block '>
+          <div className='hidden w-28 md:block '>
             <img src={prop.school.logo} className='h-28 w-full' />
           </div>
           <div className='text-light_black w-full md:w-4/5'>
-          <div className="font-bold text-lg md:text-2xl text-light_black ">{prop.name.length > 60 ? `${prop.name.substring(0, 64) + '...'} ` : prop.name}</div>
+          <div className=" font-bold text-base sm:text-lg md:text-2xl text-light_black ">{prop.name.length > 60 ? `${prop.name.substring(0, 64) + '...'} ` : prop.name}</div>
             <div>
               <div className='flex gap-x-8 items-center'>
-                <div className='md:text-lg text-normal'><h3>{prop.school.name}</h3></div>
+                <div className=' text-sm md:text-lg text-normal'><h3>{prop.school.name}</h3></div>
                 <div className='md:flex items-center gap-x-2  hidden'>
 
                   <div className="flex text-yellow text-normal ">
@@ -46,7 +46,8 @@ export default function FlatCourseCard({prop}) {
               </div>
               <div>
                 <p className='text-xs py-1'>
-                  <span>{prop.about.length  > 250 ? `${prop.about.substring(0, 250) + '...'} ` : prop.about}</span>
+                <span className='hidden md:block'>{prop.about.length  > 250 ? `${prop.about.substring(0, 250) + '...'} ` : prop.about}</span>
+                  <span className='md:hidden'>{prop.about.length  > 120 ? `${prop.about.substring(0, 120) + '...'} ` : prop.about}</span>
                 </p>
               </div>
               <div className='flex font-semibold text-xs md:text-sm text-opacity-40 gap-x-4 mt-2'>
