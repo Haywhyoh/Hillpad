@@ -44,6 +44,8 @@ export default function Home() {
 
   const [hideCountryList, setCountryList] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState('Where ?');
+  const [selectedMobileCountry, setSelectedMobileCountry] = useState('');
+  const [hideCountryMobileList, setCountryMobileList] = useState(false);
 
   const dropdownRef = useRef(null);
 
@@ -163,27 +165,34 @@ export default function Home() {
                         type="text "
                         className="focus:outline-none md:w-60 "
                         placeholder="What do you want to study?"
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
                       ></input>
                     </div>
                   </fieldset>
-                  <fieldset className="my-4 lg:border-s border-opacity-40 border-light_black">
-                    <div></div>
-                    <select className="text-left w-full p-2 text-light_black bg-white focus:outline-none lg:w-fit">
-                      <option className="text-light_black text-opacity-10" value={"China"}>
-                        Where ?
-                      </option>
-                      <option className="text-text_black" value={"Belgium"}>
-                        Belgium
-                      </option>
-                      <option className="text-text_black" value={"Canada"}>
-                        Canada
-                      </option>
-                    </select>
-                  </fieldset>
+                  <div className="relative">
+  <div className="p-2 text-light_black bg-white focus:outline-none lg:w-fit cursor-pointer" onClick={() => setCountryMobileList(!hideCountryMobileList)}>
+    {selectedMobileCountry || 'Where ?'}
+    <FiChevronDown className="inline" />
+  </div>
+  { hideCountryMobileList &&
+    <div className="absolute w-full bg-white shadow rounded-sm max-h-44 overflow-y-scroll">
+      {
+        countries.map((country) => (
+          <div className="text-light_black text-xs py-2" key={country.id} onClick={() => {setSelectedMobileCountry(country.name); setCountryMobileList(false)}}>
+            {country.name}
+          </div>
+        ))
+      }
+    </div>
+  }
+</div>
                   <div className="mx-2 xs:mx-2 ">
+                  <Link to={`/coursefinder/${searchValue}/${selectedMobileCountry}/`}>
                     <button className="w-60 xs:w-full 2xs:w-full mb-2 md:mb-0 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
                       Search
                     </button>
+                  </Link>
                   </div>
                 </form>
               </div>

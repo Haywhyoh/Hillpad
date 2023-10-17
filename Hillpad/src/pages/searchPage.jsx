@@ -43,7 +43,7 @@ export default function SearchPage({ props }) {
         let tuitionVal = Params.tuition
         // let chosenCountries = Params.countries
         let url;
-        if ( countryName === "Where"){
+        if ( countryName === "Where" || countryName === "where" || countryName === null){
             console.log(countryName)
             url = `${baseUrl}?name=${courseName.replace(' ', '%20')}&page=${currentPage + 1}&`;
         } else {
