@@ -171,15 +171,15 @@ export default function Home() {
                     </div>
                   </fieldset>
                   <div className="relative">
-  <div className="p-2 text-light_black bg-white focus:outline-none lg:w-fit cursor-pointer" onClick={() => setCountryMobileList(!hideCountryMobileList)}>
+  <div className="p-2 text-light_black bg-white text-left mx-4 focus:outline-none lg:w-fit cursor-pointer" onClick={() => setCountryMobileList(!hideCountryMobileList)}>
     {selectedMobileCountry || 'Where ?'}
-    <FiChevronDown className="inline" />
+    <FiChevronDown className="inline mx-2" />
   </div>
   { hideCountryMobileList &&
     <div className="absolute w-full bg-white shadow rounded-sm max-h-44 overflow-y-scroll">
       {
         countries.map((country) => (
-          <div className="text-light_black text-xs py-2" key={country.id} onClick={() => {setSelectedMobileCountry(country.name); setCountryMobileList(false)}}>
+          <div className="text-light_black text-sm text-left px-8 py-2" key={country.id} onClick={() => {setSelectedMobileCountry(country.name); setCountryMobileList(false)}}>
             {country.name}
           </div>
         ))
@@ -214,7 +214,7 @@ export default function Home() {
 
         <section className="my-12 w-full  max-w-full px-2">
           <div className="flex justify-between items-center  2xl:mx-auto">
-            <h2 className="font-bold text-2xl md:text-3xl lg:text-5x lg:font-bold lg:text-3xl">
+            <h2 className="font-bold text-1xl xs:text-2xl md:text-3xl lg:text-5x lg:font-bold lg:text-3xl">
               Browse by <span className="text-orange">Discipline</span>
             </h2>
             <Link to='/discipline'>
