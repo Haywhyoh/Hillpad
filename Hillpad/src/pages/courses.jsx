@@ -40,8 +40,8 @@ export default function Courses({ props }) {
     const [countries, setCountries] = useState(countriesList);
     const [selectedCountries, setSelectedCountries] = useState([]);
     const [searchCountry, setSearchCountry] = useState('');
-    const [showFilter, setShowFilter] = useState(true);
-    const [showFilterBar, setShowFilterBar] = useState(true)
+    const [showFilter, setShowFilter] = useState(false);
+    const [showFilterBar, setShowFilterBar] = useState(false)
 
 
     const handleCountrySelect = (country) => {
@@ -673,7 +673,7 @@ export default function Courses({ props }) {
 
                 </div>
                 <div>
-                    {showFilter ?
+                    {!showFilter ?
                         <div className="flex gap-x-2 bg-light text-white p-3 fixed z-20 bottom-0 w-full justify-center items-center lg:hidden" onClick={() =>{ setShowFilter(!showFilter); setShowFilterBar(!showFilterBar); }}>
                             <div>
                                 <FiFilter />

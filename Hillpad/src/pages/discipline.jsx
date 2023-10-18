@@ -1,9 +1,5 @@
-import disciplines from '../data/discipline.json';
-import { FiChevronRight, FiChevronLeft, FiCheckCircle } from "react-icons/fi";
-import { FaBriefcase } from "react-icons/fa";
+
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
-import Prefooter from '../components/preFooter';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import DisciplinesList from '../components/disciplineList';
@@ -30,7 +26,6 @@ export default function Disciplines() {
             })};
     },[] );
 
-    const [isHovDiscipline, setIsHovDiscipline] = useState(false);
 
     // return (
     //     <div className=" my-6 px-2 xl:px-4 2xl:px-0">
