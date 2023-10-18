@@ -41,6 +41,7 @@ export default function Courses({ props }) {
     const [showCountryDropdown, setShowCountryDropdown] = useState(false);
     const [selectedCountries, setSelectedCountries] = useState([]);
     const [searchCountry, setSearchCountry] = useState('');
+    const [showFilter, setShowFilter] = useState(true)
 
     const handleCountrySelect = (country) => {
         if (!selectedCountries.includes(country)) {
@@ -336,7 +337,7 @@ export default function Courses({ props }) {
     return (
         <div className="w-screen">
             <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10 mx-auto">
-                <aside className="hidden lg:block px-8 shadow-2 py-4 lg:w-100 h-fit sticky left-0 top-24  bg-white max-w-full">
+                <aside className=" z-20 lg:z-0 lg:block px-8 shadow-2 py-4 lg:w-100 h-fit sticky left-0 top-24  bg-white max-w-full">
                     <div className="text-orange text-center text-xl lg:text-3xl font-bold mb-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
                     <div className=" h-fit ">
                         <div className="" >
@@ -670,13 +671,21 @@ export default function Courses({ props }) {
                     </div>
 
                 </div>
-
-                <div className="flex gap-x-2 bg-light text-white p-3 fixed z-20 bottom-0 w-full justify-center items-center lg:hidden">
+            <div>
+            { showFilter ?
+            <div className="flex gap-x-2 bg-light text-white p-3 fixed z-20 bottom-0 w-full justify-center items-center lg:hidden" onClick={setShowFilter(false)}>
                     <div>
                         <FiFilter />
                     </div>
                     <div>Filter</div>
                 </div>
+                :
+            <div className="flex gap-x-2 bg-light text-white p-3 fixed z-20 bottom-0 w-full justify-center items-center lg:hidden">
+                 <div>Show {sortedCourses.length} results</div>
+            </div>
+            }
+            </div>
+                
             </div>
             <ReactPaginate
                 previousLabel={<FaChevronLeft />}
