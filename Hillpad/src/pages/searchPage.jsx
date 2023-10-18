@@ -34,7 +34,7 @@ export default function SearchPage({ props }) {
     const [countries, setCountries] = useState(countriesList);
     const [loading, setLoading] = useState(false);
     const [showFilter, setShowFilter] = useState(true);
-    const [showFilterBar, setShowFilterBar] = useState(true)
+    const [showFilterBar, setShowFilterBar] = useState(false)
 
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
         let discipline = Params.discipline
