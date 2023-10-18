@@ -33,6 +33,9 @@ export default function CountrySearch({ props }) {
     const [currentPage, setCurrentPage] = useState(0);
     const [countries, setCountries] = useState(countriesList);
     const [loading, setLoading] = useState(false);
+    const [showFilter, setShowFilter] = useState(true);
+    const [showFilterBar, setShowFilterBar] = useState(true)
+
 
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
         let discipline = Params.discipline
@@ -282,7 +285,9 @@ export default function CountrySearch({ props }) {
     return (
         <div className="w-screen">
             <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10 mx-auto">
-                <aside className="hidden lg:block px-8 shadow-2 py-4 lg:w-100 h-fit sticky left-0 top-24  bg-white max-w-full">
+            {
+                    showFilterBar ?
+                <aside className="lg:block px-8 shadow-2 py-4 lg:w-100 h-fit sticky left-0 top-24  bg-white max-w-full">
                     <div className="text-orange text-center text-xl lg:text-3xl font-bold mb-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
                     <div className=" h-fit ">
                         <div className="" >
@@ -518,7 +523,9 @@ export default function CountrySearch({ props }) {
 
 
                 </aside>
-
+                :
+                <aside className="hidden"></aside>
+            }
                 <div className=" flex w-full">
                     <div className="mb-4 w-full px-4">
                         <h1 className="text-3xl w-fit">{country_code.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Courses</h1>
@@ -579,11 +586,19 @@ export default function CountrySearch({ props }) {
 
                 </div>
 
-                <div className="flex gap-x-2 bg-light text-white p-3 fixed z-20 bottom-0 w-full justify-center items-center lg:hidden">
-                    <div>
-                        <FiFilter />
-                    </div>
-                    <div>Filter</div>
+                <div>
+                    {!showFilter ?
+                        <div className="flex gap-x-2 bg-light text-white p-3 fixed z-20 bottom-0 w-full justify-center items-center lg:hidden" onClick={() =>{ setShowFilter(!showFilter); setShowFilterBar(!showFilterBar); }}>
+                            <div>
+                                <FiFilter />
+                            </div>
+                            <div>Filter</div>
+                        </div>
+                        :
+                        <div className="flex gap-x-2 bg-light text-white p-3 fixed z-20 bottom-0 w-full justify-center items-center lg:hidden" onClick={() => {setShowFilter(!showFilter); setShowFilterBar(!showFilterBar);  }}>
+                            <div>Show {count} results</div>
+                        </div>
+                    }
                 </div>
             </div>
             <ReactPaginate

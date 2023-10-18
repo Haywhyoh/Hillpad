@@ -667,10 +667,6 @@ export default function Courses({ props }) {
                                     </div>
                                 }
                             </div>
-
-
-
-
                         </div>
 
                     </div>
