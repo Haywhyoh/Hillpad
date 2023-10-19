@@ -9,16 +9,17 @@ export default function CourseCard({ prop }) {
   return (
       <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-60 lg:w-card xl:w-73 2xl:w-card justify-center mx-2 xs:ms-4 2xs:ms-7 sm:mx-0 '>
         <Link to={`/course/${prop.slug}`} state={prop}>
-        <div className=" rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
+        <div className="shadow rounded-b-2xl  h-card 2xs:h-card2 sm:h-card flex flex-col justify-between">
           <div className=" rounded-xl h-imgHeight">
             <img
-              className=" rounded-t-xl h-imgHeight w-full"
+              className=" rounded-t-xl h-imgHeight w-full "
               src={prop.school.banner}
+              style={{ filter: 'brightness(90%)' }}
               alt="bachelors_degree"
             />
           </div>
           <div className="text-left m-4">
-            <div className="font-normal text-sm text-orange">{prop.type}</div>
+            <div className="font-normal text-sm text-orange">{prop.degree_type.short_name}</div>
             <div className="font-bold pb-2 text-light_black ">{prop.name.length > 50 ? `${prop.name.substring(0, 54) + '...'} ` : prop.name}</div>
             <div className='flex items-center gap-x-4'>
               <div className='w-6'>

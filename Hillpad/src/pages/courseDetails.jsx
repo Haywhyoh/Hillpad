@@ -1,4 +1,4 @@
-import { FiCalendar, FiChevronsRight, FiClock, FiLock, FiMapPin, FiStar, FiUnlock } from 'react-icons/fi';
+import { FiCalendar, FiChevronDown, FiChevronsRight, FiClock, FiLock, FiMapPin, FiStar, FiUnlock } from 'react-icons/fi';
 import hero from '../assets/images/Rectangle_3.png';
 import { HiOutlineCash, HiOutlinePlusCircle } from 'react-icons/hi';
 import { BsArrowRight } from 'react-icons/bs'
@@ -12,6 +12,7 @@ import Prefooter from '../components/preFooter';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import '../App.css';
 import axios from 'axios';
 export default function CourseDetails() {
     const location = useLocation()
@@ -66,6 +67,7 @@ export default function CourseDetails() {
         }
     }
 
+
     let buttons = document.querySelectorAll('.courseButton');
     var selectedButton = buttons[0];
 
@@ -99,7 +101,6 @@ export default function CourseDetails() {
                         <div className="w-full text-lg ">
                             <div className='xl:flex mx-auto bg-no-repeat bg-cover bg-center text-white absolute -z-10 ' style={{ width: '100vw', height: '600px', background: `url(${data.school.banner})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                                 <div className='bannerBg w-full ' style={{ heigth: '600px' }}>
-
                                 </div>
                             </div>
                             <div className='flex justify-between w-full max-w-full mx-auto xl:mx-4 2xl:mx-auto'>
@@ -141,14 +142,17 @@ export default function CourseDetails() {
                                         </div>
                                     </section>
 
+                                   
+
                                     <section className='w-full mx-auto max-w-full my-6 text-light_black xl:mx-4 mt-52'>
-                                        <div className='w-full'>
+                                        <div className='w-full' >
                                             <div>
                                                 <h2 className='font-semibold text-black text-3xl my-6'>Course Overview</h2>
                                             </div>
-                                            <div className='' dangerouslySetInnerHTML={{ __html: data.overview }}>
-
+                                            <div id='course_overview'>
+                                            <div className='myStyle' dangerouslySetInnerHTML={{ __html: data.overview }}></div>
                                             </div>
+                                            
                                             <a href="" className='text-light underline py-1'>Show more</a>
 
 
@@ -308,7 +312,7 @@ export default function CourseDetails() {
                                     <div>
                                         <h2 className='font-semibold text-black text-3xl my-6'>Course Overview</h2>
                                     </div>
-                                    <div className='' dangerouslySetInnerHTML={{ __html: data.overview }}>
+                                    <div className='myStyle' dangerouslySetInnerHTML={{ __html: data.overview }}>
 
                                     </div>
                                     <a href="" className='text-light underline py-1'>Show more</a>
@@ -320,10 +324,10 @@ export default function CourseDetails() {
 
 
                         </section>
-                        <section>
+                        <section className='my-8'>
                             <div className='flex flex-col text-light_black text-lg font-medium'>
-                                <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showBg)}>
-                                    <div className='flex items-center justify-between'><div  >Background </div><div><HiOutlinePlusCircle /></div></div>
+                                <div className='border-t border-1 w-full py-3 px-4 border-light_black border-opacity-20' onClick={() => setShowBg(!showBg)}>
+                                    <div className='flex items-center justify-between'><div  >Background </div><div>< FiChevronDown /></div></div>
                                     <div>
                                         {showBg ?
                                             <Background prop={data} />
@@ -331,38 +335,21 @@ export default function CourseDetails() {
                                         }
                                     </div>
                                 </div>
-                                <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowBg(!showAdmission)}>
-                                    <div className='flex items-center justify-between'><div  >Admission Requirements </div><div><HiOutlinePlusCircle /></div></div>
+                                <div className='border-t border-1 w-full py-3 px-4 border-light_black border-opacity-20 ' onClick={() => setShowBg(!showAdmission)}>
+                                    <div className='flex items-center justify-between'><div  >Admission Requirements </div><div>< FiChevronDown /></div></div>
                                     <div>
                                         {showAdmission ?
-                                            <Background prop={data} />
+                                           <AdmissionReq prop={data} />
                                             : null
                                         }
                                     </div>
                                 </div>
-                                <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowScholarship(!showScholarship)}>
-                                    <div className='flex items-center justify-between'><div  >Scholarships</div><div><HiOutlinePlusCircle /></div></div>
-                                    <div>
-                                        {showScholarship ?
-                                            <Background prop={data} />
-                                            : null
-                                        }
-                                    </div>
-                                </div>
-                                <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowFees(!showFees)}>
-                                    <div className='flex items-center justify-between'><div  >Fees and Funding </div><div><HiOutlinePlusCircle /></div></div>
-                                    <div>
-                                        {showFees ?
-                                            <Background prop={data} />
-                                            : null
-                                        }
-                                    </div>
-                                </div>
-                                <div className='border-t border-1 w-full py-3 px-4 border-opacity-10 ' onClick={() => setShowStructure(!showStructure)}>
-                                    <div className='flex items-center justify-between'><div  >Programme Structure </div><div><HiOutlinePlusCircle /></div></div>
+                         
+                                <div className='border-t border-1 w-full py-3 px-4 border-light_black border-opacity-20 ' onClick={() => setShowStructure(!showStructure)}>
+                                    <div className='flex items-center justify-between'><div  >Programme Structure </div><div>< FiChevronDown /> </div></div>
                                     <div>
                                         {showStructure ?
-                                            <Background prop={data} />
+                                          <ProjectStructure prop={data} />
                                             : null
                                         }
                                     </div>

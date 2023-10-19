@@ -34,9 +34,9 @@ export default function Background({ prop }) {
         <>
 
 
-            <div>
-                <h3 className="text-light font-semibold text-base">Discipline</h3>
-                <div className="my-3">
+            <div className="py-4">
+                <h3 className="text-light font-semibold text-lg">Discipline</h3>
+                <div className="text-base">
                     {
                         disciplines.map((discipline, index) => {
                             return (
@@ -50,14 +50,14 @@ export default function Background({ prop }) {
 
             </div>
             <div>
-                <h3 className="text-light font-semibold text-base mt-8">Language</h3>
-                <div className="my-3">
+                <h3 className="text-light lg:font-semibold text-lg mt-4">Language</h3>
+                <div className="my-3 text-base">
                     {prop.language.name}
                 </div>
 
             </div>
-            <div className="font-semibold mt-8">
-                <h3 className="text-light text-base">Dates and Deadlines</h3>
+            <div className="lg:font-semibold mt-4 text-base">
+                <h3 className="text-light text-lg">Dates and Deadlines</h3>
                 <div className="my-3"> <span>Application Deadline: </span>
                     {month[prop.course_dates.deadline_month]} {prop.course_dates.deadline_year}
                 </div>

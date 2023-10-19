@@ -303,3 +303,17 @@ background: linear-gradient(90deg, rgba(52,9,9,1) 22%, rgba(255,87,87,0.37578781
 #userCard {
   border-radius: 0.75rem;
 }
+
+#course_overview ul{
+  list-style: disc;
+  margin-left: 3rem;
+  margin-top: 1rem;
+ 
+}
+
+/* styles.css */
+.myStyle ul {
+  list-style-type: disc;
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
