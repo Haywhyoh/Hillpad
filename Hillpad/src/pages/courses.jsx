@@ -46,8 +46,8 @@ export default function Courses({ props }) {
     const [countries, setCountries] = useState(countriesList);
     const [selectedCountries, setSelectedCountries] = useState([]);
     const [searchCountry, setSearchCountry] = useState('');
-    const [showFilter, setShowFilter] = useState(false);
-    const [showFilterBar, setShowFilterBar] = useState(false)
+    const [showFilter, setShowFilter] = useState(true);
+    const [showFilterBar, setShowFilterBar] = useState(true)
 
 
     const handleCountrySelect = (country) => {
@@ -77,7 +77,6 @@ export default function Courses({ props }) {
     const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(searchCountry.toLowerCase()));
 
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
-        let discipline = Params.discipline
         let degree_type = Params.degree_type
         let learning = Params.attendance
         let formatList = Params.format
@@ -158,7 +157,6 @@ export default function Courses({ props }) {
         }
 
         console.log(url);
-        console.log(Params)
         const res = await axios.get(url);
         const data = await res.data;
         setCourses(data.results);
