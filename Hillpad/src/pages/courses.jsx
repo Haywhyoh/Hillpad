@@ -7,7 +7,7 @@ import axios from "axios";
 import ReactPaginate from 'react-paginate';
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import RangeSlider from "../components/RangeSlider";
 
@@ -23,6 +23,12 @@ export default function Courses({ props }) {
     let doctoratesCount = useSelector((state) => state.doctorates.count);
     let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
     let currencies = useSelector((state) => state.currencies.currenciesList);
+    let [searchParams, setSearchParams] = useSearchParams();
+
+    const courseName = searchParams.get('name');
+    const countryName = searchParams.get('country');
+    let discipline  = searchParams.get('discipline');
+
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {

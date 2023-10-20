@@ -7,7 +7,7 @@ import axios from "axios";
 import ReactPaginate from 'react-paginate';
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import RangeSlider from "../components/RangeSlider";
 
@@ -16,8 +16,13 @@ export default function SearchPage({ props }) {
     let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
     let currencies = useSelector((state) => state.currencies.currenciesList);
     
-    
-    const { courseName, countryName } = useParams();
+    let [searchParams, setSearchParams] = useSearchParams();
+
+    const courseName = searchParams.get('name');
+    const countryName = searchParams.get('country');
+    let discipline  = searchParams.get('discipline');
+
+    // const { courseName, countryName } = useParams();
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
     if (props) {
@@ -37,7 +42,6 @@ export default function SearchPage({ props }) {
     const [showFilterBar, setShowFilterBar] = useState(false)
 
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
-        let discipline = Params.discipline
         let degree_type = Params.degree_type
         let learning = Params.attendance
         let formatList = Params.format
@@ -50,7 +54,6 @@ export default function SearchPage({ props }) {
             url = `${baseUrl}?name=${courseName.replace(' ', '%20')}&page=${currentPage + 1}&`;
         } else {
             url = `${baseUrl}?name=${courseName.replace(' ', '%20')}&country=${countryName.replace(' ', '-').toLowerCase()}&page=${currentPage + 1}&`;
-
         }
         if (discipline) {
             url = url + `discipline=${discipline}&`
@@ -166,7 +169,7 @@ export default function SearchPage({ props }) {
 
         setDisciplines(disciplinesList);
         setCountries(countriesList)
-    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList, courseName, countryName ]);
+    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList, searchParams ]);
 
     const duration = ['Less than 1 year', '1 - 2 years', '2 - 3 years', '3 - 4 years', 'More than 4 years']
     const format = ['Full-time', 'Part-time']
@@ -308,7 +311,7 @@ export default function SearchPage({ props }) {
                                 {disciplines.map((discipline) => (
                                     <Link
                                         key={discipline.id}
-                                        to={!programme ? `/search/${countryName}/${discipline.slug}` : `/${programme}/${countryName}/${discipline.slug}`}
+                                        to={!programme ? `/coursefinder?country=${countryName}&name=${courseName}&discipline=${discipline.slug}` : `/${programme}?country=${countryName}&name=${courseName}&discipline=${discipline.slug}`}
                                         onClick={() => setClickedDiscipline(discipline.id)}  // Add this line
                                     >
                                         <div

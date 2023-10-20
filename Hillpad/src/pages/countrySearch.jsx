@@ -7,7 +7,7 @@ import axios from "axios";
 import ReactPaginate from 'react-paginate';
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import RangeSlider from "../components/RangeSlider";
 
@@ -16,15 +16,16 @@ export default function CountrySearch({ props }) {
     let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
     let currencies = useSelector((state) => state.currencies.currenciesList);
     
+    let [searchParams, setSearchParams] = useSearchParams();
+
     
-    const { country_code } = useParams();
+    // const { country_code } = useParams();
+    let discipline  = searchParams.get('discipline');
+    const countryName = searchParams.get('country');
+
+
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
-    let programme = '';
-    if (props) {
-        programme = props.programme;
-    } else {
-        programme = '';
-    }
+ 
     const [sortOrder, setSortOrder] = useState('Ascending');
     const [isChecked, setIsChecked] = useState(false);
     const [attendanceChecked, setIsAttendanceChecked] = useState(false);
@@ -36,16 +37,16 @@ export default function CountrySearch({ props }) {
     const [showFilter, setShowFilter] = useState(true);
     const [showFilterBar, setShowFilterBar] = useState(true)
 
+    let url = `${baseUrl}?country=${countryName}&page=${currentPage + 1}&`;
 
     let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
-        let discipline = Params.discipline
         let degree_type = Params.degree_type
         let learning = Params.attendance
         let formatList = Params.format
         let durationList = Params.duration
         let tuitionVal = Params.tuition
         // let chosenCountries = Params.countries
-        let url = `${baseUrl}?country=${country_code}&page=${currentPage + 1}&`;
+        let url = `${baseUrl}?country=${countryName}&page=${currentPage + 1}&`;
        
         if (discipline) {
             url = url + `discipline=${discipline}&`
@@ -160,7 +161,7 @@ export default function CountrySearch({ props }) {
 
         setDisciplines(disciplinesList);
         setCountries(countriesList)
-    }, [programme, searchParam, isChecked, attendanceChecked, disciplinesList, ]);
+    }, [ searchParam, isChecked, attendanceChecked, disciplinesList, searchParams, discipline, url  ]);
 
     const duration = ['Less than 1 year', '1 - 2 years', '2 - 3 years', '3 - 4 years', 'More than 4 years']
     const format = ['Full-time', 'Part-time']
@@ -302,17 +303,17 @@ export default function CountrySearch({ props }) {
                             <div className={showInfo ? 'block py-4' : 'hidden'}>
                                 {disciplines.map((discipline) => (
                                     <Link
-                                        key={discipline.id}
-                                        to={!programme ? `/search/${country_code}/${discipline.slug}` : `/${programme}/${country_code}/${discipline.slug}`}
-                                        onClick={() => setClickedDiscipline(discipline.id)}  // Add this line
+                                        key={discipline.slug}
+                                        to={ `/search?country=${countryName}&discipline=${discipline.slug}` }
+                                        onClick={() => setClickedDiscipline(discipline.slug)}  // Add this line
                                     >
                                         <div
-                                            className={`flex gap-x-2 py-2 text-sm text-light_black ${clickedDiscipline === discipline.id ? 'text-orange' : ''}`}  // Update this line
+                                            className={`flex gap-x-2 py-2 text-sm text-light_black ${clickedDiscipline === discipline.slug || searchParams.get('discipline') === discipline.slug ? 'text-orange' : ''}`}  // Update this line
                                         >
                                             <div onClick={() => { setId(discipline.id); let latestParam = { ...searchParam }; latestParam.discipline = (discipline.id); setSearchParam(latestParam) }} >
                                                 <span className="flex items-center gap-x-1 gap-y-2">
                                                     <i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
-                                                    <div className="text-sm"> {discipline.name} ({programme === 'bachelors' && discipline.courses_bachelors}{programme === 'masters' && discipline.courses_masters}{programme === 'doctorates' && discipline.courses_doctorates})</div>
+                                                    <div className="text-sm"> {discipline.name}</div>
                                                 </span>
                                             </div>
                                         </div>
@@ -528,7 +529,7 @@ export default function CountrySearch({ props }) {
             }
                 <div className=" flex w-full">
                     <div className="mb-4 w-full px-4">
-                        <h1 className="text-3xl w-fit">{country_code.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Courses</h1>
+                        <h1 className="text-3xl w-fit">{countryName.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Courses</h1>
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
                                 <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-5/12">

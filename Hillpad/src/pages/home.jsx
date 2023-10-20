@@ -20,24 +20,8 @@ export default function Home() {
   const disciplines = data.results;
 
   const countries = useSelector((state) => state.country.countryList);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
-
-  const [isHovering2, setIsHovering2] = useState(false);
-  const [isHovering3, setIsHovering3] = useState(false);
-
-  const [isHovDiscipline, setIsHovDiscipline] = useState(false);
-  const [isHovDiscipline2, setIsHovDiscipline2] = useState(false);
-  const [isHovDiscipline3, setIsHovDiscipline3] = useState(false);
-  const [isHovDiscipline4, setIsHovDiscipline4] = useState(false);
-  const [isHovDiscipline5, setIsHovDiscipline5] = useState(false);
-  const [isHovDiscipline6, setIsHovDiscipline6] = useState(false);
-  const [isHovDiscipline7, setIsHovDiscipline7] = useState(false);
-  const [isHovDiscipline8, setIsHovDiscipline8] = useState(false);
-  const [isHovDiscipline9, setIsHovDiscipline9] = useState(false);
-  const [isHovDiscipline10, setIsHovDiscipline10] = useState(false);
-  const [isHovDiscipline11, setIsHovDiscipline11] = useState(false);
-  const [isHovDiscipline12, setIsHovDiscipline12] = useState(false);
+  
+  
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -147,7 +131,7 @@ export default function Home() {
                         
                     </div>
 
-                    <Link to={`/coursefinder/${searchValue}/${selectedCountry}/`}>
+                    <Link to={`/coursefinder?name=${searchValue}&country=${selectedCountry}`}>
                     <button className="w-full md text-white bg-orange py-4 px-4 text-base font-bold rounded-3xl md:w-28 md:rounded-full">
                       Search
                     </button>
@@ -188,7 +172,7 @@ export default function Home() {
   }
 </div>
                   <div className="mx-2 xs:mx-2 ">
-                  <Link to={`/coursefinder/${searchValue}/${selectedMobileCountry}/`}>
+                  <Link to={`/coursefinder?name=${searchValue}&country=${selectedMobileCountry}`}>
                     <button className="w-60 xs:w-full 2xs:w-full mb-2 md:mb-0 lg:w-full text-white bg-orange py-3 px-2 text-lg font-bold rounded-3xl md:w-28 md:rounded-full">
                       Search
                     </button>

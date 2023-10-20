@@ -77,10 +77,14 @@ function App() {
           <Route path='/courses' element={<Courses props={{courses: allCourses, count: allCoursesCount}}/>} >
             <Route path=':id' element={<Courses />} />
           </Route>
-          <Route path='/coursefinder/:courseName/:countryName' element={<SearchPage />} />
-          <Route path='/search/:country_code' element={<CountrySearch />} >
-            <Route path=':discipline' element={<CountrySearch />} />
+          <Route path='/coursefinder' element={<SearchPage />} />
+          <Route path='/coursefinder/:courseName/:countryName' element={<SearchPage />} >
+            <Route path=':discipline' element={<SearchPage />} />
+
           </Route>
+          <Route path='/search' element={<CountrySearch />} />
+
+          <Route path='/search/:country_code' element={<CountrySearch />} />
           
           <Route path='/bachelors' element={<Courses props={{ programme: 'bachelors', courses: bachelorsCourses, count: bachelorsCount}}/>}>
             <Route path=':id' element={<Courses  props={{url: '?programme=bachelors&discipline=', programme: 'bachelors'}} />} />
