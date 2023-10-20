@@ -23,11 +23,11 @@ export default function Courses({ props }) {
     let doctoratesCount = useSelector((state) => state.doctorates.count);
     let degreeTypes = useSelector((state) => state.degreeTypes.degreeTypesList);
     let currencies = useSelector((state) => state.currencies.currenciesList);
-    let [searchParams, setSearchParams] = useSearchParams();
+    // let [searchParams, setSearchParams] = useSearchParams();
 
-    const courseName = searchParams.get('name');
-    const countryName = searchParams.get('country');
-    let discipline  = searchParams.get('discipline');
+    // // const courseName = searchParams.get('name');
+    // // const countryName = searchParams.get('country');
+    // // let discipline  = searchParams.get('discipline');
 
     let baseUrl = 'https://54.221.177.186/api/academics/course/list'
     let programme = '';
@@ -76,7 +76,8 @@ export default function Courses({ props }) {
 
     const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(searchCountry.toLowerCase()));
 
-    let fetchData = async (Params = { discipine: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
+    let fetchData = async (Params = { discipline: '', degree_type: [], attendance: [], format: [], duration: [], tuition: '', countries: [] }) => {
+        let discipline = Params.discipline
         let degree_type = Params.degree_type
         let learning = Params.attendance
         let formatList = Params.format
@@ -106,7 +107,7 @@ export default function Courses({ props }) {
 
         }
         if (discipline && programme) {
-            url = url + `discipline=${discipline}&`
+            url = url + `discipline_id=${discipline}&`
             console.log(url)
         }
         if (formatList.length > 0) {

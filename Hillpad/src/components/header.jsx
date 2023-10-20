@@ -89,7 +89,7 @@ export default function Header({ props }) {
 
     function toggleNav() {
         const nav = document.querySelector('#mobileNav')
-        nav.classList.toggle('hidden')
+        nav.classList.toggle('hidden');
     }
 
     function togglesubMenu1() {
@@ -104,7 +104,6 @@ export default function Header({ props }) {
 
         nav.classList.toggle('hidden')
     }
-
 
     function showUser() {
         let user = document.querySelector('#userCard');
@@ -359,7 +358,7 @@ export default function Header({ props }) {
                                 <div className='text-2xl'><RiArrowDropDownLine /></div>
 
                             </div >
-                            <div className='hidden ms-2' id='mobileNav'>
+                            <div className=' ms-2' id='mobileNav'>
                                 <div className='border-e border-opacity-30 border-light_black'></div>
                                 <div className='font-normal px-4 w-full text-sm'>
                                     <Link to='/countries'><div className='flex gap-x-2 border-b border-opacity-10 border-b-light_black py-2'><BiWorld className='text-xl text-light_black text-opacity-60' /><div>Browse by country</div></div></Link>

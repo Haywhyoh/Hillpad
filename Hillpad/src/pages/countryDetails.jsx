@@ -81,10 +81,10 @@ export default function CountryDetail() {
                     </div>
                     </div>
                     <div className="md:flex md:w-full md:justify-between  my-8 md:my-4 xl:my-0 border-t border-light_black border-opacity-10 pt-6 lg:gap-x-6">
-                        <div className="md:w-11/12 lg:w-9/12">
+                        <div className="md:w-7/12 lg:w-9/12">
                             {renderInfo(info)}
                         </div>
-                        <aside className='flex flex-column justify-center xs:w-84 2xs:w-88 md:w-60 lg:w-96 xl:w-100'>
+                        <aside className='flex flex-column justify-center xs:w-84 2xs:w-88 md:w-5/12 lg:w-96 xl:w-100'>
                         <div className=" rounded-lg lg:p-8 p-8 md:p-4 w-full shadow-2 text-light_black h-fit border-border_white border-2 my-8 md:my-0 md:sticky md:top-32 ">
                             <div className=" border-b border-opacity-20 border-light_black py-4">
                                 <div className="text-xl font-bold text-light_black mb-2">{details.name}</div>
