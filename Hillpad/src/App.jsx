@@ -78,29 +78,27 @@ function App() {
             <Route path=':id' element={<Courses />} />
           </Route>
           <Route path='/coursefinder' element={<SearchPage />} />
-          <Route path='/coursefinder/:courseName/:countryName' element={<SearchPage />} >
-            <Route path=':discipline' element={<SearchPage />} />
-
-          </Route>
           <Route path='/search' element={<CountrySearch />} />
-
           <Route path='/search/:country_code' element={<CountrySearch />} />
           
           <Route path='/bachelors' element={<Courses props={{ programme: 'bachelors', courses: bachelorsCourses, count: bachelorsCount}}/>}>
             <Route path=':id' element={<Courses  props={{url: '?programme=bachelors&discipline=', programme: 'bachelors'}} />} />
           </Route>
+
           <Route path='/masters' element={<Courses props={{  programme: 'masters', courses: mastersCourses, count: mastersCount}}/>} >
             <Route path=':id' element={<Courses  />} />
           </Route>
+
           <Route path='/doctorates' element={<Courses props={{programme: 'doctorates', courses: doctoratesCourses, count: doctoratesCount}}/>} >
             <Route path=':id' element={<Courses  />} />
           </Route>
+
           <Route path='/school/:name' element={<School  props={user} />} />
           <Route path='/course/:slug' element={<CourseDetails/>} />
           <Route path='/discipline/' element={<Disciplines />} />
           <Route path='/discipline/:name' element={<DisciplineDetails />} />
           <Route path='/test' element={<DisciplinesList/>} />
-          <Route path='*' element={<h1>Not Found</h1>} />
+          <Route path='*' element={<h1 className='my-40'>Not Found</h1>} />
           <Route path='/countries' element={<Countries />} />
           <Route path='/countries/:name' element={<CountryDetail />} />
         </Routes>
