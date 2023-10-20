@@ -2,7 +2,7 @@ import hillpad from '../assets/images/hillpad-transparent.png';
 import { MdOutlineMail } from "react-icons/md";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
-
+import { Link } from 'react-router-dom';
 import { IoPhonePortraitSharp } from 'react-icons/io5'
 export default function Footer() {
     return (
@@ -14,7 +14,13 @@ export default function Footer() {
                             <div className='md:flex md:gap-x-48'>
                                 <div>
                                     <div className='w-28 my-8'><img src={hillpad} /></div>
-                                    <div className='my-8 lg:text-lg'>
+                                    <div className='w-40'>
+                                        University Admission
+                                    </div>
+                                    <div className='w-44 py-2'>
+                                        Register Your University
+                                    </div>
+                                    <div className='hidden my-8 lg:text-lg'>
                                         <div className='flex items-center gap-x-2'>
                                             <div className='text-light text-lg'><MdOutlineMail /></div>
                                             <div>contact@hillpad.com</div>
@@ -30,11 +36,11 @@ export default function Footer() {
                                     <div>
                                         <div className=' my-4 text-lg md:text-lg md:font-bold'>Resources</div>
                                         <ul className='text-white opacity-50 flex flex-col gap-2 text-sm'>
-                                            <li>Bachelors</li>
-                                            <li>Masters</li>
-                                            <li>Doctorate</li>
-                                            <li>Browse by country</li>
-                                            <li>Browse by discipline</li>
+                                            <Link to='/bachelors'><li>Bachelors</li></Link>
+                                            <Link to='/masters'><li>Masters</li></Link>
+                                            <Link to='/doctorates'><li>Doctorate</li></Link>
+                                            <Link to='/countries'><li>Browse by country</li></Link>
+                                            <Link to='/discipline/'><li>Browse by discipline</li></Link>
                                         </ul>
                                     </div>
                                     <div className='xs:mt-8 md:mt-0'>
@@ -93,7 +99,7 @@ export default function Footer() {
                     <div className='flex gap-x-10 items-center'>
 
                         <div className='text-sm text-white opacity-50 flex md:justify-center'>
-                            Copyright © 2023 <span className=' text-white opacity-100'> HillPad Limited</span>
+                            Copyright © 2023 <span className=' text-white opacity-100 px-4'> HillPad Limited</span>
                         </div>
 
                         <div className='flex gap-x-4 my-4 text-lg justify-center'>
