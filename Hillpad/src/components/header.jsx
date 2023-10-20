@@ -262,7 +262,7 @@ export default function Header({ props }) {
                                 }
                                 
                             </div>
-                            <Link to={`/coursefinder/${searchValue}/${selectedCountry}/`}>
+                            <Link to={`/coursefinder?name=${searchValue}&country=${selectedCountry}`}>
                                 <button className="w-full text-white bg-orange py-3 px-3 text-lg font-bold rounded-3xl md:w-fit md:rounded-full">
                                     <AiOutlineSearch className="text-white" />
                                 </button>
@@ -278,7 +278,6 @@ export default function Header({ props }) {
                                 className='text-orange flex items-center gap-x-2 relative'
                                 onClick={showUser}
                                 // onMouseEnter={showUser}
-                                
                             >
                                 <div className='w-8'>
                                     <img src={signlogo} className='w-8' />

@@ -286,8 +286,244 @@ export default function CountrySearch({ props }) {
     return (
         <div className="w-screen">
             <div className="lg:flex flex-row mt-24 justify-start w-screen max-w-full mb-10 mx-auto">
+            <aside className="hidden lg:block px-8 shadow-2 py-4 lg:w-100 h-fit sticky left-0 top-24  bg-white max-w-full">
+                    <div className="text-orange text-center text-xl lg:text-3xl font-bold mb-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
+                    <div className=" h-fit ">
+                        <div className="" >
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setShowInfo(!showInfo); }}><div>Disciplines</div>  <button className='' >
+                                {showInfo ? <FiChevronUp /> : <FiChevronDown />}
+                            </button>
+                            </div>
+                            <div className="flex gap-x-8 h-fit">
+                            <div className=" border-s h-100 mt-2 mb-6">
+
+                                </div>
+                            <div className={showInfo ? 'block py-4' : 'hidden'}>
+                                {disciplines.map((discipline) => (
+                                    <Link
+                                        key={discipline.slug}
+                                        to={ `/search?country=${countryName}&discipline=${discipline.slug}` }
+                                        onClick={() => setClickedDiscipline(discipline.slug)}  // Add this line
+                                    >
+                                        <div
+                                            className={`flex gap-x-2 py-2 text-sm text-light_black ${clickedDiscipline === discipline.slug || searchParams.get('discipline') === discipline.slug ? 'text-orange' : ''}`}  // Update this line
+                                        >
+                                            <div onClick={() => { setId(discipline.id); let latestParam = { ...searchParam }; latestParam.discipline = (discipline.id); setSearchParam(latestParam) }} >
+                                                <span className="flex items-center gap-x-1 gap-y-2">
+                                                    <i className={`fa fa-${discipline.icon}`} aria-hidden="true"></i>
+                                                    <div className="text-sm"> {discipline.name}</div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                               
+                            </div>
+                            </div>
+                        </div>
+                        <div className='block'>
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setBachInfo(!showBach); }}><div>Bachelors</div>  <button className='' >
+                                {showBach ? <FiChevronUp /> : <FiChevronDown />}
+                            </button>
+                            </div>
+                            <div className={showBach ? 'block py-4' : 'hidden'}>
+                                {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 6 }).map((degree) => (
+                                    <div key={degree.id} className="flex gap-x-2 pb-1 text-sm text-light_black">
+                                        <input
+                                            type="checkbox"
+                                            id=''
+                                            name=''
+                                            value={degree.id}
+                                            checked={searchParam.degree_type.includes(degree.id)}
+                                            onChange={handleOnChange}
+                                        />
+                                        <label htmlFor=''> <span className="flex items-center gap-x-1">
+                                            <div className="text-xs"> <span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className='block'>
+                            <div className="text-lg  py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setMastersInfo(!showMasters); }}><div>Masters</div>  <button className='' >
+                                {showMasters ? <FiChevronUp /> : <FiChevronDown />}
+                            </button>
+                            </div>
+                            <div className={showMasters ? 'block py-4' : 'hidden'}>
+                                {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 5 }).map((degree) => (
+                                    <div key={degree.id} className="flex gap-x-2 pb-1 text-sm text-light_black"> <input
+                                        type="checkbox"
+                                        id=''
+                                        name=''
+                                        value={degree.id}
+                                        checked={searchParam.degree_type.includes(degree.id)}
+                                        onChange={handleOnChange}
+
+                                    />
+                                        <label htmlFor=''> <span className="flex items-center gap-x-1">
+                                            <div className="text-xs"> <span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div id="doctorates" className='block'>
+
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDocInfo(!showDoc); }}><div>Doctorate</div>  <button className='' >
+                                {showDoc ? <FiChevronUp /> : <FiChevronDown />}
+                            </button>
+                            </div>
+                            <div className={showDoc ? 'block py-4' : 'hidden'}>
+                                {degreeTypes.filter(function (degrees) { return degrees.programme_type.id === 4 }).map((degree) => (
+                                    <div key={degree.id} className="flex gap-x-2">
+                                        <input
+                                            type="checkbox"
+                                            id=''
+                                            name=''
+                                            value={degree.id}
+                                            checked={searchParam.degree_type.includes(degree.id)}
+                                            onChange={handleOnChange}
+                                        />
+                                        <label htmlFor=''> <span className="flex items-center gap-x-1">
+                                            <div className="text-xs"><span>{degree.short_name ? degree.short_name : ''}</span> {degree.name} </div></span> </label>
+                                    </div>
+                                ))}
+                            </div>
+
+                        </div>
+                        <div >
+                            <div className="text-lg  py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setDurationInfo(!showDuration); }}>
+                                <div>Duration</div>
+                                <button className='' >
+                                    {showDuration ? <FiChevronUp /> : <FiChevronDown />}
+                                </button>
+                            </div>
+                            <div className={showDuration ? 'block' : 'hidden'}>
+
+                                {duration.map((duration, index) => (
+                                    <div key={index} className="flex gap-x-2">
+
+                                        <div className="flex gap-x-2">
+                                            <input
+                                                type="checkbox"
+                                                id=''
+                                                name=''
+                                                value={durationDict[duration]}
+                                                checked={searchParam.duration.includes(durationDict[duration])}
+                                                onChange={handleDurationChange}
+
+                                            />
+                                        </div>
+                                        <label htmlFor=''> {duration}
+                                        </label>
+                                    </div>
+
+                                ))}
+                            </div>
+                        </div>
+                        <div>
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setTuitionInfo(!showTuition); }}>
+                                <div>Tuition</div>
+                                <button className=''>
+                                    {showTuition ? <FiChevronUp /> : <FiChevronDown />}
+                                </button>
+                            </div>
+                            <div className={showTuition ? 'block my-2' : 'hidden'}>
+                                <div className="mb-2">
+                                    <select
+                                        className="currency-select"
+                                        id='currency'
+                                        name='currency'
+                                        value={selectedCurrency}
+                                        onChange={(e) => {
+                                            setSelectedCurrency(e.target.value);
+                                        }}
+                                    >
+                                        {currencies.map((currency) => (
+                                            <option key={currency.short_code} value={currency.short_code}>
+                                                {currency.short_code.toUpperCase()} - {currency.name}
+                                            </option>
+                                        ))}
+                                        
+                                    </select>
+
+                                </div>
+                                
+                                <div className="flex gap-x-2 gap-y-4 flex-col ">
+                                    
+                                    <RangeSlider
+                                        min={0}
+                                        max={100000}
+                                        values={[minTuition, maxTuition]}
+                                        setValues={(values) => {
+                                            setMinTuition(values[0]);
+                                            setMaxTuition(values[1]);
+                                        }}
+                                    />
+                                    
+                                    <button className="text-orange font-semibold  hover:border-2 hover:border-orange  w-28 mx-auto py-2 px-1 hover:text-orange" onClick={handleTuition}>APPLY</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setAttendanceInfo(!showAttendance); }}><div>Attendance</div>  <button className='' >
+                                {showAttendance ? <FiChevronUp /> : <FiChevronDown />}
+                            </button>
+                            </div>
+                            <div className={showAttendance ? 'block py-4' : 'hidden'}>
+
+                                {Object.keys(attendance).map((key) => (
+                                    <div key={key} className="flex gap-x-2">
+
+                                        <div className="flex gap-x-2">
+                                            <input
+                                                type="checkbox"
+                                                id=''
+                                                name=''
+                                                value={attendance[key]}
+                                                checked={searchParam.attendance.includes(attendance[key])}
+                                                onChange={handleAttendanceChange}
+                                            />
+                                        </div>
+                                        <label htmlFor=''> {key}
+                                        </label>
+                                    </div>
+
+                                ))}
+                            </div>
+                        </div>
+                        <div>
+                            <div className="text-lg py-2 flex gap-x-28 border-t border-light_black border-opacity-20 justify-between" onClick={() => { setFormatInfo(!showFormat); }}><div>Format</div>  
+                            <button className=''>
+                                {showFormat ? <FiChevronUp /> : <FiChevronDown />}
+                            </button>
+                            </div>
+                            <div className={showFormat ? 'block border-b border-light_black border-opacity-20' : 'hidden'}>
+                                {format.map((format) => (
+                                    <div key={format} className="flex gap-x-2 text-xs ">
+                                        <div className="flex gap-x-2">
+                                            <input
+                                                type="checkbox"
+                                                id=''
+                                                name=''
+                                                value={formatDict[format]}
+                                                checked={searchParam.format.includes(formatDict[format])}
+                                                onChange={handleFormatChange}
+                                            />
+                                        </div>
+                                        <label htmlFor='' className="text-xs"> {format}
+                                        </label>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="my-8 hidden">
+                            <button className=" text-orange border-orange border py-2 px-4 rounded-full hidden lg:block">Filter</button>
+                        </div>
+                    </div>
+
+
+                </aside>
             {
-                    showFilterBar ?
+                    !showFilterBar ?
                 <aside className="lg:block px-8 shadow-2 py-4 lg:w-100 h-fit sticky left-0 top-24  bg-white max-w-full">
                     <div className="text-orange text-center text-xl lg:text-3xl font-bold mb-4 flex items-center gap-x-6 justify-center"><div>Filters</div> <span><GiSettingsKnobs /></span></div>
                     <div className=" h-fit ">
