@@ -27,6 +27,7 @@ import Explore from './pages/explore'
 import DisciplinesList from './components/test'
 import CountrySearch from './pages/countrySearch'
 import SearchPage from './pages/searchPage'
+import ReturnUp from './components/returnUp'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
@@ -102,6 +103,7 @@ function App() {
           <Route path='/countries' element={<Countries />} />
           <Route path='/countries/:name' element={<CountryDetail />} />
         </Routes>
+        <ReturnUp />
         <Footer />
     </div>
   )
