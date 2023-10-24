@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function DisciplinesList() {
-    const [disciplines, setDisciplines] = useState([]);
-    const [count, setCount] = useState(0);
+    // const [disciplines, setDisciplines] = useState([]);
+    // const [count, setCount] = useState(0);
 
   const [isHovDiscipline, setIsHovDiscipline] = useState(false);
   const [isHovDiscipline2, setIsHovDiscipline2] = useState(false);
@@ -26,25 +26,25 @@ export default function DisciplinesList() {
   const [isHovDiscipline11, setIsHovDiscipline11] = useState(false);
   const [isHovDiscipline12, setIsHovDiscipline12] = useState(false);
 
-    const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
+    // const disciplinesList = useSelector((state) => state.disciplines.disciplinesList);
 
-    useEffect(() => {
-        if (disciplinesList.length > 0) {
-            setDisciplines(disciplinesList);
-            setCount(disciplinesList.length);
-            console.log('redux discipline called');
-        } else {
-            axios.get(`https://54.221.177.186/api/academics/discipline/list`)
-                .then(res => {
-                    const disciplineRes = res.data.results;
-                    setDisciplines(disciplineRes);
-                    setCount(res.data.count);
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        };
-    }, []);
+    // useEffect(() => {
+    //     if (disciplinesList.length > 0) {
+    //         setDisciplines(disciplinesList);
+    //         setCount(disciplinesList.length);
+    //         console.log('redux discipline called');
+    //     } else {
+    //         axios.get(`https://54.221.177.186/api/academics/discipline/list`)
+    //             .then(res => {
+    //                 const disciplineRes = res.data.results;
+    //                 setDisciplines(disciplineRes);
+    //                 setCount(res.data.count);
+    //             })
+    //             .catch(err => {
+    //                 console.log(err)
+    //             })
+    //     };
+    // }, []);
 
     // return (
     //     <div className=" my-6 px-2 xl:px-4 2xl:px-0">
@@ -98,7 +98,7 @@ export default function DisciplinesList() {
           <div className="flex flex-wrap gap-x-4 gap-y-4 justify-center xl:justify-between my-6 font-medium w-full mx-auto xl:gap-y-6">
 
 
-            <Link to='/discipline/Agriculture & Forestry' onMouseOver={() => setIsHovDiscipline(true)} onMouseOut={() => setIsHovDiscipline(false)} className="">
+            <Link to='/discipline/Agriculture & Forestry' state={{slug : 'agriculture-and-forestry'}} onMouseOver={() => setIsHovDiscipline(true)} onMouseOut={() => setIsHovDiscipline(false)} className="">
               {isHovDiscipline ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36 2xs:w-40 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow border-border_white border-y-2 border-opacity-60 rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -127,7 +127,7 @@ export default function DisciplinesList() {
             </Link>
 
 
-            <Link to='/discipline/Applied Science & Profession' onMouseOver={() => setIsHovDiscipline2(true)} onMouseOut={() => setIsHovDiscipline2(false)}>
+            <Link to='/discipline/Health Sciences' state={{slug : 'health-sciences'}} onMouseOver={() => setIsHovDiscipline2(true)} onMouseOut={() => setIsHovDiscipline2(false)}>
               {
                 isHovDiscipline2 ?
                   <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40  border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
@@ -156,7 +156,7 @@ export default function DisciplinesList() {
 
             </Link>
 
-            <Link to='/discipline/Art and Design' onMouseOver={() => setIsHovDiscipline3(true)} onMouseOut={() => setIsHovDiscipline3(false)}>
+            <Link to='/discipline/Art and Design' state={{slug : 'art-and-humanities'}} onMouseOver={() => setIsHovDiscipline3(true)} onMouseOut={() => setIsHovDiscipline3(false)}>
               {isHovDiscipline3 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -185,7 +185,7 @@ export default function DisciplinesList() {
             </Link>
 
 
-            <Link to='/discipline/Business Management' onMouseOver={() => setIsHovDiscipline4(true)} onMouseOut={() => setIsHovDiscipline4(false)}>
+            <Link to='/discipline/Business and Administration'  state={{slug : 'business-and-administration'}} onMouseOver={() => setIsHovDiscipline4(true)} onMouseOut={() => setIsHovDiscipline4(false)}>
               {isHovDiscipline4 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -213,7 +213,7 @@ export default function DisciplinesList() {
               }
             </Link>
 
-            <Link to='/discipline/Computer Science and IT' onMouseOver={() => setIsHovDiscipline5(true)} onMouseOut={() => setIsHovDiscipline5(false)}>
+            <Link to='/discipline/Law'  state={{slug : 'law'}} onMouseOver={() => setIsHovDiscipline5(true)} onMouseOut={() => setIsHovDiscipline5(false)}>
               {isHovDiscipline5 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -241,7 +241,7 @@ export default function DisciplinesList() {
               }
             </Link>
 
-            <Link to='/discipline/Education and Training' onMouseOver={() => setIsHovDiscipline6(true)} onMouseOut={() => setIsHovDiscipline6(false)}>
+            <Link to='/discipline/Education and Training'  state={{slug : 'education-and-training'}} onMouseOver={() => setIsHovDiscipline6(true)} onMouseOut={() => setIsHovDiscipline6(false)}>
               {isHovDiscipline6 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -269,7 +269,7 @@ export default function DisciplinesList() {
               }
             </Link>
 
-            <Link to='/discipline/Engineering and Technology' onMouseOver={() => setIsHovDiscipline7(true)} onMouseOut={() => setIsHovDiscipline7(false)}>
+            <Link to='/discipline/Engineering and Technology' state={{slug : 'engineering-and-technology'}} onMouseOver={() => setIsHovDiscipline7(true)} onMouseOut={() => setIsHovDiscipline7(false)}>
               {isHovDiscipline7 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -297,7 +297,7 @@ export default function DisciplinesList() {
               }
             </Link>
 
-            <Link to='/discipline/Natural Sciences & Mathematics' onMouseOver={() => setIsHovDiscipline8(true)} onMouseOut={() => setIsHovDiscipline8(false)}>
+            <Link to='/discipline/Natural Sciences & Mathematics'  state={{slug : 'natural-sciences'}} onMouseOver={() => setIsHovDiscipline8(true)} onMouseOut={() => setIsHovDiscipline8(false)}>
               {isHovDiscipline8 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -325,7 +325,7 @@ export default function DisciplinesList() {
               }
             </Link>
 
-            <Link to='/discipline/Hospitality, Lesiure and Sport' onMouseOver={() => setIsHovDiscipline9(true)} onMouseOut={() => setIsHovDiscipline9(false)}>
+            <Link to='/discipline/Hospitality, Lesiure and Sport'  state={{slug : 'hospitality-leisure-and-sports'}} onMouseOver={() => setIsHovDiscipline9(true)} onMouseOut={() => setIsHovDiscipline9(false)}>
               {isHovDiscipline9 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -353,7 +353,7 @@ export default function DisciplinesList() {
               }
             </Link>
 
-            <Link to='/discipline/Humanities & Social Science' onMouseOver={() => setIsHovDiscipline10(true)} onMouseOut={() => setIsHovDiscipline10(false)}>
+            <Link to='/discipline/Social Science'  state={{slug : 'social-sciences'}} onMouseOver={() => setIsHovDiscipline10(true)} onMouseOut={() => setIsHovDiscipline10(false)}>
               {isHovDiscipline10 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -382,7 +382,7 @@ export default function DisciplinesList() {
               }
             </Link>
 
-            <Link to='/discipline/Journalism, Media & Communication ' onMouseOver={() => setIsHovDiscipline11(true)} onMouseOut={() => setIsHovDiscipline11(false)}>
+            <Link to='/discipline/Journalism, Media & Communication '  state={{slug : 'journalism-media-and-communication'}} onMouseOver={() => setIsHovDiscipline11(true)} onMouseOut={() => setIsHovDiscipline11(false)}>
               {isHovDiscipline11 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
@@ -410,7 +410,7 @@ export default function DisciplinesList() {
               }
             </Link>
 
-            <Link to='/discipline/Environmental Sciences' onMouseOver={() => setIsHovDiscipline12(true)} onMouseOut={() => setIsHovDiscipline12(false)}>
+            <Link to='/discipline/Environmental Sciences'  state={{slug : 'environmental-science'}} onMouseOver={() => setIsHovDiscipline12(true)} onMouseOut={() => setIsHovDiscipline12(false)}>
               {isHovDiscipline12 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">
