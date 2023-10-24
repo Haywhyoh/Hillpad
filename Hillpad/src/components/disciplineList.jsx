@@ -297,7 +297,7 @@ export default function DisciplinesList() {
               }
             </Link>
 
-            <Link to='/discipline/Natural Sciences & Mathematics'  state={{slug : 'natural-sciences'}} onMouseOver={() => setIsHovDiscipline8(true)} onMouseOut={() => setIsHovDiscipline8(false)}>
+            <Link to='/discipline/Natural Sciences'  state={{slug : 'natural-sciences'}} onMouseOver={() => setIsHovDiscipline8(true)} onMouseOut={() => setIsHovDiscipline8(false)}>
               {isHovDiscipline8 ?
                 <div className="flex flex-col items-center justify-center w-32 xs:w-36  2xs:w-40 border-2 border-border_white border-opacity-50 md:w-52 lg:w-36 xl:w-48 h-36 bg-white deepShadow rounded-lg">
                   <div className=" p-2 w-32 lg:w-fit ">

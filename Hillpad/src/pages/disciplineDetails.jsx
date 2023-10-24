@@ -88,7 +88,7 @@ export default function DisciplineDetails(props) {
 
           </div>
 
-          <div className='my-4 lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-8 w-full lg:w-5/12 border-border_white border-2 rounded-lg sticky top-24'>
+          <div className='my-4 h-fit lg:my-0 max-w-xl shadow-md px-2 py-10 lg:p-8 w-full lg:w-5/12 border-border_white border-2 rounded-lg sticky top-24'>
             <h2 className='text-2xl font-semibold max-w-sm'>Top Universities for {param.name}</h2>
             <h3 className='text-light_black text-base my-2 flex items-center gap-x-1'><BsBoxArrowUpRight className='font-extrabold ' /><div>Times Higher education World Ranking</div></h3>
             <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-2 my-4 w-full'>
