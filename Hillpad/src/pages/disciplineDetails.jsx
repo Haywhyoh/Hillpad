@@ -25,7 +25,7 @@ export default function DisciplineDetails(props) {
     document.getElementById("content2").scrollLeft += 305;
   }
 
-  const slug = location.state.slug;
+  const slug = location.state && location.state.slug;
   console.log(slug)
 
   const url = `https://54.221.177.186/api/academics/discipline/detail/${slug}`
