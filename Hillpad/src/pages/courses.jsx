@@ -893,9 +893,9 @@ export default function Courses({ props }) {
                         <h1 className="text-3xl w-fit">{programme ? programme.charAt(0).toUpperCase() + programme.slice(1) : ''} Courses</h1>
                         <div className="w-full">
                             <div className="flex gap-x-2 justify-between md:gap-x-4 items-center text-light_black w-full">
-                                <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-5/12">
+                                <div className="flex justify-between gap-x-4 my-4 items-center w-full  lg:w-7/12 xl:w-5/12">
                                     <span > View: </span>
-                                    <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32" value={view}
+                                    <select className="focus:outline-none p-2 rounded-md bg-white border border-light_black border-opacity-30 w-20 md:w-32 lg:w-28 xl:w-32" value={view}
                                         onChange={handleViewChange}>
                                         <option value='List'>List</option>
 
@@ -911,7 +911,7 @@ export default function Courses({ props }) {
 
 
                                 </div>
-                                <div className="text-md text-light_black hidden md:flex gap-x-8 items-center w-7/12">
+                                <div className="text-md text-light_black hidden md:flex gap-x-8 items-center w-7/12 lg:w-5/12 xl:w-7/12">
                                     <hr className=" opacity-30 w-28  md:w-40 lg:w-4/5  "></hr>
                                     <div className="flex gap-x-2">
                                         <span>{count}</span>

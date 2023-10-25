@@ -1,9 +1,6 @@
 import { FiCalendar, FiChevronDown, FiChevronsRight, FiClock, FiLock, FiMapPin, FiStar, FiUnlock } from 'react-icons/fi';
 import hero from '../assets/images/Rectangle_3.png';
-import { HiOutlineCash, HiOutlinePlusCircle } from 'react-icons/hi';
-import { BsArrowRight } from 'react-icons/bs'
 import { FaCoins, FaFlagCheckered, FaPaperPlane } from 'react-icons/fa';
-import Overview from '../components/overview';
 import { useState } from 'react';
 import Background from '../components/background';
 import AdmissionReq from '../components/admissionRequirement';
