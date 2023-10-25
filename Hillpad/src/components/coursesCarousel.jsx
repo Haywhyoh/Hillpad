@@ -10,7 +10,7 @@ function CoursesCarousel() {
     const [courses, setCourses] = useState(courseList)
 
     useEffect(() => {
-        axios.get('https://54.221.177.186/api/academics/course/list?programme=bachelors')
+        axios.get('https://54.221.177.186/api/academics/course/list?featured=true')
             .then(response => {
                 setCourses(response.data.results);
             })
