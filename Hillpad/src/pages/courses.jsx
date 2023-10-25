@@ -54,7 +54,7 @@ export default function Courses({ props }) {
         if (!selectedCountries.includes(country)) {
             setSelectedCountries(prevCountries => {
                 const updatedCountries = [...prevCountries, country];
-                const countryCode = updatedCountries.map(country => country.short_code);
+                const countryCode = updatedCountries.map(country => country.slug);
                 setSearchParam(prevParam => ({ ...prevParam, countries: countryCode }));
                 return updatedCountries;
             });
@@ -64,7 +64,7 @@ export default function Courses({ props }) {
     const handleCountryDeselect = (deselectedCountry) => {
         setSelectedCountries(prevCountries => {
             const updatedCountries = prevCountries.filter(country => country !== deselectedCountry);
-            const countryCode = updatedCountries.map(country => country.short_code);
+            const countryCode = updatedCountries.map(country => country.slug);
             setSearchParam(prevParam => ({ ...prevParam, countries: countryCode }));
             return updatedCountries;
         });
@@ -194,7 +194,7 @@ export default function Courses({ props }) {
         const userCurrency = selectedCurrency.toLowerCase();
 
         // Get the currency USD exchange rate
-        const selectedUserCurrency = currencies.find(currency => currency.short_code == userCurrency);
+        const selectedUserCurrency = currencies.find(currency => currency.slug == userCurrency);
         const userCurrencyExchangeRate = selectedUserCurrency.usd_exchange_rate;
 
         // minTuition, maxTuition * exchange rate == USD value
@@ -556,8 +556,8 @@ export default function Courses({ props }) {
                                             <div key={index}>
                                                 <input
                                                     type="checkbox"
-                                                    id={selectedCountry.short_code}
-                                                    name={selectedCountry.shocode}
+                                                    id={selectedCountry.slug}
+                                                    name={selectedCountry.slug}
                                                     checked={true}
                                                     onChange={() => handleCountryDeselect(selectedCountry)}
                                                 />
@@ -828,7 +828,7 @@ export default function Courses({ props }) {
                                             <div key={index}>
                                                 <input
                                                     type="checkbox"
-                                                    id={selectedCountry.short_code}
+                                                    id={selectedCountry.slug}
                                                     name={selectedCountry.shocode}
                                                     checked={true}
                                                     onChange={() => handleCountryDeselect(selectedCountry)}
