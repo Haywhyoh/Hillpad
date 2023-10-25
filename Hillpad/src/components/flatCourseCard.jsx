@@ -1,7 +1,7 @@
 import { FiCalendar, FiClock, FiMapPin } from 'react-icons/fi';
 import { AiFillStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom'
-import { FaFlagCheckered, FaPaperPlane } from 'react-icons/fa';
+import { FaFlagCheckered, FaCoins } from 'react-icons/fa';
 export default function FlatCourseCard({prop}) {
   const month = {
     '1': 'Jan',
@@ -55,6 +55,7 @@ export default function FlatCourseCard({prop}) {
                                         <div className='flex items-center gap-x-2'><span className='hidden md:block'><FiClock /></span><span>{prop.course_format.toLowerCase()}-Time</span></div>
                                         <div className='flex items-center gap-x-2'><span className='hidden md:block'><FiMapPin /></span><span>{prop.attendance === 'SITE' ? 'On-Site' : 'Online'}</span></div>
                                         <div className='flex items-center gap-x-2'><span className='hidden md:block'><FaFlagCheckered /></span><span>{month[prop.course_dates.start_month]} {prop.course_dates.start_year}</span></div>
+                                        <div className='hidden lg:flex items-center gap-x-2'><span className='hidden md:block'><FaCoins /></span><span>{prop.tuition_fee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} {prop.tuition_currency.short_code.toUpperCase()}</span></div>
 
                                     </div>
             </div>
