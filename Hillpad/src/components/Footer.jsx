@@ -4,7 +4,45 @@ import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { IoPhonePortraitSharp } from 'react-icons/io5'
+import { useState } from 'react';
+import axios from 'axios';
+import Modal from './newsLetterModal';
 export default function Footer() {
+    const [showModal, setShowModal] = useState(false);
+    const url = 'https://54.221.177.186/api/subscription/add'
+    function handleSubscribe() {
+        // Get the email input element
+        const emailInput = document.getElementById('emailInput');
+    
+        // Get the value of the email input
+        const email = emailInput.value;
+    
+        // Validate the email using a regular expression
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const isValidEmail = emailRegex.test(email);
+    
+        // Display a message based on the email validation result
+        if (isValidEmail) {
+          axios.post(url, { email })
+            .then(response => {
+              if (response.status === 201) {
+                console.log(response.status)
+                setShowModal(true);
+              }
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        } else {
+          alert('Email is not valid!');
+        }
+       
+      }
+    
+      
+      const handleCloseModal = () => {
+        setShowModal(false);
+      };
     return (
         <div className='bg-navy_blue w-screen'>
             <div className='max-w-full w-full mx-auto'>
@@ -70,11 +108,12 @@ export default function Footer() {
                                     <div className='text-light_black text-lg px-2'>
                                         <MdOutlineMail />
                                     </div>
-                                    <input type='email' className='bg-light_black bg-opacity-0 w-36 py-2 px-2 text-sm focus:outline-none ' placeholder='Your Email' />
+                                    <input type='email' id="emailInput" className='bg-light_black bg-opacity-0 w-36 py-2 px-2 text-sm focus:outline-none ' placeholder='Your Email' />
                                 </div>
                                 <div>
-                                    <button className='bg-orange py-2 px-4 rounded-full font-bold'>Subscribe</button>
-                                </div>
+                                    <button className='bg-orange py-2 px-4 rounded-full font-bold' onClick={handleSubscribe}>Subscribe</button>
+                                    {showModal && <Modal  onClose={handleCloseModal} />}
+                               </div>
                             </div>
                         </div>
 
