@@ -95,9 +95,9 @@ export default function DisciplineDetails(props) {
             <h2 className='text-2xl font-semibold max-w-sm'>Top Universities for {param.name}</h2>
             <h3 className='text-light_black text-base my-2 flex items-center gap-x-1'><BsBoxArrowUpRight className='font-extrabold ' /><div>Times Higher education World Ranking</div></h3>
             <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-2 my-4 w-full'>
-            <Link to={`/search-discipline?discipline=${slug}`}><div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Bachelors</div></div> </Link>
-            <Link to={`/search-discipline?discipline=${slug}`}><div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Masters</div></div> </Link>
-            <Link to={`/search-discipline?discipline=${slug}`}><div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Doctorate</div></div> </Link>
+            <Link to={`/search-discipline?discipline=${slug}`}><div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm lg:text-xs xl:text-sm'>Bachelors</div></div> </Link>
+            <Link to={`/search-discipline?discipline=${slug}`}><div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm lg:text-xs xl:text-sm'>Masters</div></div> </Link>
+            <Link to={`/search-discipline?discipline=${slug}`}><div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm lg:text-xs xl:text-sm'>Doctorate</div></div> </Link>
             </div>
             <table className="table-auto text-left  rounded-lg mt-4 w-full">
               <thead className='border-b border-light_black border-opacity-40'>
@@ -111,7 +111,7 @@ export default function DisciplineDetails(props) {
                   details.schools.map((school, index) => (
                     <tr key={index}>
                       <td className='py-2 px-8'>{index + 1}</td>
-                      <td className='lg:px-16 px-4 text-light'>{school.name}</td>
+                      <td className='lg:px-12 xl:px-16 px-4 text-light'>{school.name}</td>
                     </tr>
                   ))
                 ) : (

@@ -88,7 +88,7 @@ export default function CountryDetail() {
                         <div className=" rounded-lg lg:p-8 p-8 md:p-4 w-full shadow-2 text-light_black h-fit border-border_white border-2 my-8 md:my-0 md:sticky md:top-32 ">
                             <div className=" border-b border-opacity-20 border-light_black py-4">
                                 <div className="text-xl font-bold text-light_black mb-2">{details.name}</div>
-                                <div className="flex gap-x-2">
+                                <div className="flex gap-x-2 lg:text-sm">
                                     <div className="flex gap-x-2 items-center"><div><FaGlobeAmericas /> </div><div>{continentList[continent]}</div></div>
                                     <div className="flex gap-x-2 items-center "><div><FiFlag /> </div><div>{details.capital}</div></div>
                                 </div>
