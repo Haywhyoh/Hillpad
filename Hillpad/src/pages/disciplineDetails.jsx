@@ -61,6 +61,7 @@ export default function DisciplineDetails(props) {
               <div className='text-sm'>Bachelors</div>
 
             </div>
+           
             <div className='text-light_black border-e pe-4 border-light_black border-opacity-10 2xs:flex gap-x-2 items-center'>
               <div className='font-semibold text-base'>{details.courses_masters}</div>
               <div className='text-sm'>Masters</div>
@@ -70,6 +71,8 @@ export default function DisciplineDetails(props) {
               <div className='font-semibold text-base'>{details.courses_doctorates}</div>
               <div className='text-sm'>Doctorates</div>
             </div>
+           
+
           </div>
 
         </div>
@@ -92,9 +95,9 @@ export default function DisciplineDetails(props) {
             <h2 className='text-2xl font-semibold max-w-sm'>Top Universities for {param.name}</h2>
             <h3 className='text-light_black text-base my-2 flex items-center gap-x-1'><BsBoxArrowUpRight className='font-extrabold ' /><div>Times Higher education World Ranking</div></h3>
             <div className='text-orange font-semibold flex flex-col xs:flex-row justify-between 2xs:justify-start 2xs:gap-x-2 my-4 w-full'>
-              <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Bachelors</div></div>
-              <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Masters</div></div>
-              <div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Doctorate</div></div>
+            <Link to={`/search-discipline?discipline=${slug}`}><div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Bachelors</div></div> </Link>
+            <Link to={`/search-discipline?discipline=${slug}`}><div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Masters</div></div> </Link>
+            <Link to={`/search-discipline?discipline=${slug}`}><div className='py-2 2xs:px-4 rounded-md flex gap-x-2 2xs:border border-light items-center hover:bg-light hover:text-white'><div className='font-bold'><FaGraduationCap /></div><div className='text-sm'>Doctorate</div></div> </Link>
             </div>
             <table className="table-auto text-left  rounded-lg mt-4 w-full">
               <thead className='border-b border-light_black border-opacity-40'>

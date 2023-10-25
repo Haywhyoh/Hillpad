@@ -28,6 +28,7 @@ import DisciplinesList from './components/test'
 import CountrySearch from './pages/countrySearch'
 import SearchPage from './pages/searchPage'
 import ReturnUp from './components/returnUp'
+import DisciplineSearchPage from './pages/disciplineSearch'
 function App() {
   const [userName , setUserName] = useState('Logged')
   const user = useSelector((state) => state.user);
@@ -78,7 +79,12 @@ function App() {
           <Route path='/courses' element={<Courses props={{courses: allCourses, count: allCoursesCount}}/>} >
             <Route path=':id' element={<Courses />} />
           </Route>
+
           <Route path='/coursefinder' element={<SearchPage />} />
+          
+          <Route path='/search-discipline/' element={<DisciplineSearchPage />} />
+
+
           <Route path='/search' element={<CountrySearch />} />
           <Route path='/search/:country_code' element={<CountrySearch />} />
           
