@@ -40,7 +40,7 @@ export default function Prefooter() {
         <section className=" relative mt-5 lg:mt-12">
         <div className="flex justify-between items-baseline">
           <div className="  text-left text-2xl font-bold my-8 md:text-3xl  md:my-2 lg:my-0 lg:text-3xl lg:font-semibold">
-            Featured <span className="text-orange">Courses</span>
+           Recommended <span className="text-orange">Courses</span>
 
           </div>
           <Link to='/courses'>
