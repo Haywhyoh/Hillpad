@@ -21,15 +21,30 @@ export default function CountryDetail() {
     const [info, setInfo] = useState('about');
     const [schools, setSchools] = useState([]);
     const [details, setDetails] = useState({});
+    const [pageCount, setPageCount] = useState(1);
+    const [count, setCount] = useState(0);
+
+    const incrementPageCount = () => {
+        if(pageCount < Math.ceil(count / 20))
+        setPageCount(pageCount + 1);
+    }
+
+    const decrementPageCount = () => {
+        if (pageCount > 1) {
+            setPageCount(pageCount - 1);
+        }
+    }
     let continent = '';
     const location = useLocation();
     const props = location.state;
 
     useEffect(() => {
         const fetchSchools = async () => {
-            const response = await axios.get(`https://54.221.177.186/api/academics/school/list?country=${props.slug}`);
+            const response = await axios.get(`https://54.221.177.186/api/academics/school/list?country=${props.slug}&page=${pageCount}`);
             const data =  response.data.results;
+            const count =  response.data.count;
             setSchools(data);
+            setCount(count)
         }
         const fetchCountries = async () => {
             const response = await axios.get(`https://54.221.177.186/api/academics/country/detail/${props.id}`);
@@ -39,13 +54,13 @@ export default function CountryDetail() {
         }
         fetchSchools();
         fetchCountries();
-    }, [details]);
+    }, [pageCount]);
     function renderInfo(info) {
         if (info === 'about') {
             return <AboutCountry props={details} />
         }
         if(info === 'schools'){
-            return <CountrySchools props={schools} />
+            return <CountrySchools props={{schools, count, incrementPageCount, decrementPageCount}} />
         }
         if(info === 'costs'){
             return <LivingCost props={details} />  

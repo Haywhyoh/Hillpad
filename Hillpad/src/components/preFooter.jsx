@@ -1,6 +1,4 @@
 import CountryCarousel from "./countryCarousel"
-import CourseCard from "./coursecard"
-import { degrees } from "../pages/degree";
 import { useState } from "react";
 import {BsArrowRight} from 'react-icons/bs'
 import {FiChevronLeft, FiChevronRight} from 'react-icons/fi'

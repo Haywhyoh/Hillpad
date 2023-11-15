@@ -208,7 +208,6 @@ export default function Header({ props }) {
                         </div >
                     </div>
 
-
                     <div className="w-72 mx-auto md:w-full md:rounded-full bg-white 2xl:w-9/12">
                         <form className="relative rounded-md md:flex justify-between md:px-2 md:rounded-full md:mx-8 md:items-center lg:mx-0 bg-white z-20 2xl:w-full border border-light_black border-opacity-60 ">
                             <fieldset className=" border-b border-light_black border-opacity-20 mx-2 px-2 py-2 md:border-0  ">
