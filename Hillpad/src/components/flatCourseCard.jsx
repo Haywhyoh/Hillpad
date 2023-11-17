@@ -29,7 +29,9 @@ export default function FlatCourseCard({prop}) {
           <div className=" font-bold text-base sm:text-lg md:text-2xl text-light_black ">{prop.name.length > 60 ? `${prop.name.substring(0, 64) + '...'} ` : prop.name}</div>
             <div>
               <div className='flex gap-x-8 items-center'>
+              <Link to={`/school/${prop.school.slug}`}>
                 <div className=' text-sm md:text-lg text-normal'><h3>{prop.school.name}</h3></div>
+              </Link>
                 <div className='md:flex items-center gap-x-2  hidden'>
 
                   <div className="flex text-yellow text-normal ">

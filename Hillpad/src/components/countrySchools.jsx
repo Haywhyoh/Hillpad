@@ -1,5 +1,6 @@
 import { FiCheckCircle,  } from "react-icons/fi"
 import {FaSort} from "react-icons/fa"
+import { Link } from "react-router-dom"
 export default function CountrySchools({props}) {
     const {schools, count, incrementPageCount, decrementPageCount} = {...props}
     return (
@@ -26,12 +27,16 @@ export default function CountrySchools({props}) {
                 </div>
                 <div className="my-6 flex flex-wrap gap-4 justify-start lg:justify-between">
                     { schools.map((school, index) => 
+                                    <Link to={`/school/${school.slug}`}>
+
                         <div className="p-4 border  w-full sm:w-44 md:w-50 lg:w-50 xl:w-64 2xl:w-65 text-sm flex flex-col gap-y-2 card shadow-2">
                             <div>{school.courses_bachelors} Bachelors</div>
                             <div>{school.courses_masters} Masters</div>
                             <div>{school.courses_doctorates} Doctorates</div>
                             <a href={props.slug} className="text-orange text-base my-2">{school.name}</a>
                         </div>
+                        </Link>
+
                        ) }
                 </div>
                 <div className="flex justify-center text-lg text-light mx-auto w-full">

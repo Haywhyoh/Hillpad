@@ -6,6 +6,7 @@ import { SlLocationPin } from "react-icons/sl";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 export default function CourseCard({ prop }) {
+
   return (
       <div className='card card-hover my-6 w-76 2xs:w-80 sm:w-72 md:w-60 lg:w-card xl:w-73 2xl:w-card justify-center mx-2 xs:ms-4 2xs:ms-7 sm:mx-0 '>
         <Link to={`/course/${prop.slug}`} state={prop}>
@@ -26,11 +27,13 @@ export default function CourseCard({ prop }) {
                 <img src={prop.school.logo} alt="logo" />
               </div>
               <div>
+              <Link to={`/school/${prop.school.slug}`}>
                 <div className="text-light_black text-sm italic opacity-70 ">
                   {prop.school.name.length > 30 ? `${prop.school.name.substring(0, 30) + '...'} ` : prop.school.name}
                 </div>
+                </Link>
                 <div className="text-light_black text-sm opacity-70">
-                  Toronto, Canada
+                  {`${prop.school.city}, ${prop.school.country.name}`}
                 </div>
               </div>
             </div>

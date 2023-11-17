@@ -113,7 +113,7 @@ export default function CourseDetails() {
                                                     </div>
                                                     <div>
                                                     <div className='my-2 text-2xl'>
-                                                            <h2>{data.school.name}</h2>
+                                                            <Link to={`/school/${data.school.slug}`}><h2>{data.school.name}</h2></Link>
                                                         </div>
                                                         <div className='max-w-lg'>
                                                             <h1 className='text-5xl font-bold leading-tight'>
@@ -191,7 +191,7 @@ export default function CourseDetails() {
 
                                             </div>
                                             <div>
-                                                <h3 className='font-semibold text-lg px-4'>{data.school.name}</h3>
+                                            <Link to={`/school/${data.school.slug}`}><h3 className='font-semibold text-lg px-4'>{data.school.name}</h3></Link>
                                                 <div className='text-sm px-4'>
                                                     <div className='flex items-center gap-x-2'><span><FiMapPin /></span><span>{data.school.city} {data.school.country.name}</span></div>
                                                     <div className='flex items-center gap-x-2'><span><FiStar /></span><span>4.4 (53 Reviews)</span></div>

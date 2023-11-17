@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { fetchUser2, update } from './redux/userSlice'
 import CourseDetails from './pages/courseDetails'
 import Disciplines from './pages/discipline'
-import School from './pages/school'
+import SchoolDetails from './pages/school'
 import { fetchCountry } from './redux/countrySlice'
 import { fetchCourses } from './redux/courseSlice'
 import { fetchDisciplines } from './redux/disciplineSlice'
@@ -100,7 +100,7 @@ function App() {
             <Route path=':id' element={<Courses  />} />
           </Route>
 
-          <Route path='/school/:name' element={<School  props={user} />} />
+          <Route path='/school/:slug' element={<SchoolDetails  />} />
           <Route path='/course/:slug' element={<CourseDetails/>} />
           <Route path='/discipline/' element={<Disciplines />} />
           <Route path='/discipline/:name' element={<DisciplineDetails />} />
