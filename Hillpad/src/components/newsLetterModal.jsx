@@ -1,4 +1,3 @@
-import './modal.css'; // Import the CSS file for styling
 import React, { useState } from 'react';
 import CompletionIcon from './completeIcon';
 export default function Modal({ onClose }) {
